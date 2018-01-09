@@ -14,8 +14,10 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 
     @IBOutlet weak var player: YTPlayerView!
     
-    
+    var playerVars = Dictionary<String, Any>()
     var name = ["calvarychurch","calvarychurch1","calvarychurch","calvarychurch1","calvarychurch","calvarychurch1"]
+    
+    var videosIDArray = ["knaCsR6dr58","SG-G0lgEtMY","yvhrORy4x30","knaCsR6dr58","SG-G0lgEtMY","yvhrORy4x30"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         player.delegate = self
         
-        let playerVars = [
+         playerVars = [
             "controls": 1,
             "playsinline" : 1,
            // "autoplay" : 1,
@@ -45,17 +47,25 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         tableView.register(nibName1, forCellReuseIdentifier: "VideoTableViewCell")
         
 
-      //  https://www.youtube.com/watch?v=knaCsR6dr58
+      //  https://www.youtube.com/watch?v=knaCsR6dr58  knaCsR6dr58
         
-       self.player.load(withVideoId: "knaCsR6dr58",playerVars: playerVars)
+       
     }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     
     
      func numberOfSections(in tableView: UITableView) -> Int {
         
         
         return 1
-    }
+     }
+    
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         
@@ -64,12 +74,12 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat{
+        
         return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        
+      
         return UITableViewAutomaticDimension
     }
     
@@ -78,19 +88,21 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
         let allOffersCell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
         allOffersCell.label.text = name[indexPath.row]
-        
-        
-        
-        
+        allOffersCell.IdLabel.text = self.videosIDArray[indexPath.row]
         return allOffersCell
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.player.load(withVideoId: self.videosIDArray[indexPath.row],playerVars: playerVars)
+        
+        
     }
+    
+
+
     
 //    override var shouldAutorotate : Bool {
 //        if (UIDevice.current.orientation == UIDeviceOrientation.portrait ||

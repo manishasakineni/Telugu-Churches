@@ -12,6 +12,9 @@ class VideoTableViewCell: UITableViewCell{
 
     @IBOutlet weak var backGroundView: UIView!
     @IBOutlet weak var label: UILabel!
+    
+    @IBOutlet weak var IdLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
