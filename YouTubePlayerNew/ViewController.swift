@@ -24,7 +24,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         // Request to turn on accelerometer and begin receiving accelerometer events
         
         tableView.delegate = self
-        tableView.delegate = self
+        tableView.dataSource = self
 
         
         player.delegate = self
