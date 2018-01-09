@@ -56,11 +56,11 @@ NSString static *const kYTPlayerCallbackOnPlayTime = @"onPlayTime";
 NSString static *const kYTPlayerCallbackOnYouTubeIframeAPIReady = @"onYouTubeIframeAPIReady";
 NSString static *const kYTPlayerCallbackOnYouTubeIframeAPIFailedToLoad = @"onYouTubeIframeAPIFailedToLoad";
 
-//NSString static *const kYTPlayerEmbedUrlRegexPattern = @"^http(s)://(www.)youtube.com/embed/(.*)$";
-//NSString static *const kYTPlayerAdUrlRegexPattern = @"^http(s)://pubads.g.doubleclick.net/pagead/conversion/";
-//NSString static *const kYTPlayerOAuthRegexPattern = @"^http(s)://accounts.google.com/o/oauth2/(.*)$";
-//NSString static *const kYTPlayerStaticProxyRegexPattern = @"^https://content.googleapis.com/static/proxy.html(.*)$";
-//NSString static *const kYTPlayerSyndicationRegexPattern = @"^https://tpc.googlesyndication.com/sodar/(.*).html$";
+NSString static *const kYTPlayerEmbedUrlRegexPattern = @"^http(s)://(www.)youtube.com/embed/(.*)$";
+NSString static *const kYTPlayerAdUrlRegexPattern = @"^http(s)://pubads.g.doubleclick.net/pagead/conversion/";
+NSString static *const kYTPlayerOAuthRegexPattern = @"^http(s)://accounts.google.com/o/oauth2/(.*)$";
+NSString static *const kYTPlayerStaticProxyRegexPattern = @"^https://content.googleapis.com/static/proxy.html(.*)$";
+NSString static *const kYTPlayerSyndicationRegexPattern = @"^https://tpc.googlesyndication.com/sodar/(.*).html$";
 
 @interface YTPlayerView()
 
@@ -401,9 +401,7 @@ NSString static *const kYTPlayerCallbackOnYouTubeIframeAPIFailedToLoad = @"onYou
     [self notifyDelegateOfYouTubeCallbackUrl:request.URL];
     return NO;
   } else if ([request.URL.scheme isEqual: @"http"] || [request.URL.scheme isEqual:@"https"]) {
-   // return [self handleHttpNavigationToUrl:request.URL];
-      
-      
+    return [self handleHttpNavigationToUrl:request.URL];
   }
   return YES;
 }
@@ -601,65 +599,65 @@ NSString static *const kYTPlayerCallbackOnYouTubeIframeAPIFailedToLoad = @"onYou
   }
 }
 
-//- (BOOL)handleHttpNavigationToUrl:(NSURL *) url {
-//  // Usually this means the user has clicked on the YouTube logo or an error message in the
-//  // player. Most URLs should open in the browser. The only http(s) URL that should open in this
-//  // UIWebView is the URL for the embed, which is of the format:
-//  //     http(s)://www.youtube.com/embed/[VIDEO ID]?[PARAMETERS]
-//  NSError *error = NULL;
-//  NSRegularExpression *ytRegex =
-//      [NSRegularExpression regularExpressionWithPattern:kYTPlayerEmbedUrlRegexPattern
-//                                                options:NSRegularExpressionCaseInsensitive
-//                                                  error:&error];
-//  NSTextCheckingResult *ytMatch =
-//      [ytRegex firstMatchInString:url.absoluteString
-//                        options:0
-//                          range:NSMakeRange(0, [url.absoluteString length])];
-//    
-//  NSRegularExpression *adRegex =
-//      [NSRegularExpression regularExpressionWithPattern:kYTPlayerAdUrlRegexPattern
-//                                                options:NSRegularExpressionCaseInsensitive
-//                                                  error:&error];
-//  NSTextCheckingResult *adMatch =
-//      [adRegex firstMatchInString:url.absoluteString
-//                        options:0
-//                          range:NSMakeRange(0, [url.absoluteString length])];
-//    
-//  NSRegularExpression *syndicationRegex =
-//      [NSRegularExpression regularExpressionWithPattern:kYTPlayerSyndicationRegexPattern
-//                                                options:NSRegularExpressionCaseInsensitive
-//                                                  error:&error];
-//
-//  NSTextCheckingResult *syndicationMatch =
-//      [syndicationRegex firstMatchInString:url.absoluteString
-//                                   options:0
-//                                     range:NSMakeRange(0, [url.absoluteString length])];
-//
-//  NSRegularExpression *oauthRegex =
-//      [NSRegularExpression regularExpressionWithPattern:kYTPlayerOAuthRegexPattern
-//                                              options:NSRegularExpressionCaseInsensitive
-//                                                error:&error];
-//  NSTextCheckingResult *oauthMatch =
-//    [oauthRegex firstMatchInString:url.absoluteString
-//                           options:0
-//                             range:NSMakeRange(0, [url.absoluteString length])];
-//    
-//  NSRegularExpression *staticProxyRegex =
-//    [NSRegularExpression regularExpressionWithPattern:kYTPlayerStaticProxyRegexPattern
-//                                              options:NSRegularExpressionCaseInsensitive
-//                                                error:&error];
-//  NSTextCheckingResult *staticProxyMatch =
-//    [staticProxyRegex firstMatchInString:url.absoluteString
-//                                  options:0
-//                                    range:NSMakeRange(0, [url.absoluteString length])];
-//
-//  if (ytMatch || adMatch || oauthMatch || staticProxyMatch || syndicationMatch) {
-//    return YES;
-//  } else {
-//    [[UIApplication sharedApplication] openURL:url];
-//    return NO;
-//  }
-//}
+- (BOOL)handleHttpNavigationToUrl:(NSURL *) url {
+  // Usually this means the user has clicked on the YouTube logo or an error message in the
+  // player. Most URLs should open in the browser. The only http(s) URL that should open in this
+  // UIWebView is the URL for the embed, which is of the format:
+  //     http(s)://www.youtube.com/embed/[VIDEO ID]?[PARAMETERS]
+  NSError *error = NULL;
+  NSRegularExpression *ytRegex =
+      [NSRegularExpression regularExpressionWithPattern:kYTPlayerEmbedUrlRegexPattern
+                                                options:NSRegularExpressionCaseInsensitive
+                                                  error:&error];
+  NSTextCheckingResult *ytMatch =
+      [ytRegex firstMatchInString:url.absoluteString
+                        options:0
+                          range:NSMakeRange(0, [url.absoluteString length])];
+    
+  NSRegularExpression *adRegex =
+      [NSRegularExpression regularExpressionWithPattern:kYTPlayerAdUrlRegexPattern
+                                                options:NSRegularExpressionCaseInsensitive
+                                                  error:&error];
+  NSTextCheckingResult *adMatch =
+      [adRegex firstMatchInString:url.absoluteString
+                        options:0
+                          range:NSMakeRange(0, [url.absoluteString length])];
+    
+  NSRegularExpression *syndicationRegex =
+      [NSRegularExpression regularExpressionWithPattern:kYTPlayerSyndicationRegexPattern
+                                                options:NSRegularExpressionCaseInsensitive
+                                                  error:&error];
+
+  NSTextCheckingResult *syndicationMatch =
+      [syndicationRegex firstMatchInString:url.absoluteString
+                                   options:0
+                                     range:NSMakeRange(0, [url.absoluteString length])];
+
+  NSRegularExpression *oauthRegex =
+      [NSRegularExpression regularExpressionWithPattern:kYTPlayerOAuthRegexPattern
+                                              options:NSRegularExpressionCaseInsensitive
+                                                error:&error];
+  NSTextCheckingResult *oauthMatch =
+    [oauthRegex firstMatchInString:url.absoluteString
+                           options:0
+                             range:NSMakeRange(0, [url.absoluteString length])];
+    
+  NSRegularExpression *staticProxyRegex =
+    [NSRegularExpression regularExpressionWithPattern:kYTPlayerStaticProxyRegexPattern
+                                              options:NSRegularExpressionCaseInsensitive
+                                                error:&error];
+  NSTextCheckingResult *staticProxyMatch =
+    [staticProxyRegex firstMatchInString:url.absoluteString
+                                  options:0
+                                    range:NSMakeRange(0, [url.absoluteString length])];
+
+  if (ytMatch || adMatch || oauthMatch || staticProxyMatch || syndicationMatch) {
+    return YES;
+  } else {
+    [[UIApplication sharedApplication] openURL:url];
+    return NO;
+  }
+}
 
 
 /**

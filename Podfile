@@ -1,22 +1,11 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, ‘8.0’
 
-
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '9.0'
-use_frameworks!
-
-
-
-
-def testing_pods
-# My yt pods
-
-
+target 'Telugu Churches' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
 pod 'youtube-ios-player-helper', :git=>'https://github.com/youtube/youtube-ios-player-helper', :commit=>'head'
 
+  # Pods for Telugu Churches
+
 end
-
-
-target 'YouTubePlayerNew' do
-testing_pods
-end
-
