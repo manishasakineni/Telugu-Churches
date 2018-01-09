@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		241DC922DD3246EF6C168852 /* Pods_YouTubePlayerNew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92C36AA428203F8D78561B9F /* Pods_YouTubePlayerNew.framework */; };
+		3D65D4A42004B9EB00CAB226 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D65D4A32004B9EB00CAB226 /* extensions.swift */; };
 		685DBC051D58B42300F18F6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685DBC041D58B42300F18F6F /* AppDelegate.swift */; };
 		685DBC071D58B42300F18F6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685DBC061D58B42300F18F6F /* ViewController.swift */; };
 		685DBC0A1D58B42300F18F6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 685DBC081D58B42300F18F6F /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		36049B6D57B2B560347F9EF9 /* Pods-YouTubePlayerNew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouTubePlayerNew.release.xcconfig"; path = "Pods/Target Support Files/Pods-YouTubePlayerNew/Pods-YouTubePlayerNew.release.xcconfig"; sourceTree = "<group>"; };
+		3D65D4A32004B9EB00CAB226 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		685DBC011D58B42300F18F6F /* YouTubePlayerNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTubePlayerNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		685DBC041D58B42300F18F6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		685DBC061D58B42300F18F6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				685DBC0B1D58B42300F18F6F /* Assets.xcassets */,
 				685DBC0D1D58B42300F18F6F /* LaunchScreen.storyboard */,
 				685DBC101D58B42300F18F6F /* Info.plist */,
+				3D65D4A32004B9EB00CAB226 /* extensions.swift */,
 			);
 			path = YouTubePlayerNew;
 			sourceTree = "<group>";
@@ -231,9 +234,8 @@
 				TargetAttributes = {
 					685DBC001D58B42300F18F6F = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 2CR3ZYS9KP;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					685DBC141D58B42300F18F6F = {
 						CreatedOnToolsVersion = 7.3;
@@ -358,6 +360,7 @@
 				685DBC071D58B42300F18F6F /* ViewController.swift in Sources */,
 				685DBC051D58B42300F18F6F /* AppDelegate.swift in Sources */,
 				9A2CF65C2003CF05004D8A87 /* VideoTableViewCell.swift in Sources */,
+				3D65D4A42004B9EB00CAB226 /* extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +507,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2CR3ZYS9KP;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = YouTubePlayerNew/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -524,7 +527,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2CR3ZYS9KP;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = YouTubePlayerNew/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

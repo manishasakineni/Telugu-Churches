@@ -10,9 +10,14 @@ import UIKit
 import youtube_ios_player_helper
 
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate ,YTPlayerViewDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
-
+     @IBOutlet weak var minimizeButton: UIButton!
     @IBOutlet weak var player: YTPlayerView!
+    
+    var state = stateOfVC.hidden
+  
+
     
     var playerVars = Dictionary<String, Any>()
     var name = ["calvarychurch","calvarychurch1","calvarychurch","calvarychurch1","calvarychurch","calvarychurch1"]
@@ -49,6 +54,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 
       //  https://www.youtube.com/watch?v=knaCsR6dr58  knaCsR6dr58
         
+         self.player.load(withVideoId: self.videosIDArray[0],playerVars: playerVars)
+        
        
     }
     
@@ -58,6 +65,27 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    func animate()  {
+        switch self.state {
+        case .fullScreen:
+            UIView.animate(withDuration: 0.3, animations: {
+                self.minimizeButton.alpha = 1
+                self.tableView.alpha = 1
+                self.player.transform = CGAffineTransform.identity
+                UIApplication.shared.isStatusBarHidden = true
+            })
+        case .minimized:
+            UIView.animate(withDuration: 0.3, animations: {
+                UIApplication.shared.isStatusBarHidden = false
+                self.minimizeButton.alpha = 0
+                self.tableView.alpha = 0
+                let scale = CGAffineTransform.init(scaleX: 0.5, y: 0.5)
+                let trasform = scale.concatenating(CGAffineTransform.init(translationX: -self.player.bounds.width/4, y: -self.player.bounds.height/4))
+                self.player.transform = trasform
+            })
+        default: break
+        }
+    }
     
     
      func numberOfSections(in tableView: UITableView) -> Int {
