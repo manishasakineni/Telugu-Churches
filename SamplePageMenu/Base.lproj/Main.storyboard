@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dTu-EV-ahh">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-636" y="111"/>
+        </scene>
+        <!--Side Menu View Controller-->
+        <scene sceneID="aNn-R6-POI">
+            <objects>
+                <viewController storyboardIdentifier="SideMenuViewController" id="42U-a2-vSM" customClass="SideMenuViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7y0-W6-dp6"/>
+                        <viewControllerLayoutGuide type="bottom" id="E8M-3s-P2l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OYN-6d-IoZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XrD-hj-EW1">
+                                <rect key="frame" x="0.0" y="6" width="375" height="659"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MenuTableViewCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="EG1-b1-zM9" customClass="MenuTableViewCell" customModule="Telugu_Churches" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EG1-b1-zM9" id="O3m-ln-2gZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGn-uV-MuF">
+                                                    <rect key="frame" x="15" y="11" width="252" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="42U-a2-vSM" id="akx-vP-d2y"/>
+                                    <outlet property="delegate" destination="42U-a2-vSM" id="M9U-F4-e6N"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XrD-hj-EW1" secondAttribute="trailing" id="05A-0H-sWA"/>
+                            <constraint firstItem="XrD-hj-EW1" firstAttribute="leading" secondItem="OYN-6d-IoZ" secondAttribute="leading" id="M9H-ma-a8r"/>
+                            <constraint firstItem="XrD-hj-EW1" firstAttribute="top" secondItem="OYN-6d-IoZ" secondAttribute="top" constant="6" id="ghv-vg-KbY"/>
+                            <constraint firstItem="E8M-3s-P2l" firstAttribute="top" secondItem="XrD-hj-EW1" secondAttribute="bottom" constant="2" id="tE9-Sc-I3P"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="menuTableView" destination="XrD-hj-EW1" id="kLT-Xz-ztg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ss-Ij-1H6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="276" y="1057"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="sVy-W9-PxW">
+            <objects>
+                <viewController id="fRD-jQ-dvn" customClass="HomeViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Iui-Dy-3EQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jmb-m4-cuD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hnU-aU-fqr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Wj5-8g-kjb">
+                        <barButtonItem key="leftBarButtonItem" image="sidemenu" id="J6Y-nU-rbZ"/>
+                        <barButtonItem key="rightBarButtonItem" image="3 dots" id="ke9-c3-luq"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuBarButton" destination="J6Y-nU-rbZ" id="VhD-4y-1eg"/>
+                        <outlet property="settingsBarButton" destination="ke9-c3-luq" id="fCX-SU-yVX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w0x-jn-P8G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2064.8000000000002" y="731.78410794602701"/>
+        </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="QXq-vG-SPc">
+            <objects>
+                <viewController id="dTu-EV-ahh" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UDg-3V-3P7"/>
+                        <viewControllerLayoutGuide type="bottom" id="7hY-LN-52q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bjo-ld-2Mv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="42U-a2-vSM" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="mh4-dU-q8l"/>
+                        <segue destination="9Ci-8E-AYO" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="Xmc-zi-6vB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LyC-Mh-yad" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1038" y="27"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JSx-Jd-KEl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Ci-8E-AYO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0da-tT-ljX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fRD-jQ-dvn" kind="relationship" relationship="rootViewController" id="4E5-R6-ScO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I8n-XZ-Ump" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1156" y="1074"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="3 dots" width="25" height="25"/>
+        <image name="sidemenu" width="25" height="25"/>
+    </resources>
+</document>
