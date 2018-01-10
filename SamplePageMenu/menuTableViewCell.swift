@@ -26,6 +26,16 @@ class menuTableViewCell: UITableViewCell {
         backGroundView.layer.shadowOffset = CGSize(width: 0, height: 3)
         backGroundView.layer.shadowOpacity = 0.6
         backGroundView.layer.shadowRadius = 2.0
+        
+       
+        menuImgView.layer.borderWidth = 1
+        menuImgView.layer.masksToBounds = false
+       // menuImgView.layer.borderColor = UIColor.black.cgColor
+        menuImgView.layer.cornerRadius = menuImgView.frame.height/2
+        menuImgView.clipsToBounds = true
+        
+        
+        
         // Initialization code
     }
 

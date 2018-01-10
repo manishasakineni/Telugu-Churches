@@ -27,12 +27,15 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
 
     @IBOutlet weak var loadingImg: UIImageView!
     
+    
+
+
     let imageView = ["bible1","bible2","bible3","images.jpeg","7c26c4322705738c08d90691d32ff29b-brown-bible","bible9","bible8","bible7","bible6"]
     
     
     let imageView1 = ["bible6","bible7","bible8","bible9","images.jpeg","bible3","bible8","bible2","bible1"]
     
-    var playerVars = Dictionary<String, Any>()
+    var playerVars : [NSObject:AnyObject] = [:]
     var name = ["calvarychurch","calvarychurch1","calvarychurch","calvarychurch1","calvarychurch","calvarychurch1"]
     
     var videosIDArray = ["knaCsR6dr58","SG-G0lgEtMY","yvhrORy4x30","knaCsR6dr58","SG-G0lgEtMY","yvhrORy4x30"]
@@ -47,14 +50,14 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         self.player.delegate = self
         
         playerVars = [
-            "controls": 1,
-            "playsinline" : 1,
+            "controls" as NSObject: 0 as AnyObject,
+            "playsinline" as NSObject : 1 as AnyObject,
             // "autoplay" : 1,
-            "autohide" : 1,
-            "rel" : 0,
-            "showinfo" : 0,
+            "autohide" as NSObject : 1 as AnyObject,
+            "rel" as NSObject : 0 as AnyObject,
+            "showinfo" as NSObject : 0 as AnyObject,
             //"showing" : 0,
-            "modestbranding" : 1,
+            "modestbranding" as NSObject : 1 as AnyObject,
             
         ]
         
