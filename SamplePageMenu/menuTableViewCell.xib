@@ -53,7 +53,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.6705882353" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8Ry-ll-UYZ" firstAttribute="centerX" secondItem="zLH-r3-Cvq" secondAttribute="centerX" id="R0v-P1-0tE"/>
                             <constraint firstItem="Q8f-hX-ixQ" firstAttribute="top" secondItem="8Ry-ll-UYZ" secondAttribute="bottom" constant="1" id="YiO-py-TCI"/>
@@ -72,7 +72,6 @@
                     <constraint firstAttribute="trailing" secondItem="uND-WF-umg" secondAttribute="trailing" constant="5" id="iuo-dr-nAb"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="backGroundView" destination="uND-WF-umg" id="d2F-7a-vM7"/>
                 <outlet property="menuImgView" destination="zLH-r3-Cvq" id="Jr7-wy-DS1"/>

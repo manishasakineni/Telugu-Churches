@@ -35,7 +35,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     
     let imageView1 = ["bible6","bible7","bible8","bible9","images.jpeg","bible3","bible8","bible2","bible1"]
     
-    var playerVars : [NSObject:AnyObject] = [:]
+var playerVars = Dictionary<String, Any>()
     var name = ["calvarychurch","calvarychurch1","calvarychurch","calvarychurch1","calvarychurch","calvarychurch1"]
     
     var videosIDArray = ["knaCsR6dr58","SG-G0lgEtMY","yvhrORy4x30","knaCsR6dr58","SG-G0lgEtMY","yvhrORy4x30"]
@@ -50,14 +50,16 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
         self.player.delegate = self
         
         playerVars = [
-            "controls" as NSObject: 0 as AnyObject,
-            "playsinline" as NSObject : 1 as AnyObject,
-            // "autoplay" : 1,
-            "autohide" as NSObject : 1 as AnyObject,
-            "rel" as NSObject : 0 as AnyObject,
-            "showinfo" as NSObject : 0 as AnyObject,
+            "controls" : 1 ,
+            "playsinline" : 1,
+            "autoplay" : 1,
+         //   "autohide" : 1,
+            "rel" : 0,
+           "showinfo" : 0,
             //"showing" : 0,
-            "modestbranding" as NSObject : 1 as AnyObject,
+            "modestbranding" : 1,
+            
+           
             
         ]
         
@@ -126,6 +128,46 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     }
     
     
+//    open func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+//        
+//        let url = request.url
+//        
+//        // Check if ytplayer event and, if so, pass to handleJSEvent
+//        if let url = url, url.scheme == "ytplayer"
+//        
+//        
+//        
+//        if navigationType == UIWebViewNavigationType.linkClicked {
+//            UIApplication.sharedApplication.openURL(request.URL)
+//            return false
+//        }
+//        return true
+//    }
+//    
+    
+    
+    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
+        
+        // self.loadingImg.image = UIImage(named: "video")
+        
+        player.playVideo()
+        
+    }
+    
+    func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
+        switch state {
+        case .buffering:
+            fallthrough
+        case .playing: break
+       //     hidePoster()
+        case .ended:
+            fallthrough
+        case .paused: break
+       //     showPoster()
+        default:
+            ()
+        }
+    }
     
     internal func updateTimer(){
 //
