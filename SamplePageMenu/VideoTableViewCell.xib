@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A264c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="135"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="134.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="135"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ne-bn-U0K">
@@ -98,6 +98,7 @@
                 <outlet property="IdLabel" destination="cgO-V3-oVD" id="j55-yP-buD"/>
                 <outlet property="backGroundView" destination="7ne-bn-U0K" id="Eua-ak-d0A"/>
                 <outlet property="label" destination="4mj-Rx-dW8" id="Wjo-Yz-3GM"/>
+                <outlet property="thumbnailImageView" destination="2wf-XD-SGP" id="Ipz-LD-PDU"/>
             </connections>
             <point key="canvasLocation" x="25" y="97.5"/>
         </tableViewCell>

@@ -10,59 +10,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/AllOffersViewController.swift"
-            timestampString = "538056303.775534"
+            timestampString = "538067346.313361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "getVideosAPICall()"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/AllOffersViewController.swift"
-            timestampString = "538056569.8174779"
+            timestampString = "538068714.770007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "getVideosAPICall()"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.AllOffersViewController.(getVideosAPICall () -&gt; ()).(closure #1)"
+                  symbolName = "Telugu_Churches.AllOffersViewController.tableView (__ObjC.UITableView, cellForRowAt : Foundation.IndexPath) -&gt; __ObjC.UITableViewCell"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/owner/Desktop/Telugu%20Churches/SamplePageMenu/AllOffersViewController.swift"
-                  timestampString = "538056570.983379"
+                  timestampString = "538067348.975473"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "138"
-                  endingLineNumber = "138"
-                  offsetFromSymbolStart = "229">
+                  startingLineNumber = "215"
+                  endingLineNumber = "215"
+                  offsetFromSymbolStart = "1932">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.AllOffersViewController.(getVideosAPICall () -&gt; ()).(closure #1).(closure #1)"
+                  symbolName = "Telugu_Churches.AllOffersViewController.(tableView (__ObjC.UITableView, cellForRowAt : Foundation.IndexPath) -&gt; __ObjC.UITableViewCell).(closure #1)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/owner/Desktop/Telugu%20Churches/SamplePageMenu/AllOffersViewController.swift"
-                  timestampString = "538056570.986943"
+                  timestampString = "538067348.978112"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "138"
-                  endingLineNumber = "138"
-                  offsetFromSymbolStart = "2884">
+                  startingLineNumber = "217"
+                  endingLineNumber = "217"
+                  offsetFromSymbolStart = "22">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -73,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AllOffersViewController.swift"
-            timestampString = "538056569.8174779"
+            filePath = "SamplePageMenu/ServiceController.swift"
+            timestampString = "538067383.267186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "requestGETURL(strURL:success:failure:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,29 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AllOffersViewController.swift"
-            timestampString = "538056303.775534"
+            filePath = "SamplePageMenu/ServiceController.swift"
+            timestampString = "538067386.955595"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/AllOffersViewController.swift"
-            timestampString = "538056558.517895"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "getVideosAPICall()"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "requestGETURL(strURL:success:failure:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -30,11 +30,13 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
      var embedLinksAry : Array<String> = Array()
      var churchNameAry : Array<String> = Array()
     var splitArray : Array<String> = Array()
+    var strrrr : Array<String> = Array()
 
-
-    var fullNameArr : Array<String> = Array()
+    var videoIDArray : Array<String> = Array()
     
-
+    var gggg = String()
+    
+    var thumbnailImageURL = String()
 
     let imageView = ["bible1","bible2","bible3","images.jpeg","7c26c4322705738c08d90691d32ff29b-brown-bible","bible9","bible8","bible7","bible6"]
     
@@ -44,7 +46,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
 var playerVars = Dictionary<String, Any>()
     var name = ["calvarychurch","calvarychurch1","calvarychurch","calvarychurch1","calvarychurch","calvarychurch1"]
     
-    var videosIDArray = ["knaCsR6dr58?modestbranding=0","SG-G0lgEtMY?modestbranding=0","yvhrORy4x30?modestbranding=0","knaCsR6dr58?modestbranding=0","SG-G0lgEtMY?modestbranding=0","yvhrORy4x30?modestbranding=0"]
+//    var videosIDArray = ["knaCsR6dr58?modestbranding=0","SG-G0lgEtMY?modestbranding=0","yvhrORy4x30?modestbranding=0","knaCsR6dr58?modestbranding=0","SG-G0lgEtMY?modestbranding=0","yvhrORy4x30?modestbranding=0"]
 
     
     override func viewDidLoad() {
@@ -84,24 +86,24 @@ var playerVars = Dictionary<String, Any>()
         
       //  self.player.load(withPlaylistId: self.videosIDArray[0], playerVars: playerVars)
         
-
+      
         
         registerTableViewCells()
         
        getVideosAPICall()
+        
+      
  
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+
+    override func viewDidAppear(_ animated: Bool) {
         
         
-        super.viewWillAppear(true)
-        
-        getVideosAPICall()
-        
-        self.allOffersTableView.reloadData()
         
     }
+    
+   
 
     func getVideosAPICall(){
     
@@ -118,9 +120,7 @@ var playerVars = Dictionary<String, Any>()
                 self.embedLinksAry.removeAll()
                 
                 for i in respVO!{
-                    
-                    
-                    
+       
 
                 self.embedLinksAry.append(i.EmbedLink!)
                 self.churchNameAry.append(i.ChurchName!)
@@ -129,14 +129,18 @@ var playerVars = Dictionary<String, Any>()
                 
                 
                 
-                print(self.embedLinksAry.count)
+                
+                self.gggg = self.embedLinksAry[0]
+                
+                
+                
+                self.splitArray = self.gggg.components(separatedBy: "=")
+                
+                print(self.splitArray[1])
 
                 self.allOffersTableView.reloadData()
                 
-                
-               // self.player.load(withVideoId: self.fullNameArr[1],playerVars: self.playerVars)
-
-                
+               self.player.load(withVideoId: self.splitArray[1],playerVars: self.playerVars)
                 
         }
         
@@ -171,7 +175,7 @@ var playerVars = Dictionary<String, Any>()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         
-        return embedLinksAry.count
+        return self.embedLinksAry.count
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat{
@@ -192,21 +196,57 @@ var playerVars = Dictionary<String, Any>()
     
         let str : String = self.embedLinksAry[indexPath.row]
         
-        let fullName    = str
-        fullNameArr = fullName.components(separatedBy: "=")
         
-//        let name    = fullNameArr[0]
-//        let surname = fullNameArr[1]
+        videoIDArray = str.components(separatedBy: "=")
+        
+//        let name    = videoIDArray[0]
+//        let surname = videoIDArray[1]
+        
+        
 
-        allOffersCell.IdLabel.text = fullNameArr[1]
+        allOffersCell.IdLabel.text = videoIDArray[1]
+        
+        print(videoIDArray[1])
+        
+       self.thumbnailImageURL = "https://img.youtube.com/vi/\(videoIDArray[1])/1.jpg"
+        
+        let videothumb = URL(string: self.thumbnailImageURL)
+        
+        if videothumb != nil{
+        
+        let request = URLRequest(url: videothumb!)
+            
+         let session = URLSession.shared
+            
+            let dataTask = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+                
+                DispatchQueue.main.async()
+                    {
+            
+             allOffersCell.thumbnailImageView.image = UIImage(data: data!)
+                        
+                }
+                
+         })
+            
+            dataTask.resume()
+            
+        }
+        
+        
+        
+        
+        
         return allOffersCell
         
     }
     
+ 
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
-        self.player.load(withVideoId: self.fullNameArr[1],playerVars: playerVars)
+        self.player.load(withVideoId: self.videoIDArray[1],playerVars: playerVars)
         
         
     }

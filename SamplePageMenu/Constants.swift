@@ -10,4 +10,4 @@ import Foundation
 
 
 
-let videosURL = "http://192.168.1.123/TeluguChurchesApi/api/GetEmbedLinks/1"
+let videosURL = "http://192.168.1.123/TeluguChurchesApi/api/GetEmbedLinks/"
