@@ -50,6 +50,30 @@
 		9A5D263B1FFF8A5100316988 /* PageControllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D26391FFF8A5100316988 /* PageControllCell.xib */; };
 		9A5D263E1FFF8A5D00316988 /* ScrollImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D263C1FFF8A5D00316988 /* ScrollImagesCell.swift */; };
 		9A5D263F1FFF8A5D00316988 /* ScrollImagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D263D1FFF8A5D00316988 /* ScrollImagesCell.xib */; };
+		9AA3AB512011D4320065D4BD /* ServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB502011D4320065D4BD /* ServiceController.swift */; };
+		9AA3AB6B2011D7420065D4BD /* TransformOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB532011D7420065D4BD /* TransformOperators.swift */; };
+		9AA3AB6C2011D7420065D4BD /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB542011D7420065D4BD /* Mapper.swift */; };
+		9AA3AB6D2011D7420065D4BD /* ImmutableMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB552011D7420065D4BD /* ImmutableMappable.swift */; };
+		9AA3AB6E2011D7420065D4BD /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB562011D7420065D4BD /* Operators.swift */; };
+		9AA3AB6F2011D7420065D4BD /* FromJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB572011D7420065D4BD /* FromJSON.swift */; };
+		9AA3AB702011D7420065D4BD /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB582011D7420065D4BD /* Map.swift */; };
+		9AA3AB712011D7420065D4BD /* ToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB592011D7420065D4BD /* ToJSON.swift */; };
+		9AA3AB722011D7420065D4BD /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB5A2011D7420065D4BD /* Mappable.swift */; };
+		9AA3AB732011D7420065D4BD /* IntegerOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB5B2011D7420065D4BD /* IntegerOperators.swift */; };
+		9AA3AB742011D7420065D4BD /* HexColorTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB5C2011D7420065D4BD /* HexColorTransform.swift */; };
+		9AA3AB752011D7420065D4BD /* MapError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB5D2011D7420065D4BD /* MapError.swift */; };
+		9AA3AB762011D7420065D4BD /* URLTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB5E2011D7420065D4BD /* URLTransform.swift */; };
+		9AA3AB772011D7420065D4BD /* EnumOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB5F2011D7420065D4BD /* EnumOperators.swift */; };
+		9AA3AB782011D7420065D4BD /* NSDecimalNumberTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB602011D7420065D4BD /* NSDecimalNumberTransform.swift */; };
+		9AA3AB792011D7420065D4BD /* DateFormatterTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB612011D7420065D4BD /* DateFormatterTransform.swift */; };
+		9AA3AB7A2011D7420065D4BD /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB622011D7420065D4BD /* DateTransform.swift */; };
+		9AA3AB7B2011D7420065D4BD /* TransformOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB632011D7420065D4BD /* TransformOf.swift */; };
+		9AA3AB7C2011D7420065D4BD /* ISO8601DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB642011D7420065D4BD /* ISO8601DateTransform.swift */; };
+		9AA3AB7D2011D7420065D4BD /* DataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB652011D7420065D4BD /* DataTransform.swift */; };
+		9AA3AB7E2011D7420065D4BD /* EnumTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB662011D7420065D4BD /* EnumTransform.swift */; };
+		9AA3AB7F2011D7420065D4BD /* CustomDateFormatTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB682011D7420065D4BD /* CustomDateFormatTransform.swift */; };
+		9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB692011D7420065D4BD /* TransformType.swift */; };
+		9AA3AB812011D7420065D4BD /* DictionaryTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB6A2011D7420065D4BD /* DictionaryTransform.swift */; };
 		AF1956E520048BE3007AC82A /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956E420048BE3007AC82A /* SideMenuViewController.swift */; };
 		AF1956EA200492F4007AC82A /* menuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956E8200492F4007AC82A /* menuTableViewCell.swift */; };
 		AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956E9200492F4007AC82A /* menuTableViewCell.xib */; };
@@ -108,6 +132,31 @@
 		9A5D26391FFF8A5100316988 /* PageControllCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageControllCell.xib; sourceTree = "<group>"; };
 		9A5D263C1FFF8A5D00316988 /* ScrollImagesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollImagesCell.swift; sourceTree = "<group>"; };
 		9A5D263D1FFF8A5D00316988 /* ScrollImagesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollImagesCell.xib; sourceTree = "<group>"; };
+		9AA3AB502011D4320065D4BD /* ServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceController.swift; sourceTree = "<group>"; };
+		9AA3AB532011D7420065D4BD /* TransformOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformOperators.swift; sourceTree = "<group>"; };
+		9AA3AB542011D7420065D4BD /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		9AA3AB552011D7420065D4BD /* ImmutableMappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImmutableMappable.swift; sourceTree = "<group>"; };
+		9AA3AB562011D7420065D4BD /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		9AA3AB572011D7420065D4BD /* FromJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromJSON.swift; sourceTree = "<group>"; };
+		9AA3AB582011D7420065D4BD /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		9AA3AB592011D7420065D4BD /* ToJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToJSON.swift; sourceTree = "<group>"; };
+		9AA3AB5A2011D7420065D4BD /* Mappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
+		9AA3AB5B2011D7420065D4BD /* IntegerOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegerOperators.swift; sourceTree = "<group>"; };
+		9AA3AB5C2011D7420065D4BD /* HexColorTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColorTransform.swift; sourceTree = "<group>"; };
+		9AA3AB5D2011D7420065D4BD /* MapError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapError.swift; sourceTree = "<group>"; };
+		9AA3AB5E2011D7420065D4BD /* URLTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTransform.swift; sourceTree = "<group>"; };
+		9AA3AB5F2011D7420065D4BD /* EnumOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumOperators.swift; sourceTree = "<group>"; };
+		9AA3AB602011D7420065D4BD /* NSDecimalNumberTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberTransform.swift; sourceTree = "<group>"; };
+		9AA3AB612011D7420065D4BD /* DateFormatterTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterTransform.swift; sourceTree = "<group>"; };
+		9AA3AB622011D7420065D4BD /* DateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTransform.swift; sourceTree = "<group>"; };
+		9AA3AB632011D7420065D4BD /* TransformOf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformOf.swift; sourceTree = "<group>"; };
+		9AA3AB642011D7420065D4BD /* ISO8601DateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISO8601DateTransform.swift; sourceTree = "<group>"; };
+		9AA3AB652011D7420065D4BD /* DataTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTransform.swift; sourceTree = "<group>"; };
+		9AA3AB662011D7420065D4BD /* EnumTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumTransform.swift; sourceTree = "<group>"; };
+		9AA3AB672011D7420065D4BD /* ObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectMapper.h; sourceTree = "<group>"; };
+		9AA3AB682011D7420065D4BD /* CustomDateFormatTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDateFormatTransform.swift; sourceTree = "<group>"; };
+		9AA3AB692011D7420065D4BD /* TransformType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformType.swift; sourceTree = "<group>"; };
+		9AA3AB6A2011D7420065D4BD /* DictionaryTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryTransform.swift; sourceTree = "<group>"; };
 		9C2110E70A197746D811F760 /* Pods-Telugu Churches.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telugu Churches.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Telugu Churches/Pods-Telugu Churches.debug.xcconfig"; sourceTree = "<group>"; };
 		AF1956E420048BE3007AC82A /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		AF1956E8200492F4007AC82A /* menuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuTableViewCell.swift; sourceTree = "<group>"; };
@@ -182,6 +231,8 @@
 		9A5D25EF1FFF76A300316988 /* SamplePageMenu */ = {
 			isa = PBXGroup;
 			children = (
+				9AA3AB522011D7250065D4BD /* ObjectMapper */,
+				9AA3AB4F2011D31C0065D4BD /* ServiceController */,
 				9A5D25F01FFF76A300316988 /* AppDelegate.swift */,
 				9A5D260A1FFF896900316988 /* CAPSPageMenu.swift */,
 				9A5D26051FFF795200316988 /* SWRevealViewController.h */,
@@ -250,6 +301,45 @@
 				9A5D263D1FFF8A5D00316988 /* ScrollImagesCell.xib */,
 			);
 			name = ViewCells;
+			sourceTree = "<group>";
+		};
+		9AA3AB4F2011D31C0065D4BD /* ServiceController */ = {
+			isa = PBXGroup;
+			children = (
+				9AA3AB502011D4320065D4BD /* ServiceController.swift */,
+			);
+			name = ServiceController;
+			sourceTree = "<group>";
+		};
+		9AA3AB522011D7250065D4BD /* ObjectMapper */ = {
+			isa = PBXGroup;
+			children = (
+				9AA3AB532011D7420065D4BD /* TransformOperators.swift */,
+				9AA3AB542011D7420065D4BD /* Mapper.swift */,
+				9AA3AB552011D7420065D4BD /* ImmutableMappable.swift */,
+				9AA3AB562011D7420065D4BD /* Operators.swift */,
+				9AA3AB572011D7420065D4BD /* FromJSON.swift */,
+				9AA3AB582011D7420065D4BD /* Map.swift */,
+				9AA3AB592011D7420065D4BD /* ToJSON.swift */,
+				9AA3AB5A2011D7420065D4BD /* Mappable.swift */,
+				9AA3AB5B2011D7420065D4BD /* IntegerOperators.swift */,
+				9AA3AB5C2011D7420065D4BD /* HexColorTransform.swift */,
+				9AA3AB5D2011D7420065D4BD /* MapError.swift */,
+				9AA3AB5E2011D7420065D4BD /* URLTransform.swift */,
+				9AA3AB5F2011D7420065D4BD /* EnumOperators.swift */,
+				9AA3AB602011D7420065D4BD /* NSDecimalNumberTransform.swift */,
+				9AA3AB612011D7420065D4BD /* DateFormatterTransform.swift */,
+				9AA3AB622011D7420065D4BD /* DateTransform.swift */,
+				9AA3AB632011D7420065D4BD /* TransformOf.swift */,
+				9AA3AB642011D7420065D4BD /* ISO8601DateTransform.swift */,
+				9AA3AB652011D7420065D4BD /* DataTransform.swift */,
+				9AA3AB662011D7420065D4BD /* EnumTransform.swift */,
+				9AA3AB672011D7420065D4BD /* ObjectMapper.h */,
+				9AA3AB682011D7420065D4BD /* CustomDateFormatTransform.swift */,
+				9AA3AB692011D7420065D4BD /* TransformType.swift */,
+				9AA3AB6A2011D7420065D4BD /* DictionaryTransform.swift */,
+			);
+			name = ObjectMapper;
 			sourceTree = "<group>";
 		};
 		AF1956E320048BBC007AC82A /* SideMenuViewController */ = {
@@ -422,22 +512,44 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5D25F31FFF76A300316988 /* ViewController.swift in Sources */,
+				9AA3AB6D2011D7420065D4BD /* ImmutableMappable.swift in Sources */,
+				9AA3AB702011D7420065D4BD /* Map.swift in Sources */,
+				9AA3AB792011D7420065D4BD /* DateFormatterTransform.swift in Sources */,
 				9A5D26121FFF89C300316988 /* RechargesViewController.swift in Sources */,
 				AF1956EA200492F4007AC82A /* menuTableViewCell.swift in Sources */,
+				9AA3AB512011D4320065D4BD /* ServiceController.swift in Sources */,
+				9AA3AB742011D7420065D4BD /* HexColorTransform.swift in Sources */,
+				9AA3AB812011D7420065D4BD /* DictionaryTransform.swift in Sources */,
 				3D65D4A72004CE4A00CAB226 /* VideoTableViewCell.swift in Sources */,
 				3D65D4B42004D9A200CAB226 /* DrawerCell.m in Sources */,
+				9AA3AB6F2011D7420065D4BD /* FromJSON.swift in Sources */,
+				9AA3AB752011D7420065D4BD /* MapError.swift in Sources */,
 				9A5D26261FFF8A2000316988 /* AddMoneyToWalletCell.swift in Sources */,
 				9A5D261A1FFF89D900316988 /* MearchantViewController.swift in Sources */,
+				9AA3AB7A2011D7420065D4BD /* DateTransform.swift in Sources */,
+				9AA3AB7E2011D7420065D4BD /* EnumTransform.swift in Sources */,
 				9A5D262A1FFF8A2F00316988 /* PriceSortCell.swift in Sources */,
+				9AA3AB782011D7420065D4BD /* NSDecimalNumberTransform.swift in Sources */,
+				9AA3AB7C2011D7420065D4BD /* ISO8601DateTransform.swift in Sources */,
 				3D65D4B32004D9A200CAB226 /* CCKFNavDrawer.m in Sources */,
+				9AA3AB6E2011D7420065D4BD /* Operators.swift in Sources */,
+				9AA3AB732011D7420065D4BD /* IntegerOperators.swift in Sources */,
+				9AA3AB712011D7420065D4BD /* ToJSON.swift in Sources */,
 				9A5D26221FFF89F200316988 /* TermsAndConditionCell.swift in Sources */,
 				9A5D262E1FFF8A3700316988 /* AddMoneyCell.swift in Sources */,
 				3D65D4B62004D9A200CAB226 /* DrawerView.m in Sources */,
 				9A5D26321FFF8A3F00316988 /* SendMoneyToWalletCell.swift in Sources */,
 				9A5D25F11FFF76A300316988 /* AppDelegate.swift in Sources */,
+				9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */,
 				9A5D260B1FFF896900316988 /* CAPSPageMenu.swift in Sources */,
+				9AA3AB6C2011D7420065D4BD /* Mapper.swift in Sources */,
+				9AA3AB7F2011D7420065D4BD /* CustomDateFormatTransform.swift in Sources */,
+				9AA3AB772011D7420065D4BD /* EnumOperators.swift in Sources */,
+				9AA3AB6B2011D7420065D4BD /* TransformOperators.swift in Sources */,
 				9A5D263E1FFF8A5D00316988 /* ScrollImagesCell.swift in Sources */,
+				9AA3AB7B2011D7420065D4BD /* TransformOf.swift in Sources */,
 				9A5D26071FFF795200316988 /* SWRevealViewController.m in Sources */,
+				9AA3AB722011D7420065D4BD /* Mappable.swift in Sources */,
 				9A5D26091FFF7D2500316988 /* HomeViewController.swift in Sources */,
 				9A5D26361FFF8A4900316988 /* AllOffersCell.swift in Sources */,
 				9A5D263A1FFF8A5100316988 /* PageControllCell.swift in Sources */,
@@ -445,6 +557,8 @@
 				9A5D261E1FFF89EA00316988 /* TransactionCell.swift in Sources */,
 				AF1956E520048BE3007AC82A /* SideMenuViewController.swift in Sources */,
 				9A5D26161FFF89D100316988 /* DetAndBillsViewController.swift in Sources */,
+				9AA3AB762011D7420065D4BD /* URLTransform.swift in Sources */,
+				9AA3AB7D2011D7420065D4BD /* DataTransform.swift in Sources */,
 				AF1956EE2004999F007AC82A /* menuNameTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

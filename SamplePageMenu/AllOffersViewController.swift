@@ -49,23 +49,35 @@ var playerVars = Dictionary<String, Any>()
         
         self.player.delegate = self
         
-        playerVars = [
-            "controls" : 1 ,
+       playerVars = [
+            "controls" : 0 ,
             "playsinline" : 1,
             "autoplay" : 1,
          //   "autohide" : 1,
             "rel" : 0,
            "showinfo" : 0,
-            //"showing" : 0,
-            "modestbranding" : 1,
-            
+            "showing" : 1,
+            "color" : "white",
+        "modestbranding" : 1
+        
            
             
         ]
         
       //  self.loadingImg.image = UIImage(named: "Video")
+        
+//        self.player.load(withVideoId: self.videosIDArray[0])
+//        
+//        self.player.load(withPlayerParams: ["showinfo" : 3])
 
-        self.player.load(withVideoId: self.videosIDArray[0],playerVars: playerVars)
+
+       self.player.load(withVideoId: self.videosIDArray[0],playerVars: playerVars)
+
+        
+       // self.player.load(withPlaylistId: self.videosIDArray[0], playerVars: playerVars)
+        
+      //  self.player.load(withPlaylistId: self.videosIDArray[0], playerVars: playerVars)
+        
 
         
         registerTableViewCells()
