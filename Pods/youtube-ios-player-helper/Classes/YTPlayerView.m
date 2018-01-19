@@ -674,6 +674,7 @@ NSString static *const kYTPlayerSyndicationRegexPattern = @"^https://tpc.googles
         @"onStateChange" : @"onStateChange",
         @"onPlaybackQualityChange" : @"onPlaybackQualityChange",
         @"onError" : @"onPlayerError"
+        
   };
   NSMutableDictionary *playerParams = [[NSMutableDictionary alloc] init];
   if (additionalPlayerParams) {

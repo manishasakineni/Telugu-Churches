@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2D4CC1E3CECC568019D58A4D /* Pods_Telugu_Churches.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE32E04C483467733EE22566 /* Pods_Telugu_Churches.framework */; };
+		3D551C5F2011F462005DB3B2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D551C5E2011F462005DB3B2 /* Constants.swift */; };
+		3D551C612011F617005DB3B2 /* VideosVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D551C602011F617005DB3B2 /* VideosVO.swift */; };
+		3D551C632011F6BE005DB3B2 /* ServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D551C622011F6BE005DB3B2 /* ServiceController.swift */; };
+		3D551C652011FE59005DB3B2 /* VideosResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D551C642011FE59005DB3B2 /* VideosResultVO.swift */; };
 		3D65D4A72004CE4A00CAB226 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D65D4A52004CE4A00CAB226 /* VideoTableViewCell.swift */; };
 		3D65D4A82004CE4A00CAB226 /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D65D4A62004CE4A00CAB226 /* VideoTableViewCell.xib */; };
 		3D65D4B32004D9A200CAB226 /* CCKFNavDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D65D4AB2004D9A200CAB226 /* CCKFNavDrawer.m */; };
@@ -50,7 +54,6 @@
 		9A5D263B1FFF8A5100316988 /* PageControllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D26391FFF8A5100316988 /* PageControllCell.xib */; };
 		9A5D263E1FFF8A5D00316988 /* ScrollImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D263C1FFF8A5D00316988 /* ScrollImagesCell.swift */; };
 		9A5D263F1FFF8A5D00316988 /* ScrollImagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D263D1FFF8A5D00316988 /* ScrollImagesCell.xib */; };
-		9AA3AB512011D4320065D4BD /* ServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB502011D4320065D4BD /* ServiceController.swift */; };
 		9AA3AB6B2011D7420065D4BD /* TransformOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB532011D7420065D4BD /* TransformOperators.swift */; };
 		9AA3AB6C2011D7420065D4BD /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB542011D7420065D4BD /* Mapper.swift */; };
 		9AA3AB6D2011D7420065D4BD /* ImmutableMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB552011D7420065D4BD /* ImmutableMappable.swift */; };
@@ -82,6 +85,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D551C5E2011F462005DB3B2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3D551C602011F617005DB3B2 /* VideosVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosVO.swift; sourceTree = "<group>"; };
+		3D551C622011F6BE005DB3B2 /* ServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceController.swift; sourceTree = "<group>"; };
+		3D551C642011FE59005DB3B2 /* VideosResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosResultVO.swift; sourceTree = "<group>"; };
 		3D65D4A52004CE4A00CAB226 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		3D65D4A62004CE4A00CAB226 /* VideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
 		3D65D4AA2004D9A200CAB226 /* CCKFNavDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCKFNavDrawer.h; sourceTree = "<group>"; };
@@ -95,7 +102,7 @@
 		3D65D4B8200505F000CAB226 /* Loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Loading.gif; sourceTree = "<group>"; };
 		8CA6DF88FB76B3361A239309 /* Pods-Telugu Churches.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telugu Churches.release.xcconfig"; path = "Pods/Target Support Files/Pods-Telugu Churches/Pods-Telugu Churches.release.xcconfig"; sourceTree = "<group>"; };
 		9A5D25ED1FFF76A300316988 /* Telugu Churches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Telugu Churches.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A5D25F01FFF76A300316988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9A5D25F01FFF76A300316988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SamplePageMenu/AppDelegate.swift; sourceTree = "<group>"; };
 		9A5D25F21FFF76A300316988 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9A5D25F51FFF76A300316988 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A5D25F71FFF76A300316988 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,7 +139,6 @@
 		9A5D26391FFF8A5100316988 /* PageControllCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageControllCell.xib; sourceTree = "<group>"; };
 		9A5D263C1FFF8A5D00316988 /* ScrollImagesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollImagesCell.swift; sourceTree = "<group>"; };
 		9A5D263D1FFF8A5D00316988 /* ScrollImagesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollImagesCell.xib; sourceTree = "<group>"; };
-		9AA3AB502011D4320065D4BD /* ServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceController.swift; sourceTree = "<group>"; };
 		9AA3AB532011D7420065D4BD /* TransformOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformOperators.swift; sourceTree = "<group>"; };
 		9AA3AB542011D7420065D4BD /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		9AA3AB552011D7420065D4BD /* ImmutableMappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImmutableMappable.swift; sourceTree = "<group>"; };
@@ -213,6 +219,8 @@
 		9A5D25E41FFF76A300316988 = {
 			isa = PBXGroup;
 			children = (
+				9A5D25F01FFF76A300316988 /* AppDelegate.swift */,
+				9A5D25F41FFF76A300316988 /* Main.storyboard */,
 				9A5D25EF1FFF76A300316988 /* SamplePageMenu */,
 				9A5D25EE1FFF76A300316988 /* Products */,
 				48C9CF33B01FB9AE7C39B2F7 /* Pods */,
@@ -233,7 +241,9 @@
 			children = (
 				9AA3AB522011D7250065D4BD /* ObjectMapper */,
 				9AA3AB4F2011D31C0065D4BD /* ServiceController */,
-				9A5D25F01FFF76A300316988 /* AppDelegate.swift */,
+				3D551C5E2011F462005DB3B2 /* Constants.swift */,
+				3D551C602011F617005DB3B2 /* VideosVO.swift */,
+				3D551C642011FE59005DB3B2 /* VideosResultVO.swift */,
 				9A5D260A1FFF896900316988 /* CAPSPageMenu.swift */,
 				9A5D26051FFF795200316988 /* SWRevealViewController.h */,
 				9A5D26061FFF795200316988 /* SWRevealViewController.m */,
@@ -243,7 +253,6 @@
 				9A5D26421FFF963700316988 /* ViewCells */,
 				9A5D26411FFF960000316988 /* Controllers */,
 				9A5D26401FFF95EF00316988 /* HomeViewController */,
-				9A5D25F41FFF76A300316988 /* Main.storyboard */,
 				9A5D25F71FFF76A300316988 /* Assets.xcassets */,
 				9A5D25F91FFF76A300316988 /* LaunchScreen.storyboard */,
 				9A5D25FC1FFF76A300316988 /* Info.plist */,
@@ -306,7 +315,7 @@
 		9AA3AB4F2011D31C0065D4BD /* ServiceController */ = {
 			isa = PBXGroup;
 			children = (
-				9AA3AB502011D4320065D4BD /* ServiceController.swift */,
+				3D551C622011F6BE005DB3B2 /* ServiceController.swift */,
 			);
 			name = ServiceController;
 			sourceTree = "<group>";
@@ -516,13 +525,15 @@
 				9AA3AB702011D7420065D4BD /* Map.swift in Sources */,
 				9AA3AB792011D7420065D4BD /* DateFormatterTransform.swift in Sources */,
 				9A5D26121FFF89C300316988 /* RechargesViewController.swift in Sources */,
+				3D551C612011F617005DB3B2 /* VideosVO.swift in Sources */,
 				AF1956EA200492F4007AC82A /* menuTableViewCell.swift in Sources */,
-				9AA3AB512011D4320065D4BD /* ServiceController.swift in Sources */,
 				9AA3AB742011D7420065D4BD /* HexColorTransform.swift in Sources */,
 				9AA3AB812011D7420065D4BD /* DictionaryTransform.swift in Sources */,
 				3D65D4A72004CE4A00CAB226 /* VideoTableViewCell.swift in Sources */,
 				3D65D4B42004D9A200CAB226 /* DrawerCell.m in Sources */,
 				9AA3AB6F2011D7420065D4BD /* FromJSON.swift in Sources */,
+				3D551C632011F6BE005DB3B2 /* ServiceController.swift in Sources */,
+				3D551C652011FE59005DB3B2 /* VideosResultVO.swift in Sources */,
 				9AA3AB752011D7420065D4BD /* MapError.swift in Sources */,
 				9A5D26261FFF8A2000316988 /* AddMoneyToWalletCell.swift in Sources */,
 				9A5D261A1FFF89D900316988 /* MearchantViewController.swift in Sources */,
@@ -536,6 +547,7 @@
 				9AA3AB732011D7420065D4BD /* IntegerOperators.swift in Sources */,
 				9AA3AB712011D7420065D4BD /* ToJSON.swift in Sources */,
 				9A5D26221FFF89F200316988 /* TermsAndConditionCell.swift in Sources */,
+				3D551C5F2011F462005DB3B2 /* Constants.swift in Sources */,
 				9A5D262E1FFF8A3700316988 /* AddMoneyCell.swift in Sources */,
 				3D65D4B62004D9A200CAB226 /* DrawerView.m in Sources */,
 				9A5D26321FFF8A3F00316988 /* SendMoneyToWalletCell.swift in Sources */,
@@ -572,6 +584,7 @@
 				9A5D25F51FFF76A300316988 /* Base */,
 			);
 			name = Main.storyboard;
+			path = SamplePageMenu;
 			sourceTree = "<group>";
 		};
 		9A5D25F91FFF76A300316988 /* LaunchScreen.storyboard */ = {

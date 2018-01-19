@@ -9,9 +9,10 @@
 import UIKit
 import youtube_ios_player_helper
 
+
 class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource,UIScrollViewDelegate,YTPlayerViewDelegate{
 
-    
+    var serviceController = ServiceController()
     @IBOutlet weak var allOffersTableView: UITableView!
     var delegate: changeSubtitleOfIndexDelegate?
     
@@ -26,7 +27,12 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var loadingImg: UIImageView!
-    
+     var embedLinksAry : Array<String> = Array()
+     var churchNameAry : Array<String> = Array()
+    var splitArray : Array<String> = Array()
+
+
+    var fullNameArr : Array<String> = Array()
     
 
 
@@ -38,7 +44,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
 var playerVars = Dictionary<String, Any>()
     var name = ["calvarychurch","calvarychurch1","calvarychurch","calvarychurch1","calvarychurch","calvarychurch1"]
     
-    var videosIDArray = ["knaCsR6dr58","SG-G0lgEtMY","yvhrORy4x30","knaCsR6dr58","SG-G0lgEtMY","yvhrORy4x30"]
+    var videosIDArray = ["knaCsR6dr58?modestbranding=0","SG-G0lgEtMY?modestbranding=0","yvhrORy4x30?modestbranding=0","knaCsR6dr58?modestbranding=0","SG-G0lgEtMY?modestbranding=0","yvhrORy4x30?modestbranding=0"]
 
     
     override func viewDidLoad() {
@@ -50,13 +56,13 @@ var playerVars = Dictionary<String, Any>()
         self.player.delegate = self
         
        playerVars = [
-            "controls" : 0 ,
+            "controls" : 1 ,
             "playsinline" : 1,
             "autoplay" : 1,
          //   "autohide" : 1,
             "rel" : 0,
            "showinfo" : 0,
-            "showing" : 1,
+        //    "showing" : 1,
             "color" : "white",
         "modestbranding" : 1
         
@@ -71,7 +77,7 @@ var playerVars = Dictionary<String, Any>()
 //        self.player.load(withPlayerParams: ["showinfo" : 3])
 
 
-       self.player.load(withVideoId: self.videosIDArray[0],playerVars: playerVars)
+     //  self.player.load(withVideoId: self.embedLinksAry[0],playerVars: playerVars)
 
         
        // self.player.load(withPlaylistId: self.videosIDArray[0], playerVars: playerVars)
@@ -82,11 +88,69 @@ var playerVars = Dictionary<String, Any>()
         
         registerTableViewCells()
         
+       getVideosAPICall()
  
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+        super.viewWillAppear(true)
+        
+        getVideosAPICall()
+        
+        self.allOffersTableView.reloadData()
+        
+    }
 
+    func getVideosAPICall(){
+    
+    serviceController.requestGETURL(strURL: videosURL, success: { (json) in
+        
+        DispatchQueue.main.async()
+            {
+                
+             //   let respVO:VideosVO = Mapper().map(JSONObject: json)!
+                
+                let respVO = Mapper<VideosVO>().mapArray(JSONObject: json)
+                
+               
+                self.embedLinksAry.removeAll()
+                
+                for i in respVO!{
+                    
+                    
+                    
 
+                self.embedLinksAry.append(i.EmbedLink!)
+                self.churchNameAry.append(i.ChurchName!)
+                
+                }
+                
+                
+                
+                print(self.embedLinksAry.count)
+
+                self.allOffersTableView.reloadData()
+                
+                
+               // self.player.load(withVideoId: self.fullNameArr[1],playerVars: self.playerVars)
+
+                
+                
+        }
+        
+        
+        
+    }) { (failureMessage) in
+        
+        
+        
+        
+        }
+    
+    
+    }
     
     private func registerTableViewCells() {
         
@@ -107,8 +171,7 @@ var playerVars = Dictionary<String, Any>()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         
-        return name.count
-        
+        return embedLinksAry.count
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat{
@@ -125,8 +188,17 @@ var playerVars = Dictionary<String, Any>()
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let allOffersCell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
-        allOffersCell.label.text = name[indexPath.row]
-        allOffersCell.IdLabel.text = self.videosIDArray[indexPath.row]
+        allOffersCell.label.text = churchNameAry[indexPath.row]
+    
+        let str : String = self.embedLinksAry[indexPath.row]
+        
+        let fullName    = str
+        fullNameArr = fullName.components(separatedBy: "=")
+        
+//        let name    = fullNameArr[0]
+//        let surname = fullNameArr[1]
+
+        allOffersCell.IdLabel.text = fullNameArr[1]
         return allOffersCell
         
     }
@@ -134,7 +206,7 @@ var playerVars = Dictionary<String, Any>()
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
-        self.player.load(withVideoId: self.videosIDArray[indexPath.row],playerVars: playerVars)
+        self.player.load(withVideoId: self.fullNameArr[1],playerVars: playerVars)
         
         
     }
