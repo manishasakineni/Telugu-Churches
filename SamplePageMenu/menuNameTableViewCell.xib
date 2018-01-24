@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A264c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,16 +20,16 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="50.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sl5-58-nBC">
                         <rect key="frame" x="5" y="5" width="310" height="40.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXV-wt-YWD">
-                                <rect key="frame" x="53" y="10" width="220" height="21"/>
+                                <rect key="frame" x="53" y="10" width="170" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="220" id="CVh-u2-FKo"/>
+                                    <constraint firstAttribute="width" constant="170" id="CVh-u2-FKo"/>
                                     <constraint firstAttribute="height" constant="21" id="U4C-qq-A6V"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -53,11 +53,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-right_4" translatesAutoresizingMaskIntoConstraints="NO" id="9PH-h9-eWk">
+                                <rect key="frame" x="239" y="8" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="hbN-j6-0bg"/>
+                                    <constraint firstAttribute="height" constant="25" id="mao-iq-8WL"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="04h-js-sck" firstAttribute="centerX" secondItem="XXV-wt-YWD" secondAttribute="centerX" id="3EA-fb-pma"/>
+                            <constraint firstItem="9PH-h9-eWk" firstAttribute="centerY" secondItem="XXV-wt-YWD" secondAttribute="centerY" id="2Zl-PB-2Cr"/>
+                            <constraint firstItem="04h-js-sck" firstAttribute="centerX" secondItem="XXV-wt-YWD" secondAttribute="centerX" constant="25" id="3EA-fb-pma"/>
                             <constraint firstItem="XXV-wt-YWD" firstAttribute="leading" secondItem="ZBv-Gm-yU5" secondAttribute="trailing" constant="13" id="9S1-5F-Yxv"/>
+                            <constraint firstItem="9PH-h9-eWk" firstAttribute="leading" secondItem="XXV-wt-YWD" secondAttribute="trailing" constant="16" id="CRP-ss-bRe"/>
                             <constraint firstItem="XXV-wt-YWD" firstAttribute="centerY" secondItem="ZBv-Gm-yU5" secondAttribute="centerY" id="SIr-VU-0Mk"/>
                             <constraint firstItem="ZBv-Gm-yU5" firstAttribute="centerY" secondItem="sl5-58-nBC" secondAttribute="centerY" id="pFJ-lY-84q"/>
                             <constraint firstItem="ZBv-Gm-yU5" firstAttribute="leading" secondItem="sl5-58-nBC" secondAttribute="leading" constant="10" id="sRa-vj-m8R"/>
@@ -73,7 +82,7 @@
                     <constraint firstAttribute="trailing" secondItem="sl5-58-nBC" secondAttribute="trailing" constant="5" id="dZZ-ye-Q0V"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.37647058823529411" green="0.70489174836601309" blue="0.82445650786356206" alpha="0.30747003424657532" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.40392156862745099" green="0.6705882352941176" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="backGroundView" destination="sl5-58-nBC" id="QlU-7J-sKg"/>
                 <outlet property="menuNameImg" destination="ZBv-Gm-yU5" id="Z4b-fm-hlq"/>
@@ -82,4 +91,7 @@
             <point key="canvasLocation" x="25" y="55.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icons8-right_4" width="25" height="25"/>
+    </resources>
 </document>

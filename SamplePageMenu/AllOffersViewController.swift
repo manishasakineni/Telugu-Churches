@@ -142,6 +142,13 @@ var playerVars = Dictionary<String, Any>()
                 
                self.player.load(withVideoId: self.splitArray[1],playerVars: self.playerVars)
                 
+//                var imageView : UIImageView
+//                imageView  = UIImageView(frame:CGRect(x:10, y:50, width:100, height:300))
+//                imageView.image = UIImage(named:"bible9.png")
+//                
+//            
+//                self.view.addSubview(imageView)
+//                
         }
         
         

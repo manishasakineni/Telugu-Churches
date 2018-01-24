@@ -133,7 +133,7 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
     var currentPageIndex : Int = 0
     var lastPageIndex : Int = 0
     
-    open var selectionIndicatorColor : UIColor = UIColor.red
+    open var selectionIndicatorColor : UIColor = (UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0))
     open var selectedMenuItemLabelColor : UIColor = UIColor.white
     open var unselectedMenuItemLabelColor : UIColor = UIColor.lightGray
     open var scrollMenuBackgroundColor : UIColor = UIColor.black

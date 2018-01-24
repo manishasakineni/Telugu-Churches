@@ -37,7 +37,7 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         // Do any additional setup after loading the view.
       //  navigationController?.navigationBar.barTintColor = UIColor.green
         
-        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.4039215686, green: 0.6705882353, blue: 0.8156862745, alpha: 1)
         self.navigationItem.title = "Telugu Churches"
         self.createPageMenu()
 
@@ -105,7 +105,7 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         
         let parameters : [CAPSPageMenuOption] = [CAPSPageMenuOption.scrollMenuBackgroundColor(UIColor.clear),
                                                  CAPSPageMenuOption.viewBackgroundColor(UIColor.clear),
-                                                 CAPSPageMenuOption.bottomMenuHairlineColor(UIColor(red: 170.0/255.0, green: 170.0/255.0, blue: 170.0/255.0, alpha: 0.5)),
+                                                 CAPSPageMenuOption.bottomMenuHairlineColor(UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)),
                                                  CAPSPageMenuOption.menuItemFont( UIFont(name: "HelveticaNeue", size: 13.0)!),
                                                  CAPSPageMenuOption.menuHeight(36),
                                                  CAPSPageMenuOption.centerMenuItems(true),

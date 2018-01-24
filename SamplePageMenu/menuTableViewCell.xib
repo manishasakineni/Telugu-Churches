@@ -24,10 +24,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uND-WF-umg">
-                        <rect key="frame" x="5" y="5" width="310" height="129.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="139.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steve Jobs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ry-ll-UYZ">
-                                <rect key="frame" x="117.5" y="104" width="75.5" height="21"/>
+                                <rect key="frame" x="122.5" y="109" width="75.5" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75.5" id="eRW-RW-HLQ"/>
                                 </constraints>
@@ -36,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8f-hX-ixQ">
-                                <rect key="frame" x="4" y="126" width="302" height="3"/>
+                                <rect key="frame" x="9" y="136" width="302" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="302" id="EjB-VR-SQb"/>
                                     <constraint firstAttribute="height" constant="3" id="IIG-mn-s69"/>
@@ -46,14 +46,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jobs" translatesAutoresizingMaskIntoConstraints="NO" id="zLH-r3-Cvq">
-                                <rect key="frame" x="120" y="29" width="70" height="70"/>
+                                <rect key="frame" x="125" y="34" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="CQ6-zp-lky"/>
                                     <constraint firstAttribute="height" constant="70" id="SPb-Ya-KPN"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8Ry-ll-UYZ" firstAttribute="centerX" secondItem="zLH-r3-Cvq" secondAttribute="centerX" id="R0v-P1-0tE"/>
                             <constraint firstItem="Q8f-hX-ixQ" firstAttribute="top" secondItem="8Ry-ll-UYZ" secondAttribute="bottom" constant="1" id="YiO-py-TCI"/>
@@ -66,10 +65,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="uND-WF-umg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="C7e-8T-hyL"/>
-                    <constraint firstAttribute="bottom" secondItem="uND-WF-umg" secondAttribute="bottom" constant="5" id="DkF-Fa-QSz"/>
-                    <constraint firstItem="uND-WF-umg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ETo-ON-HNp"/>
-                    <constraint firstAttribute="trailing" secondItem="uND-WF-umg" secondAttribute="trailing" constant="5" id="iuo-dr-nAb"/>
+                    <constraint firstItem="uND-WF-umg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="C7e-8T-hyL"/>
+                    <constraint firstAttribute="bottom" secondItem="uND-WF-umg" secondAttribute="bottom" id="DkF-Fa-QSz"/>
+                    <constraint firstItem="uND-WF-umg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ETo-ON-HNp"/>
+                    <constraint firstAttribute="trailing" secondItem="uND-WF-umg" secondAttribute="trailing" id="iuo-dr-nAb"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
