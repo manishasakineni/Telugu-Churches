@@ -20,8 +20,13 @@
 		3D65D4B62004D9A200CAB226 /* DrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D65D4B12004D9A200CAB226 /* DrawerView.m */; };
 		3D65D4B72004D9A200CAB226 /* DrawerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D65D4B22004D9A200CAB226 /* DrawerView.xib */; };
 		3D65D4B9200505F000CAB226 /* Loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3D65D4B8200505F000CAB226 /* Loading.gif */; };
+		3DDD890D2018567300918711 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD890C2018567300918711 /* SignUpViewController.swift */; };
+		3DDD8910201865F600918711 /* SignUPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD890E201865F600918711 /* SignUPTableViewCell.swift */; };
+		3DDD8911201865F600918711 /* SignUPTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DDD890F201865F600918711 /* SignUPTableViewCell.xib */; };
+		3DDD891520186E5E00918711 /* SignUpButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD891320186E5E00918711 /* SignUpButtonsCell.swift */; };
+		3DDD891620186E5E00918711 /* SignUpButtonsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DDD891420186E5E00918711 /* SignUpButtonsCell.xib */; };
 		9A5D25F11FFF76A300316988 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D25F01FFF76A300316988 /* AppDelegate.swift */; };
-		9A5D25F31FFF76A300316988 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D25F21FFF76A300316988 /* ViewController.swift */; };
+		9A5D25F31FFF76A300316988 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D25F21FFF76A300316988 /* LoginViewController.swift */; };
 		9A5D25F61FFF76A300316988 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D25F41FFF76A300316988 /* Main.storyboard */; };
 		9A5D25F81FFF76A300316988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D25F71FFF76A300316988 /* Assets.xcassets */; };
 		9A5D25FB1FFF76A300316988 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D25F91FFF76A300316988 /* LaunchScreen.storyboard */; };
@@ -100,10 +105,15 @@
 		3D65D4B12004D9A200CAB226 /* DrawerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawerView.m; sourceTree = "<group>"; };
 		3D65D4B22004D9A200CAB226 /* DrawerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrawerView.xib; sourceTree = "<group>"; };
 		3D65D4B8200505F000CAB226 /* Loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Loading.gif; sourceTree = "<group>"; };
+		3DDD890C2018567300918711 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3DDD890E201865F600918711 /* SignUPTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUPTableViewCell.swift; sourceTree = "<group>"; };
+		3DDD890F201865F600918711 /* SignUPTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUPTableViewCell.xib; sourceTree = "<group>"; };
+		3DDD891320186E5E00918711 /* SignUpButtonsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpButtonsCell.swift; sourceTree = "<group>"; };
+		3DDD891420186E5E00918711 /* SignUpButtonsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpButtonsCell.xib; sourceTree = "<group>"; };
 		8CA6DF88FB76B3361A239309 /* Pods-Telugu Churches.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telugu Churches.release.xcconfig"; path = "Pods/Target Support Files/Pods-Telugu Churches/Pods-Telugu Churches.release.xcconfig"; sourceTree = "<group>"; };
 		9A5D25ED1FFF76A300316988 /* Telugu Churches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Telugu Churches.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5D25F01FFF76A300316988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SamplePageMenu/AppDelegate.swift; sourceTree = "<group>"; };
-		9A5D25F21FFF76A300316988 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9A5D25F21FFF76A300316988 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9A5D25F51FFF76A300316988 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A5D25F71FFF76A300316988 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A5D25FA1FFF76A300316988 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -207,6 +217,17 @@
 			path = DrawerCell;
 			sourceTree = "<group>";
 		};
+		3DDD89122018662100918711 /* SignUpCells */ = {
+			isa = PBXGroup;
+			children = (
+				3DDD890E201865F600918711 /* SignUPTableViewCell.swift */,
+				3DDD890F201865F600918711 /* SignUPTableViewCell.xib */,
+				3DDD891320186E5E00918711 /* SignUpButtonsCell.swift */,
+				3DDD891420186E5E00918711 /* SignUpButtonsCell.xib */,
+			);
+			name = SignUpCells;
+			sourceTree = "<group>";
+		};
 		48C9CF33B01FB9AE7C39B2F7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,7 +242,7 @@
 			children = (
 				9A5D25F01FFF76A300316988 /* AppDelegate.swift */,
 				9A5D25F41FFF76A300316988 /* Main.storyboard */,
-				9A5D25EF1FFF76A300316988 /* SamplePageMenu */,
+				9A5D25EF1FFF76A300316988 /* Telugu Churches */,
 				9A5D25EE1FFF76A300316988 /* Products */,
 				48C9CF33B01FB9AE7C39B2F7 /* Pods */,
 				B479AB571936CD8C6FA5D596 /* Frameworks */,
@@ -236,7 +257,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9A5D25EF1FFF76A300316988 /* SamplePageMenu */ = {
+		9A5D25EF1FFF76A300316988 /* Telugu Churches */ = {
 			isa = PBXGroup;
 			children = (
 				9AA3AB522011D7250065D4BD /* ObjectMapper */,
@@ -247,26 +268,28 @@
 				9A5D260A1FFF896900316988 /* CAPSPageMenu.swift */,
 				9A5D26051FFF795200316988 /* SWRevealViewController.h */,
 				9A5D26061FFF795200316988 /* SWRevealViewController.m */,
-				9A5D25F21FFF76A300316988 /* ViewController.swift */,
 				3D65D4A92004D9A200CAB226 /* CCKFNavDrawer */,
-				AF1956E320048BBC007AC82A /* SideMenuViewController */,
 				9A5D26421FFF963700316988 /* ViewCells */,
 				9A5D26411FFF960000316988 /* Controllers */,
-				9A5D26401FFF95EF00316988 /* HomeViewController */,
+				9A5D26401FFF95EF00316988 /* ViewControllers */,
 				9A5D25F71FFF76A300316988 /* Assets.xcassets */,
 				9A5D25F91FFF76A300316988 /* LaunchScreen.storyboard */,
 				9A5D25FC1FFF76A300316988 /* Info.plist */,
 				9A5D26041FFF795100316988 /* SamplePageMenu-Bridging-Header.h */,
 			);
+			name = "Telugu Churches";
 			path = SamplePageMenu;
 			sourceTree = "<group>";
 		};
-		9A5D26401FFF95EF00316988 /* HomeViewController */ = {
+		9A5D26401FFF95EF00316988 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF1956E320048BBC007AC82A /* SideMenuViewController */,
+				9A5D25F21FFF76A300316988 /* LoginViewController.swift */,
+				3DDD890C2018567300918711 /* SignUpViewController.swift */,
 				9A5D26081FFF7D2500316988 /* HomeViewController.swift */,
 			);
-			name = HomeViewController;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		9A5D26411FFF960000316988 /* Controllers */ = {
@@ -290,6 +313,7 @@
 		9A5D26421FFF963700316988 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				3DDD89122018662100918711 /* SignUpCells */,
 				9A5D261C1FFF89EA00316988 /* TransactionCell.swift */,
 				9A5D261D1FFF89EA00316988 /* TransactionCell.xib */,
 				9A5D26201FFF89F200316988 /* TermsAndConditionCell.swift */,
@@ -450,8 +474,10 @@
 				9A5D26271FFF8A2000316988 /* AddMoneyToWalletCell.xib in Resources */,
 				9A5D263F1FFF8A5D00316988 /* ScrollImagesCell.xib in Resources */,
 				9A5D26231FFF89F200316988 /* TermsAndConditionCell.xib in Resources */,
+				3DDD8911201865F600918711 /* SignUPTableViewCell.xib in Resources */,
 				AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */,
 				9A5D260F1FFF89B700316988 /* AllOffersViewController.xib in Resources */,
+				3DDD891620186E5E00918711 /* SignUpButtonsCell.xib in Resources */,
 				9A5D26171FFF89D100316988 /* DetAndBillsViewController.xib in Resources */,
 				3D65D4B72004D9A200CAB226 /* DrawerView.xib in Resources */,
 				9A5D25F81FFF76A300316988 /* Assets.xcassets in Resources */,
@@ -484,10 +510,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Telugu Churches/Pods-Telugu Churches-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,7 +550,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A5D25F31FFF76A300316988 /* ViewController.swift in Sources */,
+				9A5D25F31FFF76A300316988 /* LoginViewController.swift in Sources */,
 				9AA3AB6D2011D7420065D4BD /* ImmutableMappable.swift in Sources */,
 				9AA3AB702011D7420065D4BD /* Map.swift in Sources */,
 				9AA3AB792011D7420065D4BD /* DateFormatterTransform.swift in Sources */,
@@ -544,6 +574,7 @@
 				9AA3AB7C2011D7420065D4BD /* ISO8601DateTransform.swift in Sources */,
 				3D65D4B32004D9A200CAB226 /* CCKFNavDrawer.m in Sources */,
 				9AA3AB6E2011D7420065D4BD /* Operators.swift in Sources */,
+				3DDD891520186E5E00918711 /* SignUpButtonsCell.swift in Sources */,
 				9AA3AB732011D7420065D4BD /* IntegerOperators.swift in Sources */,
 				9AA3AB712011D7420065D4BD /* ToJSON.swift in Sources */,
 				9A5D26221FFF89F200316988 /* TermsAndConditionCell.swift in Sources */,
@@ -551,7 +582,9 @@
 				9A5D262E1FFF8A3700316988 /* AddMoneyCell.swift in Sources */,
 				3D65D4B62004D9A200CAB226 /* DrawerView.m in Sources */,
 				9A5D26321FFF8A3F00316988 /* SendMoneyToWalletCell.swift in Sources */,
+				3DDD8910201865F600918711 /* SignUPTableViewCell.swift in Sources */,
 				9A5D25F11FFF76A300316988 /* AppDelegate.swift in Sources */,
+				3DDD890D2018567300918711 /* SignUpViewController.swift in Sources */,
 				9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */,
 				9A5D260B1FFF896900316988 /* CAPSPageMenu.swift in Sources */,
 				9AA3AB6C2011D7420065D4BD /* Mapper.swift in Sources */,
@@ -639,7 +672,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -684,7 +717,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

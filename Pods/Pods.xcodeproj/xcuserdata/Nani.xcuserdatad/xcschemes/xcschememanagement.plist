@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>IQKeyboardManagerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Telugu Churches.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TextFieldEffects.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0FC3E5060BC307F6B4D90CC63B1C430F</key>
+		<key>515B42C8413643190994C981430A4603</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E5A396B21B99489652E6719653ED127</key>
+		<key>5456627FEE1DB0D015F7C43B50096F59</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>643EF42C9AE8001E6ED2DB28A0C4DAE8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C235F77E101E742652CCF98FFDFA5182</key>
 		<dict>
 			<key>primary</key>
 			<true/>

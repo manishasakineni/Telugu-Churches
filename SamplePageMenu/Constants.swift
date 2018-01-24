@@ -9,5 +9,12 @@
 import Foundation
 
 
+ // MARK: -  API's
 
 let videosURL = "http://192.168.1.123/TeluguChurchesApi/api/GetEmbedLinks/"
+
+
+// MARK: -  Navigation String
+
+
+let KFirstTimeLogin = "first Time Login"

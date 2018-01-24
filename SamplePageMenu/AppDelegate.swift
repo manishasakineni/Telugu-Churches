@@ -7,15 +7,38 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        IQKeyboardManager.sharedManager().enable = true
+       // IQKeyboardManager.sharedManager().accessibilityElementsHidden = false
         // Override point for customization after application launch.
+        
+        if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
+            
+            let homeNav : UINavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! UINavigationController
+            
+            self.window?.rootViewController = homeNav
+            
+        }
+            
+        else{
+            
+            let LoginNav : LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            
+            self.window?.rootViewController = LoginNav
+            
+            
+            
+            
+        }
         
         
         

@@ -6,6 +6,9 @@ target 'Telugu Churches' do
   use_frameworks!
 pod 'youtube-ios-player-helper', :git=>'https://github.com/youtube/youtube-ios-player-helper', :commit=>'head'
 
+pod "TextFieldEffects"
+pod 'IQKeyboardManagerSwift'
+
   # Pods for Telugu Churches
 
 end
