@@ -79,7 +79,7 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         
         rechargesVC = RechargesViewController(nibName: "RechargesViewController",
                                               bundle: nil)
-        rechargesVC?.title = "Events"
+        rechargesVC?.title = "Audio"
         rechargesVC?.delegate  = self
         //   rechargesVC?.getLabelForShippedOrders()
         
@@ -92,7 +92,7 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         
         mearchantVC = MearchantViewController(nibName: "MearchantViewController",
                                               bundle: nil)
-        mearchantVC?.title = "Live"
+        mearchantVC?.title = "Events"
         mearchantVC?.delegate  = self
         //     mearchantVC?.getLabelForAllOrders()
         

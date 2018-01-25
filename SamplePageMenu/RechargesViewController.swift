@@ -7,12 +7,30 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
 
-class RechargesViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource{
+
+class RechargesViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource,UIWebViewDelegate{
 
     @IBOutlet weak var rechargeTableView: UITableView!
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
     var delegate: changeSubtitleOfIndexDelegate?
 
+    
+    var playerVars = Dictionary<String, Any>()
+
+    
+    
+    
     
     
     let imageView = ["bible6","bible7","bible8","bible9","images.jpeg","bible3","bible8","bible2","bible1"]
@@ -26,7 +44,18 @@ class RechargesViewController: UIViewController,UITableViewDelegate ,UITableView
         
         rechargeTableView.delegate = self
         rechargeTableView.dataSource = self
+        
+        
+    
 
+        
+        
+        
+//        audioWebView.delegate = self
+//        if let url = URL(string:"http://radio.spainmedia.es/wp-content/uploads/2015/12/ogilvy.mp3") {
+//            let request = URLRequest(url: url)
+//            audioWebView.loadRequest(request)
+//        }
         
         registerTableViewCells()
         
@@ -89,7 +118,8 @@ class RechargesViewController: UIViewController,UITableViewDelegate ,UITableView
         
     }
     
-   
+    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

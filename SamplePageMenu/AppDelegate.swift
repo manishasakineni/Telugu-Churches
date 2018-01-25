@@ -31,9 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         else{
             
-            let LoginNav : LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            let launchNav : LaunchScreenViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LaunchScreenViewController") as! LaunchScreenViewController
             
-            self.window?.rootViewController = LoginNav
+            self.window?.rootViewController = launchNav
             
             
             
