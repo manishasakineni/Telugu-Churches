@@ -14,9 +14,9 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     
 
-    var menuArray = ["","Library","Sermons","Events","Sound Cloud","maps","Subscriptions","Donations","settings"]
+    var menuArray = ["","Library","Sermons","Events","Sound Cloud","maps","Subscriptions","Donations","settings","LogIn"]
     
-    let imageView = ["","ibrary-50","speech","event","sound","Maps","Subscriptions","Subscriptions","Settings"]
+    let imageView = ["","ibrary-50","speech","event","sound","Maps","Subscriptions","Subscriptions","Settings","icons8-login_rounded_up_filled"]
     
 
     

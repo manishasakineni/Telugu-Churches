@@ -84,6 +84,8 @@
 		9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB692011D7420065D4BD /* TransformType.swift */; };
 		9AA3AB812011D7420065D4BD /* DictionaryTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB6A2011D7420065D4BD /* DictionaryTransform.swift */; };
 		9AEAE822201F1D0100DB9D8E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEAE821201F1D0100DB9D8E /* Utilities.swift */; };
+		9AEAE824201F491800DB9D8E /* GlobalSupportingClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEAE823201F491700DB9D8E /* GlobalSupportingClass.swift */; };
+		9AEAE826201F4FC800DB9D8E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEAE825201F4FC700DB9D8E /* BaseViewController.swift */; };
 		AF1956E520048BE3007AC82A /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956E420048BE3007AC82A /* SideMenuViewController.swift */; };
 		AF1956EA200492F4007AC82A /* menuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956E8200492F4007AC82A /* menuTableViewCell.swift */; };
 		AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956E9200492F4007AC82A /* menuTableViewCell.xib */; };
@@ -177,6 +179,8 @@
 		9AA3AB692011D7420065D4BD /* TransformType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformType.swift; sourceTree = "<group>"; };
 		9AA3AB6A2011D7420065D4BD /* DictionaryTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryTransform.swift; sourceTree = "<group>"; };
 		9AEAE821201F1D0100DB9D8E /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		9AEAE823201F491700DB9D8E /* GlobalSupportingClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSupportingClass.swift; sourceTree = "<group>"; };
+		9AEAE825201F4FC700DB9D8E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9C2110E70A197746D811F760 /* Pods-Telugu Churches.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telugu Churches.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Telugu Churches/Pods-Telugu Churches.debug.xcconfig"; sourceTree = "<group>"; };
 		AF1956E420048BE3007AC82A /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		AF1956E8200492F4007AC82A /* menuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuTableViewCell.swift; sourceTree = "<group>"; };
@@ -245,6 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				9A5D25F01FFF76A300316988 /* AppDelegate.swift */,
+				9AEAE823201F491700DB9D8E /* GlobalSupportingClass.swift */,
+				9AEAE825201F4FC700DB9D8E /* BaseViewController.swift */,
 				9AEAE821201F1D0100DB9D8E /* Utilities.swift */,
 				9A5D25F41FFF76A300316988 /* Main.storyboard */,
 				9A5D25EF1FFF76A300316988 /* Telugu Churches */,
@@ -576,6 +582,7 @@
 				3D65D4A72004CE4A00CAB226 /* VideoTableViewCell.swift in Sources */,
 				3D65D4B42004D9A200CAB226 /* DrawerCell.m in Sources */,
 				9AA3AB6F2011D7420065D4BD /* FromJSON.swift in Sources */,
+				9AEAE824201F491800DB9D8E /* GlobalSupportingClass.swift in Sources */,
 				3D551C632011F6BE005DB3B2 /* ServiceController.swift in Sources */,
 				3D551C652011FE59005DB3B2 /* VideosResultVO.swift in Sources */,
 				9AA3AB752011D7420065D4BD /* MapError.swift in Sources */,
@@ -605,6 +612,7 @@
 				9AA3AB7F2011D7420065D4BD /* CustomDateFormatTransform.swift in Sources */,
 				9AA3AB772011D7420065D4BD /* EnumOperators.swift in Sources */,
 				9AA3AB6B2011D7420065D4BD /* TransformOperators.swift in Sources */,
+				9AEAE826201F4FC800DB9D8E /* BaseViewController.swift in Sources */,
 				9A5D263E1FFF8A5D00316988 /* ScrollImagesCell.swift in Sources */,
 				9AA3AB7B2011D7420065D4BD /* TransformOf.swift in Sources */,
 				9A5D26071FFF795200316988 /* SWRevealViewController.m in Sources */,

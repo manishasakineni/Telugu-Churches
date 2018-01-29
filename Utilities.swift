@@ -59,6 +59,24 @@ class Utilities: NSObject {
     
     
     
+    //MARK:- UIAlert Controller Actions
+    
+    func alertWithOkButtonAction(vc :UIViewController, alertTitle:String, messege: String ,clickAction:@escaping () -> Void) {
+        
+        let capsMsg  = messege.capitalizingFirstLetter()
+        let alrtControl = UIAlertController(title: alertTitle, message: capsMsg , preferredStyle: .alert)
+        
+        let cancelButton = UIAlertAction(title: "OK", style: .default) { _ in
+            clickAction()
+            
+        }
+        alrtControl.addAction(cancelButton)
+        vc.present(alrtControl, animated: true, completion: nil)
+        
+    }
+    
+ 
+    
     
     
     class func setSignUpViewControllerNavBarColorInCntrWithColor(backImage: String?,cntr: UIViewController,titleView: UIView?, withText title: String, backTitle:String, rightImage: String, secondRightImage:String, thirdRightImage : String) {
@@ -85,7 +103,7 @@ class Utilities: NSObject {
             
             cntr.navigationController!.navigationBar.isTranslucent = false
             cntr.navigationController!.isNavigationBarHidden = false
-            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 61.0/255.0, green: 61.0/255.0, blue: 61.0/255.0, alpha: 1.0)
+            cntr.navigationController!.navigationBar.barTintColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 217.0/255.0, alpha: 1.0)
             cntr.navigationController!.navigationBar.tintColor = UIColor.white
             //            cntr.navigationController?.navigationBar.barStyle = .black
         }
@@ -107,6 +125,19 @@ class Utilities: NSObject {
         cntr.navigationItem.leftBarButtonItems = [barbuttonitem1]
         
         
+    }
+    
+    
+}
+//MARK: String Extensions
+
+extension String {
+    
+    func capitalizingFirstLetter() -> String {
+        
+        let first = String(characters.prefix(1)).capitalized
+        let other = String(characters.dropFirst())
+        return first + other
     }
     
     
