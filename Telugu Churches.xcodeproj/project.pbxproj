@@ -83,6 +83,7 @@
 		9AA3AB7F2011D7420065D4BD /* CustomDateFormatTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB682011D7420065D4BD /* CustomDateFormatTransform.swift */; };
 		9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB692011D7420065D4BD /* TransformType.swift */; };
 		9AA3AB812011D7420065D4BD /* DictionaryTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3AB6A2011D7420065D4BD /* DictionaryTransform.swift */; };
+		9AEAE822201F1D0100DB9D8E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEAE821201F1D0100DB9D8E /* Utilities.swift */; };
 		AF1956E520048BE3007AC82A /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956E420048BE3007AC82A /* SideMenuViewController.swift */; };
 		AF1956EA200492F4007AC82A /* menuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956E8200492F4007AC82A /* menuTableViewCell.swift */; };
 		AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956E9200492F4007AC82A /* menuTableViewCell.xib */; };
@@ -175,6 +176,7 @@
 		9AA3AB682011D7420065D4BD /* CustomDateFormatTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDateFormatTransform.swift; sourceTree = "<group>"; };
 		9AA3AB692011D7420065D4BD /* TransformType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformType.swift; sourceTree = "<group>"; };
 		9AA3AB6A2011D7420065D4BD /* DictionaryTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryTransform.swift; sourceTree = "<group>"; };
+		9AEAE821201F1D0100DB9D8E /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		9C2110E70A197746D811F760 /* Pods-Telugu Churches.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telugu Churches.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Telugu Churches/Pods-Telugu Churches.debug.xcconfig"; sourceTree = "<group>"; };
 		AF1956E420048BE3007AC82A /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		AF1956E8200492F4007AC82A /* menuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuTableViewCell.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				9A5D25F01FFF76A300316988 /* AppDelegate.swift */,
+				9AEAE821201F1D0100DB9D8E /* Utilities.swift */,
 				9A5D25F41FFF76A300316988 /* Main.storyboard */,
 				9A5D25EF1FFF76A300316988 /* Telugu Churches */,
 				9A5D25EE1FFF76A300316988 /* Products */,
@@ -612,6 +615,7 @@
 				9A5D263A1FFF8A5100316988 /* PageControllCell.swift in Sources */,
 				9A5D260E1FFF89B700316988 /* AllOffersViewController.swift in Sources */,
 				9A5D261E1FFF89EA00316988 /* TransactionCell.swift in Sources */,
+				9AEAE822201F1D0100DB9D8E /* Utilities.swift in Sources */,
 				AF1956E520048BE3007AC82A /* SideMenuViewController.swift in Sources */,
 				9A5D26161FFF89D100316988 /* DetAndBillsViewController.swift in Sources */,
 				9AA3AB762011D7420065D4BD /* URLTransform.swift in Sources */,

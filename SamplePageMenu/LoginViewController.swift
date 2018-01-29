@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TextFieldEffects
 
 class LoginViewController: UIViewController {
     
@@ -30,7 +31,26 @@ class LoginViewController: UIViewController {
     }
 
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = true
+        
+        
+//        Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-hand_right_filled-1", cntr:self, titleView: nil, withText: "", backTitle: " InspectionPro", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+//        
+//        //navigationItem.leftBarButtonItems = []
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+
+
+        
+    }
     
     @IBAction func loginClicked(_ sender: Any) {
         
@@ -47,6 +67,10 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func remembermeClicked(_ sender: Any) {
+        
+        
+        
+        
     }
     
     
@@ -61,10 +85,27 @@ class LoginViewController: UIViewController {
 //        let signUpVc  : SignUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
 //        
 //        self.navigationController?.pushViewController(signUpVc, animated: true)
+//        
         
-               let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
         
-        appDelegate.window?.rootViewController = rootController
+        
+        
+        
+       // let  signUpViewController = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
+        
+        let signUpViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        
+//        failedViewController.deficencyCorrectiveModelArray = deficencyCorrectiveModelArray
+//        failedViewController.operationArray = operationsModelArray
+//        
+        self.navigationController?.pushViewController(signUpViewController, animated: true)
+        
+
+        
+//
+//        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+//        
+//        appDelegate.window?.rootViewController = rootController
         
         
         

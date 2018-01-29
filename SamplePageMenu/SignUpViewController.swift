@@ -14,6 +14,11 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     @IBOutlet weak var signUpTableView: UITableView!
     
+    
+    var appVersion          : String = ""
+
+    
+    
     var sectionsTitle : [String] = [" "]
      var signUpTFPlaceholdersArray = ["Full Name","E-Mail","Mobile Number","Password","Confirm Password"]
 
@@ -39,6 +44,20 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
         signUpTableView.register(nibName1, forCellReuseIdentifier: "SignUPTableViewCell")
         
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-hand_right_filled-1", cntr:self, titleView: nil, withText: "", backTitle: " InspectionPro", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+        //navigationItem.leftBarButtonItems = []
+        
+    }
+    
+    
+    
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -121,6 +140,21 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
         return signUPCell
     }
     
+
+    
+    
+    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+        
+        //   navigationItem.leftBarButtonItems = []
+//        
+//        failedTableView.resignFirstResponder()
+//        failedTableView.endEditing(true)
+//        let poppedVC = navigationController?.popViewController(animated: true)
+//        print(poppedVC as Any)
+        
+        print("Back Button Tapped......")
+        
+    }
 
     
 

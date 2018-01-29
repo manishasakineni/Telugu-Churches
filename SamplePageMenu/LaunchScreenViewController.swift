@@ -38,7 +38,7 @@ class LaunchScreenViewController: UIViewController {
         
         
         
-        let LoginNav : LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let LoginNav : UINavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootloginVC") as! UINavigationController
         
         appDelegate.window?.rootViewController = LoginNav
         
