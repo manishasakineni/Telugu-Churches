@@ -258,7 +258,7 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
             
         if activeTextField.tag == 0{
             
-            activeTextField.textColor = UIColor.red
+          //  activeTextField.textColor = UIColor.red
                 userNameEmpty = textField.text!
                 
             }
@@ -459,6 +459,21 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
         if self.validateAllFields()
         {
             
+            //   navigationItem.leftBarButtonItems = []
+            let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            
+            
+            
+            
+            self.navigationController?.pushViewController(loginViewController, animated: true)
+            
+          
+//            let LoginNav : UINavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootloginVC") as! UINavigationController
+//            
+//            appDelegate.window?.rootViewController = LoginNav
+//            
+            
+            
             print("Registerd")
           //  updateProfileAPIService()
         }
@@ -472,6 +487,8 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     }
     
+        
+        
         print("Submit Button Clicked......")
 
     
@@ -510,12 +527,12 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
         else if (mobileNumberStr.length <= 0){
             
-            errorMessage=GlobalSupportingClass.blankPhoneNumberErrorMessage() as String as String as NSString?
+            errorMessage=GlobalSupportingClass.blankMobilenumberErrorMessage() as String as String as NSString?
             
         }
         else if (mobileNumberStr.length <= 9) {
             
-            errorMessage=GlobalSupportingClass.invalidPhoneNumberErrorMessage() as String as String as NSString?
+            errorMessage=GlobalSupportingClass.invalidMobilenumberErrorMessage() as String as String as NSString?
         }
             
 //        else if (mobileNumberStr.length > 9) {
@@ -539,7 +556,10 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             errorMessage=GlobalSupportingClass.specialCharacterMessage() as String as String as NSString?
         }
+       else if (passWord.length <= 14) {
             
+            errorMessage=GlobalSupportingClass.invalidPassWordErrorMessage() as String as String as NSString?
+        }
             
         else if(confirmPassWord.length<=0){
             errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?

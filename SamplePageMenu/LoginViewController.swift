@@ -21,6 +21,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var remembermeBtn: UIButton!
     
+    @IBOutlet weak var eyeBtnOutlet: UIButton!
     
     var email = ""
     var password = ""
@@ -34,17 +35,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         mobileEmailTF.delegate = self
         passwordTF.delegate = self
         
+      //  eyeBtnOutlet.isHidden = true
+
         
         //  mobileEmailTF.keyboardType = .emailAddress
 //        mobileEmailTF.borderStyle = UITextBorderStyle.roundedRect
 //        passwordTF.borderStyle = UITextBorderStyle.roundedRect
 //        
-        mobileEmailTF.maxLengthTextField = 40
-        mobileEmailTF.keyboardType = .emailAddress
+        mobileEmailTF.maxLengthTextField = 10
+        mobileEmailTF.keyboardType = .phonePad
         passwordTF.maxLengthTextField = 15
         passwordTF.keyboardType = .emailAddress
         
-        remembermeBtn.setBackgroundImage(UIImage(named: "ic_check_circle"), for: UIControlState.normal)
+        remembermeBtn.setBackgroundImage(UIImage(named: "icons8-checked_filled-1"), for: UIControlState.normal)
 
         
         
@@ -74,6 +77,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
 
+    }
+    
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+         if textField == passwordTF{
+            
+            passwordTF.isSecureTextEntry = true
+            
+        }
+        
     }
     
     
@@ -175,7 +189,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
         else if (  email.characters.count <= 9){
             
-            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Warning", messege: "Email or MobileNumber Should be10digits", clickAction: {
+            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Warning", messege: "Invalid EmailID or MobileNumber", clickAction: {
                 
             })
             
@@ -203,10 +217,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         else {
             
-            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Warning", messege: "Please Check Your Internetconnection!", clickAction: {
-                
-                
-            })
+            
+            
+            
+//                    let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+//            
+//            
+//                     appDelegate.window?.rootViewController = rootController
+            
+//            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Warning", messege: "Please Check Your Internetconnection!", clickAction: {
+//                
+//                
+//            })
             
         }
 
@@ -273,10 +295,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         var errorMessage:NSString?
         
         if (mnumb.length<=0) {
-            errorMessage=GlobalSupportingClass.blankPhoneNumberErrorMessage() as String as String as NSString?
+            errorMessage=GlobalSupportingClass.blankMobilenumberErrorMessage() as String as String as NSString?
         }
         else if (mnumb.length<=9) {
-            errorMessage=GlobalSupportingClass.invalidPhoneNumberErrorMessage() as String as String as NSString?
+            errorMessage=GlobalSupportingClass.invalidMobilenumberErrorMessage() as String as String as NSString?
         }
             
         else if (pasword.length<=0) {
@@ -293,6 +315,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBAction func forgotPasswordClicked(_ sender: Any) {
+        
+        
+        let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ForgotPassWordViewController") as! ForgotPassWordViewController
+       // reOrderPopOverVC.delegate = self
+        
+            //    reOrderPopOverVC. singleSelection =
+            //   var imagesArray : Array<UIImage> = Array()
+            
+        
+                self.addChildViewController(reOrderPopOverVC)
+                
+                reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+                self.view.addSubview(reOrderPopOverVC.view)
+                reOrderPopOverVC.didMove(toParentViewController: self)
+        
+        
+        
+        
     }
 
     @IBAction func remembermeClicked(_ sender: Any) {
@@ -300,7 +340,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if (remembermeBtn.isSelected == true)
         {
           //  remembermeBtn.setBackgroundImage(UIImage(named: "unselectedBox"), for: UIControlState.normal)
-            remembermeBtn.setBackgroundImage(UIImage(named: "ic_check_circle"), for: UIControlState.normal)
+            remembermeBtn.setBackgroundImage(UIImage(named: "icons8-checked_filled-1"), for: UIControlState.normal)
             
             
             
@@ -309,7 +349,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         else
         {
          //   remembermeBtn.setBackgroundImage(UIImage(named: "ic_check_circle"), for: UIControlState.normal)
-            remembermeBtn.setBackgroundImage(UIImage(named: "unselectedBox"), for: UIControlState.normal)
+            remembermeBtn.setBackgroundImage(UIImage(named: "icons8-unchecked_circle_filled"), for: UIControlState.normal)
             
             remembermeBtn.isSelected = true
             
@@ -358,6 +398,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
 
+    @IBAction func eyeBtnAction(_ sender: Any) {
+        
+        if eyeBtnOutlet.tag == 0
+        {
+            passwordTF.isSecureTextEntry = false
+            eyeBtnOutlet.tag = 1
+        }
+        else{
+            
+            passwordTF.isSecureTextEntry = true
+            eyeBtnOutlet.tag = 0
+            
+            
+        }
+        
+    }
 }
 
 

@@ -23,10 +23,10 @@ class GlobalSupportingClass {
     
 
     class func blankUserNameErrorMessage() -> String {
-        return "Please Select UserName"
+        return "Please Provide UserName"
     }
     class func blankEmailIDErrorMessage() -> String {
-        return "Please provide EmailID"
+        return "Please Provide EmailID"
     }
     class func blankMobileNumberErrorMessage() -> String {
         return "Please Select MobileNumber"
@@ -57,15 +57,18 @@ class GlobalSupportingClass {
     }
     
     class func invalidDigitsInPasswordErrorMessage() -> String {
-        return "Password Should Be Of Minimum 15-Character"
+        return "InCorrect ConfirmPassWord"
     }
     class func passwordMissMatchErrorMessage() -> String {
-        return "Passwordmissmatch"
+        return "Passwor Missmatch"
     }
     
     
     class func blankPasswordErrorMessage() -> String {
         return "Please Provide Password"
+    }
+    class func blankResetPasswordErrorMessage() -> String {
+        return "Please Provide Reset-Password"
     }
 //    class func blankConfirmPassWordErrorMessage() -> String {
 //        return "Please ConfirmPassWord Password"
@@ -76,13 +79,16 @@ class GlobalSupportingClass {
     
     
     
-    class func blankPhoneNumberErrorMessage() -> String {
+    class func blankMobilenumberErrorMessage() -> String {
         return "Please Provide Your Mobilenumber"
     }
-    class func invalidPhoneNumberErrorMessage() -> String {
-        return "Please Provide 15-Digits Mobilenumber"
+    class func invalidMobilenumberErrorMessage() -> String {
+        return "Please Provide 10-Digits Mobilenumber"
     }
    
+    class func invalidPassWordErrorMessage() -> String {
+        return "Please Provide 15-Digits PassWord"
+    }
 //    class func invalidPhoneNumberErrorMessage() -> String {
 //        return "app.Pleaseprovide10digitsmobilenumber".localize()
 //    }

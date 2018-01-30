@@ -87,6 +87,11 @@
 		9AEAE822201F1D0100DB9D8E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEAE821201F1D0100DB9D8E /* Utilities.swift */; };
 		9AEAE824201F491800DB9D8E /* GlobalSupportingClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEAE823201F491700DB9D8E /* GlobalSupportingClass.swift */; };
 		9AEAE826201F4FC800DB9D8E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEAE825201F4FC700DB9D8E /* BaseViewController.swift */; };
+		9AF564992020944800AEA0EF /* ForgotPassWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF564982020944800AEA0EF /* ForgotPassWordViewController.swift */; };
+		9AF5649D2020972900AEA0EF /* ForgotPasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5649B2020972900AEA0EF /* ForgotPasswordCell.swift */; };
+		9AF5649E2020972900AEA0EF /* ForgotPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AF5649C2020972900AEA0EF /* ForgotPasswordCell.xib */; };
+		9AF564A120209C4F00AEA0EF /* ConformButtonPassWordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5649F20209C4F00AEA0EF /* ConformButtonPassWordCell.swift */; };
+		9AF564A220209C4F00AEA0EF /* ConformButtonPassWordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AF564A020209C4F00AEA0EF /* ConformButtonPassWordCell.xib */; };
 		AF1956E520048BE3007AC82A /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956E420048BE3007AC82A /* SideMenuViewController.swift */; };
 		AF1956EA200492F4007AC82A /* menuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956E8200492F4007AC82A /* menuTableViewCell.swift */; };
 		AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956E9200492F4007AC82A /* menuTableViewCell.xib */; };
@@ -183,6 +188,11 @@
 		9AEAE821201F1D0100DB9D8E /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		9AEAE823201F491700DB9D8E /* GlobalSupportingClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSupportingClass.swift; sourceTree = "<group>"; };
 		9AEAE825201F4FC700DB9D8E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		9AF564982020944800AEA0EF /* ForgotPassWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPassWordViewController.swift; sourceTree = "<group>"; };
+		9AF5649B2020972900AEA0EF /* ForgotPasswordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordCell.swift; sourceTree = "<group>"; };
+		9AF5649C2020972900AEA0EF /* ForgotPasswordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotPasswordCell.xib; sourceTree = "<group>"; };
+		9AF5649F20209C4F00AEA0EF /* ConformButtonPassWordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConformButtonPassWordCell.swift; sourceTree = "<group>"; };
+		9AF564A020209C4F00AEA0EF /* ConformButtonPassWordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConformButtonPassWordCell.xib; sourceTree = "<group>"; };
 		9C2110E70A197746D811F760 /* Pods-Telugu Churches.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telugu Churches.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Telugu Churches/Pods-Telugu Churches.debug.xcconfig"; sourceTree = "<group>"; };
 		AF1956E420048BE3007AC82A /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		AF1956E8200492F4007AC82A /* menuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuTableViewCell.swift; sourceTree = "<group>"; };
@@ -298,6 +308,7 @@
 		9A5D26401FFF95EF00316988 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9AF564972020941200AEA0EF /* ForgotPasswordViewController */,
 				9A88D6162019EB0C0021F862 /* LaunchScreenViewControllwe */,
 				AF1956E320048BBC007AC82A /* SideMenuViewController */,
 				9A5D25F21FFF76A300316988 /* LoginViewController.swift */,
@@ -328,6 +339,7 @@
 		9A5D26421FFF963700316988 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				9AF5649A202096DC00AEA0EF /* ForgotPasswordCell */,
 				3DDD89122018662100918711 /* SignUpCells */,
 				9A5D261C1FFF89EA00316988 /* TransactionCell.swift */,
 				9A5D261D1FFF89EA00316988 /* TransactionCell.xib */,
@@ -396,6 +408,25 @@
 				9AA3AB6A2011D7420065D4BD /* DictionaryTransform.swift */,
 			);
 			name = ObjectMapper;
+			sourceTree = "<group>";
+		};
+		9AF564972020941200AEA0EF /* ForgotPasswordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9AF564982020944800AEA0EF /* ForgotPassWordViewController.swift */,
+			);
+			name = ForgotPasswordViewController;
+			sourceTree = "<group>";
+		};
+		9AF5649A202096DC00AEA0EF /* ForgotPasswordCell */ = {
+			isa = PBXGroup;
+			children = (
+				9AF5649B2020972900AEA0EF /* ForgotPasswordCell.swift */,
+				9AF5649C2020972900AEA0EF /* ForgotPasswordCell.xib */,
+				9AF5649F20209C4F00AEA0EF /* ConformButtonPassWordCell.swift */,
+				9AF564A020209C4F00AEA0EF /* ConformButtonPassWordCell.xib */,
+			);
+			name = ForgotPasswordCell;
 			sourceTree = "<group>";
 		};
 		AF1956E320048BBC007AC82A /* SideMenuViewController */ = {
@@ -504,7 +535,9 @@
 				9A5D26171FFF89D100316988 /* DetAndBillsViewController.xib in Resources */,
 				3D65D4B72004D9A200CAB226 /* DrawerView.xib in Resources */,
 				9A5D25F81FFF76A300316988 /* Assets.xcassets in Resources */,
+				9AF564A220209C4F00AEA0EF /* ConformButtonPassWordCell.xib in Resources */,
 				9A5D25F61FFF76A300316988 /* Main.storyboard in Resources */,
+				9AF5649E2020972900AEA0EF /* ForgotPasswordCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +631,7 @@
 				9AA3AB7C2011D7420065D4BD /* ISO8601DateTransform.swift in Sources */,
 				3D65D4B32004D9A200CAB226 /* CCKFNavDrawer.m in Sources */,
 				9AA3AB6E2011D7420065D4BD /* Operators.swift in Sources */,
+				9AF564992020944800AEA0EF /* ForgotPassWordViewController.swift in Sources */,
 				3DDD891520186E5E00918711 /* SignUpButtonsCell.swift in Sources */,
 				9AA3AB732011D7420065D4BD /* IntegerOperators.swift in Sources */,
 				9AA3AB712011D7420065D4BD /* ToJSON.swift in Sources */,
@@ -614,11 +648,13 @@
 				9AA3AB6C2011D7420065D4BD /* Mapper.swift in Sources */,
 				9AA3AB7F2011D7420065D4BD /* CustomDateFormatTransform.swift in Sources */,
 				9AA3AB772011D7420065D4BD /* EnumOperators.swift in Sources */,
+				9AF564A120209C4F00AEA0EF /* ConformButtonPassWordCell.swift in Sources */,
 				9AA3AB6B2011D7420065D4BD /* TransformOperators.swift in Sources */,
 				9AEAE826201F4FC800DB9D8E /* BaseViewController.swift in Sources */,
 				9A5D263E1FFF8A5D00316988 /* ScrollImagesCell.swift in Sources */,
 				9AA3AB7B2011D7420065D4BD /* TransformOf.swift in Sources */,
 				9A5D26071FFF795200316988 /* SWRevealViewController.m in Sources */,
+				9AF5649D2020972900AEA0EF /* ForgotPasswordCell.swift in Sources */,
 				9AA3AB722011D7420065D4BD /* Mappable.swift in Sources */,
 				9A5D26091FFF7D2500316988 /* HomeViewController.swift in Sources */,
 				9A5CE89620205252005F4ACD /* TextFieldMaxLengths.swift in Sources */,
