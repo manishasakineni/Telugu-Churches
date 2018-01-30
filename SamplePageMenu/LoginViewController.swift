@@ -44,6 +44,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTF.maxLengthTextField = 15
         passwordTF.keyboardType = .emailAddress
         
+        remembermeBtn.setBackgroundImage(UIImage(named: "ic_check_circle"), for: UIControlState.normal)
+
+        
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -294,6 +297,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func remembermeClicked(_ sender: Any) {
         
+        if (remembermeBtn.isSelected == true)
+        {
+          //  remembermeBtn.setBackgroundImage(UIImage(named: "unselectedBox"), for: UIControlState.normal)
+            remembermeBtn.setBackgroundImage(UIImage(named: "ic_check_circle"), for: UIControlState.normal)
+            
+            
+            
+            remembermeBtn.isSelected = false
+        }
+        else
+        {
+         //   remembermeBtn.setBackgroundImage(UIImage(named: "ic_check_circle"), for: UIControlState.normal)
+            remembermeBtn.setBackgroundImage(UIImage(named: "unselectedBox"), for: UIControlState.normal)
+            
+            remembermeBtn.isSelected = true
+            
+        }
         
         
         

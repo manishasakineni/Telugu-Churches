@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A264c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -185,14 +185,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVl-z5-bWH">
-                                <rect key="frame" x="16" y="403" width="20" height="20"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVl-z5-bWH">
+                                <rect key="frame" x="16" y="400" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="4Im-UO-344"/>
-                                    <constraint firstAttribute="height" constant="20" id="DcU-h5-tMq"/>
+                                    <constraint firstAttribute="width" constant="25" id="4Im-UO-344"/>
+                                    <constraint firstAttribute="height" constant="25" id="DcU-h5-tMq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <connections>
                                     <action selector="remembermeClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gF8-uJ-t2w"/>
                                 </connections>
@@ -228,7 +226,7 @@
                             <constraint firstItem="m1e-4J-e5w" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="60" id="Ayz-Vz-Erq"/>
                             <constraint firstItem="l4y-41-aCd" firstAttribute="top" secondItem="k6a-pi-HoT" secondAttribute="bottom" constant="19" id="B0P-IL-udg"/>
                             <constraint firstItem="WlW-Ll-xCJ" firstAttribute="top" secondItem="m1e-4J-e5w" secondAttribute="bottom" constant="25" id="IEp-MX-RrS"/>
-                            <constraint firstItem="Gte-r5-MYD" firstAttribute="centerY" secondItem="EVl-z5-bWH" secondAttribute="centerY" id="Ijc-Bm-R5X"/>
+                            <constraint firstItem="Gte-r5-MYD" firstAttribute="centerY" secondItem="EVl-z5-bWH" secondAttribute="centerY" constant="0.5" id="Ijc-Bm-R5X"/>
                             <constraint firstAttribute="trailing" secondItem="k6a-pi-HoT" secondAttribute="trailing" constant="16" id="MlN-lb-6Sq"/>
                             <constraint firstItem="aU1-nw-80o" firstAttribute="top" secondItem="IDX-iR-YeI" secondAttribute="bottom" constant="25" id="PQI-uQ-njP"/>
                             <constraint firstItem="Ufj-px-E5r" firstAttribute="top" secondItem="Gte-r5-MYD" secondAttribute="bottom" constant="25" id="ShA-rz-4hB"/>
@@ -239,7 +237,7 @@
                             <constraint firstAttribute="trailing" secondItem="m1e-4J-e5w" secondAttribute="trailing" constant="59" id="eFq-qc-w0f"/>
                             <constraint firstItem="aU1-nw-80o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="ehy-Sc-2H7"/>
                             <constraint firstAttribute="trailing" secondItem="0jY-b9-PZn" secondAttribute="trailing" constant="106" id="fB7-TY-qwn"/>
-                            <constraint firstItem="EVl-z5-bWH" firstAttribute="top" secondItem="k6a-pi-HoT" secondAttribute="bottom" constant="19" id="jFl-H2-iDz"/>
+                            <constraint firstItem="EVl-z5-bWH" firstAttribute="top" secondItem="k6a-pi-HoT" secondAttribute="bottom" constant="16" id="jFl-H2-iDz"/>
                             <constraint firstItem="0jY-b9-PZn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="107" id="mau-Lh-zsy"/>
                             <constraint firstItem="k6a-pi-HoT" firstAttribute="top" secondItem="aU1-nw-80o" secondAttribute="bottom" constant="25" id="n1N-M7-g3W"/>
                             <constraint firstItem="Ufj-px-E5r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="60" id="nJu-p3-llx"/>
@@ -247,7 +245,7 @@
                             <constraint firstItem="IDX-iR-YeI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="107" id="ori-Su-bDC"/>
                             <constraint firstAttribute="trailing" secondItem="Ufj-px-E5r" secondAttribute="trailing" constant="59" id="tmz-K6-vlP"/>
                             <constraint firstItem="k6a-pi-HoT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="vD0-Bl-SIB"/>
-                            <constraint firstItem="Gte-r5-MYD" firstAttribute="leading" secondItem="EVl-z5-bWH" secondAttribute="trailing" constant="8" id="yl3-Dq-1hh"/>
+                            <constraint firstItem="Gte-r5-MYD" firstAttribute="leading" secondItem="EVl-z5-bWH" secondAttribute="trailing" constant="3" id="yl3-Dq-1hh"/>
                             <constraint firstItem="l4y-41-aCd" firstAttribute="trailing" secondItem="k6a-pi-HoT" secondAttribute="trailing" id="zsa-PT-IPi"/>
                         </constraints>
                     </view>
