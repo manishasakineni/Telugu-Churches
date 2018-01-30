@@ -28,11 +28,11 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
     var confirmpassWord    : String = ""
 
     
-    var userNameEmpty = ""
-    var emailIDEmpty  = ""
-    var mobileNumberEmpty = ""
-    var passWordEmpty     =  ""
-    var confirmpassWordEmpty  = ""
+    var userNameEmpty : String = ""
+    var emailIDEmpty  : String = ""
+    var mobileNumberEmpty : String = ""
+    var passWordEmpty     : String = ""
+    var confirmpassWordEmpty  : String = ""
     
     
     var sectionsTitle : [String] = [" "]
@@ -43,7 +43,7 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
 
         signUpTableView.delegate = self
         signUpTableView.dataSource = self
-        
+        activeTextField.delegate = self
         registerTableViewCells()
     }
 
@@ -88,55 +88,60 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
         //        }
         
         
-        if let newRegCell : SignUPTableViewCell = textField.superview?.superview as? SignUPTableViewCell {
-            
-            if textField == newRegCell.registrationTextfield {
-                
-                
-                if (newRegCell.registrationTextfield.text != nil)  {
-                    
-                    newRegCell.registrationTextfield.isHidden = false
-                    newRegCell.registrationTextfield.textColor = UIColor(red: 128.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
-                    
-                }
-                    
-                else{
-                    
-                    newRegCell.registrationTextfield.isHidden = true
-                    
-                    
-                }
-            }
-        }
+//        if let newRegCell : SignUPTableViewCell = textField.superview?.superview as? SignUPTableViewCell {
+//            
+//            if textField == newRegCell.registrationTextfield {
+//                
+//                
+//                if (newRegCell.registrationTextfield.text != nil)  {
+//                    
+//                    newRegCell.registrationTextfield.isHidden = false
+//                    newRegCell.registrationTextfield.textColor = UIColor(red: 128.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+//                    
+//                }
+//                    
+//                else{
+//                    
+//                    newRegCell.registrationTextfield.isHidden = true
+//                    
+//                    
+//                }
+//            }
+//        }
       
             
-        else if textField.tag == 0 {
+         if activeTextField.tag == 0 {
             
+            textField.maxLengthTextField = 40
             textField.clearButtonMode = .never
             textField.keyboardType = .default
         }
             
-        else if textField.tag == 1{
+        else if activeTextField.tag == 1{
             
+            textField.maxLengthTextField = 40
+            textField.clearButtonMode = .never
+            textField.keyboardType = .emailAddress
+            
+        }
+            
+        else if activeTextField.tag == 2{
+            
+         //   textField.clearButtonMode = .never
+            textField.maxLengthTextField = 10
+            textField.keyboardType = .phonePad
+            
+        }
+        else if activeTextField.tag == 3{
+            
+            textField.maxLengthTextField = 15
             textField.clearButtonMode = .never
             textField.keyboardType = .default
             
         }
+        else if activeTextField.tag == 4{
             
-        else if textField.tag == 2{
-            
-            textField.clearButtonMode = .never
-            textField.keyboardType = .default
-            
-        }
-        else if textField.tag == 3{
-            
-            textField.clearButtonMode = .never
-            textField.keyboardType = .default
-            
-        }
-        else if textField.tag == 4{
-            
+            textField.maxLengthTextField = 15
             textField.clearButtonMode = .never
             textField.keyboardType = .default
             
@@ -151,16 +156,79 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
         if let newRegCell : SignUPTableViewCell = textField.superview?.superview as? SignUPTableViewCell {
             
             
-            if newRegCell.registrationTextfield.text == nil {
-                
-                newRegCell.registrationTextfield.isHidden = true
-                newRegCell.registrationTextfield.isHidden = false
-                
-                
-            }
+//            if newRegCell.registrationTextfield.text == nil {
+//                
+//                newRegCell.registrationTextfield.isHidden = true
+//                newRegCell.registrationTextfield.isHidden = false
+//                
+//                
+//            }
         }
         return true
     }
+    
+    
+    
+    //MARK:- shouldChangeCharactersIn range
+    
+//    
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        
+//        if textField.tag == 1{
+//            if string.characters.count > 0 {
+//                let allowedCharacters = CharacterSet.letters
+//                
+//                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+//                return unwantedStr.characters.count == 0
+//            }
+//            
+//            return true
+//        }
+//        if textField.tag == 2{
+//            if string.characters.count > 0 {
+//                let allowedCharacters = CharacterSet.letters
+//                
+//                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+//                return unwantedStr.characters.count == 0
+//            }
+//            
+//            return true
+//        }
+//        if textField.tag == 3{
+//            if string.characters.count > 0 {
+//                let allowedCharacters = CharacterSet.letters
+//                
+//                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+//                return unwantedStr.characters.count == 0
+//            }
+//            
+//            return true
+//        }
+//        
+//        if textField.tag == 3{
+//            if string.characters.count > 0 {
+//                let allowedCharacters = CharacterSet.letters
+//                
+//                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+//                return unwantedStr.characters.count == 0
+//            }
+//            
+//            return true
+//        }
+    
+        //        if textField.tag == 5{
+        //            if string.characters.count > 0 {
+        //                let allowedCharacters = CharacterSet.decimalDigits
+        //
+        //                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+        //                return unwantedStr.characters.count == 0
+        //            }
+        //
+        //            return true
+        //        }
+  //      return true
+ //   }
+
     
     
     //MARK:- textFieldDidEndEditing
@@ -169,17 +237,18 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         
+        activeTextField = textField
+
+    
+//        if let newRegCell : SignUPTableViewCell = textField.superview?.superview as? SignUPTableViewCell {
         
-        
-        if let newRegCell : SignUPTableViewCell = textField.superview?.superview as? SignUPTableViewCell {
             
-            
-            if (newRegCell.registrationTextfield.text != nil)  {
-                
-                newRegCell.registrationTextfield.isHidden = false
-                
-                newRegCell.registrationTextfield.textColor = UIColor.lightGray
-            }
+//            if (newRegCell.registrationTextfield.text != nil)  {
+//                
+//                newRegCell.registrationTextfield.isHidden = false
+//                
+//                newRegCell.registrationTextfield.textColor = UIColor.lightGray
+//            }
             
             //            else{
             //
@@ -187,39 +256,39 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
             //
             //            }
             
-        if textField.tag == 0{
+        if activeTextField.tag == 0{
                 
-                userName = textField.text!
-                
-            }
-                
-            else if textField.tag == 1 {
-                
-                emailID = textField.text!
+                userNameEmpty = textField.text!
                 
             }
                 
-            else if textField.tag == 2{
+            else if activeTextField.tag == 1 {
                 
-                mobileNumber = textField.text!
-                
-            }
-            else if textField.tag == 3{
-                
-                passWord = textField.text!
-                
+                emailIDEmpty = textField.text!
                 
             }
                 
-            else if textField.tag == 4{
+            else if activeTextField.tag == 2{
+                
+                mobileNumberEmpty = textField.text!
+                
+            }
+            else if activeTextField.tag == 3{
+                
+                passWordEmpty = textField.text!
                 
                 
-                confirmpassWord = textField.text!
+            }
+                
+            else if activeTextField.tag == 4{
+                
+                
+                confirmpassWordEmpty = textField.text!
                 
             
             }
                 
-        }
+   //     }
         
     }
   
@@ -301,9 +370,9 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
      //   signUPCell.registrationTextfield.placeholder = signUpTFPlaceholdersArray[indexPath.row]
         
 //        signUPCell.selectionStyle = .none
-//        signUPCell.registrationTextfield.delegate = self
+        signUPCell.registrationTextfield.delegate = self
 //        
-//        signUPCell.registrationTextfield.tag = indexPath.row
+        signUPCell.registrationTextfield.tag = indexPath.row
 //        signUPCell.registrationTextfield.layer.borderWidth = 0.5
 //        signUPCell.registrationTextfield.layer.borderColor = UIColor.lightGray.cgColor
 //        signUPCell.registrationTextfield.layer.cornerRadius = 3
@@ -314,49 +383,50 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         if indexPath.row == 0{
             
-            signUPCell.registrationTextfield.text = userName
-            signUPCell.registrationTextfield.keyboardType = .namePhonePad
+         //   signUPCell.registrationTextfield.keyboardType = .namePhonePad
            // signUPCell.registrationTextfield?.text = "app.UserName".localize()
-            signUPCell.registrationTextfield.placeholder = signUpTFPlaceholdersArray[indexPath.row]
+            signUPCell.registrationTextfield.placeholder = "User Name"
+            signUPCell.registrationTextfield.text = userNameEmpty
+
             
         }
             
         else if indexPath.row == 1{
             
-            signUPCell.registrationTextfield.text = emailID
-            signUPCell.registrationTextfield.keyboardType = .emailAddress
+            signUPCell.registrationTextfield.text = emailIDEmpty
+          //  signUPCell.registrationTextfield.keyboardType = .emailAddress
 
            // signUPCell.registrationTextfield?.text = "app.Address1".localize()
-            signUPCell.registrationTextfield.placeholder = signUpTFPlaceholdersArray[indexPath.row]
+            signUPCell.registrationTextfield.placeholder = "E-Mail"
             
             
         }
         else if indexPath.row == 2{
             
-            signUPCell.registrationTextfield.text = mobileNumber
-            signUPCell.registrationTextfield.keyboardType = .numberPad
+            signUPCell.registrationTextfield.text = mobileNumberEmpty
+          //  signUPCell.registrationTextfield.keyboardType = .numberPad
 
            // signUPCell.registrationTextfield?.text = "app.Address2".localize()
-            signUPCell.registrationTextfield.placeholder = signUpTFPlaceholdersArray[indexPath.row]
+            signUPCell.registrationTextfield.placeholder = "Mobile Number"
             
             
             
         }
         else if indexPath.row == 3{
             
-            signUPCell.registrationTextfield.text = passWord
-            signUPCell.registrationTextfield.keyboardType = .emailAddress
+            signUPCell.registrationTextfield.text = passWordEmpty
+          //  signUPCell.registrationTextfield.keyboardType = .emailAddress
            // signUPCell.registrationTextfield?.text = "app.Landmark".localize()
-            signUPCell.registrationTextfield.placeholder = signUpTFPlaceholdersArray[indexPath.row]
+            signUPCell.registrationTextfield.placeholder = "Password"
             
         }
       
         else if indexPath.row == 4{
             
-            signUPCell.registrationTextfield.text = passWord
-            signUPCell.registrationTextfield.keyboardType = .emailAddress
+            signUPCell.registrationTextfield.text = confirmpassWordEmpty
+           // signUPCell.registrationTextfield.keyboardType = .emailAddress
             // signUPCell.registrationTextfield?.text = "app.Landmark".localize()
-            signUPCell.registrationTextfield.placeholder = signUpTFPlaceholdersArray[indexPath.row]
+            signUPCell.registrationTextfield.placeholder = "Confirm Password"
             
             
             
@@ -412,48 +482,46 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
     {
         
         var errorMessage:NSString?
-        
-        let userName:NSString = userNameEmpty as NSString
-        let emailID:NSString = emailIDEmpty as NSString
-        let mobileNumber:NSString =  mobileNumberEmpty  as NSString
+        print("userNameEmpty",userNameEmpty)
+        let userNameStr:NSString = userNameEmpty as NSString
+        print("userNameStr",userNameStr)
+        let emailIDStr:NSString = emailIDEmpty as NSString
+        let mobileNumberStr:NSString =  mobileNumberEmpty  as NSString
         let passWord:NSString = passWordEmpty   as NSString
-        let confirmpassWord:NSString =  confirmpassWordEmpty  as NSString
+        let confirmPassWord:NSString =  confirmpassWordEmpty  as NSString
         
         
-        
-        
-        
-        if (userName.length <= 0){
-            
+        if (userNameStr.length <= 0){
             errorMessage=GlobalSupportingClass.blankUserNameErrorMessage() as String as String as NSString?
             
         }
-        else if (mobileNumber.length <= 0){
             
-            errorMessage=GlobalSupportingClass.blankMobileNumberErrorMessage() as String as String as NSString?
-            
-        }
-        else if (mobileNumber.length <= 9) {
-            
-            errorMessage=GlobalSupportingClass.miniCharMobileNumberErrorMessage() as String as String as NSString?
-        }
-            
-        else  if(!GlobalSupportingClass.isOnlyNumbers(mobileNumber as NSString))
-        {
-            errorMessage=GlobalSupportingClass.invalidMobileNumberErrorMessage() as String as String as NSString?
-        }
-            
-        else if (emailID.length<=0) {
+        else if (emailIDStr.length<=0) {
             errorMessage=GlobalSupportingClass.blankEmailIDErrorMessage() as String as String as NSString?
         }
             
-        else  if (emailID.length<=3) {
+        else  if (emailIDStr.length<=3) {
             errorMessage=GlobalSupportingClass.miniCharEmailIDErrorMessage() as String as String as NSString?
         }
-        else  if(!GlobalSupportingClass.isValidEmail(emailID as NSString))
+        else  if(!GlobalSupportingClass.isValidEmail(emailIDStr as NSString))
         {
             errorMessage=GlobalSupportingClass.invalidEmaildIDFormatErrorMessage() as String as String as NSString?
         }
+        else if (mobileNumberStr.length <= 0){
+            
+            errorMessage=GlobalSupportingClass.blankPhoneNumberErrorMessage() as String as String as NSString?
+            
+        }
+        else if (mobileNumberStr.length <= 9) {
+            
+            errorMessage=GlobalSupportingClass.invalidPhoneNumberErrorMessage() as String as String as NSString?
+        }
+            
+//        else if (mobileNumberStr.length > 9) {
+//            
+//            
+//            errorMessage=GlobalSupportingClass.invalidPhoneNumberErrorMessage() as String as String as NSString?
+//        }
             
         else if (passWord.length<=0) {
             errorMessage=GlobalSupportingClass.blankPasswordErrorMessage() as String as String as NSString?
@@ -470,22 +538,20 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             errorMessage=GlobalSupportingClass.specialCharacterMessage() as String as String as NSString?
         }
-        else if (confirmpassWord.length<=0) {
-            errorMessage=GlobalSupportingClass.blankPasswordErrorMessage() as String as String as NSString?
+            
+            
+        else if(confirmPassWord.length<=0){
+            errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?
         }
-//        else if(!GlobalSupportingClass.capitalOnly(confirmpassWord: confirmpassWord as String)) {
-//            
-//            errorMessage=GlobalSupportingClass.capitalLetterMessage() as String as String as NSString?
-//        }
-//        else if(!GlobalSupportingClass.numberOnly(confirmpassWord: confirmpassWord as String)) {
-//            
-//            errorMessage=GlobalSupportingClass.numberMessage() as String as String as NSString?
-//        }
-//        else if(!GlobalSupportingClass.specialCharOnly(confirmpassWord: confirmpassWord as String)) {
-//            
-//            errorMessage=GlobalSupportingClass.specialCharacterMessage() as String as String as NSString?
-//        }
-        
+            
+        else if(passWord.length<5||confirmPassWord.length<5)
+        {
+            errorMessage = GlobalSupportingClass.invalidDigitsInPasswordErrorMessage() as String as String as NSString?
+        }
+        else if(!passWord.isEqual(to: confirmPassWord as String)){
+            errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
+        }
+
                 if let errorMsg = errorMessage{
         
                     self.showAlertViewWithTitle("Alert", message: errorMsg as String, buttonTitle: "Retry")

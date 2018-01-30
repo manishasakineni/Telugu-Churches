@@ -25,6 +25,7 @@
 		3DDD8911201865F600918711 /* SignUPTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DDD890F201865F600918711 /* SignUPTableViewCell.xib */; };
 		3DDD891520186E5E00918711 /* SignUpButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD891320186E5E00918711 /* SignUpButtonsCell.swift */; };
 		3DDD891620186E5E00918711 /* SignUpButtonsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DDD891420186E5E00918711 /* SignUpButtonsCell.xib */; };
+		9A5CE89620205252005F4ACD /* TextFieldMaxLengths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CE89520205252005F4ACD /* TextFieldMaxLengths.swift */; };
 		9A5D25F11FFF76A300316988 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D25F01FFF76A300316988 /* AppDelegate.swift */; };
 		9A5D25F31FFF76A300316988 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D25F21FFF76A300316988 /* LoginViewController.swift */; };
 		9A5D25F61FFF76A300316988 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D25F41FFF76A300316988 /* Main.storyboard */; };
@@ -115,6 +116,7 @@
 		3DDD891320186E5E00918711 /* SignUpButtonsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpButtonsCell.swift; sourceTree = "<group>"; };
 		3DDD891420186E5E00918711 /* SignUpButtonsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpButtonsCell.xib; sourceTree = "<group>"; };
 		8CA6DF88FB76B3361A239309 /* Pods-Telugu Churches.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telugu Churches.release.xcconfig"; path = "Pods/Target Support Files/Pods-Telugu Churches/Pods-Telugu Churches.release.xcconfig"; sourceTree = "<group>"; };
+		9A5CE89520205252005F4ACD /* TextFieldMaxLengths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldMaxLengths.swift; sourceTree = "<group>"; };
 		9A5D25ED1FFF76A300316988 /* Telugu Churches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Telugu Churches.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5D25F01FFF76A300316988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SamplePageMenu/AppDelegate.swift; sourceTree = "<group>"; };
 		9A5D25F21FFF76A300316988 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				9AEAE823201F491700DB9D8E /* GlobalSupportingClass.swift */,
 				9AEAE825201F4FC700DB9D8E /* BaseViewController.swift */,
 				9AEAE821201F1D0100DB9D8E /* Utilities.swift */,
+				9A5CE89520205252005F4ACD /* TextFieldMaxLengths.swift */,
 				9A5D25F41FFF76A300316988 /* Main.storyboard */,
 				9A5D25EF1FFF76A300316988 /* Telugu Churches */,
 				9A5D25EE1FFF76A300316988 /* Products */,
@@ -618,6 +621,7 @@
 				9A5D26071FFF795200316988 /* SWRevealViewController.m in Sources */,
 				9AA3AB722011D7420065D4BD /* Mappable.swift in Sources */,
 				9A5D26091FFF7D2500316988 /* HomeViewController.swift in Sources */,
+				9A5CE89620205252005F4ACD /* TextFieldMaxLengths.swift in Sources */,
 				9A88D6182019EB2C0021F862 /* LaunchScreenViewController.swift in Sources */,
 				9A5D26361FFF8A4900316988 /* AllOffersCell.swift in Sources */,
 				9A5D263A1FFF8A5100316988 /* PageControllCell.swift in Sources */,

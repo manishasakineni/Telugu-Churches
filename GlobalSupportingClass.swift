@@ -26,7 +26,7 @@ class GlobalSupportingClass {
         return "Please Select UserName"
     }
     class func blankEmailIDErrorMessage() -> String {
-        return "Please Select EmailID"
+        return "Please provide EmailID"
     }
     class func blankMobileNumberErrorMessage() -> String {
         return "Please Select MobileNumber"
@@ -42,37 +42,57 @@ class GlobalSupportingClass {
         return "invalid MobileNumber"
     }
     class func miniCharEmailIDErrorMessage() -> String {
-        return "Please Select MobileNumber"
+        return "Email Should Minimum 4-Character"
     }
     class func invalidEmaildIDFormatErrorMessage() -> String {
-        return "Please Select MobileNumber"
+        return "Please Provide valid EmaildIDFormat"
     }
     
     class func blankPassWordErrorMessage() -> String {
-        return "Please Select PassWord"
+        return "Please Provide PassWord"
     }
-    class func blankConfirmPassWordErrorMessage() -> String {
-        return "Please Select ConfirmPassWord"
+    class func blankConfirmPasswordErrorMessage() -> String {
+        return "Please Provide ConfirmPassWord"
    
     }
+    
+    class func invalidDigitsInPasswordErrorMessage() -> String {
+        return "Password Should Be Of Minimum 15-Character"
+    }
+    class func passwordMissMatchErrorMessage() -> String {
+        return "Passwordmissmatch"
+    }
+    
+    
     class func blankPasswordErrorMessage() -> String {
-        return "Pleaseprovidepassword"
+        return "Please Provide Password"
     }
-    
+//    class func blankConfirmPassWordErrorMessage() -> String {
+//        return "Please ConfirmPassWord Password"
+//    }
     class func capitalLetterMessage() -> String {
-        return "Passwordsmusthaveatleastoneuppercase"
+        return "Password Must Have At Least One UpperCase"
     }
     
     
     
-    
+    class func blankPhoneNumberErrorMessage() -> String {
+        return "Please Provide Your Mobilenumber"
+    }
+    class func invalidPhoneNumberErrorMessage() -> String {
+        return "Please Provide 15-Digits Mobilenumber"
+    }
+   
+//    class func invalidPhoneNumberErrorMessage() -> String {
+//        return "app.Pleaseprovide10digitsmobilenumber".localize()
+//    }
     
     class func numberMessage() -> String {
-        return "Passwordsmusthaveatleastonedigit"
+        return "Password Must Have At Least One Digit"
     }
     
     class func specialCharacterMessage() -> String {
-        return "Passwordsmusthaveatleastonenonalphanumericcharacter"
+        return "Password Must Have At Least One Non AlphaNumericCharacter"
     }
     
     
