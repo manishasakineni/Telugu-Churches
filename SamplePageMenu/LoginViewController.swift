@@ -36,9 +36,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         
         //  mobileEmailTF.keyboardType = .emailAddress
-        mobileEmailTF.borderStyle = UITextBorderStyle.roundedRect
-        passwordTF.borderStyle = UITextBorderStyle.roundedRect
-        
+//        mobileEmailTF.borderStyle = UITextBorderStyle.roundedRect
+//        passwordTF.borderStyle = UITextBorderStyle.roundedRect
+//        
         mobileEmailTF.maxLengthTextField = 40
         mobileEmailTF.keyboardType = .emailAddress
         passwordTF.maxLengthTextField = 15

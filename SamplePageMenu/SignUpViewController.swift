@@ -257,7 +257,8 @@ class SignUpViewController: UIViewController,UITableViewDelegate,UITableViewData
             //            }
             
         if activeTextField.tag == 0{
-                
+            
+            activeTextField.textColor = UIColor.red
                 userNameEmpty = textField.text!
                 
             }
