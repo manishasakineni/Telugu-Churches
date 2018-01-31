@@ -14,18 +14,18 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     
 
-    var menuArray = ["","Library","Sermons","Events","Sound Cloud","maps","Subscriptions","Donations","settings","LogIn"]
+    var menuArray = ["Library","Sermons","Events","Sound Cloud","maps","Subscriptions","Donations","settings","LogIn"]
     
-    let imageView = ["","ibrary-50","speech","event","sound","Maps","Subscriptions","Subscriptions","Settings","icons8-login_rounded_up_filled"]
+    let imageView = ["ibrary-50","speech","event","sound","Maps","Subscriptions","Subscriptions","Settings","icons8-user_credentials_filled"]
     
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let nibName1  = UINib(nibName: "menuTableViewCell" , bundle: nil)
-        menuTableView.register(nibName1, forCellReuseIdentifier: "menuTableViewCell")
-        
+//        
+//        let nibName1  = UINib(nibName: "menuTableViewCell" , bundle: nil)
+//        menuTableView.register(nibName1, forCellReuseIdentifier: "menuTableViewCell")
+//        
         let nibName2  = UINib(nibName: "menuNameTableViewCell" , bundle: nil)
         menuTableView.register(nibName2, forCellReuseIdentifier: "menuNameTableViewCell")
         
@@ -82,14 +82,14 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        if indexPath.row == 0 {
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "menuTableViewCell")
-                as!menuTableViewCell
-        
-            
-            return cell
-        }
+//        if indexPath.row == 0 {
+//            
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "menuTableViewCell")
+//                as!menuTableViewCell
+//        
+//            
+//            return cell
+//        }
         
         let cell1 = tableView.dequeueReusableCell(withIdentifier: "menuNameTableViewCell")
             as!menuNameTableViewCell
@@ -107,6 +107,43 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
+        menuTableView.deselectRow(at: indexPath, animated: true)
+        
+        let row = indexPath.row
+        print("Row: \(row)")
+        
+     //   println(meetingArray[row] as! String)
+        
+//        if revealViewController() != nil{
+//            
+//      //      menuBarButton.target = revealViewController()
+//       //     menuBarButton.action = #selector(revealViewController().revealToggle(_:))
+//            
+//            revealViewController().rearViewRevealWidth = 270
+//            
+//            //    revealViewController().rightViewRevealWidth = 160
+//            
+//            
+//            
+//            
+//        }
+
+        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        
+             // secondViewController.target = revealViewController()
+           // secondViewController.action = #selector(revealViewController().revealToggle(_:))
+        
+        self.navigationController?.pushViewController(secondViewController, animated: true)
+
+        
+//        
+//        //   navigationItem.leftBarButtonItems = []
+//        let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+//        
+//        
+//        
+//        
+//        self.navigationController?.pushViewController(loginViewController, animated: true)
         
         
     }

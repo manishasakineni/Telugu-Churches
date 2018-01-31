@@ -20,8 +20,15 @@ class GlobalSupportingClass {
     
     
     // MARK: - Error Messages
-    
-
+    class func blankFirstNameErrorMessage() -> String {
+        return "Please Provide FirstName"
+    }
+    class func blankMiddleNameErrorMessage() -> String {
+        return "Please Provide MiddleName"
+    }
+    class func blankLastNameErrorMessage() -> String {
+        return "Please Provide LastName"
+    }
     class func blankUserNameErrorMessage() -> String {
         return "Please Provide UserName"
     }

@@ -413,7 +413,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XrD-hj-EW1">
-                                <rect key="frame" x="0.0" y="6" width="375" height="659"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="42U-a2-vSM" id="akx-vP-d2y"/>
@@ -421,21 +421,21 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="XrD-hj-EW1" secondAttribute="trailing" id="05A-0H-sWA"/>
-                            <constraint firstItem="XrD-hj-EW1" firstAttribute="leading" secondItem="OYN-6d-IoZ" secondAttribute="leading" id="M9H-ma-a8r"/>
-                            <constraint firstItem="XrD-hj-EW1" firstAttribute="top" secondItem="OYN-6d-IoZ" secondAttribute="top" constant="6" id="ghv-vg-KbY"/>
-                            <constraint firstItem="E8M-3s-P2l" firstAttribute="top" secondItem="XrD-hj-EW1" secondAttribute="bottom" constant="2" id="tE9-Sc-I3P"/>
+                            <constraint firstAttribute="trailing" secondItem="XrD-hj-EW1" secondAttribute="trailing" id="CSt-rx-UdI"/>
+                            <constraint firstItem="E8M-3s-P2l" firstAttribute="top" secondItem="XrD-hj-EW1" secondAttribute="bottom" id="Wtl-hU-y7B"/>
+                            <constraint firstItem="XrD-hj-EW1" firstAttribute="top" secondItem="OYN-6d-IoZ" secondAttribute="top" id="fOd-Yr-DnJ"/>
+                            <constraint firstItem="XrD-hj-EW1" firstAttribute="leading" secondItem="OYN-6d-IoZ" secondAttribute="leading" id="ltY-RW-aue"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="D82-DM-hr9"/>
                     <connections>
                         <outlet property="menuTableView" destination="XrD-hj-EW1" id="kLT-Xz-ztg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ss-Ij-1H6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="276" y="1057"/>
+            <point key="canvasLocation" x="1231.2" y="1096.1019490254873"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="sVy-W9-PxW">
@@ -461,7 +461,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w0x-jn-P8G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2161" y="766"/>
+            <point key="canvasLocation" x="3100" y="765.96701649175418"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="QXq-vG-SPc">
@@ -478,7 +478,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="I6F-CI-6JG"/>
                     <connections>
-                        <segue destination="42U-a2-vSM" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="mh4-dU-q8l"/>
+                        <segue destination="thW-7Y-epI" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="mh4-dU-q8l"/>
                         <segue destination="9Ci-8E-AYO" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="Xmc-zi-6vB"/>
                     </connections>
                 </viewController>
@@ -502,7 +502,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I8n-XZ-Ump" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1156" y="1074"/>
+            <point key="canvasLocation" x="2095.1999999999998" y="1073.6131934032985"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bf6-P9-eQq">
@@ -521,6 +521,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Zs-X2-jGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="328.80000000000001" y="-23.838080959520241"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wBJ-eJ-ugW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="thW-7Y-epI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RUf-Nb-Ku8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="42U-a2-vSM" kind="relationship" relationship="rootViewController" id="e6o-u0-TgS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xDv-VU-FIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="292" y="1096.1019490254873"/>
         </scene>
     </scenes>
     <resources>

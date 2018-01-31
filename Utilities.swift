@@ -128,6 +128,37 @@ class Utilities: NSObject {
     }
     
     
+    func alertWithOkAndCancelButtonAction(vc :UIViewController, alertTitle:String, messege: String ,clickAction:@escaping () -> Void) {
+        
+        let capsMsg  =  messege.capitalizingFirstLetter()
+        let alrtControl = UIAlertController(title: alertTitle, message: capsMsg , preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "Ok", style: .default) { _ in
+            clickAction()
+            
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .default) { _ in
+            
+        }
+        alrtControl.addAction(cancelButton)
+        alrtControl.addAction(okButton)
+        vc.present(alrtControl, animated: true, completion: nil)
+        
+    }
+    
+    
+     func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
+    {
+        let alertView:UIAlertView = UIAlertView();
+        alertView.title=title
+        alertView.message=message
+        alertView.addButton(withTitle: buttonTitle)
+        alertView.show()
+    }
+    
+
+    
+    
 }
 //MARK: String Extensions
 

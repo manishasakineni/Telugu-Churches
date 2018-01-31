@@ -14,6 +14,13 @@ import Foundation
 let videosURL = "http://192.168.1.123/TeluguChurchesApi/api/GetEmbedLinks/"
 
 
+
+var BASEURL:String = "http://192.168.1.128/TeluguChurches/"
+let SIGNEUPURL:String = BASEURL.appending("api/Account/Register")
+let LOGINURL : String = BASEURL.appending("api/UserInfo/LoginUser/")
+
+
+
 // MARK: -  Navigation String
 
 
@@ -21,6 +28,18 @@ let KFirstTimeLogin = "first Time Login"
 
 
 let kTokenType = "tokenType"
+let accessToken:String = "accessToken"
+
+
+
+
+
+let kNetworkStatusMessage = "Please Check Your Internet Connection"
+let kToastDuration  = 3.0
+let kRequestTimedOutMessage = "Therequest Timed Out"
+
+
+
 
 
 struct ScreenSize {
