@@ -13,6 +13,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    var appVersion          : String = ""
 
     
     @IBOutlet weak var mobileEmailTF: AkiraTextField!
@@ -22,14 +23,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var remembermeBtn: UIButton!
     
     @IBOutlet weak var eyeBtnOutlet: UIButton!
+    @IBOutlet weak var loginBtnOutLet: UIButton!
+    
     
     var email : String? = ""
     var password : String? = ""
+    
+    var showNav = false
 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        loginBtnOutLet.layer.borderWidth = 1.0
+        loginBtnOutLet.layer.cornerRadius = 6.0
+        loginBtnOutLet.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
         
         
         mobileEmailTF.delegate = self
@@ -50,7 +60,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         remembermeBtn.setBackgroundImage(UIImage(named: "icons8-checked_filled-1"), for: UIControlState.normal)
 
         
-        
+
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -64,8 +74,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         super.viewWillAppear(animated)
         
-        self.navigationController?.navigationBar.isHidden = true
         
+        
+        print(showNav)
+        
+        
+        
+        self.navigationController?.navigationBar.isHidden = !showNav
+           Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " InspectionPro", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+     
+        
+        //   self.navigationItem.hidesBackButton = false
         
 //        Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-hand_right_filled-1", cntr:self, titleView: nil, withText: "", backTitle: " InspectionPro", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 //        
@@ -148,9 +167,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginClicked(_ sender: Any) {
         
         
-
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
        
-        if self.validateAllFields(){
+      /*  if self.validateAllFields(){
             
             if(appDelegate.checkInternetConnectivity()){
                 
@@ -161,7 +183,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             
-        }
+        } */
 
         
     }
@@ -262,85 +284,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             let respVO:LoginVo = Mapper().map(JSONObject: result)!
                             
                             
+                            
+                          //  let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                            
+                           // appDelegate.window?.rootViewController = rootController
+                            
+                            
                       //      let isActive = respVO.IsSuccess
                             
-//                            
-//                            if(isActive == true){
-//                                
-//                                let listResultVo = respVO.Result
-//                                
-//                                if (listResultVo?.Name) != nil {
-//                                    
-//                                    self.name = (listResultVo?.Name)!
-//                                }
-//                                if (listResultVo?.AddressLine1) != nil {
-//                                    
-//                                    self.address1 = (listResultVo?.AddressLine1)!
-//                                }
-//                                if (listResultVo?.Id) != nil {
-//                                    
-//                                    self.idd = (listResultVo?.Id)!
-//                                }
-//                                
-//                                if (listResultVo?.AddressLine2) != nil {
-//                                    
-//                                    self.address2 = (listResultVo?.AddressLine2)!
-//                                    
-//                                }
-//                                if (listResultVo?.Landmark) != nil {
-//                                    
-//                                    self.landmark = (listResultVo?.Landmark)!
-//                                }
-//                                if (listResultVo?.MobileNumber) != nil {
-//                                    
-//                                    self.mobileNo = (listResultVo?.MobileNumber)!
-//                                }
-//                                if (listResultVo?.ProvinceName) != nil {
-//                                    
-//                                    self.selectedProvinceStr = (listResultVo?.ProvinceName)!
-//                                }
-//                                if (listResultVo?.DistrictName) != nil {
-//                                    
-//                                    self.selectedDistrictStr = (listResultVo?.DistrictName)!
-//                                }
-//                                if (listResultVo?.MandalName) != nil {
-//                                    
-//                                    self.selectedMandalStr = (listResultVo?.MandalName)!
-//                                }
-//                                if (listResultVo?.VillageName) != nil {
-//                                    
-//                                    self.selectedVillageStr = (listResultVo?.VillageName)!
-//                                }
-//                                if (listResultVo?.VillageId) != nil {
-//                                    
-//                                    self.villageID = (listResultVo?.VillageId)!
-//                                    
-//                                    self.saveBtnStr = "app.UpdateAddress".localize()
-//                                    
-//                                    self.saveBtn.setTitle(self.saveBtnStr,for: .normal)
-//                                }
-//                                if (listResultVo?.PostCode) != nil {
-//                                    
-//                                    let pinC = (listResultVo?.PostCode)!
-//                                    
-//                                    self.pinCode = String(pinC)
-//                                }
-//                                
-//                                
-//                                //                                self.addressResultListArr = [listResultVo!]
-//                                
-//                                
-//                                DispatchQueue.main.async(execute: { () -> Void in
-//                                    
-//                                    self.addNewAddressTableView.reloadData()
-//                                })
-//                                
-//                                
-//                            }else if(isActive == false) {
-//                                
-//                                self.view.makeToast("Service not found", duration:kToastDuration, position:CSToastPositionCenter)
-//                                
-//                            }
                             
                             print("success")
 
@@ -489,111 +440,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
+    
+    
+    
+    
+    
+    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+        
+        //   navigationItem.leftBarButtonItems = []
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+        
+        print("Back Button Clicked......")
+        
+    }
+    
+    
+    
 }
-
-
-//func validateAllFields() -> Bool
-//{
-//    
-//    self.view.endEditing(true)
-//    
-//    mobileEmailTF.text = mobileEmailTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
-//    passwordTF.text = passwordTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
-//    
-//    var errorMessage:NSString?
-//    
-//    
-//    
-//    if email.isEmpty && password.isEmpty{
-//        
-//        Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message", messege: "Please Enter Requiredfields", clickAction: {
-//            
-//            
-//        })
-//        
-//    }
-//        
-//        
-//    else if (email.isEmpty) {
-//        
-//        Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message", messege: "Please Enter your Mobilenumber or Email", clickAction: {
-//            
-//            
-//        })
-//        
-//    }
-//    else if (password.isEmpty) {
-//        
-//        Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message", messege: "Please Enter Your Password", clickAction: {
-//            
-//            
-//        })
-//        
-//    }
-//        
-//    else if (  email.characters.count <= 9){
-//        
-//        Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Warning", messege: "Invalid EmailID or MobileNumber", clickAction: {
-//            
-//        })
-//        
-//    }
-//        
-//        
-//    else if(!GlobalSupportingClass.capitalOnly(password: passwordTF.text! as String)) {
-//        
-//        errorMessage=GlobalSupportingClass.capitalLetterMessage() as String as String as NSString?
-//    }
-//    else if(!GlobalSupportingClass.numberOnly(password: passwordTF.text! as String)) {
-//        
-//        errorMessage=GlobalSupportingClass.numberMessage() as String as String as NSString?
-//    }
-//    else if(!GlobalSupportingClass.specialCharOnly(password: passwordTF.text! as String)) {
-//        
-//        errorMessage=GlobalSupportingClass.specialCharacterMessage() as String as String as NSString?
-//    }
-//    
-//    if let errorMsg = errorMessage{
-//        
-//        Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Alert", messege: errorMsg as String, clickAction: {
-//        })
-//        
-//    }
-//    else {
-//        
-//        
-//        print("Bulide Sucesss")
-//        
-//        
-//        //            let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-//        //                appDelegate.window?.rootViewController = rootController
-//        
-//        //            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Warning", messege: "Please Check Your Internetconnection!", clickAction: {
-//        //
-//        //
-//        //            })
-//        
-//    }
-//    
-//    
-//    print("Send Sucesss")
-//    
-//    
-//    //            let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-//    //                appDelegate.window?.rootViewController = rootController
-//    
-//    //        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-//    //
-//    //
-//    //         appDelegate.window?.rootViewController = rootController
-//    //
-//    
-//    //       let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-//    //
-//    //         appDelegate.window?.rootViewController = rootController
-//    //
-//    
-//    
-//    return true
-//}
 

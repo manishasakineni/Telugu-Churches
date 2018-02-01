@@ -107,10 +107,38 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        menuTableView.deselectRow(at: indexPath, animated: true)
         
-        let row = indexPath.row
-        print("Row: \(row)")
+        
+        
+        
+        let revealviewcontroller:SWRevealViewController = self.revealViewController()
+        
+        let cell:menuNameTableViewCell = tableView.cellForRow(at: indexPath) as!menuNameTableViewCell
+        
+        if cell.menuNameLabel.text! == "LogIn"
+        {
+            
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            
+            let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+            
+            desController.showNav = true
+            
+            let newController = UINavigationController.init(rootViewController:desController)
+            
+            revealviewcontroller.pushFrontViewController(newController, animated: true)
+        }
+   
+        
+        
+    //}
+        
+        
+      //  menuTableView.deselectRow(at: indexPath, animated: true)
+        
+       // let row = indexPath.row
+      //  print("Row: \(row)")
         
      //   println(meetingArray[row] as! String)
         
@@ -128,12 +156,12 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
 //            
 //        }
 
-        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+     //   let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         
              // secondViewController.target = revealViewController()
            // secondViewController.action = #selector(revealViewController().revealToggle(_:))
         
-        self.navigationController?.pushViewController(secondViewController, animated: true)
+      //  self.navigationController?.pushViewController(secondViewController, animated: true)
 
         
 //        

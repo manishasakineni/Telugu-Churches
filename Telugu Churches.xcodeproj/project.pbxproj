@@ -104,6 +104,10 @@
 		AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956E9200492F4007AC82A /* menuTableViewCell.xib */; };
 		AF1956EE2004999F007AC82A /* menuNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956EC2004999F007AC82A /* menuNameTableViewCell.swift */; };
 		AF1956EF2004999F007AC82A /* menuNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956ED2004999F007AC82A /* menuNameTableViewCell.xib */; };
+		CB345E18202339B6006CC378 /* homeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB345E14202339B6006CC378 /* homeTableViewCell.swift */; };
+		CB345E19202339B6006CC378 /* homeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB345E15202339B6006CC378 /* homeTableViewCell.xib */; };
+		CB345E1A202339B6006CC378 /* homeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB345E16202339B6006CC378 /* homeCollectionViewCell.swift */; };
+		CB345E1B202339B6006CC378 /* homeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB345E17202339B6006CC378 /* homeCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -215,6 +219,10 @@
 		AF1956E9200492F4007AC82A /* menuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuTableViewCell.xib; sourceTree = "<group>"; };
 		AF1956EC2004999F007AC82A /* menuNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuNameTableViewCell.swift; sourceTree = "<group>"; };
 		AF1956ED2004999F007AC82A /* menuNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuNameTableViewCell.xib; sourceTree = "<group>"; };
+		CB345E14202339B6006CC378 /* homeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeTableViewCell.swift; sourceTree = "<group>"; };
+		CB345E15202339B6006CC378 /* homeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homeTableViewCell.xib; sourceTree = "<group>"; };
+		CB345E16202339B6006CC378 /* homeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeCollectionViewCell.swift; sourceTree = "<group>"; };
+		CB345E17202339B6006CC378 /* homeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homeCollectionViewCell.xib; sourceTree = "<group>"; };
 		CE32E04C483467733EE22566 /* Pods_Telugu_Churches.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Telugu_Churches.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -349,6 +357,10 @@
 				9A5D25F21FFF76A300316988 /* LoginViewController.swift */,
 				3DDD890C2018567300918711 /* SignUpViewController.swift */,
 				9A5D26081FFF7D2500316988 /* HomeViewController.swift */,
+				CB345E14202339B6006CC378 /* homeTableViewCell.swift */,
+				CB345E15202339B6006CC378 /* homeTableViewCell.xib */,
+				CB345E16202339B6006CC378 /* homeCollectionViewCell.swift */,
+				CB345E17202339B6006CC378 /* homeCollectionViewCell.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -588,6 +600,7 @@
 				3D65D4B52004D9A200CAB226 /* DrawerCell.xib in Resources */,
 				9A5D262B1FFF8A2F00316988 /* PriceSortCell.xib in Resources */,
 				9A5D26331FFF8A3F00316988 /* SendMoneyToWalletCell.xib in Resources */,
+				CB345E1B202339B6006CC378 /* homeCollectionViewCell.xib in Resources */,
 				3D65D4B9200505F000CAB226 /* Loading.gif in Resources */,
 				9A5D26371FFF8A4900316988 /* AllOffersCell.xib in Resources */,
 				9A5D25FB1FFF76A300316988 /* LaunchScreen.storyboard in Resources */,
@@ -600,6 +613,7 @@
 				AF1956EF2004999F007AC82A /* menuNameTableViewCell.xib in Resources */,
 				9A5D26271FFF8A2000316988 /* AddMoneyToWalletCell.xib in Resources */,
 				9A5D263F1FFF8A5D00316988 /* ScrollImagesCell.xib in Resources */,
+				CB345E19202339B6006CC378 /* homeTableViewCell.xib in Resources */,
 				9A5D26231FFF89F200316988 /* TermsAndConditionCell.xib in Resources */,
 				3DDD8911201865F600918711 /* SignUPTableViewCell.xib in Resources */,
 				AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */,
@@ -694,6 +708,7 @@
 				9AA3AB6F2011D7420065D4BD /* FromJSON.swift in Sources */,
 				9AEAE824201F491800DB9D8E /* GlobalSupportingClass.swift in Sources */,
 				3D551C632011F6BE005DB3B2 /* ServiceController.swift in Sources */,
+				CB345E1A202339B6006CC378 /* homeCollectionViewCell.swift in Sources */,
 				3D551C652011FE59005DB3B2 /* VideosResultVO.swift in Sources */,
 				9AA3AB752011D7420065D4BD /* MapError.swift in Sources */,
 				9A623B922021AF1600A674F2 /* Services.swift in Sources */,
@@ -721,6 +736,7 @@
 				9A623B8E2021A75000A674F2 /* MBProgressHUD.m in Sources */,
 				3DDD890D2018567300918711 /* SignUpViewController.swift in Sources */,
 				9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */,
+				CB345E18202339B6006CC378 /* homeTableViewCell.swift in Sources */,
 				9A5D260B1FFF896900316988 /* CAPSPageMenu.swift in Sources */,
 				9AA3AB6C2011D7420065D4BD /* Mapper.swift in Sources */,
 				9AA3AB7F2011D7420065D4BD /* CustomDateFormatTransform.swift in Sources */,

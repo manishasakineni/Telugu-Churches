@@ -75,6 +75,9 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         signUpTableView.dataSource = self
         activeTextField.delegate = self
         registerTableViewCells()
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

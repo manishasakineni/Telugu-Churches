@@ -12,7 +12,7 @@ protocol changeSubtitleOfIndexDelegate {
     func nameOfItem(indexNumber: Int, countText : String)
 }
 
-class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleOfIndexDelegate  {
+class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleOfIndexDelegate,UITableViewDataSource,UITableViewDelegate   {
     
     
     @IBOutlet weak var menuBarButton: UIBarButtonItem!
@@ -30,16 +30,51 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
     var detAndBillsVC : DetAndBillsViewController?
     var mearchantVC : MearchantViewController?
   
+    @IBOutlet weak var hometableview: UITableView!
+    
+    
+    
+    
+    var imageArray = [UIImage(named:"holybible"),UIImage(named:"Audio"),UIImage(named:"Seminor"),UIImage(named:"Songs"),UIImage(named:"books"),UIImage(named:"Churches"),UIImage(named:"live"),UIImage(named:"Seminor-1"),UIImage(named:"rootmap"),UIImage(named:"Science"),UIImage(named:"movies"),UIImage(named:"language"),UIImage(named:"jobs"),UIImage(named:"donation"),UIImage(named:"bookshop"),UIImage(named:"Vedio"),UIImage(named:"holybible"),UIImage(named:"Audio"),UIImage(named:"Seminor"),UIImage(named:"Songs"),UIImage(named:"books"),UIImage(named:"Churches"),UIImage(named:"live"),UIImage(named:"Seminor-1"),UIImage(named:"rootmap"),UIImage(named:"Science"),UIImage(named:"movies"),UIImage(named:"language"),UIImage(named:"jobs"),UIImage(named:"donation")]
+    
+    var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific Proofs","Gospel Messages","Short Messages","Images","Login id Creation","Help to develop the small churches","Book Shop","Movies","Daily Quotations","Video Songs","Testimonials","Quotations","Sunday School","Cell numbers for daily messages(Bulk sms)","Bible Apps","Short Films","Jobs","Route maps buds numbers","Events","Donation","Live","Doubts","Suggetions","Pamplets","languages(Tel/Eng)","Admin can add multiple menu pages"]
+    
+
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
+        
+        
         // Do any additional setup after loading the view.
       //  navigationController?.navigationBar.barTintColor = UIColor.green
         
         self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.4039215686, green: 0.6705882353, blue: 0.8156862745, alpha: 1)
         self.navigationItem.title = "Telugu Churches"
-        self.createPageMenu()
+        
+        
+        
+        let nibName  = UINib(nibName: "homeTableViewCell" , bundle: nil)
+        hometableview.register(nibName, forCellReuseIdentifier: "homeTableViewCell")
+        
+        
+        
+        
+        
+        hometableview.dataSource = self
+        hometableview.delegate = self
+        
+        
+        self.navigationController?.isNavigationBarHidden = false
+        
+        
+        
+    //    self.createPageMenu()
 
         sideMenu()
     }
@@ -62,6 +97,127 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         }
         
     }
+    
+    
+    
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        
+        
+        return 1
+        
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        
+        return 1
+    }
+    
+    
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 667
+        
+    }
+    
+  //  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+   
+     //   return UITableViewAutomaticDimension
+        
+   // }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "homeTableViewCell", for: indexPath) as! homeTableViewCell
+        
+        cell.homeCollectionView.register(UINib.init(nibName: "homeCollectionViewCell", bundle: nil),
+                                         forCellWithReuseIdentifier: "homeCollectionViewCell")
+        cell.homeCollectionView.tag = indexPath.row
+        
+        
+        cell.homeCollectionView.collectionViewLayout.invalidateLayout()
+        
+        
+        cell.homeCollectionView.delegate = self
+        cell.homeCollectionView.dataSource = self
+        
+        
+        
+        return cell
+    }
+    
+    
+    
+}
+
+
+extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    
+    
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return imageArray.count
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeCollectionViewCell", for: indexPath) as! homeCollectionViewCell
+        
+        cell.collectionImgView.image = imageArray[ indexPath.row]
+        cell.nameLabel.text = namesarra1[indexPath.row]
+        
+        
+        
+        
+        let nibName  = UINib(nibName: "homeTableViewCell" , bundle: nil)
+        
+        
+        
+        return cell
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        
+        let cellsPerRow = 3
+        
+        let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
+        let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
+        return CGSize(width: itemWidth, height: itemWidth)
+    }
+    
+
     
     private func createPageMenu() {
         
@@ -96,10 +252,10 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         mearchantVC?.delegate  = self
         //     mearchantVC?.getLabelForAllOrders()
         
-        controllersArray.append(allOffersVC!)
+        /*controllersArray.append(allOffersVC!)
         controllersArray.append(rechargesVC!)
         controllersArray.append(detAndBillsVC!)
-        controllersArray.append(mearchantVC!)
+        controllersArray.append(mearchantVC!)*/
         
         
         
@@ -120,9 +276,9 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
                                                  CAPSPageMenuOption.addBottomMenuHairline(true),
                                                  CAPSPageMenuOption.menuItemWidthBasedOnTitleTextWidth(false),CAPSPageMenuOption.hideSubTitle(false)]
         
-        pageMenu = CAPSPageMenu(viewControllers: controllersArray,subTitles:self.subTitlesArray,
+      /*  pageMenu = CAPSPageMenu(viewControllers: controllersArray,subTitles:self.subTitlesArray,
                                 frame: CGRect.init(x: 0.0, y: 64.0, width: self.view.frame.size.width, height: self.view.frame.size.height ),
-                                pageMenuOptions: parameters)
+                                pageMenuOptions: parameters)*/
         revealViewController().addChildViewController(pageMenu!)
         pageMenu?.delegate = self
        // self.view.addSubview((pageMenu?.view)!)

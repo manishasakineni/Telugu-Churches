@@ -38,9 +38,17 @@ class LaunchScreenViewController: UIViewController {
         
         
         
+        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+        let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+        
+        desController.showNav = false
+        
+        let newController = UINavigationController.init(rootViewController:desController)
         let LoginNav : UINavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootloginVC") as! UINavigationController
         
-        appDelegate.window?.rootViewController = LoginNav
+        appDelegate.window?.rootViewController = newController
         
         
         
