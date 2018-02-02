@@ -104,6 +104,11 @@
 		AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956E9200492F4007AC82A /* menuTableViewCell.xib */; };
 		AF1956EE2004999F007AC82A /* menuNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956EC2004999F007AC82A /* menuNameTableViewCell.swift */; };
 		AF1956EF2004999F007AC82A /* menuNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956ED2004999F007AC82A /* menuNameTableViewCell.xib */; };
+		CB0256B2202430750017E240 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0256B1202430750017E240 /* SettingViewController.swift */; };
+		CB0256BB202442EF0017E240 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0256B9202442EF0017E240 /* SettingTableViewCell.swift */; };
+		CB0256BC202442EF0017E240 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0256BA202442EF0017E240 /* SettingTableViewCell.xib */; };
+		CB0256BE202463030017E240 /* LoginResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0256BD202463030017E240 /* LoginResultVo.swift */; };
+		CB0256C1202473420017E240 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0256C0202473420017E240 /* ProfileViewController.swift */; };
 		CB345E18202339B6006CC378 /* homeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB345E14202339B6006CC378 /* homeTableViewCell.swift */; };
 		CB345E19202339B6006CC378 /* homeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB345E15202339B6006CC378 /* homeTableViewCell.xib */; };
 		CB345E1A202339B6006CC378 /* homeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB345E16202339B6006CC378 /* homeCollectionViewCell.swift */; };
@@ -219,6 +224,11 @@
 		AF1956E9200492F4007AC82A /* menuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuTableViewCell.xib; sourceTree = "<group>"; };
 		AF1956EC2004999F007AC82A /* menuNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuNameTableViewCell.swift; sourceTree = "<group>"; };
 		AF1956ED2004999F007AC82A /* menuNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuNameTableViewCell.xib; sourceTree = "<group>"; };
+		CB0256B1202430750017E240 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CB0256B9202442EF0017E240 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		CB0256BA202442EF0017E240 /* SettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
+		CB0256BD202463030017E240 /* LoginResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResultVo.swift; sourceTree = "<group>"; };
+		CB0256C0202473420017E240 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CB345E14202339B6006CC378 /* homeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeTableViewCell.swift; sourceTree = "<group>"; };
 		CB345E15202339B6006CC378 /* homeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homeTableViewCell.xib; sourceTree = "<group>"; };
 		CB345E16202339B6006CC378 /* homeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -294,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				9A058AFA2021F394005A611C /* LoginVo.swift */,
+				CB0256BD202463030017E240 /* LoginResultVo.swift */,
 			);
 			name = LoginVo;
 			sourceTree = "<group>";
@@ -351,16 +362,14 @@
 		9A5D26401FFF95EF00316988 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CB0256BF2024731F0017E240 /* ProfileViewController */,
+				CB0256B0202430530017E240 /* SettingViewController */,
 				9AF564972020941200AEA0EF /* ForgotPasswordViewController */,
 				9A88D6162019EB0C0021F862 /* LaunchScreenViewControllwe */,
 				AF1956E320048BBC007AC82A /* SideMenuViewController */,
 				9A5D25F21FFF76A300316988 /* LoginViewController.swift */,
 				3DDD890C2018567300918711 /* SignUpViewController.swift */,
-				9A5D26081FFF7D2500316988 /* HomeViewController.swift */,
-				CB345E14202339B6006CC378 /* homeTableViewCell.swift */,
-				CB345E15202339B6006CC378 /* homeTableViewCell.xib */,
-				CB345E16202339B6006CC378 /* homeCollectionViewCell.swift */,
-				CB345E17202339B6006CC378 /* homeCollectionViewCell.xib */,
+				CB0256AF202430150017E240 /* HomeViewController */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -386,6 +395,7 @@
 		9A5D26421FFF963700316988 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				CB0256B42024428B0017E240 /* SettingTableViewCell */,
 				9AF5649A202096DC00AEA0EF /* ForgotPasswordCell */,
 				3DDD89122018662100918711 /* SignUpCells */,
 				9A5D261C1FFF89EA00316988 /* TransactionCell.swift */,
@@ -534,6 +544,51 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CB0256AF202430150017E240 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9A5D26081FFF7D2500316988 /* HomeViewController.swift */,
+				CB0256B3202430A50017E240 /* HomeTableView&CollectionViewCell */,
+			);
+			name = HomeViewController;
+			sourceTree = "<group>";
+		};
+		CB0256B0202430530017E240 /* SettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB0256B1202430750017E240 /* SettingViewController.swift */,
+			);
+			name = SettingViewController;
+			sourceTree = "<group>";
+		};
+		CB0256B3202430A50017E240 /* HomeTableView&CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB345E14202339B6006CC378 /* homeTableViewCell.swift */,
+				CB345E15202339B6006CC378 /* homeTableViewCell.xib */,
+				CB345E16202339B6006CC378 /* homeCollectionViewCell.swift */,
+				CB345E17202339B6006CC378 /* homeCollectionViewCell.xib */,
+			);
+			name = "HomeTableView&CollectionViewCell";
+			sourceTree = "<group>";
+		};
+		CB0256B42024428B0017E240 /* SettingTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB0256B9202442EF0017E240 /* SettingTableViewCell.swift */,
+				CB0256BA202442EF0017E240 /* SettingTableViewCell.xib */,
+			);
+			name = SettingTableViewCell;
+			sourceTree = "<group>";
+		};
+		CB0256BF2024731F0017E240 /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB0256C0202473420017E240 /* ProfileViewController.swift */,
+			);
+			name = ProfileViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -624,6 +679,7 @@
 				9A5D25F81FFF76A300316988 /* Assets.xcassets in Resources */,
 				9AF564A220209C4F00AEA0EF /* ConformButtonPassWordCell.xib in Resources */,
 				9A5D25F61FFF76A300316988 /* Main.storyboard in Resources */,
+				CB0256BC202442EF0017E240 /* SettingTableViewCell.xib in Resources */,
 				9AF5649E2020972900AEA0EF /* ForgotPasswordCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -695,6 +751,8 @@
 			files = (
 				9A5D25F31FFF76A300316988 /* LoginViewController.swift in Sources */,
 				9AA3AB6D2011D7420065D4BD /* ImmutableMappable.swift in Sources */,
+				CB0256BE202463030017E240 /* LoginResultVo.swift in Sources */,
+				CB0256B2202430750017E240 /* SettingViewController.swift in Sources */,
 				9AA3AB702011D7420065D4BD /* Map.swift in Sources */,
 				9AA3AB792011D7420065D4BD /* DateFormatterTransform.swift in Sources */,
 				9A5D26121FFF89C300316988 /* RechargesViewController.swift in Sources */,
@@ -747,6 +805,7 @@
 				9AEAE826201F4FC800DB9D8E /* BaseViewController.swift in Sources */,
 				9A5D263E1FFF8A5D00316988 /* ScrollImagesCell.swift in Sources */,
 				9AA3AB7B2011D7420065D4BD /* TransformOf.swift in Sources */,
+				CB0256BB202442EF0017E240 /* SettingTableViewCell.swift in Sources */,
 				9A5D26071FFF795200316988 /* SWRevealViewController.m in Sources */,
 				9AF5649D2020972900AEA0EF /* ForgotPasswordCell.swift in Sources */,
 				9AA3AB722011D7420065D4BD /* Mappable.swift in Sources */,
@@ -756,6 +815,7 @@
 				9A623B8520219CB500A674F2 /* RegisterVo.swift in Sources */,
 				9A5D26361FFF8A4900316988 /* AllOffersCell.swift in Sources */,
 				9A5D263A1FFF8A5100316988 /* PageControllCell.swift in Sources */,
+				CB0256C1202473420017E240 /* ProfileViewController.swift in Sources */,
 				9A5D260E1FFF89B700316988 /* AllOffersViewController.swift in Sources */,
 				9A5D261E1FFF89EA00316988 /* TransactionCell.swift in Sources */,
 				9AEAE822201F1D0100DB9D8E /* Utilities.swift in Sources */,

@@ -31,7 +31,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var showNav = false
 
-    
+    let utillites =  Utilities()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +82,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         
         self.navigationController?.navigationBar.isHidden = !showNav
-           Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " InspectionPro", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+           Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " ", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
      
         
         //   self.navigationItem.hidesBackButton = false
@@ -172,7 +173,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         appDelegate.window?.rootViewController = rootController
         
        
-      /*  if self.validateAllFields(){
+     /*   if self.validateAllFields(){
             
             if(appDelegate.checkInternetConnectivity()){
                 
@@ -180,7 +181,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             else{
                 appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
-                return
+            return
             }
             
         } */
@@ -281,9 +282,67 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     DispatchQueue.main.async()
                         {
                             
-                            let respVO:LoginVo = Mapper().map(JSONObject: result)!
+                          //  let respVO:LoginVo = Mapper().map(JSONObject: result)!
+                            
+                            print("result:\(result)")
+                            
+                            let respVO:LoginResultVo = Mapper().map(JSONObject: result)!
+                            
+                           print("responseString = \(respVO)")
                             
                             
+                            let statusCode = respVO.isSuccess
+                            
+                            print("StatusCode:\(String(describing: statusCode))")
+                            
+                            
+                            
+                            if statusCode == true
+                            {
+                                
+                                
+                                let successMsg = respVO.endUserMessage
+                                
+                                //   self.showAlertViewWithTitle("Success", message: successMsg!, buttonTitle: "Ok")
+                                
+                                
+                                
+                                //                        self.utillites.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Sucess", messege: successMsg!, clickAction: {
+                                //
+                                //                            let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                                //
+                                //                            self.navigationController?.pushViewController(signUpVc, animated: true)
+                                //
+                                //                        })
+                                
+                                // alertWithOkButtonAction
+                                
+                              //  self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege: successMsg!, clickAction: {
+                                  ///  let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                                    
+                                  //  self.navigationController?.pushViewController(signUpVc, animated: true)
+                                
+                                self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+
+                                
+                             //   makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+                                     let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                                    
+                                       self.appDelegate.window?.rootViewController = rootController
+                            //    })
+                                
+                                //self.navigationController?.popViewController(animated: true)
+                                
+                            }
+                            else {
+                                
+                                let failMsg = respVO.endUserMessage
+                                
+                                self.showAlertViewWithTitle("Alert", message: failMsg!, buttonTitle: "Ok")
+                                
+                                return
+                                
+                            }
                             
                           //  let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
                             
@@ -457,6 +516,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+     func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
+    {
+        let alertView:UIAlertView = UIAlertView();
+        alertView.title=title
+        alertView.message=message
+        alertView.addButton(withTitle: buttonTitle)
+        alertView.show()
+    }
     
     
 }

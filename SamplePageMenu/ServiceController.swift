@@ -202,6 +202,8 @@ class ServiceController: NSObject {
             DispatchQueue.main.async(){
            //     MBProgressHUD.hide(for:appDelegate.window,animated:true)
                 
+                print(response)
+                
                 if response != nil {
                     
                     let statusCode = (response as! HTTPURLResponse).statusCode
@@ -252,6 +254,8 @@ class ServiceController: NSObject {
                         
                     else
                     {
+                        print(statusCode)
+                        
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false
                         
                         do{

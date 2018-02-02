@@ -99,7 +99,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         super.viewWillAppear(animated)
         
-        Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " InspectionPro", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Registration", backTitle: " Registration", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
         //navigationItem.leftBarButtonItems = []
         

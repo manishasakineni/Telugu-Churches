@@ -469,7 +469,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="Wj5-8g-kjb">
                         <barButtonItem key="leftBarButtonItem" image="sidemenu" id="J6Y-nU-rbZ"/>
-                        <barButtonItem key="rightBarButtonItem" image="3 dots" id="ke9-c3-luq"/>
+                        <barButtonItem key="rightBarButtonItem" image="3 dots" id="ke9-c3-luq">
+                            <connections>
+                                <action selector="settingClicked:" destination="fRD-jQ-dvn" id="1Qf-pJ-4DE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="hometableview" destination="wKm-6L-ZnB" id="WOk-Tu-xPg"/>
@@ -480,6 +484,75 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w0x-jn-P8G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3100" y="765.96701649175418"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="zh0-0i-pYZ">
+            <objects>
+                <viewController storyboardIdentifier="SettingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y8f-RI-chi" customClass="SettingViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZYk-ur-C71"/>
+                        <viewControllerLayoutGuide type="bottom" id="mqq-2W-Ve9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oA6-ga-Chk">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZA-xn-MuK">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="feN-2v-Z29">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Y8f-RI-chi" id="8UC-qc-khy"/>
+                                            <outlet property="delegate" destination="Y8f-RI-chi" id="qAj-ER-ooK"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="feN-2v-Z29" secondAttribute="bottom" id="2an-1C-8Bg"/>
+                                    <constraint firstItem="feN-2v-Z29" firstAttribute="top" secondItem="UZA-xn-MuK" secondAttribute="top" id="net-xX-WPM"/>
+                                    <constraint firstItem="feN-2v-Z29" firstAttribute="leading" secondItem="UZA-xn-MuK" secondAttribute="leading" id="tAw-pi-w9q"/>
+                                    <constraint firstAttribute="trailing" secondItem="feN-2v-Z29" secondAttribute="trailing" id="xh1-Hr-NGz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mqq-2W-Ve9" firstAttribute="top" secondItem="UZA-xn-MuK" secondAttribute="bottom" id="DiP-dd-3TL"/>
+                            <constraint firstItem="UZA-xn-MuK" firstAttribute="leading" secondItem="oA6-ga-Chk" secondAttribute="leading" id="kDq-Cv-Pr9"/>
+                            <constraint firstItem="UZA-xn-MuK" firstAttribute="top" secondItem="oA6-ga-Chk" secondAttribute="top" id="nSD-au-UIc"/>
+                            <constraint firstAttribute="trailing" secondItem="UZA-xn-MuK" secondAttribute="trailing" id="oqJ-aI-0c3"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="300"/>
+                    <connections>
+                        <outlet property="settingTableView" destination="feN-2v-Z29" id="JR5-4V-3ms"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bbt-jl-8oL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3678" y="632"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="Cal-Er-Men">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HRu-xn-enm" customClass="ProfileViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="klt-Hz-EB3"/>
+                        <viewControllerLayoutGuide type="bottom" id="VA1-ec-cWD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i1c-B2-mgZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GB7-M4-enq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4295" y="785"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="QXq-vG-SPc">

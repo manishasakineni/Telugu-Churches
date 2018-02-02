@@ -12,7 +12,13 @@ protocol changeSubtitleOfIndexDelegate {
     func nameOfItem(indexNumber: Int, countText : String)
 }
 
-class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleOfIndexDelegate,UITableViewDataSource,UITableViewDelegate   {
+protocol SttingPopOverHomeDelegate {
+    func editProfileClicked()
+    func notificationClicked()
+    func logOutClicked()
+}
+
+class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleOfIndexDelegate,UITableViewDataSource,UITableViewDelegate,UIPopoverPresentationControllerDelegate,SttingPopOverHomeDelegate  {
     
     
     @IBOutlet weak var menuBarButton: UIBarButtonItem!
@@ -20,6 +26,10 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
     @IBOutlet weak var settingsBarButton: UIBarButtonItem!
     
     var pageMenu : CAPSPageMenu?
+    
+    
+    var appVersion          : String = ""
+
     
     private var controllersArray: [UIViewController] = []
     var subTitlesArray          : Array<String>     = Array()
@@ -55,7 +65,7 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
       //  navigationController?.navigationBar.barTintColor = UIColor.green
         
         self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.4039215686, green: 0.6705882353, blue: 0.8156862745, alpha: 1)
-        self.navigationItem.title = "Telugu Churches"
+       self.navigationItem.title = "Telugu Churches"
         
         
         
@@ -74,11 +84,41 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         
         
         
+        
+        
+     //   settingsBarButton.addTarget(self, action: #selector(HomeViewController.methodName), for: .touchUpInside)
+
+        
     //    self.createPageMenu()
 
         sideMenu()
     }
 
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        
+        
+        // print(showNav)
+        
+      //  self.navigationController?.navigationBar.isHidden = false
+        
+        
+      //  Utilities.setEditProfileViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Edit Profile", backTitle: " Edit Profile", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+        //   self.navigationItem.hidesBackButton = false
+        
+        //        Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-hand_right_filled-1", cntr:self, titleView: nil, withText: "", backTitle: " InspectionPro", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        //
+        //        //navigationItem.leftBarButtonItems = []
+        
+    }
+    
+    
     
     func sideMenu(){
         
@@ -150,8 +190,93 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         return cell
     }
     
+    @IBAction func settingClicked(_ sender: UIBarButtonItem) {
+        
+       // hometableview.endEditing(true)
+
+
+        let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
+        popController.delegate = self
+        
+
+        // set the presentation style
+        popController.modalPresentationStyle = UIModalPresentationStyle.popover
+        popController.preferredContentSize = CGSize(width: 120, height: 120)
+        //  popController.delegate = self
+        let popover = popController.popoverPresentationController!
+        popover.delegate = self
+        popover.permittedArrowDirections = .up
+        popover.sourceView = self.navigationController?.view
+        
+        popover.sourceRect = CGRect(x: UIScreen.main.bounds.size.width - 5 , y: 25, width:20, height: 30)
+        
+        // present the popover
+        self.present(popController, animated: true, completion: nil)
+        
+      //  hometableview.reloadData()
+        
+
+        
+    }
     
     
+    
+    @IBAction func settingBarButtonTapped(_ sender: Any) {
+        
+        
+      //  print("Setting Clicked........")
+        
+      //  let settingViewController:UIViewController =  (self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController)!
+        
+    //    self.navigationController?.pushViewController(settingViewController, animated: true)
+        
+        
+    }
+    
+    // UIPopoverPresentationControllerDelegate method
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        // return UIModalPresentationStyle.FullScreen
+        return UIModalPresentationStyle.none
+    }
+    
+    func editProfileClicked(){
+        print("editProfileClicked")
+        
+
+        self.navigationController?.navigationBar.isHidden = false
+
+        
+        self.presentedViewController?.dismiss(animated: true, completion: nil)
+        
+          let profileViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+            self.navigationController?.pushViewController(profileViewController, animated: true)
+        
+      //  hometableview.reloadData()
+      //  hometableview.endEditing(true)
+   
+        
+    }
+    
+    func notificationClicked(){
+
+        print("notificationClicked")
+
+        self.presentedViewController?.dismiss(animated: true, completion: nil)
+        
+        let profileViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+
+    }
+    
+    func logOutClicked(){
+
+        print("logOutClicked")
+        self.presentedViewController?.dismiss(animated: true, completion: nil)
+        
+        let profileViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+
+    }
 }
 
 
@@ -172,11 +297,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         
     }
     
-    
-    
-    
-    
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
@@ -186,22 +306,9 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         cell.collectionImgView.image = imageArray[ indexPath.row]
         cell.nameLabel.text = namesarra1[indexPath.row]
         
-        
-        
-        
         let nibName  = UINib(nibName: "homeTableViewCell" , bundle: nil)
-        
-        
-        
         return cell
-        
-        
-        
-        
-        
-        
-        
-        
+  
     }
     
     
@@ -217,7 +324,18 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         return CGSize(width: itemWidth, height: itemWidth)
     }
     
-
+  /*  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // handle tap events
+        print("You selected cell #\(indexPath.item)!")
+        
+        if indexPath.item == 0 {
+            
+            let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "HolyBibleViewController") as! HolyBibleViewController
+            self.navigationController?.pushViewController(holyBibleViewController, animated: true)
+        }
+     return true
+    }
+ */
     
     private func createPageMenu() {
         
