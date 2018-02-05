@@ -414,19 +414,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XrD-hj-EW1">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="52" width="375" height="615"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="42U-a2-vSM" id="akx-vP-d2y"/>
                                     <outlet property="delegate" destination="42U-a2-vSM" id="M9U-F4-e6N"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6e7-0I-p09">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
+                                <color key="backgroundColor" red="0.40392156862745099" green="0.6705882352941176" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="MbH-gK-Z3h"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="XrD-hj-EW1" secondAttribute="trailing" id="CSt-rx-UdI"/>
-                            <constraint firstItem="E8M-3s-P2l" firstAttribute="top" secondItem="XrD-hj-EW1" secondAttribute="bottom" id="Wtl-hU-y7B"/>
-                            <constraint firstItem="XrD-hj-EW1" firstAttribute="top" secondItem="OYN-6d-IoZ" secondAttribute="top" id="fOd-Yr-DnJ"/>
-                            <constraint firstItem="XrD-hj-EW1" firstAttribute="leading" secondItem="OYN-6d-IoZ" secondAttribute="leading" id="ltY-RW-aue"/>
+                            <constraint firstItem="XrD-hj-EW1" firstAttribute="leading" secondItem="OYN-6d-IoZ" secondAttribute="leading" id="EcE-1d-JFn"/>
+                            <constraint firstItem="6e7-0I-p09" firstAttribute="leading" secondItem="OYN-6d-IoZ" secondAttribute="leading" id="Exu-Jn-BD7"/>
+                            <constraint firstItem="6e7-0I-p09" firstAttribute="top" secondItem="OYN-6d-IoZ" secondAttribute="top" id="KjI-Ul-UnZ"/>
+                            <constraint firstAttribute="trailing" secondItem="6e7-0I-p09" secondAttribute="trailing" id="Qrl-je-9TZ"/>
+                            <constraint firstItem="E8M-3s-P2l" firstAttribute="top" secondItem="XrD-hj-EW1" secondAttribute="bottom" id="ien-pO-vo2"/>
+                            <constraint firstAttribute="trailing" secondItem="XrD-hj-EW1" secondAttribute="trailing" id="qWZ-6E-Qmx"/>
+                            <constraint firstItem="XrD-hj-EW1" firstAttribute="top" secondItem="6e7-0I-p09" secondAttribute="bottom" id="xTP-2d-85v"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="D82-DM-hr9"/>
@@ -436,7 +446,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ss-Ij-1H6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1231.2" y="1096.1019490254873"/>
+            <point key="canvasLocation" x="1223.2" y="1135.6821589205399"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="sVy-W9-PxW">
@@ -547,12 +557,51 @@
                     <view key="view" contentMode="scaleToFill" id="i1c-B2-mgZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Woq-UF-4i7">
+                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRt-Dh-Z7a">
+                                        <rect key="frame" x="8" y="5" width="359" height="30"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveBtnAction:" destination="HRu-xn-enm" eventType="touchUpInside" id="mvK-V9-WMm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.4039215686" green="0.6705882353" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="wRt-Dh-Z7a" firstAttribute="top" secondItem="Woq-UF-4i7" secondAttribute="top" constant="5" id="4cN-s3-Trh"/>
+                                    <constraint firstAttribute="height" constant="40" id="5Mz-hE-hwm"/>
+                                    <constraint firstAttribute="bottom" secondItem="wRt-Dh-Z7a" secondAttribute="bottom" constant="5" id="Whd-DI-QH2"/>
+                                    <constraint firstItem="wRt-Dh-Z7a" firstAttribute="leading" secondItem="Woq-UF-4i7" secondAttribute="leading" constant="8" id="ch1-Ju-jIi"/>
+                                    <constraint firstAttribute="trailing" secondItem="wRt-Dh-Z7a" secondAttribute="trailing" constant="8" id="kwB-T2-MlJ"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oLU-1T-VHf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Woq-UF-4i7" firstAttribute="top" secondItem="oLU-1T-VHf" secondAttribute="bottom" id="LeI-89-y71"/>
+                            <constraint firstItem="oLU-1T-VHf" firstAttribute="top" secondItem="i1c-B2-mgZ" secondAttribute="top" id="OnL-We-J9C"/>
+                            <constraint firstItem="VA1-ec-cWD" firstAttribute="top" secondItem="Woq-UF-4i7" secondAttribute="bottom" id="Osw-wF-0or"/>
+                            <constraint firstAttribute="trailing" secondItem="oLU-1T-VHf" secondAttribute="trailing" id="bNZ-T8-XOw"/>
+                            <constraint firstItem="Woq-UF-4i7" firstAttribute="leading" secondItem="i1c-B2-mgZ" secondAttribute="leading" id="fm5-zL-Q3S"/>
+                            <constraint firstAttribute="trailing" secondItem="Woq-UF-4i7" secondAttribute="trailing" id="plb-YU-Qo5"/>
+                            <constraint firstItem="oLU-1T-VHf" firstAttribute="leading" secondItem="i1c-B2-mgZ" secondAttribute="leading" id="wsR-7y-u8U"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="editProfileTableView" destination="oLU-1T-VHf" id="8u2-Kf-EzZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GB7-M4-enq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4295" y="785"/>
+            <point key="canvasLocation" x="4288.8000000000002" y="749.7751124437782"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="QXq-vG-SPc">

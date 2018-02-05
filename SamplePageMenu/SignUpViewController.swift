@@ -198,6 +198,16 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
        
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        
+        if !string.canBeConverted(to: String.Encoding.ascii){
+            return false
+        }
+        
+        
+        return true
+    }
     
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
@@ -374,12 +384,12 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         return signUpTFPlaceholdersArray.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+ /*   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionsTitle[section]
     }
     
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if (section == 0){
             // UIView Creation...........
             let headerView = UIView(frame: CGRect(x:0, y:0, width:tableView.frame.size.width, height:100))
@@ -418,7 +428,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         return 40
         
-    }
+    } */
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat{
         

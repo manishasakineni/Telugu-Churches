@@ -26,6 +26,7 @@ class GlobalSupportingClass {
     class func blankMiddleNameErrorMessage() -> String {
         return "Please Provide MiddleName"
     }
+   
     class func blankLastNameErrorMessage() -> String {
         return "Please Provide LastName"
     }
@@ -42,9 +43,6 @@ class GlobalSupportingClass {
     class func miniCharMobileNumberErrorMessage() -> String {
         return "Please Select MobileNumber"
     }
-    
-    
-    
     class func invalidMobileNumberErrorMessage() -> String {
         return "invalid MobileNumber"
     }

@@ -8,11 +8,36 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
 
-    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     var appVersion          : String = ""
 
+    var showNav = false
+
+    
+    @IBOutlet weak var editProfileTableView: UITableView!
+    
+    
+    var placeholdersAry  = ["First Name","Middle Name","Last Name","Mobile No","Email ID"]
+    
+    var firstNameEmpty : String = ""
+    var middleNameEmpty  : String = ""
+    var lastNameEmpty : String = ""
+    var mobileNoEmpty     : String = ""
+    var EmailIDEmpty  : String = ""
+    
+    var activeTextField = UITextField()
+    
+    let picker = UIImagePickerController()
+    
+    var isImageSave:Bool = false
+    var sectionsTitle : [String] = [""]
+
+    
+    
+    
     
     
     override func viewDidLoad() {
@@ -23,6 +48,25 @@ class ProfileViewController: UIViewController {
            //self.navigationController?.navigationBar.isHidden = !showNav
         
         
+        
+        
+        
+        let nibName  = UINib(nibName: "EditProfileTableViewCell" , bundle: nil)
+        editProfileTableView.register(nibName, forCellReuseIdentifier: "EditProfileTableViewCell")
+        
+        let nibName1  = UINib(nibName: "menuTableViewCell" , bundle: nil)
+        editProfileTableView.register(nibName1, forCellReuseIdentifier: "menuTableViewCell")
+        
+        let nibName2  = UINib(nibName: "HeaderProfileCell" , bundle: nil)
+        editProfileTableView.register(nibName2, forCellReuseIdentifier: "HeaderProfileCell")
+        
+        
+        
+        
+        editProfileTableView.dataSource = self
+        editProfileTableView.delegate = self
+        activeTextField.delegate = self
+
      
 
         
@@ -39,12 +83,12 @@ class ProfileViewController: UIViewController {
         
         
         
-       // print(showNav)
+        print(showNav)
         
-      //  self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.isHidden = false
 
         
-      //  Utilities.setEditProfileViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Edit Profile", backTitle: " Edit Profile", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setProfileViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Edit Profile", backTitle: " Edit Profile", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
         //   self.navigationItem.hidesBackButton = false
         
@@ -58,6 +102,8 @@ class ProfileViewController: UIViewController {
         
         super.viewDidDisappear(animated)
         
+      //  self.navigationController?.navigationBar.isHidden = !showNav
+      //  Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " ", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
         
         // print(showNav)
@@ -75,49 +121,464 @@ class ProfileViewController: UIViewController {
     }
     
     
-    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
-        
-        
-       // self.navigationController?.navigationBar.isHidden = false
 
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         
-        let revealviewcontroller:SWRevealViewController = self.revealViewController()
+        
+        activeTextField = textField
         
         
         
-            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        if activeTextField.tag == 0 {
+            
+            textField.maxLengthTextField = 20
+            textField.clearButtonMode = .never
+            textField.keyboardType = .alphabet
+        }
+            
+        else if activeTextField.tag == 1{
+            
+            textField.maxLengthTextField = 20
+            textField.clearButtonMode = .never
+            textField.keyboardType = .alphabet
+            
+        }
+            
+        else if activeTextField.tag == 2{
+            
+            textField.maxLengthTextField = 20
+            textField.clearButtonMode = .never
+            textField.keyboardType = .default
+            
+        }
+        else if activeTextField.tag == 3{
+            
+            textField.maxLengthTextField = 10
+            textField.clearButtonMode = .never
+            textField.keyboardType = .numberPad
+            
+        }
+        else if activeTextField.tag == 4{
+            
+            textField.maxLengthTextField = 40
+            textField.clearButtonMode = .never
+            textField.keyboardType = .emailAddress
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+       
+        if !string.canBeConverted(to: String.Encoding.ascii){
+            return false
+        }
+        
+        
+        return true
+    }
+    
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        
+        if let newRegCell : EditProfileTableViewCell = textField.superview?.superview as? EditProfileTableViewCell {
             
             
-            let desController = mainstoryboard.instantiateViewController(withIdentifier: "SWRevealViewController") as!SWRevealViewController
             
-       //     desController.showNav = true
+        }
+        return true
+    }
+    
+    
+    
+    //MARK:- textFieldDidEndEditing
+    
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        
+        activeTextField = textField
+        
+        
+        if activeTextField.tag == 0{
             
-            let newController = UINavigationController.init(rootViewController:desController)
+            //  activeTextField.textColor = UIColor.red
+            firstNameEmpty = textField.text!
             
-            revealviewcontroller.pushFrontViewController(newController, animated: true)
-        
-
-        
-       // let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
-      //  appDelegate.window?.rootViewController = rootController
-        
-        
-        
-        //   navigationItem.leftBarButtonItems = []
-       // let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
-        
-        
-        
-     //   self.navigationController?.pushViewController(loginViewController, animated: true)
-        
-        
-        print("Back Button Clicked......")
+        }
+            
+        else if activeTextField.tag == 1 {
+            
+            middleNameEmpty = textField.text!
+            
+        }
+            
+        else if activeTextField.tag == 2{
+            
+            lastNameEmpty = textField.text!
+            
+        }
+        else if activeTextField.tag == 3{
+            
+            mobileNoEmpty = textField.text!
+            
+            
+        }
+            
+        else if activeTextField.tag == 4{
+            
+            
+            EmailIDEmpty = textField.text!
+            
+            
+        }
         
         
         
     }
+    
+    
+    
+    
+    
+    
+    //MARK:- UITableView Delegate & DataSource
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 2
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if section == 0 {
+            return 1
+        }
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat{
+        
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+     return sectionsTitle[section]
+     }
+     
+     
+   /*  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+     if (section == 1){
+     // UIView Creation...........
+     let headerView = UIView(frame: CGRect(x:0, y:0, width:tableView.frame.size.width, height:100))
+     headerView.backgroundColor =  UIColor(red: 248.0/255.0, green: 248.0/255.0, blue: 248.0/255.0, alpha: 1.0)
+     // UILabel Creation...........
+     
+     
+     let section1HeaderLabel2 = UILabel(frame: CGRect(x: 120, y: -3, width:100, height: 35))
+     // section1HeaderLabel.text = sectionsTitle[section]
+     section1HeaderLabel2.textColor = UIColor.black
+     section1HeaderLabel2.text = "Registration"
+     section1HeaderLabel2.textAlignment = .center
+     // section1HeaderLabel2.backgroundColor = UIColor.purple
+     section1HeaderLabel2.font = UIFont(name: "HelveticaNeue-Bold", size: 15.0)!
+     
+     //            let section1HeaderLabel3 = UILabel(frame: CGRect(x: 180, y: 1, width:80, height: 27))
+     //            // section1HeaderLabel.text = sectionsTitle[section]
+     //            section1HeaderLabel3.textColor = UIColor.black
+     //            section1HeaderLabel3.text = "Ship Date"
+     //            section1HeaderLabel3.textAlignment = .center
+     //           // section1HeaderLabel3.backgroundColor = UIColor.purple
+     //            section1HeaderLabel3.font = UIFont(name: "HelveticaNeue-Bold", size: 15.0)!
+     //
+     
+     
+     headerView.addSubview(section1HeaderLabel2)
+     //  headerView.addSubview(section1HeaderLabel3)
+     
+     return headerView
+     }
+     return nil
+     }
+     
+     
+     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+     
+        if section == 0 {
+            
+            return 0.0
+        }
+        
+         return 44.0
+     
+     } */
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        
+       // menuTableViewCell
+        
+        
+       
+        if indexPath.section == 0 {
+            
+            let profileCell = tableView.dequeueReusableCell(withIdentifier: "menuTableViewCell", for: indexPath) as! menuTableViewCell
+
+            
+            return profileCell
+        }
+       
+        
+        
+        let signUPCell = tableView.dequeueReusableCell(withIdentifier: "EditProfileTableViewCell", for: indexPath) as! EditProfileTableViewCell
+        
+        signUPCell.editProfileTF.delegate = self
+        
+        signUPCell.editProfileTF.tag = indexPath.row
+        
+        
+        
+        if indexPath.row == 0{
+            
+            signUPCell.editProfileTF.placeholder = "First Name"
+            signUPCell.editProfileTF.text = firstNameEmpty
+            
+            
+        }
+            
+        else if indexPath.row == 1{
+            
+            
+            signUPCell.editProfileTF.placeholder = "Middle Name"
+            signUPCell.editProfileTF.text = middleNameEmpty
+            
+            
+            
+        }
+        else if indexPath.row == 2{
+            
+            
+            signUPCell.editProfileTF.placeholder = "Last Name"
+            signUPCell.editProfileTF.text = lastNameEmpty
+            
+            
+            
+        }
+        else if indexPath.row == 3{
+            
+            signUPCell.editProfileTF.placeholder = "Mobile No"
+            
+            signUPCell.editProfileTF.text = mobileNoEmpty
+            
+            
+        }
+            
+        else if indexPath.row == 4{
+            
+            signUPCell.editProfileTF.placeholder = "Email ID"
+            signUPCell.editProfileTF.text = EmailIDEmpty
+            
+            
+            
+        }
+        
+        return signUPCell
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        
+        if section == 1 {
+         
+            let headerProfileCell = tableView.dequeueReusableCell(withIdentifier: "HeaderProfileCell") as! HeaderProfileCell
+            
+            
+            return headerProfileCell
+            
+        }
+        return nil
+        }
+        
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        if section == 0 {
+            
+            return 0.0
+        }
+        
+        return 44.0
+        
+    }
+    
+    @IBAction func saveBtnAction(_ sender: Any) {
+        
+        if self.validateAllFields()
+        {
+            
+            print("Registerd")
+            //  updateProfileAPIService()
+        }
+        else {
+            
+            print("biscute Code")
+            
+            return
+            
+        }
+        
+        print("Submit Button Clicked......")
+        
+        
+    }
+    
+    //MARK:- validateAllFields
+    
+    func validateAllFields() -> Bool
+    {
+        
+        var errorMessage:NSString?
+        
+        let firstName:NSString = firstNameEmpty   as NSString
+        
+        let middleName:NSString =  middleNameEmpty  as NSString
+        
+        let lastName:NSString =  lastNameEmpty  as NSString
+        
+        let mobileNumber:NSString =  mobileNoEmpty  as NSString
+        
+        let emailID:NSString = EmailIDEmpty as NSString
+        
+        
+        
+        
+        
+        if (firstName.length <= 5){
+            errorMessage=GlobalSupportingClass.blankFirstNameErrorMessage() as String as String as NSString?
+            
+        }
+            
+        else if (middleName.length<=5) {
+            errorMessage=GlobalSupportingClass.blankMiddleNameErrorMessage() as String as String as NSString?
+        }
+        else  if (lastName.length <= 5){
+            errorMessage=GlobalSupportingClass.blankLastNameErrorMessage() as String as String as NSString?
+            
+        }
+        else if (mobileNumber.length <= 0){
+            
+            errorMessage=GlobalSupportingClass.blankMobileNumberErrorMessage() as String as String as NSString?
+            
+        }
+        else if (mobileNumber.length <= 9) {
+            
+            errorMessage=GlobalSupportingClass.invalidMobileNumberErrorMessage() as String as String as NSString?
+        }
+            
+        else if (emailID.length<=0) {
+            errorMessage=GlobalSupportingClass.blankEmailIDErrorMessage() as String as String as NSString?
+        }
+            
+        else  if (emailID.length<=3) {
+            errorMessage=GlobalSupportingClass.miniCharEmailIDErrorMessage() as String as String as NSString?
+        }
+        else  if(!GlobalSupportingClass.isValidEmail(emailID as NSString))
+        {
+            errorMessage=GlobalSupportingClass.invalidEmaildIDFormatErrorMessage() as String as String as NSString?
+        }
+        if let errorMsg = errorMessage{
+            
+            self.showAlertViewWithTitle("Alert", message: errorMsg as String, buttonTitle: "Retry")
+            return false;
+        }
+        return true
+    }
+    
+    func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
+    {
+        let alertView:UIAlertView = UIAlertView();
+        alertView.title=title
+        alertView.message=message
+        alertView.addButton(withTitle: buttonTitle)
+        alertView.show()
+    }
+    
+    
+    @IBAction func imgBtnAction(_ sender: Any) {
+    }
+    
+    //MARK:- openCamera
+    
+    
+    func openCamera() {
+        picker.allowsEditing = true
+        //      picker.sourceType = .PhotoLibrary
+        picker.sourceType = .camera
+        present(picker, animated: true, completion: nil)
+        
+    }
+    
+    //MARK:- openGallary
+    
+    
+    func openGallary() {
+        picker.allowsEditing = true
+        picker.sourceType = .photoLibrary
+        //      picker.sourceType = .Camera
+        present(picker, animated: true, completion: nil)
+        
+    }
+    
+    
+    //MARK:- saveImage
+    
+    
+    func saveImage (_ image: UIImage, path: String ) -> Bool{
+        
+        isImageSave = true
+        
+        //let pngImageData = UIImagePNGRepresentation(image)
+        let jpgImageData = UIImageJPEGRepresentation(image, 1.0)   // if you want to save as JPEG
+        let result = (try? jpgImageData!.write(to: URL(fileURLWithPath: path), options: [.atomic])) != nil
+        
+        return result
+    }
+    
+
+    
+    
+    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+        
+        //   navigationItem.leftBarButtonItems = []
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+        
+        print("Back Button Clicked......")
+        
+    }
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

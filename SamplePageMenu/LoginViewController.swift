@@ -110,6 +110,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        
+        if !string.canBeConverted(to: String.Encoding.ascii){
+            return false
+        }
+        
+        
+        return true
+    }
+    
+    
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         

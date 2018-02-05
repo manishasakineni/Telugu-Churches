@@ -20,6 +20,9 @@ class menuTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+       
+        
+        
         
         backGroundView.layer.cornerRadius = 3.0
         backGroundView.layer.shadowColor = UIColor.lightGray.cgColor
@@ -27,7 +30,8 @@ class menuTableViewCell: UITableViewCell {
         backGroundView.layer.shadowOpacity = 0.6
         backGroundView.layer.shadowRadius = 2.0
         
-       
+        
+        
         menuImgView.layer.borderWidth = 1
         menuImgView.layer.masksToBounds = false
        // menuImgView.layer.borderColor = UIColor.black.cgColor
