@@ -20,11 +20,16 @@ let SIGNEUPURL:String = BASEURL.appending("api/Account/Register")
 let LOGINURL : String = BASEURL.appending("api/UserInfo/LoginUser/")
 
 
+let CHANGEPASSWORDURL:String = BASEURL.appending("api/Account/ChangePassword")
+
+
 
 // MARK: -  Navigation String
 
 
 let KFirstTimeLogin = "first Time Login"
+
+let kUserId:String = "kUserId"
 
 
 let kTokenType = "tokenType"

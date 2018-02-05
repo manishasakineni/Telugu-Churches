@@ -117,6 +117,7 @@
 		CB834734202825980034AD4E /* EditProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB834732202825980034AD4E /* EditProfileTableViewCell.xib */; };
 		CB834737202837020034AD4E /* HeaderProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB834735202837020034AD4E /* HeaderProfileCell.swift */; };
 		CB834738202837020034AD4E /* HeaderProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB834736202837020034AD4E /* HeaderProfileCell.xib */; };
+		CB83474020287EA20034AD4E /* ChangePasswordVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83473F20287EA20034AD4E /* ChangePasswordVo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -241,6 +242,7 @@
 		CB834732202825980034AD4E /* EditProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileTableViewCell.xib; sourceTree = "<group>"; };
 		CB834735202837020034AD4E /* HeaderProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderProfileCell.swift; sourceTree = "<group>"; };
 		CB834736202837020034AD4E /* HeaderProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderProfileCell.xib; sourceTree = "<group>"; };
+		CB83473F20287EA20034AD4E /* ChangePasswordVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVo.swift; sourceTree = "<group>"; };
 		CE32E04C483467733EE22566 /* Pods_Telugu_Churches.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Telugu_Churches.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -432,6 +434,7 @@
 		9A623B8120219B8700A674F2 /* MapperVO */ = {
 			isa = PBXGroup;
 			children = (
+				CB83473E20287E670034AD4E /* ChangePasswordVo */,
 				3D551C602011F617005DB3B2 /* VideosVO.swift */,
 				9A058AF72021E02D005A611C /* RegisterVo */,
 				9A058AFC2021F3A4005A611C /* LoginVo */,
@@ -607,6 +610,14 @@
 				CB834736202837020034AD4E /* HeaderProfileCell.xib */,
 			);
 			name = EditProfileCell;
+			sourceTree = "<group>";
+		};
+		CB83473E20287E670034AD4E /* ChangePasswordVo */ = {
+			isa = PBXGroup;
+			children = (
+				CB83473F20287EA20034AD4E /* ChangePasswordVo.swift */,
+			);
+			name = ChangePasswordVo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -842,6 +853,7 @@
 				CB0256C1202473420017E240 /* ProfileViewController.swift in Sources */,
 				9A5D260E1FFF89B700316988 /* AllOffersViewController.swift in Sources */,
 				9A5D261E1FFF89EA00316988 /* TransactionCell.swift in Sources */,
+				CB83474020287EA20034AD4E /* ChangePasswordVo.swift in Sources */,
 				9AEAE822201F1D0100DB9D8E /* Utilities.swift in Sources */,
 				AF1956E520048BE3007AC82A /* SideMenuViewController.swift in Sources */,
 				9A5D26161FFF89D100316988 /* DetAndBillsViewController.swift in Sources */,

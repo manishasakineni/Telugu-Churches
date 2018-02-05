@@ -11,25 +11,37 @@ import Foundation
 
 class LoginResultVo: Mappable {
     
+  //  var listResult: [LoginResultVo]?
+
+    var contactNumber : Int?
+    var email : String?
+    var id : Int?
+    var mobileNumber : Int?
+    var name : String?
+    var roleId : Int?
+    var roleName : String?
+    var userId : String?
+    var userName : Int?
     
-    //MARK:-  Declaration of SignupVo
     
-    var result: LoginVo?
-    var affectedRecords: Int?
-    var listResult: String?
-    var isSuccess: Bool?
-    var endUserMessage: String?
-    var validationErrors : NSArray?
+    //MARK:-  initialization of VideosVO
     
-    //MARK:-  initialization of SignupVo
     
-    init(result: LoginVo?,affectedRecords: Int?,listResult: String?,isSuccess: Bool?,endUserMessage: String?,validationErrors : NSArray?) {
-        self.result = result
-        self.affectedRecords = affectedRecords
-        self.listResult = listResult
-        self.isSuccess = isSuccess
-        self.endUserMessage = endUserMessage
-        self.validationErrors = validationErrors
+    init(contactNumber : Int?,email : String?,id : Int?,mobileNumber : Int?,name : String?,roleId : Int?,roleName : String?,userId : String?,userName : Int?) {
+        
+        
+        self.contactNumber = contactNumber
+        self.email = email
+        self.id = id
+        self.mobileNumber = mobileNumber
+        self.name = name
+        self.roleId = roleId
+        self.roleName = roleName
+        self.userId = userId
+        self.userName = userName
+        
+        
+        
         
     }
     
@@ -38,11 +50,16 @@ class LoginResultVo: Mappable {
     }
     
     func mapping(map: Map) {
-        result <- map["result"]
-        affectedRecords <- map["affectedRecords"]
-        listResult <- map["listResult"]
-        isSuccess <- map["isSuccess"]
-        endUserMessage <- map["endUserMessage"]
-        validationErrors <- map["validationErrors"]
+        contactNumber <- map["contactNumber"]
+        email <- map["email"]
+        id <- map["id"]
+        mobileNumber <- map["mobileNumber"]
+        name <- map["name"]
+        roleId <- map["roleId"]
+        roleName <- map["roleName"]
+        userId <- map["userId"]
+        userName <- map["userName"]
     }
+ 
+   
 }

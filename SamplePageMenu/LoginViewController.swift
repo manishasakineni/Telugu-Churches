@@ -180,12 +180,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginClicked(_ sender: Any) {
         
         
-        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+      //  let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
-        appDelegate.window?.rootViewController = rootController
+     //   appDelegate.window?.rootViewController = rootController
         
        
-     /*   if self.validateAllFields(){
+        if self.validateAllFields(){
             
             if(appDelegate.checkInternetConnectivity()){
                 
@@ -196,7 +196,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return
             }
             
-        } */
+        }
 
         
     }
@@ -298,7 +298,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             
                             print("result:\(result)")
                             
-                            let respVO:LoginResultVo = Mapper().map(JSONObject: result)!
+                            let respVO:LoginVo = Mapper().map(JSONObject: result)!
                             
                            print("responseString = \(respVO)")
                             
@@ -315,31 +315,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 
                                 let successMsg = respVO.endUserMessage
                                 
-                                //   self.showAlertViewWithTitle("Success", message: successMsg!, buttonTitle: "Ok")
+                           //     let userid = respVO.result?.userId
                                 
                                 
+                                let defaults = UserDefaults.standard
                                 
-                                //                        self.utillites.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Sucess", messege: successMsg!, clickAction: {
-                                //
-                                //                            let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                                //
-                                //                            self.navigationController?.pushViewController(signUpVc, animated: true)
-                                //
-                                //                        })
+                                // Save String value to UserDefaults
+                               
+                             //   defaults.set(userid, forKey: "userid")
                                 
-                                // alertWithOkButtonAction
-                                
-                              //  self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege: successMsg!, clickAction: {
-                                  ///  let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                                    
-                                  //  self.navigationController?.pushViewController(signUpVc, animated: true)
+                                UserDefaults.standard.synchronize()
                                 
                                 self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
 
                                 
                              //   makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                                      let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-                                    
+                                
+                                
                                        self.appDelegate.window?.rootViewController = rootController
                             //    })
                                 
@@ -419,7 +412,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
             //    reOrderPopOverVC. singleSelection =
             //   var imagesArray : Array<UIImage> = Array()
-            
+        
         
                 self.addChildViewController(reOrderPopOverVC)
                 

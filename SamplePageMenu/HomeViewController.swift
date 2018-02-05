@@ -18,7 +18,7 @@ protocol SttingPopOverHomeDelegate {
     func logOutClicked()
 }
 
-class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleOfIndexDelegate,UITableViewDataSource,UITableViewDelegate,UIPopoverPresentationControllerDelegate,SttingPopOverHomeDelegate  {
+class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleOfIndexDelegate,UIPopoverPresentationControllerDelegate,SttingPopOverHomeDelegate,UICollectionViewDelegate,UICollectionViewDataSource  {
     
     
     @IBOutlet weak var menuBarButton: UIBarButtonItem!
@@ -31,6 +31,7 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
     var appVersion          : String = ""
 
     
+    @IBOutlet weak var collectionView: UICollectionView!
     private var controllersArray: [UIViewController] = []
     var subTitlesArray          : Array<String>     = Array()
     
@@ -40,7 +41,7 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
     var detAndBillsVC : DetAndBillsViewController?
     var mearchantVC : MearchantViewController?
   
-    @IBOutlet weak var hometableview: UITableView!
+ //   @IBOutlet weak var hometableview: UITableView!
     
     
     
@@ -69,15 +70,15 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         
         
         
-        let nibName  = UINib(nibName: "homeTableViewCell" , bundle: nil)
-        hometableview.register(nibName, forCellReuseIdentifier: "homeTableViewCell")
+        
+        
+        let cellColl = UINib(nibName: "homeCollectionViewCell", bundle: nil)
+        collectionView.register(cellColl, forCellWithReuseIdentifier: "homeCollectionViewCell")
         
         
         
-        
-        
-        hometableview.dataSource = self
-        hometableview.delegate = self
+        collectionView.dataSource = self
+        collectionView.delegate = self
         
         
         self.navigationController?.isNavigationBarHidden = false
@@ -140,55 +141,7 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
     
     
     
-    public func numberOfSections(in tableView: UITableView) -> Int {
-        
-        
-        return 1
-        
-    }
-    
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        
-        return 1
-    }
-    
-    
-    
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 667
-        
-    }
-    
-  //  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-   
-     //   return UITableViewAutomaticDimension
-        
-   // }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        
-        
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "homeTableViewCell", for: indexPath) as! homeTableViewCell
-        
-        cell.homeCollectionView.register(UINib.init(nibName: "homeCollectionViewCell", bundle: nil),
-                                         forCellWithReuseIdentifier: "homeCollectionViewCell")
-        cell.homeCollectionView.tag = indexPath.row
-        
-        
-        cell.homeCollectionView.collectionViewLayout.invalidateLayout()
-        
-        
-        cell.homeCollectionView.delegate = self
-        cell.homeCollectionView.dataSource = self
-        
-        
-        
-        return cell
-    }
+
     
     @IBAction func settingClicked(_ sender: UIBarButtonItem) {
         
@@ -277,13 +230,7 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         self.navigationController?.pushViewController(profileViewController, animated: true)
 
     }
-}
 
-
-extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
-    
-    
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
         return 1

@@ -65,13 +65,14 @@ class GlobalSupportingClass {
         return "InCorrect ConfirmPassWord"
     }
     class func passwordMissMatchErrorMessage() -> String {
-        return "Passwor Missmatch"
+        return "Password MissMatch"
     }
     
     
     class func blankPasswordErrorMessage() -> String {
-        return "Please Provide Password"
+        return "Please Provide NewPassword"
     }
+    
     class func blankResetPasswordErrorMessage() -> String {
         return "Please Provide Reset-Password"
     }
@@ -98,6 +99,7 @@ class GlobalSupportingClass {
 //        return "app.Pleaseprovide10digitsmobilenumber".localize()
 //    }
     
+
     class func numberMessage() -> String {
         return "Password Must Have At Least One Digit"
     }
@@ -106,6 +108,13 @@ class GlobalSupportingClass {
         return "Password Must Have At Least One Non AlphaNumericCharacter"
     }
     
+    class func blankOldPasswordErrorMessage() -> String {
+        return "Invalid Old Password"
+    }
+   
+    class func blankNilOldPasswordErrorMessage() -> String {
+        return "Please Provied Old Password"
+    }
     
     // MARK: - Capital
     

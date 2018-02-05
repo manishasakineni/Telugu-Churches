@@ -10,20 +10,23 @@ import Foundation
 
 class LoginVo: Mappable {
     
-    //MARK:-  Declaration of VideosVO
+    //MARK:-  Declaration of SignupVo
+    var result : [LoginResultVo]?
+
+    var affectedRecords: Int?
+    var isSuccess: Bool?
+    var endUserMessage: String?
+    var validationErrors : NSArray?
     
+    //MARK:-  initialization of SignupVo
     
-    var UserName : String?
-    var Password : String?
-    
-    
-    //MARK:-  initialization of VideosVO
-    
-    
-    init(UserName : String?,Password : String?) {
+init(result: [LoginResultVo]?,affectedRecords: Int?,isSuccess: Bool?,endUserMessage: String?,validationErrors : NSArray?) {
+        self.affectedRecords = affectedRecords
         
-        self.UserName = UserName
-        self.Password = Password
+        self.isSuccess = isSuccess
+        self.endUserMessage = endUserMessage
+        self.validationErrors = validationErrors
+        
     }
     
     required init?(map: Map) {
@@ -32,10 +35,25 @@ class LoginVo: Mappable {
     
     func mapping(map: Map) {
         
-        UserName <- map["UserName"]
-        Password <- map["Password"]
+        result <- map["result"]
+        affectedRecords <- map["affectedRecords"]
         
+        isSuccess <- map["isSuccess"]
+        endUserMessage <- map["endUserMessage"]
+        validationErrors <- map["validationErrors"]
     }
+   /* contactNumber = 2457561545;
+    email = "madu@gmail.com";
+    id = 15;
+    mobileNumber = 9090909090;
+    name = "madu babu madubabu";
+    roleId = 1;
+    roleName = "Superadmin (SA)";
+    userId = "1c4f6267-ce72-4ece-a177-37fc79836363";
+    userName = Madu; */
+
     
+    //MARK:-  Declaration of VideosVO
+      
     
 }
