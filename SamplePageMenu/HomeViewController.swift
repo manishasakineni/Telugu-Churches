@@ -26,11 +26,18 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
     
     @IBOutlet weak var settingsBarButton: UIBarButtonItem!
     
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+    
     var pageMenu : CAPSPageMenu?
     
     
     var appVersion          : String = ""
 
+    var loginStatusString    =   String()
+    
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     private var controllersArray: [UIViewController] = []
@@ -59,9 +66,20 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print(kLoginSucessStatus)
         
         
+        let defaults = UserDefaults.standard
         
+        if let loginSucess = defaults.string(forKey: kLoginSucessStatus) {
+            print(loginSucess)
+            self.appDelegate.window?.makeToast(loginSucess, duration:kToastDuration, position:CSToastPositionCenter)
+            
+            print("defaults savedString: \(loginSucess)")
+            
+        }
+        
+
         
         // Do any additional setup after loading the view.
       //  navigationController?.navigationBar.barTintColor = UIColor.green
@@ -86,7 +104,7 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         
         
         
-        
+
         
      //   settingsBarButton.addTarget(self, action: #selector(HomeViewController.methodName), for: .touchUpInside)
 
@@ -229,7 +247,7 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         
         self.presentedViewController?.dismiss(animated: true, completion: nil)
 
-        let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ForgotPassWordViewController") as! ForgotPassWordViewController
+        let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePassWordViewController") as! ChangePassWordViewController
         // reOrderPopOverVC.delegate = self
         
         //    reOrderPopOverVC. singleSelection =
@@ -254,8 +272,23 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         print("logOutClicked")
         self.presentedViewController?.dismiss(animated: true, completion: nil)
         
-        let profileViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-        self.navigationController?.pushViewController(profileViewController, animated: true)
+        UserDefaults.standard.removeObject(forKey: "1")
+        UserDefaults.standard.removeObject(forKey: KFirstTimeLogin)
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        UserDefaults.standard.synchronize()
+
+        
+       // UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+       // UserDefaults.standard.synchronize()
+        
+        
+        
+        
+
+        
+        let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        
+        self.navigationController?.pushViewController(loginViewController, animated: true)
 
     }
 
@@ -299,18 +332,29 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         return CGSize(width: itemWidth, height: itemWidth)
     }
     
-  /*  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
         
-        if indexPath.item == 0 {
+       if indexPath.item == 0 {
             
-            let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "HolyBibleViewController") as! HolyBibleViewController
-            self.navigationController?.pushViewController(holyBibleViewController, animated: true)
+          //  let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "HolyBibleViewController") as! HolyBibleViewController
+          //  self.navigationController?.pushViewController(holyBibleViewController, animated: true)
+        
+        
+        let  failedViewController = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
+        
+        
+        self.navigationController?.pushViewController(failedViewController, animated: true)
+        
+      
+        
+        
         }
-     return true
+        
+     // return true
     }
- */
+ 
     
     private func createPageMenu() {
         

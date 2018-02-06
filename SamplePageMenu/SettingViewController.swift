@@ -12,7 +12,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var settingTableView: UITableView!
     
-    var menuArray = ["Edit Profile","ChangePassword","Notifications", "LogOut"]
+    var menuArray = ["Edit Profile","ChangePassword","LogOut", "Notifications"]
     
     
     
@@ -99,21 +99,22 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             print("You selected cell #\(indexPath.item)!")
             
         }
-        if cell.menuTitle.text! == "Notifications"
-        {
-            
-            if let delegate = self.delegate{
-                delegate.notificationClicked()
-            }
-            
-            print("You selected cell #\(indexPath.item)!")
-            
-        }
+       
         if cell.menuTitle.text! == "LogOut"
         {
             
             if let delegate = self.delegate{
                 delegate.logOutClicked()
+            }
+            
+            print("You selected cell #\(indexPath.item)!")
+            
+        }
+        if cell.menuTitle.text! == "Notifications"
+        {
+            
+            if let delegate = self.delegate{
+                delegate.notificationClicked()
             }
             
             print("You selected cell #\(indexPath.item)!")

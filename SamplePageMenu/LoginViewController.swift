@@ -37,7 +37,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+      /*  let defaults = UserDefaults.standard
         
+        if let gst : String = defaults.value(forKey: "1") as? String {
+        
+        if gst == "1" {}
+        
+        else {
+        
+        if let registerSucess = defaults.string(forKey: kRegisterSucessStatus) {
+            print(registerSucess)
+            self.appDelegate.window?.makeToast(registerSucess, duration:kToastDuration, position:CSToastPositionCenter)
+            
+            print("defaults savedString: \(registerSucess)")
+            
+        }
+            }
+        } */
         loginBtnOutLet.layer.borderWidth = 1.0
         loginBtnOutLet.layer.cornerRadius = 6.0
         loginBtnOutLet.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
@@ -45,22 +62,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         mobileEmailTF.delegate = self
         passwordTF.delegate = self
-        
-      //  eyeBtnOutlet.isHidden = true
-
-        
-        //  mobileEmailTF.keyboardType = .emailAddress
-//        mobileEmailTF.borderStyle = UITextBorderStyle.roundedRect
-//        passwordTF.borderStyle = UITextBorderStyle.roundedRect
-//        
         mobileEmailTF.maxLengthTextField = 10
         mobileEmailTF.keyboardType = .default
         passwordTF.maxLengthTextField = 15
         passwordTF.keyboardType = .emailAddress
-        
-        remembermeBtn.setBackgroundImage(UIImage(named: "icons8-checked_filled-1"), for: UIControlState.normal)
-
-        
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -83,14 +88,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.navigationController?.navigationBar.isHidden = !showNav
            Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " ", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-     
-        
-        //   self.navigationItem.hidesBackButton = false
-        
-//        Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-hand_right_filled-1", cntr:self, titleView: nil, withText: "", backTitle: " InspectionPro", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-//        
-//        //navigationItem.leftBarButtonItems = []
-        
     }
     override func viewWillDisappear(_ animated: Bool) {
         
@@ -140,24 +137,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    //    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    //
-    //        if textField == mobileEmailTF {
-    //            if string.characters.count > 0 {
-    //                let allowedCharacters = CharacterSet.decimalDigits
-    //
-    //                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
-    //                return unwantedStr.characters.count == 0
-    //            }
-    //
-    //            return true
-    //        }
-    //        return true
-    //
-    //    }
-    
-    
-    
     //MARK: -  validate pgone number
     
     func validatePhoneNumber(phoneNumber: String) -> Bool {
@@ -184,19 +163,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
      //   appDelegate.window?.rootViewController = rootController
         
-       
-        if self.validateAllFields(){
+        if(appDelegate.checkInternetConnectivity()){
+
+            if self.validateAllFields(){
             
-            if(appDelegate.checkInternetConnectivity()){
-                
+            
               loginAPIService()
             }
-            else{
-                appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
-            return
-            }
             
+        }else{
+            appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+            return
         }
+
 
         
     }
@@ -212,8 +191,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTF.text = passwordTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
         
       //  var errorMessage:NSString?
-        
-        
         
         if email!.isEmpty && password!.isEmpty{
             
@@ -231,12 +208,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //                appDelegate.window?.rootViewController = rootController
 //            
             print("Home Page Navigate")
-
-            
-            //            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Warning", messege: "Please Check Your Internetconnection!", clickAction: {
-            //
-            //
-            //            })
             
         }
         
@@ -249,38 +220,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         //        self.view.endEditing(true)
         return true
     }
-//    
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        /// 1. replacementString is NOT empty means we are entering text or pasting text: perform the logic
-//        /// 2. replacementString is empty means we are deleting text: return true
-//        
-//        
-//        
-//        
-//        if textField == mobileEmailTF{
-//            
-//            if string.characters.count > 0 {
-//                
-//                let currentCharacterCount = textField.text?.characters.count ?? 0
-//                if (range.length + range.location > currentCharacterCount){
-//                    return false
-//                }
-//                let newLength = currentCharacterCount + string.characters.count - range.length
-//                
-//                let allowedCharacters = CharacterSet.decimalDigits
-//                
-//                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
-//                
-//                return newLength <= 40 && unwantedStr.characters.count == 0
-//                
-//            }
-//            
-//        }
-//        
-//        return true
-//    }
-
-    
     func loginAPIService(){
         
         if(appDelegate.checkInternetConnectivity()){
@@ -314,24 +253,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 
                                 
                                 let successMsg = respVO.endUserMessage
+                                print(successMsg)
                                 
                                 let userid = respVO.listResult?[0].userId
                                 let defaults = UserDefaults.standard
                                 defaults.set(userid, forKey: kuserId)
                                 UserDefaults.standard.synchronize()
                                 
+                                let loginStatus = successMsg
+                                let loginStatusDefaults = UserDefaults.standard
+                                loginStatusDefaults.set(loginStatus, forKey: kLoginSucessStatus)
+                                UserDefaults.standard.synchronize()
+                                
+                                defaults.set("true", forKey: KFirstTimeLogin)
+                                UserDefaults.standard.synchronize()
+                              
                                 self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
-
-                                
-                             //   makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
-                                     let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-                                
-                                
-                                       self.appDelegate.window?.rootViewController = rootController
-                            //    })
-                                
-                                //self.navigationController?.popViewController(animated: true)
-                                
+                                let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                                self.appDelegate.window?.rootViewController = rootController
                             }
                             else {
                                 
@@ -342,18 +281,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 return
                                 
                             }
-                            
-                          //  let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-                            
-                           // appDelegate.window?.rootViewController = rootController
-                            
-                            
-                      //      let isActive = respVO.IsSuccess
-                            
-                            
                             print("success")
-
-                            
                     }
                 }, failure:  {(error) in
                     
@@ -401,7 +329,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func forgotPasswordClicked(_ sender: Any) {
         
         
-        let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ForgotPassWordViewController") as! ForgotPassWordViewController
+        let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePassWordViewController") as! ChangePassWordViewController
        // reOrderPopOverVC.delegate = self
         
             //    reOrderPopOverVC. singleSelection =
@@ -419,65 +347,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
 
-    @IBAction func remembermeClicked(_ sender: Any) {
-        
-        if (remembermeBtn.isSelected == true)
-        {
-          //  remembermeBtn.setBackgroundImage(UIImage(named: "unselectedBox"), for: UIControlState.normal)
-            remembermeBtn.setBackgroundImage(UIImage(named: "icons8-checked_filled-1"), for: UIControlState.normal)
-            
-            
-            
-            remembermeBtn.isSelected = false
-        }
-        else
-        {
-         //   remembermeBtn.setBackgroundImage(UIImage(named: "ic_check_circle"), for: UIControlState.normal)
-            remembermeBtn.setBackgroundImage(UIImage(named: "icons8-unchecked_circle_filled"), for: UIControlState.normal)
-            
-            remembermeBtn.isSelected = true
-            
-        }
-        
-        
-        
-    }
     
     
     @IBAction func registerClicked(_ sender: Any) {
         
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        
-//        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-//        
-//        appDelegate.window?.rootViewController = rootController
-        
-//        let signUpVc  : SignUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-//        
-//        self.navigationController?.pushViewController(signUpVc, animated: true)
-//        
-        
-        
-        
-        
-        
-       // let  signUpViewController = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
-        
         let signUpViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
         
-//        failedViewController.deficencyCorrectiveModelArray = deficencyCorrectiveModelArray
-//        failedViewController.operationArray = operationsModelArray
-//        
         self.navigationController?.pushViewController(signUpViewController, animated: true)
-        
-
-        
-//
-//        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-//        
-//        appDelegate.window?.rootViewController = rootController
-        
-        
         
     }
     

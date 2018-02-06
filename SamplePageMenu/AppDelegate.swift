@@ -30,11 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
             
-            let homeNav : UINavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! UINavigationController
+            UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+            UserDefaults.standard.synchronize()
+            
+            let homeNav : SWRevealViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
             
             self.window?.rootViewController = homeNav
             
-        }
+        } 
             
         else{
             

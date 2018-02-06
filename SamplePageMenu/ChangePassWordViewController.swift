@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ForgotPassWordViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
+class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
     
     var appDelegate = AppDelegate()
     let sharedController = ServiceController()

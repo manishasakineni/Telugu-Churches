@@ -549,7 +549,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         
         
-        
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
         
         self.navigationController?.pushViewController(loginViewController, animated: true)
         
@@ -738,24 +739,20 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
                         
                         let successMsg = respVO.endUserMessage
                         
-                     //   self.showAlertViewWithTitle("Success", message: successMsg!, buttonTitle: "Ok")
+                        
+                     /*   let registerStatus = successMsg
+                        let registerStatusDefaults = UserDefaults.standard
+                        registerStatusDefaults.set(registerStatus, forKey: kRegisterSucessStatus)
+                        UserDefaults.standard.synchronize() */
                         
                         
+         
                         
-//                        self.utillites.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Sucess", messege: successMsg!, clickAction: { 
-//                            
-//                            let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-//                            
-//                            self.navigationController?.pushViewController(signUpVc, animated: true)
-//                            
-//                        })
-                        
-                       // alertWithOkButtonAction
-                        
-                        self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege: successMsg!, clickAction: { 
+                        self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege: successMsg!, clickAction: {
                                 let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                            
-                                                        self.navigationController?.pushViewController(signUpVc, animated: true)
+                        
+                        
+                            self.navigationController?.pushViewController(signUpVc, animated: true)
                         })
                         
                         //self.navigationController?.popViewController(animated: true)
