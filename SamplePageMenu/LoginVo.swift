@@ -8,10 +8,14 @@
 
 import Foundation
 
+
+
+
+
 class LoginVo: Mappable {
     
     //MARK:-  Declaration of SignupVo
-    var result : [LoginResultVo]?
+    var listResult : [LoginResultVo]?
 
     var affectedRecords: Int?
     var isSuccess: Bool?
@@ -20,9 +24,10 @@ class LoginVo: Mappable {
     
     //MARK:-  initialization of SignupVo
     
-init(result: [LoginResultVo]?,affectedRecords: Int?,isSuccess: Bool?,endUserMessage: String?,validationErrors : NSArray?) {
+init(listResult: [LoginResultVo]?,affectedRecords: Int?,isSuccess: Bool?,endUserMessage: String?,validationErrors : NSArray?) {
+    
+        self.listResult = listResult
         self.affectedRecords = affectedRecords
-        
         self.isSuccess = isSuccess
         self.endUserMessage = endUserMessage
         self.validationErrors = validationErrors
@@ -35,9 +40,8 @@ init(result: [LoginResultVo]?,affectedRecords: Int?,isSuccess: Bool?,endUserMess
     
     func mapping(map: Map) {
         
-        result <- map["result"]
+        listResult <- map["listResult"]
         affectedRecords <- map["affectedRecords"]
-        
         isSuccess <- map["isSuccess"]
         endUserMessage <- map["endUserMessage"]
         validationErrors <- map["validationErrors"]

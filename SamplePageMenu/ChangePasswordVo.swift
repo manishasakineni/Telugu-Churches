@@ -9,6 +9,11 @@
 import Foundation
 
 
+
+
+
+
+
 class ChangePasswordVo: Mappable {
     
     //MARK:-  Declaration of VideosVO

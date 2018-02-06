@@ -14,6 +14,7 @@ protocol changeSubtitleOfIndexDelegate {
 
 protocol SttingPopOverHomeDelegate {
     func editProfileClicked()
+    func changePassWordClicked()
     func notificationClicked()
     func logOutClicked()
 }
@@ -210,14 +211,41 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         
     }
     
+    
     func notificationClicked(){
-
-        print("notificationClicked")
-
-        self.presentedViewController?.dismiss(animated: true, completion: nil)
         
-        let profileViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-        self.navigationController?.pushViewController(profileViewController, animated: true)
+        
+        print("notificationClicked")
+         
+         self.presentedViewController?.dismiss(animated: true, completion: nil)
+         
+         let profileViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+         self.navigationController?.pushViewController(profileViewController, animated: true) 
+        
+        
+    }
+    
+    func changePassWordClicked(){
+        
+        self.presentedViewController?.dismiss(animated: true, completion: nil)
+
+        let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ForgotPassWordViewController") as! ForgotPassWordViewController
+        // reOrderPopOverVC.delegate = self
+        
+        //    reOrderPopOverVC. singleSelection =
+        //   var imagesArray : Array<UIImage> = Array()
+        
+        
+        self.addChildViewController(reOrderPopOverVC)
+        
+        reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        self.view.addSubview(reOrderPopOverVC.view)
+        reOrderPopOverVC.didMove(toParentViewController: self)
+        
+        
+        
+        
+
 
     }
     

@@ -39,7 +39,7 @@ class ForgotPassWordViewController: UIViewController,UITableViewDelegate,UITable
 
         let defaults = UserDefaults.standard
         
-        if let uid = defaults.string(forKey: kUserId) {
+        if let uid = defaults.string(forKey: kuserId) {
             
             userId = uid
             
@@ -360,7 +360,7 @@ class ForgotPassWordViewController: UIViewController,UITableViewDelegate,UITable
         {
             
             
-            signeUpAPIService()
+            changePassWordAPIService()
         }
     }
     else {
@@ -470,7 +470,7 @@ class ForgotPassWordViewController: UIViewController,UITableViewDelegate,UITable
     
     // MARK :- SigneUpAPIService
     
-    func signeUpAPIService(){
+    func changePassWordAPIService(){
         
         let  strUrl = CHANGEPASSWORDURL
         
@@ -488,19 +488,40 @@ class ForgotPassWordViewController: UIViewController,UITableViewDelegate,UITable
         print("dictHeader:\(dictHeaders)")
 
         
+      
+ 
+        
+        
         serviceController.signUpRequestPOSTURL(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
             DispatchQueue.main.async()
                 {
                     
-                    print("result:\(result)")
+                    print("\(result)")
                     
-                   let respVO:RegisterResultVo = Mapper().map(JSONObject: result)!
+                   let respVO:PSWMessageTypeResult = Mapper().map(JSONObject: result)!
+                    let statusMessage = respVO.modelState?.errorMessage
+                    print(statusMessage!)
+                    if  statusMessage! == ["Incorrect password."] {
+                        
+                        print(statusMessage!)
+                        self.showAlertViewWithTitle("Alert", message: "\(statusMessage!)", buttonTitle: "Ok")
+ 
+
+
+                    }else{
+                        
+                        print("sucess")
+
+                        
+                    }
+                    
+                     
+                     
+                    
+               /*     print("responseString = \(respVO)")
                     
                     
-                    print("responseString = \(respVO)")
-                    
-                    
-                    let statusCode = respVO.isSuccess
+                    let statusCode = respVO.message
                     
                     print("StatusCode:\(String(describing: statusCode))")
                     
@@ -509,9 +530,24 @@ class ForgotPassWordViewController: UIViewController,UITableViewDelegate,UITable
                     if statusCode == true
                     {
                         
-                        
-                        let successMsg = respVO.endUserMessage
-                        
+ Old PassWord Given wrong => Failed
+ statusCode:400
+ ["modelState": {
+ errorMessage =     (
+ "Incorrect password."
+ );
+ }, "message": The request is invalid.]
+                     
+                     
+                     
+                Old PassWord Change Given wrong => Sucess Full
+                     statusCode:200
+                     ["errors": <__NSArrayM 0x608000640de0>(
+                     
+                     )
+                     , "succeeded": 1]
+                     
+ 
                         //   self.showAlertViewWithTitle("Success", message: successMsg!, buttonTitle: "Ok")
                         
                         
@@ -537,13 +573,14 @@ class ForgotPassWordViewController: UIViewController,UITableViewDelegate,UITable
                     }
                     else {
                         
-                        let failMsg = respVO.endUserMessage
+                        let failMsg = respVO.
+                        print(failMsg)
                         
                         self.showAlertViewWithTitle("Alert", message: failMsg!, buttonTitle: "Ok")
                         
                         return
                         
-                    }
+                    } */
                     
                     
             }

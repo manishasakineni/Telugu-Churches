@@ -29,7 +29,7 @@ let CHANGEPASSWORDURL:String = BASEURL.appending("api/Account/ChangePassword")
 
 let KFirstTimeLogin = "first Time Login"
 
-let kUserId:String = "kUserId"
+let kuserId:String = "kuserId"
 
 
 let kTokenType = "tokenType"
