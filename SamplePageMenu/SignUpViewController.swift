@@ -801,6 +801,20 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
     }
     
+    @IBAction func loginClicked(_ sender: Any) {
+        
+        
+        let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+        
+        self.navigationController?.pushViewController(loginViewController, animated: true)
+        
+        
+        
+    }
     
    
 }

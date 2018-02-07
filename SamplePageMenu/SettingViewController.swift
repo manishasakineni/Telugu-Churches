@@ -12,7 +12,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var settingTableView: UITableView!
     
-    var menuArray = ["Edit Profile","ChangePassword","LogOut", "Notifications"]
+    var menuArray = ["About-US","Notifications","Help"]
     
     
     
@@ -79,37 +79,15 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let cell:SettingTableViewCell = tableView.cellForRow(at: indexPath) as!SettingTableViewCell
         
-        if cell.menuTitle.text! == "Edit Profile"
+        if cell.menuTitle.text! == "About-US"
         {
             
             if let delegate = self.delegate{
-                delegate.editProfileClicked()
+                delegate.aboutUS()
             }
+            
+        }
 
-            print("You selected cell #\(indexPath.item)!")
-
-        }
-        if cell.menuTitle.text! == "ChangePassword"
-        {
-            
-            if let delegate = self.delegate{
-                delegate.changePassWordClicked()
-            }
-            
-            print("You selected cell #\(indexPath.item)!")
-            
-        }
-       
-        if cell.menuTitle.text! == "LogOut"
-        {
-            
-            if let delegate = self.delegate{
-                delegate.logOutClicked()
-            }
-            
-            print("You selected cell #\(indexPath.item)!")
-            
-        }
         if cell.menuTitle.text! == "Notifications"
         {
             
@@ -120,6 +98,21 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             print("You selected cell #\(indexPath.item)!")
             
         }
+
+        if cell.menuTitle.text! == "Help"
+        {
+            
+            if let delegate = self.delegate{
+                delegate.helpClicked()
+            }
+
+            print("You selected cell #\(indexPath.item)!")
+
+        }
+       
+            
+            print("You selected cell #\(indexPath.item)!")
+            
         
             // handle tap events
         

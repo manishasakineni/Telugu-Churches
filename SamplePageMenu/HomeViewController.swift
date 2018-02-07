@@ -13,13 +13,12 @@ protocol changeSubtitleOfIndexDelegate {
 }
 
 protocol SttingPopOverHomeDelegate {
-    func editProfileClicked()
-    func changePassWordClicked()
+    func helpClicked()
+    func aboutUS()
     func notificationClicked()
-    func logOutClicked()
 }
 
-class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleOfIndexDelegate,UIPopoverPresentationControllerDelegate,SttingPopOverHomeDelegate,UICollectionViewDelegate,UICollectionViewDataSource  {
+class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleOfIndexDelegate,UIPopoverPresentationControllerDelegate,SttingPopOverHomeDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout  {
     
     
     @IBOutlet weak var menuBarButton: UIBarButtonItem!
@@ -54,9 +53,9 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
     
     
     
-    var imageArray = [UIImage(named:"holybible"),UIImage(named:"Audio"),UIImage(named:"Seminor"),UIImage(named:"Songs"),UIImage(named:"books"),UIImage(named:"Churches"),UIImage(named:"live"),UIImage(named:"Seminor-1"),UIImage(named:"rootmap"),UIImage(named:"Science"),UIImage(named:"movies"),UIImage(named:"language"),UIImage(named:"jobs"),UIImage(named:"donation"),UIImage(named:"bookshop"),UIImage(named:"Vedio"),UIImage(named:"holybible"),UIImage(named:"Audio"),UIImage(named:"Seminor"),UIImage(named:"Songs"),UIImage(named:"books"),UIImage(named:"Churches"),UIImage(named:"live"),UIImage(named:"Seminor-1"),UIImage(named:"rootmap"),UIImage(named:"Science"),UIImage(named:"movies"),UIImage(named:"language"),UIImage(named:"jobs"),UIImage(named:"donation")]
+    var imageArray = [UIImage(named:"live"),UIImage(named:"Audio"),UIImage(named:"Seminor"),UIImage(named:"Songs"),UIImage(named:"books"),UIImage(named:"Churches"),UIImage(named:"live"),UIImage(named:"Seminor-1"),UIImage(named:"rootmap"),UIImage(named:"Science"),UIImage(named:"movies"),UIImage(named:"language"),UIImage(named:"jobs"),UIImage(named:"donation"),UIImage(named:"bookshop"),UIImage(named:"Vedio"),UIImage(named:"holybible"),UIImage(named:"Audio"),UIImage(named:"Seminor"),UIImage(named:"Songs"),UIImage(named:"books"),UIImage(named:"Churches"),UIImage(named:"live"),UIImage(named:"Seminor-1"),UIImage(named:"rootmap"),UIImage(named:"Science"),UIImage(named:"movies"),UIImage(named:"language"),UIImage(named:"jobs"),UIImage(named:"donation")]
     
-    var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific Proofs","Gospel Messages","Short Messages","Images","Login id Creation","Help to develop the small churches","Book Shop","Movies","Daily Quotations","Video Songs","Testimonials","Quotations","Sunday School","Cell numbers for daily messages(Bulk sms)","Bible Apps","Short Films","Jobs","Route maps buds numbers","Events","Donation","Live","Doubts","Suggetions","Pamplets","languages(Tel/Eng)","Admin can add multiple menu pages"]
+    var namesarra1 = ["Videos","Audio Bible","Bible Study","Songs","Scientific Proofs","Gospel Messages","Short Messages","Images","Login id Creation","Help to develop the small churches","Book Shop","Movies","Daily Quotations","Video Songs","Testimonials","Quotations","Sunday School","Cell numbers for daily messages(Bulk sms)","Bible Apps","Short Films","Jobs","Route maps buds numbers","Events","Donation","Live","Doubts","Suggetions","Pamplets","languages(Tel/Eng)","Admin can add multiple menu pages"]
     
 
     
@@ -211,84 +210,17 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         return UIModalPresentationStyle.none
     }
     
-    func editProfileClicked(){
+    func helpClicked(){
         print("editProfileClicked")
-        
-
-        self.navigationController?.navigationBar.isHidden = false
-
-        
-        self.presentedViewController?.dismiss(animated: true, completion: nil)
-        
-          let profileViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-            self.navigationController?.pushViewController(profileViewController, animated: true)
-        
-      //  hometableview.reloadData()
-      //  hometableview.endEditing(true)
-   
-        
     }
     
-    
+    func aboutUS(){
+        print("changePassWordClicked")
+        
+        
+    }
     func notificationClicked(){
-        
-        
         print("notificationClicked")
-         
-         self.presentedViewController?.dismiss(animated: true, completion: nil)
-         
-         let profileViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-         self.navigationController?.pushViewController(profileViewController, animated: true) 
-        
-        
-    }
-    
-    func changePassWordClicked(){
-        
-        self.presentedViewController?.dismiss(animated: true, completion: nil)
-
-        let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePassWordViewController") as! ChangePassWordViewController
-        // reOrderPopOverVC.delegate = self
-        
-        //    reOrderPopOverVC. singleSelection =
-        //   var imagesArray : Array<UIImage> = Array()
-        
-        
-        self.addChildViewController(reOrderPopOverVC)
-        
-        reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        self.view.addSubview(reOrderPopOverVC.view)
-        reOrderPopOverVC.didMove(toParentViewController: self)
-        
-        
-        
-        
-
-
-    }
-    
-    func logOutClicked(){
-
-        print("logOutClicked")
-        self.presentedViewController?.dismiss(animated: true, completion: nil)
-        
-        UserDefaults.standard.removeObject(forKey: "1")
-        UserDefaults.standard.removeObject(forKey: KFirstTimeLogin)
-        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-        UserDefaults.standard.synchronize()
-
-        
-       // UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-       // UserDefaults.standard.synchronize()
-        
-        
-        
-        
-
-        
-        let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        
-        self.navigationController?.pushViewController(loginViewController, animated: true)
 
     }
 
@@ -321,16 +253,47 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
     
     
     
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
+            
+            let cellsPerRow = 5
+            
+            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
+            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
+            return CGSize(width: itemWidth, height: itemWidth)
+        }
+        else {
+            
+            
+            let cellsPerRow = 3
+            
+            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
+            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
+            return CGSize(width: itemWidth, height: itemWidth)
+        }
+        
+        
+    }
+    
+    
+    
+    
+  /*  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         
         
         let cellsPerRow = 3
-        
         let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
         let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
         return CGSize(width: itemWidth, height: itemWidth)
-    }
+    } */
+    
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events

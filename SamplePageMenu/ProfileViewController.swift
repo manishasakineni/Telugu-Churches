@@ -567,6 +567,12 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
         //   navigationItem.leftBarButtonItems = []
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        UserDefaults.standard.removeObject(forKey: KFirstTimeLogin)
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        UserDefaults.standard.synchronize()
+        
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController

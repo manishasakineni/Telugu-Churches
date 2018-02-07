@@ -237,6 +237,20 @@ class ServiceController: NSObject {
                         //                    appDelegate.window?.rootViewController = viewController
                         
                     }
+                    if statusCode == 404 {
+                        
+                        print("failuer 1")
+                        
+                        failure("unAuthorized")
+                        //self.refreshTokenForLogin()
+                        
+                        //                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        //
+                        //                    let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+                        //                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        //                    appDelegate.window?.rootViewController = viewController
+                        
+                    }
                     else if error != nil
                     {
                         
@@ -246,9 +260,9 @@ class ServiceController: NSObject {
                         
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false
                         
-                        //                    failure(error! as NSError)
+                                          //  failure(error! as NSError)
                         
-//                        appDelegate.window?.makeToast(error?.localizedDescription, duration:kToastDuration , position:CSToastPositionCenter)
+                        appDelegate.window?.makeToast(error?.localizedDescription, duration:kToastDuration , position:CSToastPositionCenter)
                         
                     }
                         

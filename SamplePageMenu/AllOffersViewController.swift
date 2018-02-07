@@ -27,6 +27,12 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var loadingImg: UIImageView!
+    
+    var appVersion          : String = ""
+    
+    var showNav = false
+
+    
      var embedLinksAry : Array<String> = Array()
      var churchNameAry : Array<String> = Array()
     var splitArray : Array<String> = Array()
@@ -97,12 +103,28 @@ var playerVars = Dictionary<String, Any>()
     }
     
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
         
         
+        
+        print(showNav)
+        
+        self.navigationController?.navigationBar.isHidden = false
+        
+        
+        Utilities.setVideosViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Videos", backTitle: "Videos", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+        //   self.navigationItem.hidesBackButton = false
+        
+        //        Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-hand_right_filled-1", cntr:self, titleView: nil, withText: "", backTitle: " InspectionPro", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        //
+        //        //navigationItem.leftBarButtonItems = []
         
     }
     
+   
    
 
     func getVideosAPICall(){
@@ -303,6 +325,20 @@ var playerVars = Dictionary<String, Any>()
     internal func updateTimer(){
 //
     }
+    
+    
+    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+        
+        //   navigationItem.leftBarButtonItems = []
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+        
+        print("Back Button Clicked......")
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

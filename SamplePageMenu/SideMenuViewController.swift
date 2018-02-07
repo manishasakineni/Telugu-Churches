@@ -14,9 +14,9 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     
 
-    var menuArray = ["Library","Sermons","Events","Sound Cloud","maps","Subscriptions","Donations","settings","LogIn"]
+    var menuArray = ["EditProfile","ChangePassWord","LogOut"]
     
-    let imageView = ["ibrary-50","speech","event","sound","Maps","Subscriptions","Subscriptions","Settings","icons8-user_credentials_filled"]
+    let imageView = ["EditProfile","ChangePSW","LogOutlightGray"]
     
 
     
@@ -115,63 +115,67 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         let cell:menuNameTableViewCell = tableView.cellForRow(at: indexPath) as!menuNameTableViewCell
         
-        if cell.menuNameLabel.text! == "LogIn"
+        if indexPath.row == 0
         {
             
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
             
-            let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+            let desController = mainstoryboard.instantiateViewController(withIdentifier: "ProfileViewController") as!ProfileViewController
             
-            desController.showNav = true
+          //  desController.showNav = true
             
             let newController = UINavigationController.init(rootViewController:desController)
             
             revealviewcontroller.pushFrontViewController(newController, animated: true)
         }
+        else if indexPath.row == 1{
+            
+       
+            
+           // revealviewcontroller.pushFrontViewController(desController, animated: true)
+            
+            
+            
+            
+            let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePassWordViewController") as! ChangePassWordViewController
+            // reOrderPopOverVC.delegate = self
+            
+            //    reOrderPopOverVC. singleSelection =
+            //   var imagesArray : Array<UIImage> = Array()
+            
+            
+            revealviewcontroller.addChildViewController(reOrderPopOverVC)
+            
+            reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            revealviewcontroller.view.addSubview(reOrderPopOverVC.view)
+            reOrderPopOverVC.didMove(toParentViewController: self)
+      self.revealViewController().revealToggle(animated: true)
+         
+
+            
+        }else  if indexPath.row == 2{
+          
+            
+            UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+            UserDefaults.standard.synchronize()
+            
+           /* UserDefaults.standard.removeObject(forKey: KFirstTimeLogin)
+            UserDefaults.standard.removeObject(forKey: "1")
+            UserDefaults.standard.removeObject(forKey: kuserId)
+            UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+            UserDefaults.standard.removeObject(forKey: kRegisterSucessStatus)
+            UserDefaults.standard.synchronize() */
+            
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+            desController.showNav = true
+            let newController = UINavigationController.init(rootViewController:desController)
+            revealviewcontroller.pushFrontViewController(newController, animated: true)
+        }
    
         
-        
-    //}
-        
-        
-      //  menuTableView.deselectRow(at: indexPath, animated: true)
-        
-       // let row = indexPath.row
-      //  print("Row: \(row)")
-        
-     //   println(meetingArray[row] as! String)
-        
-//        if revealViewController() != nil{
-//            
-//      //      menuBarButton.target = revealViewController()
-//       //     menuBarButton.action = #selector(revealViewController().revealToggle(_:))
-//            
-//            revealViewController().rearViewRevealWidth = 270
-//            
-//            //    revealViewController().rightViewRevealWidth = 160
-//            
-//            
-//            
-//            
-//        }
-
-     //   let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        
-             // secondViewController.target = revealViewController()
-           // secondViewController.action = #selector(revealViewController().revealToggle(_:))
-        
-      //  self.navigationController?.pushViewController(secondViewController, animated: true)
-
-        
-//        
-//        //   navigationItem.leftBarButtonItems = []
-//        let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-//        
-//        
-//        
-//        
-//        self.navigationController?.pushViewController(loginViewController, animated: true)
+   
         
         
     }
