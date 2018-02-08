@@ -12,7 +12,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     
     var appDelegate = AppDelegate()
     let sharedController = ServiceController()
-    
+
      let utillites =  Utilities()
     
     
@@ -445,32 +445,14 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             DispatchQueue.main.async()
                 {
                     
+               
                     print("\(result)")
                     
-                   let respVO:PSWMessageTypeResult = Mapper().map(JSONObject: result)!
-                    let statusMessage = respVO.modelState?.errorMessage
-                    print(statusMessage!)
-                    if  statusMessage! == ["Incorrect password."] {
-                        
-                        print(statusMessage!)
-                        self.showAlertViewWithTitle("Alert", message: "\(statusMessage!)", buttonTitle: "Ok")
- 
-
-
-                    }else{
-                        
-                        print("sucess")
-
-                        
-                    }
-                    
-                     
-                     
-                    
-               /*     print("responseString = \(respVO)")
+                   let respVO:RegisterResultVo = Mapper().map(JSONObject: result)!
+                    print("responseString = \(respVO)")
                     
                     
-                    let statusCode = respVO.message
+                    let statusCode = respVO.isSuccess
                     
                     print("StatusCode:\(String(describing: statusCode))")
                     
@@ -479,42 +461,27 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
                     if statusCode == true
                     {
                         
- Old PassWord Given wrong => Failed
- statusCode:400
- ["modelState": {
- errorMessage =     (
- "Incorrect password."
- );
- }, "message": The request is invalid.]
-                     
-                     
-                     
-                Old PassWord Change Given wrong => Sucess Full
-                     statusCode:200
-                     ["errors": <__NSArrayM 0x608000640de0>(
-                     
-                     )
-                     , "succeeded": 1]
-                     
- 
-                        //   self.showAlertViewWithTitle("Success", message: successMsg!, buttonTitle: "Ok")
+                        
+                        let successMsg = respVO.endUserMessage
+                        
+                        
+                        /*   let registerStatus = successMsg
+                         let registerStatusDefaults = UserDefaults.standard
+                         registerStatusDefaults.set(registerStatus, forKey: kRegisterSucessStatus)
+                         UserDefaults.standard.synchronize() */
                         
                         
                         
-                        //                        self.utillites.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Sucess", messege: successMsg!, clickAction: {
-                        //
-                        //                            let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                        //
-                        //                            self.navigationController?.pushViewController(signUpVc, animated: true)
-                        //
-                        //                        })
-                        
-                        // alertWithOkButtonAction
                         
                         self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege: successMsg!, clickAction: {
-                            let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
                             
-                            self.navigationController?.pushViewController(signUpVc, animated: true)
+                            
+                          self.removeAnimate()
+                            
+                          //  let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                            
+                          //  self.appDelegate.window?.rootViewController = rootController
+                            
                         })
                         
                         //self.navigationController?.popViewController(animated: true)
@@ -522,15 +489,16 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
                     }
                     else {
                         
-                        let failMsg = respVO.
-                        print(failMsg)
+                        let failMsg = respVO.endUserMessage
                         
                         self.showAlertViewWithTitle("Alert", message: failMsg!, buttonTitle: "Ok")
                         
                         return
                         
-                    } */
-                    
+                    }
+
+                     
+                     
                     
             }
         }, failureHandler: {(error) in

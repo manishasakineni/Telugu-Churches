@@ -9,6 +9,9 @@
 import Foundation
 
 
+
+
+
 class PSWMessageTypeResult: Mappable {
     
     
