@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
+class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIPickerViewDelegate, UIPickerViewDataSource,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -35,10 +35,13 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var isImageSave:Bool = false
     var sectionsTitle : [String] = [""]
 
-    
-    
-    
-    
+    var image:UIImage = UIImage(named:"jobs")!
+    var pickerData : Array<String> = Array()
+
+     var selectedtitleTypeStr  = ""
+      var titletypeIdAry = Array<String>()
+    var titleTypeID    : Int    = 0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -330,26 +333,42 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
         
-       // menuTableViewCell
-        
-        
-       
         if indexPath.section == 0 {
             
             let profileCell = tableView.dequeueReusableCell(withIdentifier: "menuTableViewCell", for: indexPath) as! menuTableViewCell
-
+            
+            profileCell.selectionStyle = .none
+            
+            if indexPath.row == 0{
+                
+                profileCell.cameraOutLet.addTarget(self, action: #selector(self.editBtnClicked), for: .touchDown)
+                
+                
+                profileCell.menuImgView.layer.cornerRadius = profileCell.menuImgView.frame.size.height/2;
+                
+                profileCell.menuImgView.layer.borderColor = UIColor.gray.cgColor
+                profileCell.menuImgView.layer.borderWidth = 1
+                profileCell.menuImgView.clipsToBounds = true
+                
+                profileCell.menuImgView.image = image
+                
+                
+                
+            }
             
             return profileCell
-        }
-       
-        
-        
-        let signUPCell = tableView.dequeueReusableCell(withIdentifier: "EditProfileTableViewCell", for: indexPath) as! EditProfileTableViewCell
-        
-        signUPCell.editProfileTF.delegate = self
-        
-        signUPCell.editProfileTF.tag = indexPath.row
-        
+            
+        } else{
+            
+            
+            
+            let signUPCell = tableView.dequeueReusableCell(withIdentifier: "EditProfileTableViewCell", for: indexPath) as! EditProfileTableViewCell
+            
+            signUPCell.editProfileTF.delegate = self
+            
+            signUPCell.editProfileTF.tag = indexPath.row
+            
+            
         
         
         if indexPath.row == 0{
@@ -398,8 +417,78 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         return signUPCell
     }
+        
+    }
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        return pickerData.count
+        
+        
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        return pickerData[row]
+    }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        
+        
+        if activeTextField.tag == 0{
+            
+            if pickerData.count > row {
+                
+                selectedtitleTypeStr = pickerData[row]
+                activeTextField.text = selectedtitleTypeStr
+                
+                if(row < titletypeIdAry.count){
+                    if let value = Int(titletypeIdAry[row]){
+                        titleTypeID = value
+                    }
+                }
+                
+                
+            }
+        }
+        
+    }
+
+    
+    func editBtnClicked(_ sender: UIButton?)  {
+        print("I Clicked a button")
+        
+        
+        let alert:UIAlertController=UIAlertController(title: "ChoosemenuImgView", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let cameraAction = UIAlertAction(title: "FromCamera", style: UIAlertActionStyle.default)
+        {
+            UIAlertAction in
+            self.openCamera()
+        }
+        let gallaryAction = UIAlertAction(title: "FromGallery", style: UIAlertActionStyle.default)
+        {
+            UIAlertAction in
+            self.openGallary()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel)
+        {
+            UIAlertAction in
+        }
+        // Add the actions
+        picker.delegate = self
+        alert.addAction(cameraAction)
+        alert.addAction(gallaryAction)
+        alert.addAction(cancelAction)
+        // Present the controller
+        self.present(alert, animated: true, completion: nil)
+        
+        
+    }
+    
+
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
