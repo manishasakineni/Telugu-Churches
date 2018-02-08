@@ -136,23 +136,45 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
            // revealviewcontroller.pushFrontViewController(desController, animated: true)
             
             
-            
-            
-            let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePassWordViewController") as! ChangePassWordViewController
-            // reOrderPopOverVC.delegate = self
-            
-            //    reOrderPopOverVC. singleSelection =
-            //   var imagesArray : Array<UIImage> = Array()
-            
-            
-            revealviewcontroller.addChildViewController(reOrderPopOverVC)
-            
-            reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-            revealviewcontroller.view.addSubview(reOrderPopOverVC.view)
-            reOrderPopOverVC.didMove(toParentViewController: self)
-      self.revealViewController().revealToggle(animated: true)
-         
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
 
+                let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePassWordViewController") as! ChangePassWordViewController
+                // reOrderPopOverVC.delegate = self
+                
+                //    reOrderPopOverVC. singleSelection =
+                //   var imagesArray : Array<UIImage> = Array()
+                
+                
+                revealviewcontroller.addChildViewController(reOrderPopOverVC)
+                
+                reOrderPopOverVC.view.center = CGPoint(x:UIScreen.main.bounds.size.width/2,y:UIScreen.main.bounds.size.height/1.5)
+                
+                revealviewcontroller.view.addSubview(reOrderPopOverVC.view)
+                reOrderPopOverVC.didMove(toParentViewController: self)
+                self.revealViewController().revealToggle(animated: true)
+                
+
+                
+            }else{
+                
+                let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePassWordViewController") as! ChangePassWordViewController
+                // reOrderPopOverVC.delegate = self
+                
+                //    reOrderPopOverVC. singleSelection =
+                //   var imagesArray : Array<UIImage> = Array()
+                
+                
+                revealviewcontroller.addChildViewController(reOrderPopOverVC)
+                
+                reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+                
+                revealviewcontroller.view.addSubview(reOrderPopOverVC.view)
+                reOrderPopOverVC.didMove(toParentViewController: self)
+                self.revealViewController().revealToggle(animated: true)
+                
+            }
+            
+            
             
         }else  if indexPath.row == 2{
           

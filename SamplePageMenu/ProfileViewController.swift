@@ -21,6 +21,12 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var editProfileTableView: UITableView!
     
     
+    
+    let utillites =  Utilities()
+
+    
+    
+    
     var placeholdersAry  = ["First Name","Middle Name","Last Name","Mobile No","Email ID"]
     
     var firstName   : String = ""
@@ -63,27 +69,121 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         editProfileTableView.register(nibName2, forCellReuseIdentifier: "HeaderProfileCell")
         
         
-        self.firstName = (UserDefaults.standard.value(forKey: kfirstName) as? String)!
-        self.middleName = (UserDefaults.standard.value(forKey: kmiddleName) as? String)!
-        self.lastName = (UserDefaults.standard.value(forKey: klastName) as? String)!
-        self.mobileNumber = (UserDefaults.standard.value(forKey: kmobileNumber) as? String)!
-        self.email = (UserDefaults.standard.value(forKey: kemail) as? String)!
-        self.loginid = (UserDefaults.standard.value(forKey: kLoginId) as? String)!
-        self.password = (UserDefaults.standard.value(forKey: kpassword) as? String)!
         
+        self.loginid = UserDefaults.standard.value(forKey: kLoginId) as! String
         
+        print(self.loginid)
         
         
         editProfileTableView.dataSource = self
         editProfileTableView.delegate = self
         activeTextField.delegate = self
 
-     
+        getProfileInfoAPIService()
 
         
       //  Utilities.setEditProfileViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Edit Profile", backTitle: "", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
         // Do any additional setup after loading the view.
+    }
+
+    
+    func getProfileInfoAPIService(){
+        
+        if(appDelegate.checkInternetConnectivity()){
+            
+            
+                
+                let strUrl = PROFILEGETINFO + "" + "\(self.loginid)"
+                
+                
+                serviceController.requestGETURL(strURL:strUrl, success:{(result) in
+                    DispatchQueue.main.async()
+                        {
+                            
+                            //  let respVO:LoginVo = Mapper().map(JSONObject: result)!
+                            
+                            print("result:\(result)")
+                            
+                            let respVO:GetProfileResultInfoVO = Mapper().map(JSONObject: result)!
+                            
+                            print("responseString = \(respVO)")
+                            
+                            
+                            let statusCode = respVO.isSuccess
+                            
+                            print("StatusCode:\(String(describing: statusCode))")
+                            
+                            self.firstName = (respVO.listResult?[0].FirstName)!
+                            self.middleName = (respVO.listResult?[0].MiddleName)!
+                            self.lastName = (respVO.listResult?[0].Lastname)!
+                            self.mobileNumber = (respVO.listResult?[0].MobileNumber)!
+                            self.email = (respVO.listResult?[0].Email)!
+                            
+                            
+                            self.editProfileTableView.reloadData()
+                          
+                            if statusCode == true
+                            {
+                                
+                                
+                                let successMsg = respVO.endUserMessage
+                                
+                                
+                                /*   let registerStatus = successMsg
+                                 let registerStatusDefaults = UserDefaults.standard
+                                 registerStatusDefaults.set(registerStatus, forKey: kRegisterSucessStatus)
+                                 UserDefaults.standard.synchronize() */
+                                
+                        
+                                
+                                
+                             //   self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege: successMsg!, clickAction: {
+                                    let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                                    
+                                    
+                              //      self.navigationController?.pushViewController(signUpVc, animated: true)
+                              //  })
+                                
+                                //self.navigationController?.popViewController(animated: true)
+                                
+                            }
+                            else {
+                                
+                                let failMsg = respVO.endUserMessage
+                                
+                                self.showAlertViewWithTitle("Alert", message: failMsg!, buttonTitle: "Ok")
+                                
+                                return
+                                
+                            }
+                            
+                            
+                          
+                    }
+                }, failure:  {(error) in
+                    
+                    print(error)
+                    
+                    if(error == "unAuthorized"){
+                        
+                        
+                        self.showAlertViewWithTitle("Alert", message: error, buttonTitle: "Ok")
+                        
+                        
+                    }
+                    
+                    
+                    
+                })
+            
+        }
+        else {
+            
+            appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+            return
+        }
+        
     }
 
     

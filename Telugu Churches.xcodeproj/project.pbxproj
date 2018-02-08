@@ -111,6 +111,8 @@
 		CB0256C1202473420017E240 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0256C0202473420017E240 /* ProfileViewController.swift */; };
 		CB150A5D2029779E00626CA1 /* ChangePassWordResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB150A5C2029779E00626CA1 /* ChangePassWordResult.swift */; };
 		CB150A5F2029788700626CA1 /* PSWMessageTypeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB150A5E2029788700626CA1 /* PSWMessageTypeResult.swift */; };
+		CB3226D5202C96440050D06B /* GetProfileInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3226D4202C96440050D06B /* GetProfileInfoVO.swift */; };
+		CB3226D7202C96660050D06B /* GetProfileResultInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3226D6202C96660050D06B /* GetProfileResultInfoVO.swift */; };
 		CB345E18202339B6006CC378 /* homeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB345E14202339B6006CC378 /* homeTableViewCell.swift */; };
 		CB345E19202339B6006CC378 /* homeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB345E15202339B6006CC378 /* homeTableViewCell.xib */; };
 		CB345E1A202339B6006CC378 /* homeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB345E16202339B6006CC378 /* homeCollectionViewCell.swift */; };
@@ -238,6 +240,8 @@
 		CB0256C0202473420017E240 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CB150A5C2029779E00626CA1 /* ChangePassWordResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePassWordResult.swift; sourceTree = "<group>"; };
 		CB150A5E2029788700626CA1 /* PSWMessageTypeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSWMessageTypeResult.swift; sourceTree = "<group>"; };
+		CB3226D4202C96440050D06B /* GetProfileInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetProfileInfoVO.swift; sourceTree = "<group>"; };
+		CB3226D6202C96660050D06B /* GetProfileResultInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetProfileResultInfoVO.swift; sourceTree = "<group>"; };
 		CB345E14202339B6006CC378 /* homeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeTableViewCell.swift; sourceTree = "<group>"; };
 		CB345E15202339B6006CC378 /* homeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homeTableViewCell.xib; sourceTree = "<group>"; };
 		CB345E16202339B6006CC378 /* homeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -441,6 +445,7 @@
 				CB83473E20287E670034AD4E /* ChangePasswordVo */,
 				3D551C602011F617005DB3B2 /* VideosVO.swift */,
 				9A058AF72021E02D005A611C /* RegisterVo */,
+				CB3226D3202C95C20050D06B /* GetProfileInfo */,
 				9A058AFC2021F3A4005A611C /* LoginVo */,
 			);
 			name = MapperVO;
@@ -601,6 +606,15 @@
 				CB0256C0202473420017E240 /* ProfileViewController.swift */,
 			);
 			name = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		CB3226D3202C95C20050D06B /* GetProfileInfo */ = {
+			isa = PBXGroup;
+			children = (
+				CB3226D4202C96440050D06B /* GetProfileInfoVO.swift */,
+				CB3226D6202C96660050D06B /* GetProfileResultInfoVO.swift */,
+			);
+			name = GetProfileInfo;
 			sourceTree = "<group>";
 		};
 		CB8347302028257A0034AD4E /* EditProfileCell */ = {
@@ -833,6 +847,7 @@
 				9A5D26321FFF8A3F00316988 /* SendMoneyToWalletCell.swift in Sources */,
 				3DDD8910201865F600918711 /* SignUPTableViewCell.swift in Sources */,
 				9A5D25F11FFF76A300316988 /* AppDelegate.swift in Sources */,
+				CB3226D7202C96660050D06B /* GetProfileResultInfoVO.swift in Sources */,
 				9A623B8E2021A75000A674F2 /* MBProgressHUD.m in Sources */,
 				3DDD890D2018567300918711 /* SignUpViewController.swift in Sources */,
 				CB834733202825980034AD4E /* EditProfileTableViewCell.swift in Sources */,
@@ -847,6 +862,7 @@
 				9AA3AB6B2011D7420065D4BD /* TransformOperators.swift in Sources */,
 				9AEAE826201F4FC800DB9D8E /* BaseViewController.swift in Sources */,
 				9A5D263E1FFF8A5D00316988 /* ScrollImagesCell.swift in Sources */,
+				CB3226D5202C96440050D06B /* GetProfileInfoVO.swift in Sources */,
 				9AA3AB7B2011D7420065D4BD /* TransformOf.swift in Sources */,
 				CB0256BB202442EF0017E240 /* SettingTableViewCell.swift in Sources */,
 				9A5D26071FFF795200316988 /* SWRevealViewController.m in Sources */,

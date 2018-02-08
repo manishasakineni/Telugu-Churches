@@ -105,40 +105,87 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func lunchScreenView(){
-        // customized launch screen
-        if let window = self.window {
-            self.customizedLaunchScreenView = UIView(frame: window.bounds)
-            self.customizedLaunchScreenView?.backgroundColor = UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
             
-            self.window?.makeKeyAndVisible()
             
-            var imageView : UIImageView
-            imageView  = UIImageView(frame: window.bounds)
-            imageView.image = UIImage(named:"skyJSU")
-            let codedLabel:UILabel = UILabel()
-            codedLabel.frame = CGRect(x: 10, y: 200, width: 300, height: 200)
-            codedLabel.textAlignment = .center
-            var stringCount : Double = 0.0
             
-            var str = "The first paragraph of the body should contain the strongest argument, most significant example, cleverest illustration, or an obvious beginning point."
-            stringCount = Double(str.characters.count)
-            print(str.characters.count)
-            codedLabel.animate(newText:str, characterDelay: 0.05)
-            codedLabel.numberOfLines=0
-            codedLabel.textColor=UIColor.white
-            codedLabel.font=UIFont.systemFont(ofSize: 12)
-            
-            // codedLabel.backgroundColor=UIColor.lightGray
-            imageView.addSubview(codedLabel)
-            self.customizedLaunchScreenView?.addSubview(imageView)
-            self.window?.addSubview(self.customizedLaunchScreenView!)
-            self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
-            UIView.animate(withDuration: 1, delay: (stringCount + 2.0) * 0.1 , options: .curveEaseOut,
-                           animations: { () -> Void in
-                            self.customizedLaunchScreenView?.alpha = 0 },
-                           completion: { _ in
-                            self.customizedLaunchScreenView?.removeFromSuperview() })
+            // customized launch screen
+            if let window = self.window {
+                self.customizedLaunchScreenView = UIView(frame: window.bounds)
+                self.customizedLaunchScreenView?.backgroundColor = UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)
+                
+                self.window?.makeKeyAndVisible()
+                
+                var imageView : UIImageView
+                imageView  = UIImageView(frame: window.bounds)
+                imageView.image = UIImage(named:"skyJSU")
+                let codedLabel:UILabel = UILabel()
+                codedLabel.frame = CGRect(x: 120, y: 500, width: 500, height: 200)
+                codedLabel.textAlignment = .center
+                var stringCount : Double = 0.0
+                
+                var str = "The first paragraph of the body should contain the strongest argument, most significant example, cleverest illustration, or an obvious beginning point."
+                stringCount = Double(str.characters.count)
+                print(str.characters.count)
+                codedLabel.animate(newText:str, characterDelay: 0.05)
+                codedLabel.numberOfLines=0
+                codedLabel.textColor=UIColor.white
+                codedLabel.font=UIFont.systemFont(ofSize: 20)
+                
+                // codedLabel.backgroundColor=UIColor.lightGray
+                imageView.addSubview(codedLabel)
+                self.customizedLaunchScreenView?.addSubview(imageView)
+                self.window?.addSubview(self.customizedLaunchScreenView!)
+                self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
+                UIView.animate(withDuration: 1, delay: (stringCount + 2.0) * 0.1 , options: .curveEaseOut,
+                               animations: { () -> Void in
+                                self.customizedLaunchScreenView?.alpha = 0 },
+                               completion: { _ in
+                                self.customizedLaunchScreenView?.removeFromSuperview() })
+            }
         }
+        else {
+            
+            
+            
+            // customized launch screen
+            if let window = self.window {
+                self.customizedLaunchScreenView = UIView(frame: window.bounds)
+                self.customizedLaunchScreenView?.backgroundColor = UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)
+                
+                self.window?.makeKeyAndVisible()
+                
+                var imageView : UIImageView
+                imageView  = UIImageView(frame: window.bounds)
+                imageView.image = UIImage(named:"skyJSU")
+                let codedLabel:UILabel = UILabel()
+                codedLabel.frame = CGRect(x: 10, y: 200, width: 300, height: 200)
+                codedLabel.textAlignment = .center
+                var stringCount : Double = 0.0
+                
+                var str = "The first paragraph of the body should contain the strongest argument, most significant example, cleverest illustration, or an obvious beginning point."
+                stringCount = Double(str.characters.count)
+                print(str.characters.count)
+                codedLabel.animate(newText:str, characterDelay: 0.05)
+                codedLabel.numberOfLines=0
+                codedLabel.textColor=UIColor.white
+                codedLabel.font=UIFont.systemFont(ofSize: 12)
+                
+                // codedLabel.backgroundColor=UIColor.lightGray
+                imageView.addSubview(codedLabel)
+                self.customizedLaunchScreenView?.addSubview(imageView)
+                self.window?.addSubview(self.customizedLaunchScreenView!)
+                self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
+                UIView.animate(withDuration: 1, delay: (stringCount + 2.0) * 0.1 , options: .curveEaseOut,
+                               animations: { () -> Void in
+                                self.customizedLaunchScreenView?.alpha = 0 },
+                               completion: { _ in
+                                self.customizedLaunchScreenView?.removeFromSuperview() })
+            }
+        }
+        
+
     }
 
 }
