@@ -12,7 +12,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     
     var appDelegate = AppDelegate()
     let sharedController = ServiceController()
-    
+
      let utillites =  Utilities()
     
     
@@ -84,7 +84,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         if activeTextField.tag == 0 {
             
-            textField.maxLengthTextField = 15
+            textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .default
            // oldPassWordString = textField.text!
@@ -92,7 +92,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         }
         else if activeTextField.tag == 1 {
             
-            textField.maxLengthTextField = 15
+            textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .default
            // newPassWordString = textField.text!
@@ -100,7 +100,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         }
         else if activeTextField.tag == 2 {
             
-            textField.maxLengthTextField = 15
+            textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .default
           //  confirmPassWordString = textField.text!
@@ -337,7 +337,47 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         if (oldePassWordStr.length<=0) {
             errorMessage=GlobalSupportingClass.blankOldPasswordErrorMessage() as String as String as NSString?
         }
+            
         else if (newPassWordStr.length<=0) {
+            errorMessage=GlobalSupportingClass.blankPasswordErrorMessage() as String as String as NSString?
+        }
+        else if(!GlobalSupportingClass.capitalOnly(password: newPassWordStr as String)) {
+            
+            errorMessage=GlobalSupportingClass.capitalLetterMessage() as String as String as NSString?
+        }
+        else if(!GlobalSupportingClass.numberOnly(password: newPassWordStr as String)) {
+            
+            errorMessage=GlobalSupportingClass.numberMessage() as String as String as NSString?
+        }
+        else if(!GlobalSupportingClass.specialCharOnly(password: newPassWordStr as String)) {
+            
+            errorMessage=GlobalSupportingClass.specialCharacterMessage() as String as String as NSString?
+        }
+        else if (newPassWordStr.length < 8) {
+            
+            errorMessage=GlobalSupportingClass.invalidPassWordErrorMessage() as String as String as NSString?
+        }
+            
+        else if(confirmPassWordStr.length<8){
+            errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?
+        }
+            
+        else if(newPassWordStr.length<5||confirmPassWordStr.length<5)
+        {
+            errorMessage = GlobalSupportingClass.invalidDigitsInPasswordErrorMessage() as String as String as NSString?
+        }
+        else if(!newPassWordStr.isEqual(to: confirmPassWordStr as String)){
+            errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
+        }
+        
+        if let errorMsg = errorMessage{
+            
+            self.showAlertViewWithTitle("Alert", message: errorMsg as String, buttonTitle: "Retry")
+            return false;
+        }
+            
+            
+    /*    else if (newPassWordStr.length<=0) {
             errorMessage=GlobalSupportingClass.blankPasswordErrorMessage() as String as String as NSString?
         }
         else if(!GlobalSupportingClass.capitalOnly(password: newPassWordStr as String)) {
@@ -372,7 +412,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             
             self.showAlertViewWithTitle("Alert", message: errorMsg as String, buttonTitle: "Retry")
             return false;
-        }
+        } */
         
         return true
     }
@@ -405,32 +445,14 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             DispatchQueue.main.async()
                 {
                     
+               
                     print("\(result)")
                     
-                   let respVO:PSWMessageTypeResult = Mapper().map(JSONObject: result)!
-                    let statusMessage = respVO.modelState?.errorMessage
-                    print(statusMessage!)
-                    if  statusMessage! == ["Incorrect password."] {
-                        
-                        print(statusMessage!)
-                        self.showAlertViewWithTitle("Alert", message: "\(statusMessage!)", buttonTitle: "Ok")
- 
-
-
-                    }else{
-                        
-                        print("sucess")
-
-                        
-                    }
-                    
-                     
-                     
-                    
-               /*     print("responseString = \(respVO)")
+                   let respVO:RegisterResultVo = Mapper().map(JSONObject: result)!
+                    print("responseString = \(respVO)")
                     
                     
-                    let statusCode = respVO.message
+                    let statusCode = respVO.isSuccess
                     
                     print("StatusCode:\(String(describing: statusCode))")
                     
@@ -439,42 +461,27 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
                     if statusCode == true
                     {
                         
- Old PassWord Given wrong => Failed
- statusCode:400
- ["modelState": {
- errorMessage =     (
- "Incorrect password."
- );
- }, "message": The request is invalid.]
-                     
-                     
-                     
-                Old PassWord Change Given wrong => Sucess Full
-                     statusCode:200
-                     ["errors": <__NSArrayM 0x608000640de0>(
-                     
-                     )
-                     , "succeeded": 1]
-                     
- 
-                        //   self.showAlertViewWithTitle("Success", message: successMsg!, buttonTitle: "Ok")
+                        
+                        let successMsg = respVO.endUserMessage
+                        
+                        
+                        /*   let registerStatus = successMsg
+                         let registerStatusDefaults = UserDefaults.standard
+                         registerStatusDefaults.set(registerStatus, forKey: kRegisterSucessStatus)
+                         UserDefaults.standard.synchronize() */
                         
                         
                         
-                        //                        self.utillites.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Sucess", messege: successMsg!, clickAction: {
-                        //
-                        //                            let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                        //
-                        //                            self.navigationController?.pushViewController(signUpVc, animated: true)
-                        //
-                        //                        })
-                        
-                        // alertWithOkButtonAction
                         
                         self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege: successMsg!, clickAction: {
-                            let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
                             
-                            self.navigationController?.pushViewController(signUpVc, animated: true)
+                            
+                          self.removeAnimate()
+                            
+                          //  let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                            
+                          //  self.appDelegate.window?.rootViewController = rootController
+                            
                         })
                         
                         //self.navigationController?.popViewController(animated: true)
@@ -482,15 +489,16 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
                     }
                     else {
                         
-                        let failMsg = respVO.
-                        print(failMsg)
+                        let failMsg = respVO.endUserMessage
                         
                         self.showAlertViewWithTitle("Alert", message: failMsg!, buttonTitle: "Ok")
                         
                         return
                         
-                    } */
-                    
+                    }
+
+                     
+                     
                     
             }
         }, failureHandler: {(error) in

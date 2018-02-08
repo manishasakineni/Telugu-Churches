@@ -61,6 +61,11 @@ var playerVars = Dictionary<String, Any>()
         allOffersTableView.delegate = self
         allOffersTableView.dataSource = self
         
+        
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
+        
+        
         self.player.delegate = self
         
        playerVars = [
