@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIPickerViewDelegate, UIPickerViewDataSource,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
+class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -34,8 +34,10 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     var isImageSave:Bool = false
     var sectionsTitle : [String] = [""]
+    
+    var imgVW = UIImageView()
 
-    var image:UIImage = UIImage(named:"jobs")!
+    var image:UIImage = UIImage()
     var pickerData : Array<String> = Array()
 
      var selectedtitleTypeStr  = ""
@@ -344,13 +346,13 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 profileCell.cameraOutLet.addTarget(self, action: #selector(self.editBtnClicked), for: .touchDown)
                 
                 
-                profileCell.menuImgView.layer.cornerRadius = profileCell.menuImgView.frame.size.height/2;
+                profileCell.progileImageView.layer.cornerRadius = profileCell.progileImageView.frame.size.height/2;
                 
-                profileCell.menuImgView.layer.borderColor = UIColor.gray.cgColor
-                profileCell.menuImgView.layer.borderWidth = 1
-                profileCell.menuImgView.clipsToBounds = true
+                profileCell.progileImageView.layer.borderColor = UIColor.gray.cgColor
+                profileCell.progileImageView.layer.borderWidth = 1
+                profileCell.progileImageView.clipsToBounds = true
                 
-                profileCell.menuImgView.image = image
+                profileCell.progileImageView.image = image
                 
                 
                 
@@ -420,45 +422,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
-        return pickerData.count
-        
-        
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
-        return pickerData[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        
-        
-        if activeTextField.tag == 0{
-            
-            if pickerData.count > row {
-                
-                selectedtitleTypeStr = pickerData[row]
-                activeTextField.text = selectedtitleTypeStr
-                
-                if(row < titletypeIdAry.count){
-                    if let value = Int(titletypeIdAry[row]){
-                        titleTypeID = value
-                    }
-                }
-                
-                
-            }
-        }
-        
-    }
-
     
     func editBtnClicked(_ sender: UIButton?)  {
+        
         print("I Clicked a button")
         
         
@@ -488,6 +454,14 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        
+        dismiss(animated: true, completion: nil)
+        image = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
+        editProfileTableView.reloadData()
+    }
 
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

@@ -11,8 +11,7 @@ import UIKit
 class menuTableViewCell: UITableViewCell {
     
     
-    @IBOutlet weak var menuImgView: UIImageView!
-    
+    @IBOutlet weak var progileImageView: UIImageView!
     @IBOutlet weak var menuTableViewLabel: UILabel!
     
     
@@ -35,11 +34,11 @@ class menuTableViewCell: UITableViewCell {
 //        
         
         
-        menuImgView.layer.borderWidth = 1
-        menuImgView.layer.masksToBounds = false
+        progileImageView.layer.borderWidth = 1
+        progileImageView.layer.masksToBounds = false
        // menuImgView.layer.borderColor = UIColor.black.cgColor
-        menuImgView.layer.cornerRadius = menuImgView.frame.height/2
-        menuImgView.clipsToBounds = true
+        progileImageView.layer.cornerRadius = progileImageView.frame.height/2
+        progileImageView.clipsToBounds = true
         
         
         
