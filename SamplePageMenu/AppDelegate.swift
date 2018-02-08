@@ -19,6 +19,8 @@ import SystemConfiguration
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var customizedLaunchScreenView: UIView?
+
     var window: UIWindow?
      
 
@@ -34,24 +36,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.synchronize()
             
             let homeNav : SWRevealViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-            
             self.window?.rootViewController = homeNav
-            
-        } 
+            lunchScreenView()
+
+        }
             
         else{
             
-            let launchNav : LaunchScreenViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LaunchScreenViewController") as! LaunchScreenViewController
-            
-            self.window?.rootViewController = launchNav
-            
-            
-            
-            
+          //  let launchNav : LaunchScreenViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LaunchScreenViewController") as! LaunchScreenViewController
+          //  self.window?.rootViewController = launchNav
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+            desController.showNav = false
+            let newController = UINavigationController.init(rootViewController:desController)
+            let LoginNav : UINavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootloginVC") as! UINavigationController
+            appDelegate.window?.rootViewController = newController
+            lunchScreenView()
         }
-        
-        
-        
         return true
     }
 
@@ -77,6 +78,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    
+    
     // MARK: - Check Internet Connectivity
     
     func checkInternetConnectivity() -> Bool {
@@ -99,6 +102,76 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
         return (isReachable && !needsConnection)
     }
+    
+    
+    func lunchScreenView(){
+        // customized launch screen
+        if let window = self.window {
+            self.customizedLaunchScreenView = UIView(frame: window.bounds)
+            self.customizedLaunchScreenView?.backgroundColor = UIColor(red: 103.0/255.0, green: 171.0/255.0, blue: 208.0/255.0, alpha: 1.0)
+            
+            self.window?.makeKeyAndVisible()
+            
+            var imageView : UIImageView
+            imageView  = UIImageView(frame: window.bounds)
+            imageView.image = UIImage(named:"skyJSU")
+            let codedLabel:UILabel = UILabel()
+            codedLabel.frame = CGRect(x: 10, y: 200, width: 300, height: 200)
+            codedLabel.textAlignment = .center
+            var stringCount : Double = 0.0
+            
+            var str = "The first paragraph of the body should contain the strongest argument, most significant example, cleverest illustration, or an obvious beginning point."
+            stringCount = Double(str.characters.count)
+            print(str.characters.count)
+            codedLabel.animate(newText:str, characterDelay: 0.05)
+            codedLabel.numberOfLines=0
+            codedLabel.textColor=UIColor.white
+            codedLabel.font=UIFont.systemFont(ofSize: 12)
+            
+            // codedLabel.backgroundColor=UIColor.lightGray
+            imageView.addSubview(codedLabel)
+            self.customizedLaunchScreenView?.addSubview(imageView)
+            self.window?.addSubview(self.customizedLaunchScreenView!)
+            self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
+            UIView.animate(withDuration: 1, delay: (stringCount + 2.0) * 0.1 , options: .curveEaseOut,
+                           animations: { () -> Void in
+                            self.customizedLaunchScreenView?.alpha = 0 },
+                           completion: { _ in
+                            self.customizedLaunchScreenView?.removeFromSuperview() })
+        }
+    }
 
+}
+extension String {
+    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        
+        return ceil(boundingBox.height)
+    }
+    
+    func width(withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        
+        return ceil(boundingBox.width)
+    }
+}
+
+extension UILabel {
+    
+    func animate(newText: String, characterDelay: TimeInterval) {
+        
+        DispatchQueue.main.async {
+            
+            self.text = ""
+            
+            for (index, character) in newText.characters.enumerated() {
+                DispatchQueue.main.asyncAfter(deadline: .now() + characterDelay * Double(index)) {
+                    self.text?.append(character)
+                }
+            }
+        }
+}
 }
 

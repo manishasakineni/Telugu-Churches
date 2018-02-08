@@ -109,7 +109,7 @@ class GlobalSupportingClass {
     }
     
     class func blankOldPasswordErrorMessage() -> String {
-        return "Invalid Old Password"
+        return "Provied Old Password"
     }
    
     class func blankNilOldPasswordErrorMessage() -> String {

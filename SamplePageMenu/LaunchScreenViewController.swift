@@ -26,6 +26,10 @@ class LaunchScreenViewController: UIViewController {
 
         
         
+        
+        
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -56,20 +60,5 @@ class LaunchScreenViewController: UIViewController {
 
 }
 
-extension UILabel {
+
     
-    func animate(newText: String, characterDelay: TimeInterval) {
-        
-        DispatchQueue.main.async {
-            
-            self.text = ""
-            
-            for (index, character) in newText.characters.enumerated() {
-                DispatchQueue.main.asyncAfter(deadline: .now() + characterDelay * Double(index)) {
-                    self.text?.append(character)
-                }
-            }
-        }
-    }
-    
-}

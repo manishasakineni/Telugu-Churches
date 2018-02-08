@@ -81,33 +81,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         activeTextField = textField
         
-        //        if  TVC1.firstNameTF.text != nil{
-        //
-        //            TVC1.FNLbl.isHidden = false
-        //        }
-        
-        
-        //        if let newRegCell : SignUPTableViewCell = textField.superview?.superview as? SignUPTableViewCell {
-        //
-        //            if textField == newRegCell.registrationTextfield {
-        //
-        //
-        //                if (newRegCell.registrationTextfield.text != nil)  {
-        //
-        //                    newRegCell.registrationTextfield.isHidden = false
-        //                    newRegCell.registrationTextfield.textColor = UIColor(red: 128.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
-        //
-        //                }
-        //
-        //                else{
-        //
-        //                    newRegCell.registrationTextfield.isHidden = true
-        //
-        //
-        //                }
-        //            }
-        //        }
-        
         
         if activeTextField.tag == 0 {
             
@@ -173,22 +146,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         activeTextField = textField
         
         
-        //        if let newRegCell : SignUPTableViewCell = textField.superview?.superview as? SignUPTableViewCell {
-        
-        
-        //            if (newRegCell.registrationTextfield.text != nil)  {
-        //
-        //                newRegCell.registrationTextfield.isHidden = false
-        //
-        //                newRegCell.registrationTextfield.textColor = UIColor.lightGray
-        //            }
-        
-        //            else{
-        //
-        //             //   newRegCell.addNewAddressLabel.isHidden = false
-        //
-        //            }
-        
         if activeTextField.tag == 0{
             
            // activeTextField.textColor = UIColor.red
@@ -252,17 +209,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             section1HeaderLabel2.textAlignment = .center
             // section1HeaderLabel2.backgroundColor = UIColor.purple
             section1HeaderLabel2.font = UIFont(name: "HelveticaNeue-Bold", size: 13.0)!
-            
-            //            let section1HeaderLabel3 = UILabel(frame: CGRect(x: 180, y: 1, width:80, height: 27))
-            //            // section1HeaderLabel.text = sectionsTitle[section]
-            //            section1HeaderLabel3.textColor = UIColor.black
-            //            section1HeaderLabel3.text = "Ship Date"
-            //            section1HeaderLabel3.textAlignment = .center
-            //           // section1HeaderLabel3.backgroundColor = UIColor.purple
-            //            section1HeaderLabel3.font = UIFont(name: "HelveticaNeue-Bold", size: 15.0)!
-            //
-            
-            
             headerView.addSubview(section1HeaderLabel2)
             //  headerView.addSubview(section1HeaderLabel3)
             
@@ -373,44 +319,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     
     print("Confirm Button Clicked......")
     
-    
-    
-    
-  /*  if self.validateAllFields()
-    {
-     
-        //   navigationItem.leftBarButtonItems = []
-     //   let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        
-        
-        
-        
-     //   self.navigationController?.pushViewController(loginViewController, animated: true)
-        
-        removeAnimate()
-
-        //            let LoginNav : UINavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootloginVC") as! UINavigationController
-        //
-        //            appDelegate.window?.rootViewController = LoginNav
-        //
-        
-        
-        print("Registerd")
-        //  updateProfileAPIService()
-    }
-    else {
-        
-        // self.appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
-        
-        print("biscute Code")
-        
-        return
-        
-    } */
-    
-
-    
-    
+   
     }
     
     

@@ -286,33 +286,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     }
                 }, failure:  {(error) in
                     
-                    print("error")
+                    print(error)
                     
-//                    if(error == "unAuthorized"){
-//                        
-//                        serviceController.refreshTokenForLogin(successHandler:{(result) in
-//                            DispatchQueue.main.async()
-//                                {
-//                                    
-//                                    self.getAddressByAddressIdAPIService()
-//                                    
-//                            }
-//                        }, failureHandler:  {(error) in
-//                            
-//                            DispatchQueue.main.async()
-//                                {
-//                                    
-//                                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                                    
-//                                    let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-//                                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//                                    appDelegate.window?.rootViewController = viewController
-//                                    
-//                            }
-//                            
-//                            
-//                        })
-//                    }
+                    if(error == "unAuthorized"){
+                    
+                       
+                        self.showAlertViewWithTitle("Alert", message: error, buttonTitle: "Ok")
+
+                    
+                    }
                     
                     
                     
