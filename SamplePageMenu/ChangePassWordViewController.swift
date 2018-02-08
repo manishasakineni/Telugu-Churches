@@ -84,7 +84,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         if activeTextField.tag == 0 {
             
-            textField.maxLengthTextField = 15
+            textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .default
            // oldPassWordString = textField.text!
@@ -92,7 +92,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         }
         else if activeTextField.tag == 1 {
             
-            textField.maxLengthTextField = 15
+            textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .default
            // newPassWordString = textField.text!
@@ -100,7 +100,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         }
         else if activeTextField.tag == 2 {
             
-            textField.maxLengthTextField = 15
+            textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .default
           //  confirmPassWordString = textField.text!
@@ -337,7 +337,47 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         if (oldePassWordStr.length<=0) {
             errorMessage=GlobalSupportingClass.blankOldPasswordErrorMessage() as String as String as NSString?
         }
+            
         else if (newPassWordStr.length<=0) {
+            errorMessage=GlobalSupportingClass.blankPasswordErrorMessage() as String as String as NSString?
+        }
+        else if(!GlobalSupportingClass.capitalOnly(password: newPassWordStr as String)) {
+            
+            errorMessage=GlobalSupportingClass.capitalLetterMessage() as String as String as NSString?
+        }
+        else if(!GlobalSupportingClass.numberOnly(password: newPassWordStr as String)) {
+            
+            errorMessage=GlobalSupportingClass.numberMessage() as String as String as NSString?
+        }
+        else if(!GlobalSupportingClass.specialCharOnly(password: newPassWordStr as String)) {
+            
+            errorMessage=GlobalSupportingClass.specialCharacterMessage() as String as String as NSString?
+        }
+        else if (newPassWordStr.length < 8) {
+            
+            errorMessage=GlobalSupportingClass.invalidPassWordErrorMessage() as String as String as NSString?
+        }
+            
+        else if(confirmPassWordStr.length<8){
+            errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?
+        }
+            
+        else if(newPassWordStr.length<5||confirmPassWordStr.length<5)
+        {
+            errorMessage = GlobalSupportingClass.invalidDigitsInPasswordErrorMessage() as String as String as NSString?
+        }
+        else if(!newPassWordStr.isEqual(to: confirmPassWordStr as String)){
+            errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
+        }
+        
+        if let errorMsg = errorMessage{
+            
+            self.showAlertViewWithTitle("Alert", message: errorMsg as String, buttonTitle: "Retry")
+            return false;
+        }
+            
+            
+    /*    else if (newPassWordStr.length<=0) {
             errorMessage=GlobalSupportingClass.blankPasswordErrorMessage() as String as String as NSString?
         }
         else if(!GlobalSupportingClass.capitalOnly(password: newPassWordStr as String)) {
@@ -372,7 +412,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             
             self.showAlertViewWithTitle("Alert", message: errorMsg as String, buttonTitle: "Retry")
             return false;
-        }
+        } */
         
         return true
     }
