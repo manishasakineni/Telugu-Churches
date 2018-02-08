@@ -47,7 +47,7 @@ class GlobalSupportingClass {
         return "invalid MobileNumber"
     }
     class func miniCharEmailIDErrorMessage() -> String {
-        return "Email Should Minimum 4-Character"
+        return "Email Should Minimum 5-Character"
     }
     class func invalidEmaildIDFormatErrorMessage() -> String {
         return "Please Provide valid EmaildIDFormat"
@@ -93,7 +93,7 @@ class GlobalSupportingClass {
     }
    
     class func invalidPassWordErrorMessage() -> String {
-        return "Please Provide 15-Digits PassWord"
+        return "Please Provide Minimum 8-Charecters PassWord"
     }
 //    class func invalidPhoneNumberErrorMessage() -> String {
 //        return "app.Pleaseprovide10digitsmobilenumber".localize()

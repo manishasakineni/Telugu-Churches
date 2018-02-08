@@ -56,6 +56,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     var mobileNumber  : String = ""
     var userName     : String = ""
     var password       : String = ""
+    var confirmpassword       : String = ""
     var roleId   : Int = 1
     var email:String = ""
     var isActive:Bool = true
@@ -143,32 +144,32 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 //        }
         if activeTextField.tag == 0 {
             
-            textField.maxLengthTextField = 40
+            textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .default
         }
         else if activeTextField.tag == 1 {
             
-            textField.maxLengthTextField = 40
+            textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .default
         }
         else if activeTextField.tag == 2 {
             
-            textField.maxLengthTextField = 40
+            textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .default
         }
          else if activeTextField.tag == 3 {
             
-            textField.maxLengthTextField = 40
+            textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .default
         }
             
         else if activeTextField.tag == 4{
             
-            textField.maxLengthTextField = 40
+            textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .emailAddress
             
@@ -183,14 +184,14 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         }
         else if activeTextField.tag == 6{
             
-            textField.maxLengthTextField = 15
+            textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .default
             
         }
         else if activeTextField.tag == 7{
             
-            textField.maxLengthTextField = 15
+            textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .default
             
@@ -212,82 +213,18 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         
+        
+        
+        
         if let newRegCell : SignUPTableViewCell = textField.superview?.superview as? SignUPTableViewCell {
             
             
-//            if newRegCell.registrationTextfield.text == nil {
-//                
-//                newRegCell.registrationTextfield.isHidden = true
-//                newRegCell.registrationTextfield.isHidden = false
-//                
-//                
-//            }
+
         }
         return true
     }
     
-    
-    
-    //MARK:- shouldChangeCharactersIn range
-    
-//    
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        
-//        if textField.tag == 1{
-//            if string.characters.count > 0 {
-//                let allowedCharacters = CharacterSet.letters
-//                
-//                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
-//                return unwantedStr.characters.count == 0
-//            }
-//            
-//            return true
-//        }
-//        if textField.tag == 2{
-//            if string.characters.count > 0 {
-//                let allowedCharacters = CharacterSet.letters
-//                
-//                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
-//                return unwantedStr.characters.count == 0
-//            }
-//            
-//            return true
-//        }
-//        if textField.tag == 3{
-//            if string.characters.count > 0 {
-//                let allowedCharacters = CharacterSet.letters
-//                
-//                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
-//                return unwantedStr.characters.count == 0
-//            }
-//            
-//            return true
-//        }
-//        
-//        if textField.tag == 3{
-//            if string.characters.count > 0 {
-//                let allowedCharacters = CharacterSet.letters
-//                
-//                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
-//                return unwantedStr.characters.count == 0
-//            }
-//            
-//            return true
-//        }
-    
-        //        if textField.tag == 5{
-        //            if string.characters.count > 0 {
-        //                let allowedCharacters = CharacterSet.decimalDigits
-        //
-        //                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
-        //                return unwantedStr.characters.count == 0
-        //            }
-        //
-        //            return true
-        //        }
-  //      return true
- //   }
-
+ 
     
     
     //MARK:- textFieldDidEndEditing
@@ -298,22 +235,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         activeTextField = textField
 
-    
-//        if let newRegCell : SignUPTableViewCell = textField.superview?.superview as? SignUPTableViewCell {
-        
-            
-//            if (newRegCell.registrationTextfield.text != nil)  {
-//                
-//                newRegCell.registrationTextfield.isHidden = false
-//                
-//                newRegCell.registrationTextfield.textColor = UIColor.lightGray
-//            }
-            
-            //            else{
-            //
-            //             //   newRegCell.addNewAddressLabel.isHidden = false
-            //
-            //            }
         
         if activeTextField.tag == 0{
             
@@ -361,7 +282,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             else if activeTextField.tag == 7{
                 
                 
-                password = textField.text!
+                confirmpassword = textField.text!
                 
             
             }
@@ -384,51 +305,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         return signUpTFPlaceholdersArray.count
     }
     
- /*   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionsTitle[section]
-    }
-    
-    
-   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if (section == 0){
-            // UIView Creation...........
-            let headerView = UIView(frame: CGRect(x:0, y:0, width:tableView.frame.size.width, height:100))
-            headerView.backgroundColor =  UIColor(red: 248.0/255.0, green: 248.0/255.0, blue: 248.0/255.0, alpha: 1.0)
-            // UILabel Creation...........
-           
-            
-            let section1HeaderLabel2 = UILabel(frame: CGRect(x: 110, y: -3, width:100, height: 35))
-            // section1HeaderLabel.text = sectionsTitle[section]
-            section1HeaderLabel2.textColor = UIColor.black
-            section1HeaderLabel2.text = "Registration"
-            section1HeaderLabel2.textAlignment = .center
-            // section1HeaderLabel2.backgroundColor = UIColor.purple
-            section1HeaderLabel2.font = UIFont(name: "HelveticaNeue-Bold", size: 15.0)!
-            
-            //            let section1HeaderLabel3 = UILabel(frame: CGRect(x: 180, y: 1, width:80, height: 27))
-            //            // section1HeaderLabel.text = sectionsTitle[section]
-            //            section1HeaderLabel3.textColor = UIColor.black
-            //            section1HeaderLabel3.text = "Ship Date"
-            //            section1HeaderLabel3.textAlignment = .center
-            //           // section1HeaderLabel3.backgroundColor = UIColor.purple
-            //            section1HeaderLabel3.font = UIFont(name: "HelveticaNeue-Bold", size: 15.0)!
-            //
-            
-            
-            headerView.addSubview(section1HeaderLabel2)
-            //  headerView.addSubview(section1HeaderLabel3)
-            
-            return headerView
-        }
-        return nil
-    }
-    
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 40
-        
-    } */
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat{
         
@@ -445,19 +321,11 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         let signUPCell = tableView.dequeueReusableCell(withIdentifier: "SignUPTableViewCell", for: indexPath) as! SignUPTableViewCell
         
-     //   signUPCell.registrationTextfield.placeholder = signUpTFPlaceholdersArray[indexPath.row]
-        
-//        signUPCell.selectionStyle = .none
-        signUPCell.registrationTextfield.delegate = self
-//        
-        signUPCell.registrationTextfield.tag = indexPath.row
-//        signUPCell.registrationTextfield.layer.borderWidth = 0.5
-//        signUPCell.registrationTextfield.layer.borderColor = UIColor.lightGray.cgColor
-//        signUPCell.registrationTextfield.layer.cornerRadius = 3
-//        signUPCell.registrationTextfield.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 5)
-     //   delegate?.textChanged(text: signUPCell.detailsLbl?.text)
 
-        //signUPCell.registrationTextfield.spellCheckingType = .no
+        signUPCell.registrationTextfield.delegate = self
+        
+        signUPCell.registrationTextfield.tag = indexPath.row
+
         if indexPath.row == 0{
             
             //   signUPCell.registrationTextfield.keyboardType = .namePhonePad
@@ -528,7 +396,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
       
         else if indexPath.row == 7{
             
-            signUPCell.registrationTextfield.text = password
+            signUPCell.registrationTextfield.text = confirmpassword
            // signUPCell.registrationTextfield.keyboardType = .emailAddress
             // signUPCell.registrationTextfield?.text = "app.Landmark".localize()
             signUPCell.registrationTextfield.placeholder = "Confirm Password"
@@ -597,16 +465,16 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         let emailIDStr:NSString = email as NSString
         let mobileNumberStr:NSString =  mobileNumber  as NSString
         let passWord:NSString = password   as NSString
-        let confirmPassWord:NSString =  password  as NSString
+        let confirmPassWord:NSString =  confirmpassword  as NSString
         
         if (firstNameStr.length <= 0){
             errorMessage=GlobalSupportingClass.blankFirstNameErrorMessage() as String as String as NSString?
             
         }
-        else if (middleNameStr.length <= 0){
-            errorMessage=GlobalSupportingClass.blankMiddleNameErrorMessage() as String as String as NSString?
-            
-        }
+//        else if (middleNameStr.length <= 0){
+//            errorMessage=GlobalSupportingClass.blankMiddleNameErrorMessage() as String as String as NSString?
+//            
+//        }
         else if (lastnameStr.length <= 0){
             errorMessage=GlobalSupportingClass.blankLastNameErrorMessage() as String as String as NSString?
             
@@ -621,7 +489,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             errorMessage=GlobalSupportingClass.blankEmailIDErrorMessage() as String as String as NSString?
         }
             
-        else  if (emailIDStr.length<=3) {
+        else  if (emailIDStr.length < 5) {
             errorMessage=GlobalSupportingClass.miniCharEmailIDErrorMessage() as String as String as NSString?
         }
         else  if(!GlobalSupportingClass.isValidEmail(emailIDStr as NSString))
@@ -659,12 +527,12 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
             errorMessage=GlobalSupportingClass.specialCharacterMessage() as String as String as NSString?
         }
-       else if (passWord.length <= 14) {
+       else if (passWord.length < 8) {
             
             errorMessage=GlobalSupportingClass.invalidPassWordErrorMessage() as String as String as NSString?
         }
             
-        else if(confirmPassWord.length<=0){
+        else if(confirmPassWord.length<8){
             errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?
         }
             

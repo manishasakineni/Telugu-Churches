@@ -146,7 +146,7 @@
 		8CA6DF88FB76B3361A239309 /* Pods-Telugu Churches.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telugu Churches.release.xcconfig"; path = "Pods/Target Support Files/Pods-Telugu Churches/Pods-Telugu Churches.release.xcconfig"; sourceTree = "<group>"; };
 		9A058AF82021E184005A611C /* RegisterResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterResultVo.swift; sourceTree = "<group>"; };
 		9A058AFA2021F394005A611C /* LoginVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVo.swift; sourceTree = "<group>"; };
-		9A5CE89520205252005F4ACD /* TextFieldMaxLengths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldMaxLengths.swift; sourceTree = "<group>"; };
+		9A5CE89520205252005F4ACD /* TextFieldMaxLengths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldMaxLengths.swift; path = ../TextFieldMaxLengths.swift; sourceTree = "<group>"; };
 		9A5D25ED1FFF76A300316988 /* Telugu Churches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Telugu Churches.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5D25F01FFF76A300316988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SamplePageMenu/AppDelegate.swift; sourceTree = "<group>"; };
 		9A5D25F21FFF76A300316988 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 		9AA3AB692011D7420065D4BD /* TransformType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformType.swift; sourceTree = "<group>"; };
 		9AA3AB6A2011D7420065D4BD /* DictionaryTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryTransform.swift; sourceTree = "<group>"; };
 		9AEAE821201F1D0100DB9D8E /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		9AEAE823201F491700DB9D8E /* GlobalSupportingClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSupportingClass.swift; sourceTree = "<group>"; };
+		9AEAE823201F491700DB9D8E /* GlobalSupportingClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalSupportingClass.swift; path = ../GlobalSupportingClass.swift; sourceTree = "<group>"; };
 		9AEAE825201F4FC700DB9D8E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9AF564982020944800AEA0EF /* ChangePassWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePassWordViewController.swift; sourceTree = "<group>"; };
 		9AF5649B2020972900AEA0EF /* ForgotPasswordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordCell.swift; sourceTree = "<group>"; };
@@ -327,10 +327,8 @@
 			isa = PBXGroup;
 			children = (
 				9A5D25F01FFF76A300316988 /* AppDelegate.swift */,
-				9AEAE823201F491700DB9D8E /* GlobalSupportingClass.swift */,
 				9AEAE825201F4FC700DB9D8E /* BaseViewController.swift */,
 				9A623B862021A56400A674F2 /* Utilities */,
-				9A5CE89520205252005F4ACD /* TextFieldMaxLengths.swift */,
 				9A5D25F41FFF76A300316988 /* Main.storyboard */,
 				9A5D25EF1FFF76A300316988 /* Telugu Churches */,
 				9A5D25EE1FFF76A300316988 /* Products */,
@@ -360,6 +358,8 @@
 				9A5D260A1FFF896900316988 /* CAPSPageMenu.swift */,
 				9A5D26051FFF795200316988 /* SWRevealViewController.h */,
 				9A5D26061FFF795200316988 /* SWRevealViewController.m */,
+				9AEAE823201F491700DB9D8E /* GlobalSupportingClass.swift */,
+				9A5CE89520205252005F4ACD /* TextFieldMaxLengths.swift */,
 				3D65D4A92004D9A200CAB226 /* CCKFNavDrawer */,
 				9A5D26421FFF963700316988 /* ViewCells */,
 				9A5D26411FFF960000316988 /* Controllers */,
