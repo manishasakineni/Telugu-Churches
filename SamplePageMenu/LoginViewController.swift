@@ -255,18 +255,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 
                                 let successMsg = respVO.endUserMessage
                                 print(successMsg)
-                                
-                                let userid = respVO.listResult?[0].userId
-                                let defaults = UserDefaults.standard
-                                defaults.set(userid, forKey: kuserId)
-                                UserDefaults.standard.synchronize()
-                                
                                 let loginStatus = successMsg
-                                let loginStatusDefaults = UserDefaults.standard
-                                loginStatusDefaults.set(loginStatus, forKey: kLoginSucessStatus)
-                                UserDefaults.standard.synchronize()
+                                let userid = respVO.listResult?[0].userId
+                                let loginid = "\(respVO.listResult?[0].id ?? 0)"
                                 
+                                let defaults = UserDefaults.standard
+                                
+                                defaults.set(userid, forKey: kuserId)
+                                defaults.set(loginid, forKey: kLoginId)
+                                defaults.synchronize()
+                    
+                                defaults.set(loginStatus, forKey: kLoginSucessStatus)
+
                                 defaults.set("true", forKey: KFirstTimeLogin)
+                                
                                 UserDefaults.standard.synchronize()
                               
                                 self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)

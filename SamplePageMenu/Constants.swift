@@ -16,12 +16,13 @@ let videosURL = "http://192.168.1.123/TeluguChurchesApi/api/GetEmbedLinks/"
 
 
 var BASEURL:String = "http://192.168.1.121/TeluguChurches/"
+
 let SIGNEUPURL:String = BASEURL.appending("api/Account/Register")
 let LOGINURL : String = BASEURL.appending("api/UserInfo/LoginUser/")
 
 
 let CHANGEPASSWORDURL:String = BASEURL.appending("api/Account/ChangePassword")
-
+let EDITPROFILEURL : String = BASEURL.appending("api/UserInfo/UpdateUserInfo")
 
 
 // MARK: -  Navigation String
@@ -30,6 +31,13 @@ let CHANGEPASSWORDURL:String = BASEURL.appending("api/Account/ChangePassword")
 let KFirstTimeLogin = "first Time Login"
 
 let kuserId:String = "kuserId"
+let kLoginId:String = "kloginId"
+let kfirstName:String  = "kfirsrName"
+let kmiddleName:String  = "kmiddleName"
+let klastName:String  = "klastName"
+let kmobileNumber:String  = "kmobileNumber"
+let kpassword:String  = "kpassword"
+let kemail:String  = "kemail"
 let kLoginSucessStatus:String = "kLoginSucessStatus"
 let kRegisterSucessStatus:String = "kRegisterSucessStatus"
 

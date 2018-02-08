@@ -601,6 +601,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         print("dictHeader:\(dictHeaders)")
 
         
+        
         serviceController.signUpRequestPOSTURL(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
             DispatchQueue.main.async()
                 {
@@ -631,6 +632,13 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
                         registerStatusDefaults.set(registerStatus, forKey: kRegisterSucessStatus)
                         UserDefaults.standard.synchronize() */
                         
+                        UserDefaults.standard.set(self.firstName, forKey: kfirstName)
+                        UserDefaults.standard.set(self.middleName, forKey: kmiddleName)
+                        UserDefaults.standard.set(self.lastName, forKey: klastName)
+                        UserDefaults.standard.set(self.mobileNumber, forKey: kmobileNumber)
+                        UserDefaults.standard.set(self.email, forKey: kemail)
+                        UserDefaults.standard.set(self.password, forKey: kpassword)
+                        UserDefaults.standard.synchronize()
                         
          
                         

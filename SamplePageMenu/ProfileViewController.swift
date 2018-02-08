@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var appVersion          : String = ""
 
     var showNav = false
+    let isActive : Bool = true
 
     
     @IBOutlet weak var editProfileTableView: UITableView!
@@ -22,11 +23,13 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     var placeholdersAry  = ["First Name","Middle Name","Last Name","Mobile No","Email ID"]
     
-    var firstNameEmpty : String = ""
-    var middleNameEmpty  : String = ""
-    var lastNameEmpty : String = ""
-    var mobileNoEmpty     : String = ""
-    var EmailIDEmpty  : String = ""
+    var firstName   : String = ""
+    var middleName  : String = ""
+    var lastName    : String = ""
+    var mobileNumber    : String = ""
+    var email       : String = ""
+    var loginid      : String = ""
+    var password       : String = ""
     
     var activeTextField = UITextField()
     
@@ -47,13 +50,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
 
-           //self.navigationController?.navigationBar.isHidden = !showNav
-        
-        
-        
         
         
         let nibName  = UINib(nibName: "EditProfileTableViewCell" , bundle: nil)
@@ -64,6 +61,15 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         let nibName2  = UINib(nibName: "HeaderProfileCell" , bundle: nil)
         editProfileTableView.register(nibName2, forCellReuseIdentifier: "HeaderProfileCell")
+        
+        
+        self.firstName = (UserDefaults.standard.value(forKey: kfirstName) as? String)!
+        self.middleName = (UserDefaults.standard.value(forKey: kmiddleName) as? String)!
+        self.lastName = (UserDefaults.standard.value(forKey: klastName) as? String)!
+        self.mobileNumber = (UserDefaults.standard.value(forKey: kmobileNumber) as? String)!
+        self.email = (UserDefaults.standard.value(forKey: kemail) as? String)!
+        self.loginid = (UserDefaults.standard.value(forKey: kLoginId) as? String)!
+        self.password = (UserDefaults.standard.value(forKey: kpassword) as? String)!
         
         
         
@@ -214,24 +220,24 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if activeTextField.tag == 0{
             
             //  activeTextField.textColor = UIColor.red
-            firstNameEmpty = textField.text!
+            firstName = textField.text!
             
         }
             
         else if activeTextField.tag == 1 {
             
-            middleNameEmpty = textField.text!
+            middleName = textField.text!
             
         }
             
         else if activeTextField.tag == 2{
             
-            lastNameEmpty = textField.text!
+            lastName = textField.text!
             
         }
         else if activeTextField.tag == 3{
             
-            mobileNoEmpty = textField.text!
+            mobileNumber = textField.text!
             
             
         }
@@ -239,7 +245,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         else if activeTextField.tag == 4{
             
             
-            EmailIDEmpty = textField.text!
+            email = textField.text!
             
             
         }
@@ -376,7 +382,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if indexPath.row == 0{
             
             signUPCell.editProfileTF.placeholder = "First Name"
-            signUPCell.editProfileTF.text = firstNameEmpty
+            signUPCell.editProfileTF.text = self.firstName
             
             
         }
@@ -385,7 +391,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
             
             signUPCell.editProfileTF.placeholder = "Middle Name"
-            signUPCell.editProfileTF.text = middleNameEmpty
+            signUPCell.editProfileTF.text = self.middleName
             
             
             
@@ -394,7 +400,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
             
             signUPCell.editProfileTF.placeholder = "Last Name"
-            signUPCell.editProfileTF.text = lastNameEmpty
+            signUPCell.editProfileTF.text = self.lastName
             
             
             
@@ -403,7 +409,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
             signUPCell.editProfileTF.placeholder = "Mobile No"
             
-            signUPCell.editProfileTF.text = mobileNoEmpty
+            signUPCell.editProfileTF.text = self.mobileNumber
             
             
         }
@@ -411,8 +417,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         else if indexPath.row == 4{
             
             signUPCell.editProfileTF.placeholder = "Email ID"
-            signUPCell.editProfileTF.text = EmailIDEmpty
-            
+            signUPCell.editProfileTF.text = self.email
             
             
         }
@@ -491,13 +496,66 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
+    
+    func saveProfileAPICall(){
+    
+    
+        let  updateProfileAPI : String = EDITPROFILEURL
+        
+        
+        let updateProfiledictParams = [
+            "Id": self.loginid,
+            "UserId": "",
+            "FirstName": self.firstName,
+            "MiddleName": self.middleName,
+            "LastName": self.lastName,
+            "ContactNumber": "2457561545",
+            "MobileNumber":"",
+            "UserName": "",
+            "Password": "",
+            "RoleId": 1,
+            "Email": email,
+            "IsActive": isActive,
+            "CreatedByUserId": 1,
+            "CreatedDate": "2018-01-31T10:43:28.8319786+05:30",
+            "UpdatedByUserId": 1,
+            "UpdatedDate": "2018-01-31T10:43:28.8329795+05:30"
+            ] as [String : Any]
+        
+        print(updateProfiledictParams)
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.signUpRequestPOSTURL(strURL: updateProfileAPI as NSString, postParams: updateProfiledictParams as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            DispatchQueue.main.async()
+                {
+                    
+                    print("result:\(result)")
+            
+            }
+            
+        }, failureHandler: {(error) in
+        
+    
+            
+            
+            
+        })
+    
+    }
+    
+    
+    
+    
     @IBAction func saveBtnAction(_ sender: Any) {
         
         if self.validateAllFields()
         {
             
-            print("Registerd")
-            //  updateProfileAPIService()
+        saveProfileAPICall()
+            
         }
         else {
             
@@ -519,29 +577,29 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         var errorMessage:NSString?
         
-        let firstName:NSString = firstNameEmpty   as NSString
+        let firstName:NSString = self.firstName   as NSString
         
-        let middleName:NSString =  middleNameEmpty  as NSString
+        let middleName:NSString =  self.middleName  as NSString
         
-        let lastName:NSString =  lastNameEmpty  as NSString
+        let lastName:NSString =  self.lastName  as NSString
         
-        let mobileNumber:NSString =  mobileNoEmpty  as NSString
+        let mobileNumber:NSString =  self.mobileNumber  as NSString
         
-        let emailID:NSString = EmailIDEmpty as NSString
-        
-        
+        let emailID:NSString = self.email as NSString
         
         
         
-        if (firstName.length <= 5){
+        
+        
+        if (firstName.length <= 2){
             errorMessage=GlobalSupportingClass.blankFirstNameErrorMessage() as String as String as NSString?
             
         }
             
-        else if (middleName.length<=5) {
-            errorMessage=GlobalSupportingClass.blankMiddleNameErrorMessage() as String as String as NSString?
-        }
-        else  if (lastName.length <= 5){
+//        else if (middleName.length<=2) {
+//            errorMessage=GlobalSupportingClass.blankMiddleNameErrorMessage() as String as String as NSString?
+//        }
+        else  if (lastName.length <= 2){
             errorMessage=GlobalSupportingClass.blankLastNameErrorMessage() as String as String as NSString?
             
         }
@@ -559,7 +617,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             errorMessage=GlobalSupportingClass.blankEmailIDErrorMessage() as String as String as NSString?
         }
             
-        else  if (emailID.length<=3) {
+        else  if (emailID.length<=4) {
             errorMessage=GlobalSupportingClass.miniCharEmailIDErrorMessage() as String as String as NSString?
         }
         else  if(!GlobalSupportingClass.isValidEmail(emailID as NSString))
