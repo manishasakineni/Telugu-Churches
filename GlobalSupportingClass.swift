@@ -23,6 +23,9 @@ class GlobalSupportingClass {
     class func blankFirstNameErrorMessage() -> String {
         return "Please Provide FirstName"
     }
+    class func AlphaBetsOnlyErrorMessage() -> String {
+        return "Only AlphaBets Allowed"
+    }
     class func blankMiddleNameErrorMessage() -> String {
         return "Please Provide MiddleName"
     }

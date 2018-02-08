@@ -146,7 +146,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
             textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
-            textField.keyboardType = .default
+            textField.keyboardType = .alphabet
         }
         else if activeTextField.tag == 1 {
             
@@ -205,8 +205,25 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         if !string.canBeConverted(to: String.Encoding.ascii){
             return false
         }
-        
-        
+            
+        activeTextField = textField
+        if activeTextField.tag == 0 || activeTextField.tag == 1 || activeTextField.tag == 2{
+            
+            
+            if string.characters.count > 0 {
+                
+                let currentCharacterCount = textField.text?.characters.count ?? 0
+                if (range.length + range.location > currentCharacterCount){
+                    return false
+                }
+                let newLength = currentCharacterCount + string.characters.count - range.length
+                
+                let allowedCharacters = CharacterSet.letters
+                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+                return newLength <= 50 && unwantedStr.characters.count == 0
+            }
+            
+        }
         return true
     }
     
@@ -505,6 +522,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
             errorMessage=GlobalSupportingClass.invalidMobilenumberErrorMessage() as String as String as NSString?
         }
+            
             
 //        else if (mobileNumberStr.length > 9) {
 //            
