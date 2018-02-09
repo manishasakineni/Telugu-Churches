@@ -524,7 +524,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         else if indexPath.row == 3{
             
-            signUPCell.editProfileTF.placeholder = "Mobile No"
+            signUPCell.editProfileTF.placeholder = "Mobile Number"
             signUPCell.editProfileTF.isUserInteractionEnabled = false
             signUPCell.editProfileTF.textColor = UIColor.lightGray
             signUPCell.editProfileTF.text = self.mobileNumber

@@ -121,7 +121,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 imageView  = UIImageView(frame: window.bounds)
                 imageView.image = UIImage(named:"skyJSU")
                 let codedLabel:UILabel = UILabel()
-                codedLabel.frame = CGRect(x: 120, y: 500, width: 500, height: 200)
+               // codedLabel.frame = CGRect(x: 120, y: 500, width: 500, height: 200)
+                codedLabel.frame = CGRect(x: imageView.frame.origin.x, y: imageView.frame.origin.y, width: imageView.frame.size.width, height: imageView.frame.size.width)
+
                 codedLabel.textAlignment = .center
                 var stringCount : Double = 0.0
                 
@@ -138,7 +140,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.customizedLaunchScreenView?.addSubview(imageView)
                 self.window?.addSubview(self.customizedLaunchScreenView!)
                 self.window?.bringSubview(toFront: self.customizedLaunchScreenView!)
-                UIView.animate(withDuration: 1, delay: (stringCount + 2.0) * 0.1 , options: .curveEaseOut,
+                UIView.animate(withDuration: 0.2, delay: (stringCount) * 0.1 , options: .curveEaseOut,
                                animations: { () -> Void in
                                 self.customizedLaunchScreenView?.alpha = 0 },
                                completion: { _ in
@@ -160,11 +162,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 imageView  = UIImageView(frame: window.bounds)
                 imageView.image = UIImage(named:"skyJSU")
                 let codedLabel:UILabel = UILabel()
-                codedLabel.frame = CGRect(x: 10, y: 200, width: 300, height: 200)
+               // codedLabel.frame = CGRect(x: 10, y: 200, width: 300, height: 200)
+                codedLabel.frame = CGRect(x: imageView.frame.origin.x, y: imageView.frame.origin.y, width: imageView.frame.size.width, height: imageView.frame.size.height)
+
                 codedLabel.textAlignment = .center
                 var stringCount : Double = 0.0
                 
-                var str = "The first paragraph of the body should contain the strongest argument, most significant example, cleverest illustration, or an obvious beginning point."
+                var str = "Jesus answered, “I am the way and the truth and the life. No one comes to the Father except through me."
                 stringCount = Double(str.characters.count)
                 print(str.characters.count)
                 codedLabel.animate(newText:str, characterDelay: 0.05)
