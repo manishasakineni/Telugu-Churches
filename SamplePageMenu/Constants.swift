@@ -15,6 +15,8 @@ let videosURL = "http://192.168.1.123/TeluguChurchesApi/api/GetEmbedLinks/"
 
 
 
+
+
 var BASEURL:String = "http://192.168.1.121/TeluguChurches/"
 
 let SIGNEUPURL:String = BASEURL.appending("api/Account/Register")
@@ -51,7 +53,7 @@ let accessToken:String = "accessToken"
 
 
 let kNetworkStatusMessage = "Please Check Your Internet Connection"
-let kToastDuration  = 3.0
+let kToastDuration  = 1.5
 let kRequestTimedOutMessage = "Therequest Timed Out"
 
 

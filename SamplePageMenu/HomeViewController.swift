@@ -53,9 +53,9 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
     
     
     
-    var imageArray = [UIImage(named:"live"),UIImage(named:"Audio"),UIImage(named:"Seminor"),UIImage(named:"Songs"),UIImage(named:"books"),UIImage(named:"Churches"),UIImage(named:"live"),UIImage(named:"Seminor-1"),UIImage(named:"rootmap"),UIImage(named:"Science"),UIImage(named:"movies"),UIImage(named:"language"),UIImage(named:"jobs"),UIImage(named:"donation"),UIImage(named:"bookshop"),UIImage(named:"Vedio"),UIImage(named:"holybible"),UIImage(named:"Audio"),UIImage(named:"Seminor"),UIImage(named:"Songs"),UIImage(named:"books"),UIImage(named:"Churches"),UIImage(named:"live"),UIImage(named:"Seminor-1"),UIImage(named:"rootmap"),UIImage(named:"Science"),UIImage(named:"movies"),UIImage(named:"language"),UIImage(named:"jobs"),UIImage(named:"donation")]
+    var imageArray = [UIImage(named:"jes2"),UIImage(named:"jes4"),UIImage(named:"jes1png"),UIImage(named:"jes5"),UIImage(named:"jes7"),UIImage(named:"jes8"),UIImage(named:"jes4"),UIImage(named:"jes9"),UIImage(named:"jes4"),UIImage(named:"jes5"),UIImage(named:"jes6"),UIImage(named:"jes3"),UIImage(named:"jes8"),UIImage(named:"jes4"),UIImage(named:"jes1png"),UIImage(named:"jes3"),UIImage(named:"jes7"),UIImage(named:"jes2"),UIImage(named:"jes4"),UIImage(named:"jes9"),UIImage(named:"jes4"),UIImage(named:"jes5"),UIImage(named:"jes6"),UIImage(named:"jes5")]
     
-    var namesarra1 = ["Videos","Audio Bible","Bible Study","Songs","Scientific Proofs","Gospel Messages","Short Messages","Images","Login id Creation","Help to develop the small churches","Book Shop","Movies","Daily Quotations","Video Songs","Testimonials","Quotations","Sunday School","Cell numbers for daily messages(Bulk sms)","Bible Apps","Short Films","Jobs","Route maps buds numbers","Events","Donation","Live","Doubts","Suggetions","Pamplets","languages(Tel/Eng)","Admin can add multiple menu pages"]
+    var namesarra1 = ["Videos","Bible Study","Audio Bible","Songs","Jesues","Live","Books","Images","Bible Images","Bible Quotes","Book Shop","Movies","Videos","Audio Bible","Bible Study","Songs","Scientific Proofs","Gospel Messages","Short Messages","Images","Audio Bible    ","Bible Quotes","Book Shop","Movies"]
     
 
     

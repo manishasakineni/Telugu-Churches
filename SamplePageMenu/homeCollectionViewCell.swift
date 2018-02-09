@@ -40,7 +40,7 @@ class homeCollectionViewCell: UICollectionViewCell {
         collectionImgView.layer.shadowColor = UIColor.lightGray.cgColor
         collectionImgView.layer.shadowOffset = CGSize(width: 0, height: 3)
         collectionImgView.layer.shadowOpacity = 0.6
-        collectionImgView.layer.shadowRadius = 10.0
+        collectionImgView.layer.shadowRadius = 0.5
         
         collectionImgView.layer.cornerRadius = 5.0
         collectionImgView.layer.borderWidth = 1

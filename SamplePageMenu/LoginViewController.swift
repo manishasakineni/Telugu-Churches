@@ -100,6 +100,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
+        textField.autocorrectionType = .no
+        
          if textField == passwordTF{
             
             passwordTF.isSecureTextEntry = true
@@ -111,9 +113,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         
+        
         if !string.canBeConverted(to: String.Encoding.ascii){
             return false
         }
+        
+        
         
         
         return true
@@ -164,12 +169,35 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
      //   appDelegate.window?.rootViewController = rootController
         
+        mobileEmailTF.text = mobileEmailTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
+        passwordTF.text = passwordTF.text!.trimmingCharacters(in: CharacterSet.whitespaces)
+        
+
+        
         if(appDelegate.checkInternetConnectivity()){
 
-            if self.validateAllFields(){
+            if email!.isEmpty{
+                
+                Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message", messege: "Please Enter UserName", clickAction: {
+                    
+                    
+                })
+                
+            }
+            else if password!.isEmpty{
+                
+                Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message", messege: "Please Enter PassWord", clickAction: {
+                    
+                    
+                })
+                
+            }
+            else{
+
             
             
               loginAPIService()
+                
             }
             
         }else{
@@ -193,14 +221,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
       //  var errorMessage:NSString?
         
-        if email!.isEmpty && password!.isEmpty{
+       /* if email!.isEmpty && password!.isEmpty{
             
             Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message", messege: "Please Enter Requiredfields", clickAction: {
                 
                 
             })
             
+        } */
+         if email!.isEmpty{
+            
+            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message", messege: "Please Enter UserName", clickAction: {
+                
+                
+            })
+            
         }
+        if email!.isEmpty{
+            
+            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message", messege: "Please Enter UserName", clickAction: {
+                
+                
+            })
+            
+        }
+
             
 
         else {
@@ -226,6 +271,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if(appDelegate.checkInternetConnectivity()){
             
             if !(email!.isEmpty && password!.isEmpty) {
+                
+                email! = email!.trimmingCharacters(in: CharacterSet.whitespaces)
+                password!=password!.trimmingCharacters(in: CharacterSet.whitespaces)
+
                 
                 let strUrl = LOGINURL + "" + email! + "/" + password!
                 
@@ -290,7 +339,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     print(error)
                     
-                    if(error == "unAuthorized"){
+                    if(error == "Enter Valid Credentials"){
                     
                        
                         self.showAlertViewWithTitle("Alert", message: error, buttonTitle: "Ok")

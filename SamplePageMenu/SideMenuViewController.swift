@@ -166,7 +166,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 
                 revealviewcontroller.addChildViewController(reOrderPopOverVC)
                 
-                reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+                reOrderPopOverVC.view.center = CGPoint(x:UIScreen.main.bounds.size.width/2,y:UIScreen.main.bounds.size.height/2)
                 
                 revealviewcontroller.view.addSubview(reOrderPopOverVC.view)
                 reOrderPopOverVC.didMove(toParentViewController: self)

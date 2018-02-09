@@ -290,7 +290,24 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if !string.canBeConverted(to: String.Encoding.ascii){
             return false
         }
-        
+        activeTextField = textField
+        if activeTextField.tag == 0 || activeTextField.tag == 1 || activeTextField.tag == 2{
+            
+            
+            if string.characters.count > 0 {
+                
+                let currentCharacterCount = textField.text?.characters.count ?? 0
+                if (range.length + range.location > currentCharacterCount){
+                    return false
+                }
+                let newLength = currentCharacterCount + string.characters.count - range.length
+                
+                let allowedCharacters = CharacterSet.letters
+                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+                return newLength <= 50 && unwantedStr.characters.count == 0
+            }
+            
+        }
         
         return true
     }
@@ -508,8 +525,10 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         else if indexPath.row == 3{
             
             signUPCell.editProfileTF.placeholder = "Mobile No"
-            
+            signUPCell.editProfileTF.isUserInteractionEnabled = false
+            signUPCell.editProfileTF.textColor = UIColor.lightGray
             signUPCell.editProfileTF.text = self.mobileNumber
+            
             
             
         }
@@ -633,6 +652,56 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 {
                     
                     print("result:\(result)")
+                    
+                    let respVO:RegisterResultVo = Mapper().map(JSONObject: result)!
+                    
+                    
+                    print("responseString = \(respVO)")
+                    
+                    
+                    let statusCode = respVO.isSuccess
+                    
+                    print("StatusCode:\(String(describing: statusCode))")
+                    
+                    
+                    
+                    if statusCode == true
+                    {
+                        
+                        
+                        let successMsg = respVO.endUserMessage
+                        
+                        
+                        /*   let registerStatus = successMsg
+                         let registerStatusDefaults = UserDefaults.standard
+                         registerStatusDefaults.set(registerStatus, forKey: kRegisterSucessStatus)
+                         UserDefaults.standard.synchronize() */
+                        
+                        
+                        
+                        
+                        self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege: successMsg!, clickAction: {
+                           // let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                            
+                            
+                           // self.navigationController?.pushViewController(signUpVc, animated: true)
+                        })
+                        
+                        //self.navigationController?.popViewController(animated: true)
+                        
+                    }
+                    else {
+                        
+                        let failMsg = respVO.endUserMessage
+                        
+                        self.showAlertViewWithTitle("Alert", message: failMsg!, buttonTitle: "Ok")
+                        
+                        return
+                        
+                    }
+  
+                    
+                    
             
             }
             

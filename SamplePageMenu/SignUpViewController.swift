@@ -15,6 +15,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     @IBOutlet weak var signUpTableView: UITableView!
     
     
+    @IBOutlet weak var signeUpOutLet: UIButton!
     let utillites =  Utilities()
     
     
@@ -72,6 +73,13 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        signeUpOutLet.layer.borderWidth = 1.0
+        signeUpOutLet.layer.cornerRadius = 6.0
+        signeUpOutLet.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
+       
+        
+        
         signUpTableView.delegate = self
         signUpTableView.dataSource = self
         activeTextField.delegate = self
@@ -115,6 +123,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         
         activeTextField = textField
+        
+        textField.autocorrectionType = .no
         
         //        if  TVC1.firstNameTF.text != nil{
         //
@@ -205,7 +215,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         if !string.canBeConverted(to: String.Encoding.ascii){
             return false
         }
-            
         activeTextField = textField
         if activeTextField.tag == 0 || activeTextField.tag == 1 || activeTextField.tag == 2{
             
@@ -223,8 +232,26 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
                 return newLength <= 50 && unwantedStr.characters.count == 0
             }
             
+        }else if activeTextField.tag == 5 {
+            
+            if string.characters.count > 0 {
+                
+                let currentCharacterCount = textField.text?.characters.count ?? 0
+                if (range.length + range.location > currentCharacterCount){
+                    return false
+                }
+                let newLength = currentCharacterCount + string.characters.count - range.length
+                
+                let allowedCharacters = CharacterSet.decimalDigits
+                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+                return newLength <= 50 && unwantedStr.characters.count == 0
+            }
+
         }
         return true
+        
+        
+       
     }
     
     

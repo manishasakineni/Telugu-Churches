@@ -58,7 +58,7 @@
                                     <constraint firstAttribute="height" constant="24" id="LIu-pd-CxM"/>
                                     <constraint firstAttribute="width" constant="31" id="nZy-ZJ-4Pk"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="camera"/>
+                                <state key="normal" title="Button" image="camera-1"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,7 +93,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="camera" width="225" height="225"/>
+        <image name="camera-1" width="512" height="512"/>
         <image name="jobs" width="225" height="225"/>
     </resources>
 </document>
