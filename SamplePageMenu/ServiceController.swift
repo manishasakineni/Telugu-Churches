@@ -129,6 +129,22 @@ class ServiceController: NSObject {
                         //                                    isManualLogin = false
                         
                     }
+                        
+                    if statusCode == 500 {
+                        
+                        print("failuer 1")
+                        
+                        failureHandler("unAuthorized")
+                        //self.refreshTokenForLogin()
+                        
+                        //                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        //
+                        //                    let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+                        //                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        //                    appDelegate.window?.rootViewController = viewController
+                        
+                    }
+                        
                     else if error != nil
                     {
                         print("error=\(String(describing: error))")

@@ -22,12 +22,16 @@ class LoginResultVo: Mappable {
     var roleName : String?
     var userId : String?
     var userName : Int?
+    var gender : String?
+    var dob : String?
     
+
     
     //MARK:-  initialization of VideosVO
     
     
-    init(contactNumber : Int?,email : String?,id : Int?,mobileNumber : Int?,name : String?,roleId : Int?,roleName : String?,userId : String?,userName : Int?) {
+    init(contactNumber : Int?,email : String?,id : Int?,mobileNumber : Int?,name : String?,roleId : Int?,roleName : String?,userId : String?,userName : Int?,gender : String?,dob : String?
+) {
         
         
         self.contactNumber = contactNumber
@@ -39,6 +43,9 @@ class LoginResultVo: Mappable {
         self.roleName = roleName
         self.userId = userId
         self.userName = userName
+        self.gender = gender
+        self.dob = dob
+
         
         
         
@@ -59,6 +66,9 @@ class LoginResultVo: Mappable {
         roleName <- map["roleName"]
         userId <- map["userId"]
         userName <- map["userName"]
+        gender <- map["gender"]
+        dob <- map["dob"]
+
     }
  
    

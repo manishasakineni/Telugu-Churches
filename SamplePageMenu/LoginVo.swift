@@ -14,23 +14,42 @@ import Foundation
 
 class LoginVo: Mappable {
     
-    //MARK:-  Declaration of SignupVo
-    var listResult : [LoginResultVo]?
-
-    var affectedRecords: Int?
-    var isSuccess: Bool?
-    var endUserMessage: String?
-    var validationErrors : NSArray?
+    var contactNumber : Int?
+    var email : String?
+    var id : Int?
+    var mobileNumber : Int?
+    var name : String?
+    var roleId : Int?
+    var roleName : String?
+    var userId : String?
+    var userName : Int?
+    var gender : String?
+    var dob : String?
     
-    //MARK:-  initialization of SignupVo
     
-init(listResult: [LoginResultVo]?,affectedRecords: Int?,isSuccess: Bool?,endUserMessage: String?,validationErrors : NSArray?) {
     
-        self.listResult = listResult
-        self.affectedRecords = affectedRecords
-        self.isSuccess = isSuccess
-        self.endUserMessage = endUserMessage
-        self.validationErrors = validationErrors
+    //MARK:-  initialization of VideosVO
+    
+    
+    init(contactNumber : Int?,email : String?,id : Int?,mobileNumber : Int?,name : String?,roleId : Int?,roleName : String?,userId : String?,userName : Int?,gender : String?,dob : String?
+        ) {
+        
+        
+        self.contactNumber = contactNumber
+        self.email = email
+        self.id = id
+        self.mobileNumber = mobileNumber
+        self.name = name
+        self.roleId = roleId
+        self.roleName = roleName
+        self.userId = userId
+        self.userName = userName
+        self.gender = gender
+        self.dob = dob
+        
+        
+        
+        
         
     }
     
@@ -39,25 +58,19 @@ init(listResult: [LoginResultVo]?,affectedRecords: Int?,isSuccess: Bool?,endUser
     }
     
     func mapping(map: Map) {
+        contactNumber <- map["contactNumber"]
+        email <- map["email"]
+        id <- map["id"]
+        mobileNumber <- map["mobileNumber"]
+        name <- map["name"]
+        roleId <- map["roleId"]
+        roleName <- map["roleName"]
+        userId <- map["userId"]
+        userName <- map["userName"]
+        gender <- map["gender"]
+        dob <- map["dob"]
         
-        listResult <- map["listResult"]
-        affectedRecords <- map["affectedRecords"]
-        isSuccess <- map["isSuccess"]
-        endUserMessage <- map["endUserMessage"]
-        validationErrors <- map["validationErrors"]
     }
-   /* contactNumber = 2457561545;
-    email = "madu@gmail.com";
-    id = 15;
-    mobileNumber = 9090909090;
-    name = "madu babu madubabu";
-    roleId = 1;
-    roleName = "Superadmin (SA)";
-    userId = "1c4f6267-ce72-4ece-a177-37fc79836363";
-    userName = Madu; */
-
     
-    //MARK:-  Declaration of VideosVO
-      
     
 }

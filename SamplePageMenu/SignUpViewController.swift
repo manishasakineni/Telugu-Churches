@@ -511,7 +511,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         let passWord:NSString = password   as NSString
         let confirmPassWord:NSString =  confirmpassword  as NSString
         
-        if (firstNameStr.length <= 0){
+        if (firstNameStr.length <= 2){
             errorMessage=GlobalSupportingClass.blankFirstNameErrorMessage() as String as String as NSString?
             
         }
@@ -519,12 +519,12 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 //            errorMessage=GlobalSupportingClass.blankMiddleNameErrorMessage() as String as String as NSString?
 //            
 //        }
-        else if (lastnameStr.length <= 0){
+        else if (lastnameStr.length <= 2){
             errorMessage=GlobalSupportingClass.blankLastNameErrorMessage() as String as String as NSString?
             
         }
         
-        else if (userNameStr.length <= 0){
+        else if (userNameStr.length <= 2){
             errorMessage=GlobalSupportingClass.blankUserNameErrorMessage() as String as String as NSString?
             
         }

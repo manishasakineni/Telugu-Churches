@@ -268,45 +268,68 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     func loginAPIService(){
         
+     //   let  strUrl = CHANGEPASSWORDURL
+        
+            let strUrl = LOGINURL
+
+        let dictParams = [
+            "userName": email!,
+            "password": password!,
+            ] as [String : Any]
+        
+        print("dic params \(dictParams)")
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        print("dictHeader:\(dictHeaders)")
+
+        
+        
+        
+        
         if(appDelegate.checkInternetConnectivity()){
             
             if !(email!.isEmpty && password!.isEmpty) {
                 
-                email! = email!.trimmingCharacters(in: CharacterSet.whitespaces)
-                password!=password!.trimmingCharacters(in: CharacterSet.whitespaces)
+               // email! = email!.trimmingCharacters(in: CharacterSet.whitespaces)
+               // password!=password!.trimmingCharacters(in: CharacterSet.whitespaces)
 
                 
-                let strUrl = LOGINURL + "" + email! + "/" + password!
+            //    let strUrl = LOGINURL + "" + email! + "/" + password!
                 
-                
-                serviceController.requestGETURL(strURL:strUrl, success:{(result) in
+                serviceController.signUpRequestPOSTURL(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
                     DispatchQueue.main.async()
                         {
+               // serviceController.requestGETURL(strURL:strUrl, success:{(result) in
+                  //  DispatchQueue.main.async()
+//{
                             
                           //  let respVO:LoginVo = Mapper().map(JSONObject: result)!
                             
-                            print("result:\(result)")
+                        print("\(result)")
                             
-                            let respVO:LoginVo = Mapper().map(JSONObject: result)!
+                            
+                            let respVO:LoginJsonVO = Mapper().map(JSONObject: result)!
                             
                            print("responseString = \(respVO)")
                             
-                            
-                            let statusCode = respVO.isSuccess
-                            
+                        
+                            let statusCode = respVO.userDetails?.isSuccess
                             print("StatusCode:\(String(describing: statusCode))")
                             
                             
                             
-                            if statusCode == true
+                           if statusCode == true
                             {
                                 
                                 
-                                let successMsg = respVO.endUserMessage
-                                print(successMsg)
+                                let successMsg = respVO.userDetails?.endUserMessage
+                                print(successMsg!)
                                 let loginStatus = successMsg
-                                let userid = respVO.listResult?[0].userId
-                                let loginid = "\(respVO.listResult?[0].id ?? 0)"
+                                
+                                
+                                let userid = respVO.userDetails?.listResult?[0].userId
+                                let loginid =  respVO.userDetails?.listResult?[0].id!
+                              //  print("\(String(describing: respVO.userDetails?.listResult?[0].id))")
                                 
                                 let defaults = UserDefaults.standard
                                 
@@ -326,7 +349,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             }
                             else {
                                 
-                                let failMsg = respVO.endUserMessage
+                                let failMsg = respVO.userDetails?.endUserMessage
                                 
                                 self.showAlertViewWithTitle("Alert", message: failMsg!, buttonTitle: "Ok")
                                 
@@ -335,7 +358,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             }
                             print("success")
                     }
-                }, failure:  {(error) in
+                }, failureHandler:  {(error) in
                     
                     print(error)
                     

@@ -122,6 +122,8 @@
 		CB834737202837020034AD4E /* HeaderProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB834735202837020034AD4E /* HeaderProfileCell.swift */; };
 		CB834738202837020034AD4E /* HeaderProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB834736202837020034AD4E /* HeaderProfileCell.xib */; };
 		CB83474020287EA20034AD4E /* ChangePasswordVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83473F20287EA20034AD4E /* ChangePasswordVo.swift */; };
+		CBE68D37202EF61200B994D4 /* UserDetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE68D36202EF61200B994D4 /* UserDetailsVO.swift */; };
+		CBE68D3B202EF9A600B994D4 /* LoginJsonVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE68D3A202EF9A600B994D4 /* LoginJsonVO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -251,6 +253,8 @@
 		CB834735202837020034AD4E /* HeaderProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderProfileCell.swift; sourceTree = "<group>"; };
 		CB834736202837020034AD4E /* HeaderProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderProfileCell.xib; sourceTree = "<group>"; };
 		CB83473F20287EA20034AD4E /* ChangePasswordVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVo.swift; sourceTree = "<group>"; };
+		CBE68D36202EF61200B994D4 /* UserDetailsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsVO.swift; sourceTree = "<group>"; };
+		CBE68D3A202EF9A600B994D4 /* LoginJsonVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginJsonVO.swift; sourceTree = "<group>"; };
 		CE32E04C483467733EE22566 /* Pods_Telugu_Churches.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Telugu_Churches.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -321,6 +325,8 @@
 		9A058AFC2021F3A4005A611C /* LoginVo */ = {
 			isa = PBXGroup;
 			children = (
+				CBE68D3A202EF9A600B994D4 /* LoginJsonVO.swift */,
+				CBE68D36202EF61200B994D4 /* UserDetailsVO.swift */,
 				9A058AFA2021F394005A611C /* LoginVo.swift */,
 				CB0256BD202463030017E240 /* LoginResultVo.swift */,
 			);
@@ -862,6 +868,7 @@
 				9AA3AB6B2011D7420065D4BD /* TransformOperators.swift in Sources */,
 				9AEAE826201F4FC800DB9D8E /* BaseViewController.swift in Sources */,
 				9A5D263E1FFF8A5D00316988 /* ScrollImagesCell.swift in Sources */,
+				CBE68D37202EF61200B994D4 /* UserDetailsVO.swift in Sources */,
 				CB3226D5202C96440050D06B /* GetProfileInfoVO.swift in Sources */,
 				9AA3AB7B2011D7420065D4BD /* TransformOf.swift in Sources */,
 				CB0256BB202442EF0017E240 /* SettingTableViewCell.swift in Sources */,
@@ -874,6 +881,7 @@
 				9A623B8520219CB500A674F2 /* RegisterVo.swift in Sources */,
 				9A5D26361FFF8A4900316988 /* AllOffersCell.swift in Sources */,
 				9A5D263A1FFF8A5100316988 /* PageControllCell.swift in Sources */,
+				CBE68D3B202EF9A600B994D4 /* LoginJsonVO.swift in Sources */,
 				CB0256C1202473420017E240 /* ProfileViewController.swift in Sources */,
 				9A5D260E1FFF89B700316988 /* AllOffersViewController.swift in Sources */,
 				9A5D261E1FFF89EA00316988 /* TransactionCell.swift in Sources */,

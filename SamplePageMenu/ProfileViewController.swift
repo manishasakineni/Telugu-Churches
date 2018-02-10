@@ -34,7 +34,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var lastName    : String = ""
     var mobileNumber    : String = ""
     var email       : String = ""
-    var loginid      : String = ""
+    var loginid      : Int = 0
     var password       : String = ""
     
     var activeTextField = UITextField()
@@ -70,7 +70,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
         
-        self.loginid = UserDefaults.standard.value(forKey: kLoginId) as! String
+        self.loginid = UserDefaults.standard.value(forKey: kLoginId) as! Int
         
         print(self.loginid)
         
@@ -94,7 +94,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
             
                 
-                let strUrl = PROFILEGETINFO + "" + "\(self.loginid)"
+                let strUrl = PROFILEGETINFO + "" +  "\(loginid)"
                 
                 
                 serviceController.requestGETURL(strURL:strUrl, success:{(result) in
