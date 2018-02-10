@@ -325,8 +325,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 let successMsg = respVO.userDetails?.endUserMessage
                                 print(successMsg!)
                                 let loginStatus = successMsg
-                                
-                                
                                 let userid = respVO.userDetails?.listResult?[0].userId
                                 let loginid =  respVO.userDetails?.listResult?[0].id!
                               //  print("\(String(describing: respVO.userDetails?.listResult?[0].id))")
@@ -350,6 +348,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             else {
                                 
                                 let failMsg = respVO.userDetails?.endUserMessage
+                               print(failMsg!)
                                 
                                 self.showAlertViewWithTitle("Alert", message: failMsg!, buttonTitle: "Ok")
                                 
