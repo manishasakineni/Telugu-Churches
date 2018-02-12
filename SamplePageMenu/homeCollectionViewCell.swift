@@ -24,7 +24,7 @@ class homeCollectionViewCell: UICollectionViewCell {
         
         
         
-      /*  viewOutLet.layer.cornerRadius = 3.0
+        viewOutLet.layer.cornerRadius = 3.0
         viewOutLet.layer.shadowColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
         viewOutLet.layer.shadowOffset = CGSize(width: 0, height: 3)
         viewOutLet.layer.shadowOpacity = 0.6
@@ -32,7 +32,7 @@ class homeCollectionViewCell: UICollectionViewCell {
         
         viewOutLet.layer.cornerRadius = 5.0
         viewOutLet.layer.borderWidth = 1
-        viewOutLet.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor */
+        viewOutLet.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
 
         
         
@@ -42,11 +42,11 @@ class homeCollectionViewCell: UICollectionViewCell {
         collectionImgView.layer.shadowOpacity = 0.6
         collectionImgView.layer.shadowRadius = 0.5
         
-        collectionImgView.layer.cornerRadius = 5.0
-        collectionImgView.layer.borderWidth = 1
-        collectionImgView.layer.borderColor = UIColor(red: 238.0/255.0, green: 238.0/255.0, blue: 238.0/255.0, alpha: 1.0).cgColor
-
-        
+//        collectionImgView.layer.cornerRadius = 5.0
+//        collectionImgView.layer.borderWidth = 1
+//        collectionImgView.layer.borderColor = UIColor(red: 238.0/255.0, green: 238.0/255.0, blue: 238.0/255.0, alpha: 1.0).cgColor
+//
+//        
       
         // Initialization code
     }

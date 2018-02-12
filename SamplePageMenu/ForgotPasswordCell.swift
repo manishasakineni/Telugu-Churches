@@ -14,6 +14,11 @@ import TextFieldEffects
 class ForgotPasswordCell: UITableViewCell {
 
     @IBOutlet weak var resetPasswordTF: AkiraTextField!
+    
+    
+    @IBOutlet weak var eyeButtonOutlet: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

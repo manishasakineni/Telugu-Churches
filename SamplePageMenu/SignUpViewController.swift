@@ -197,6 +197,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .default
+            textField.isSecureTextEntry = true
+
             
         }
         else if activeTextField.tag == 7{
@@ -204,6 +206,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .default
+            textField.isSecureTextEntry = true
+
             
         }
        
@@ -376,6 +380,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             // signUPCell.registrationTextfield?.text = "app.UserName".localize()
             signUPCell.registrationTextfield.placeholder = "FirstName"
             signUPCell.registrationTextfield.text = firstName
+            signUPCell.eyeButtonOutlet.isHidden = true
             
             
         }
@@ -385,6 +390,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             // signUPCell.registrationTextfield?.text = "app.UserName".localize()
             signUPCell.registrationTextfield.placeholder = "MiddleName"
             signUPCell.registrationTextfield.text = middleName
+            signUPCell.eyeButtonOutlet.isHidden = true
+
             
             
         }
@@ -394,6 +401,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             // signUPCell.registrationTextfield?.text = "app.UserName".localize()
             signUPCell.registrationTextfield.placeholder = "LastNane"
             signUPCell.registrationTextfield.text = lastName
+            signUPCell.eyeButtonOutlet.isHidden = true
+
             
             
         }
@@ -404,6 +413,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
            // signUPCell.registrationTextfield?.text = "app.UserName".localize()
             signUPCell.registrationTextfield.placeholder = "UserName"
             signUPCell.registrationTextfield.text = userName
+            signUPCell.eyeButtonOutlet.isHidden = true
+
 
             
         }
@@ -415,6 +426,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 
            // signUPCell.registrationTextfield?.text = "app.Address1".localize()
             signUPCell.registrationTextfield.placeholder = "E-Mail"
+            signUPCell.eyeButtonOutlet.isHidden = true
+
             
             
         }
@@ -425,6 +438,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 
            // signUPCell.registrationTextfield?.text = "app.Address2".localize()
             signUPCell.registrationTextfield.placeholder = "Mobile Number"
+            signUPCell.eyeButtonOutlet.isHidden = true
+
             
             
             
@@ -435,6 +450,10 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
           //  signUPCell.registrationTextfield.keyboardType = .emailAddress
            // signUPCell.registrationTextfield?.text = "app.Landmark".localize()
             signUPCell.registrationTextfield.placeholder = "Password"
+            signUPCell.eyeButtonOutlet.isHidden = false
+            signUPCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
+
+
             
         }
       
@@ -444,6 +463,9 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
            // signUPCell.registrationTextfield.keyboardType = .emailAddress
             // signUPCell.registrationTextfield?.text = "app.Landmark".localize()
             signUPCell.registrationTextfield.placeholder = "Confirm Password"
+            signUPCell.eyeButtonOutlet.isHidden = false
+            signUPCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
+
             
             
             
@@ -452,19 +474,39 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         return signUPCell
     }
     
+    func  eyeButtonClicked(_ sendre:UIButton) {
+        
+        
+        print("Eye Button Clicked......")
+        
+        if sendre.tag == 0
+        {
+            activeTextField.isSecureTextEntry = false
+            sendre.tag = 1
+        }
+        else{
+            
+            activeTextField.isSecureTextEntry = true
+            sendre.tag = 0
+            
+            
+        }
+        
+        
+    }
 
 
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
         //   navigationItem.leftBarButtonItems = []
-        let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+     //   let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         
         
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
-        self.navigationController?.pushViewController(loginViewController, animated: true)
+        self.navigationController?.popViewController(animated: true)
         
         
         print("Back Button Clicked......")

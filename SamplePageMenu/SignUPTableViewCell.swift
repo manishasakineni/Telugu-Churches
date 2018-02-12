@@ -16,6 +16,7 @@ class SignUPTableViewCell: UITableViewCell {
    
     @IBOutlet weak var registrationTextfield: AkiraTextField!
 
+    @IBOutlet weak var eyeButtonOutlet: UIButton!
    
     override func awakeFromNib() {
         super.awakeFromNib()

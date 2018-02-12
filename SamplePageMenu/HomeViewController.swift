@@ -53,9 +53,9 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
     
     
     
-    var imageArray = [UIImage(named:"jes2"),UIImage(named:"jes4"),UIImage(named:"jes1png"),UIImage(named:"jes5"),UIImage(named:"jes7"),UIImage(named:"jes8"),UIImage(named:"jes4"),UIImage(named:"jes9"),UIImage(named:"jes4"),UIImage(named:"jes5"),UIImage(named:"jes6"),UIImage(named:"jes3"),UIImage(named:"jes8"),UIImage(named:"jes4"),UIImage(named:"jes1png"),UIImage(named:"jes3"),UIImage(named:"jes7"),UIImage(named:"jes2"),UIImage(named:"jes4"),UIImage(named:"jes9"),UIImage(named:"jes4"),UIImage(named:"jes5"),UIImage(named:"jes6"),UIImage(named:"jes5")]
+    var imageArray = [UIImage(named:"Bible apps"),UIImage(named:"Bible study"),UIImage(named:"Book shop"),UIImage(named:"Donation"),UIImage(named:"Doubts"),UIImage(named:"Events"),UIImage(named:"film"),UIImage(named:"Gospel messages"),UIImage(named:"Gospel"),UIImage(named:"help"),UIImage(named:"Holy bible"),UIImage(named:"Images"),UIImage(named:"Languages"),UIImage(named:"Live"),UIImage(named:"Login"),UIImage(named:"Map"),UIImage(named:"Messages"),UIImage(named:"Movies"),UIImage(named:"pamphlet"),UIImage(named:"Quatation"),UIImage(named:"Scientific"),UIImage(named:"Songs"),UIImage(named:"Suggestion"),UIImage(named:"Sunday school"),UIImage(named:"Testimonial"),UIImage(named:"Videos")]
     
-    var namesarra1 = ["Videos","Bible Study","Audio Bible","Songs","Jesues","Live","Books","Images","Bible Images","Bible Quotes","Book Shop","Movies","Videos","Audio Bible","Bible Study","Songs","Scientific Proofs","Gospel Messages","Short Messages","Images","Audio Bible    ","Bible Quotes","Book Shop","Movies"]
+    var namesarra1 = ["Bible apps","Bible study","Book shop","Donation","Doubts","Events","film","Gospel messages","Gospel","help","Holy bible","Images","Languages","Live","Login","Map","Messages","Movies","pamphlet","Quatation","Scientific","Songs","Suggestion","Sunday school","Testimonial","Videos"]
     
 
     

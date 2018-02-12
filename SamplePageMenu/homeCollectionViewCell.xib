@@ -26,15 +26,14 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14" id="zIO-lE-LAi"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bank icon" translatesAutoresizingMaskIntoConstraints="NO" id="oPC-5A-Fdq">
                                 <rect key="frame" x="12" y="6" width="60" height="58"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="oPC-5A-Fdq" firstAttribute="leading" secondItem="4Vm-uU-ghy" secondAttribute="leading" constant="12" id="0Kb-Kh-e2g"/>
                             <constraint firstItem="6yE-Lb-ANM" firstAttribute="top" secondItem="oPC-5A-Fdq" secondAttribute="bottom" constant="4" id="5KZ-By-4eC"/>

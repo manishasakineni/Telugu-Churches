@@ -95,6 +95,8 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .default
+            textField.isSecureTextEntry = true
+
            // newPassWordString = textField.text!
 
         }
@@ -103,6 +105,8 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             textField.maxLengthTextField = 50
             textField.clearButtonMode = .never
             textField.keyboardType = .default
+            textField.isSecureTextEntry = true
+
           //  confirmPassWordString = textField.text!
 
         }
@@ -254,6 +258,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
                
                 forgotPasswordCell.resetPasswordTF.placeholder = "Old PassWord"
                 forgotPasswordCell.resetPasswordTF.text = oldPassWordString
+                forgotPasswordCell.eyeButtonOutlet.isHidden = true
                 
                 return forgotPasswordCell
             }
@@ -262,7 +267,9 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
                
                 forgotPasswordCell.resetPasswordTF.placeholder = "New PassWord"
                 forgotPasswordCell.resetPasswordTF.text = newPassWordString
-                
+                forgotPasswordCell.eyeButtonOutlet.isHidden = false
+                forgotPasswordCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
+
                 
                 return forgotPasswordCell
             }
@@ -270,7 +277,9 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
       
                 forgotPasswordCell.resetPasswordTF.placeholder = "Confirm PassWord"
                 forgotPasswordCell.resetPasswordTF.text = confirmPassWordString
-                
+                forgotPasswordCell.eyeButtonOutlet.isHidden = false
+                forgotPasswordCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
+
                 
                 return forgotPasswordCell
             }
@@ -322,6 +331,28 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
    
     }
     
+    
+    
+    func  eyeButtonClicked(_ sendre:UIButton) {
+        
+        
+        print("Eye Button Clicked......")
+
+        if sendre.tag == 0
+        {
+            activeTextField.isSecureTextEntry = false
+            sendre.tag = 1
+        }
+        else{
+            
+            activeTextField.isSecureTextEntry = true
+            sendre.tag = 0
+            
+            
+        }
+        
+        
+    }
     
     func validateAllFields() -> Bool
     {

@@ -48,9 +48,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xX-aL-ndS">
+                                <rect key="frame" x="276" y="22" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="O1o-lE-faq"/>
+                                    <constraint firstAttribute="width" constant="20" id="pPZ-Nh-ozo"/>
+                                </constraints>
+                                <state key="normal" image="icons8-visible"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9xX-aL-ndS" firstAttribute="centerY" secondItem="aqO-wX-Kgz" secondAttribute="centerY" constant="10" id="03n-tJ-qtJ"/>
+                            <constraint firstItem="9xX-aL-ndS" firstAttribute="leading" secondItem="aqO-wX-Kgz" secondAttribute="trailing" constant="-36" id="5wu-kZ-oVh"/>
                             <constraint firstAttribute="trailing" secondItem="aqO-wX-Kgz" secondAttribute="trailing" constant="8" id="A09-Ju-Idi"/>
                             <constraint firstItem="aqO-wX-Kgz" firstAttribute="leading" secondItem="6cN-iC-aGJ" secondAttribute="leading" constant="8" id="XsX-Sl-uLS"/>
                             <constraint firstItem="aqO-wX-Kgz" firstAttribute="top" secondItem="6cN-iC-aGJ" secondAttribute="top" id="dpb-Vm-Oj0"/>
@@ -65,9 +75,13 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="eyeButtonOutlet" destination="9xX-aL-ndS" id="Xdy-vX-y8w"/>
                 <outlet property="registrationTextfield" destination="aqO-wX-Kgz" id="8Gn-8e-td0"/>
             </connections>
             <point key="canvasLocation" x="-124" y="6"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icons8-visible" width="25" height="25"/>
+    </resources>
 </document>
