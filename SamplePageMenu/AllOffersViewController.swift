@@ -65,6 +65,8 @@ var playerVars = Dictionary<String, Any>()
        // UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
       //  UserDefaults.standard.synchronize()
         
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
         
         self.player.delegate = self
         
