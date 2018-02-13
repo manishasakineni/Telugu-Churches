@@ -819,9 +819,16 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func openCamera() {
         picker.allowsEditing = true
+        
+        
+        
+        let alertVC = UIAlertController(title: "No Camera", message: "Sorry, this device has no camera", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style:.default, handler: nil)
+        alertVC.addAction(okAction)
+        present(alertVC, animated: true, completion: nil)
         //      picker.sourceType = .PhotoLibrary
-        picker.sourceType = .camera
-        present(picker, animated: true, completion: nil)
+      //  picker.sourceType = .camera
+      //  present(picker, animated: true, completion: nil)
         
     }
     
