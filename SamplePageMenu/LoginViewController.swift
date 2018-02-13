@@ -347,13 +347,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             }
                             else {
                                 
-                                let failMsg = respVO.userDetails?.endUserMessage
-                               print(failMsg!)
+                            if  let failMsg = respVO.userDetails?.endUserMessage {
+                            print(failMsg)
                                 
-                                self.showAlertViewWithTitle("Alert", message: failMsg!, buttonTitle: "Ok")
+                                self.showAlertViewWithTitle("Alert", message: failMsg, buttonTitle: "Ok")
                                 
                                 return
-                                
+                            }
                             }
                             print("success")
                     }
