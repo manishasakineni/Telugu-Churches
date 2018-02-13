@@ -119,7 +119,7 @@ var playerVars = Dictionary<String, Any>()
         self.navigationController?.navigationBar.isHidden = false
         
         
-        Utilities.setVideosViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Videos", backTitle: "Videos", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setVideosViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Bible apps", backTitle: "Bible apps", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
         //   self.navigationItem.hidesBackButton = false
         

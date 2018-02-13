@@ -385,19 +385,32 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func forgotPasswordClicked(_ sender: Any) {
         
         
-        let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePassWordViewController") as! ChangePassWordViewController
-       // reOrderPopOverVC.delegate = self
-        
-            //    reOrderPopOverVC. singleSelection =
-            //   var imagesArray : Array<UIImage> = Array()
         
         
-                self.addChildViewController(reOrderPopOverVC)
-                
-                reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-                self.view.addSubview(reOrderPopOverVC.view)
-                reOrderPopOverVC.didMove(toParentViewController: self)
         
+           let forgotPassWordViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ForgotPassWordViewController") as! ForgotPassWordViewController
+        
+        
+      //  UserDefaults.standard.set("1", forKey: "1")
+      //  UserDefaults.standard.synchronize()
+        
+        self.navigationController?.pushViewController(forgotPassWordViewController, animated: true)
+      //  self.navigationController?.popViewController(animated: true)
+        
+        
+//        let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePassWordViewController") as! ChangePassWordViewController
+//       // reOrderPopOverVC.delegate = self
+//        
+//            //    reOrderPopOverVC. singleSelection =
+//            //   var imagesArray : Array<UIImage> = Array()
+//        
+//        
+//                self.addChildViewController(reOrderPopOverVC)
+//                
+//                reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+//                self.view.addSubview(reOrderPopOverVC.view)
+//                reOrderPopOverVC.didMove(toParentViewController: self)
+//        
         
         
         

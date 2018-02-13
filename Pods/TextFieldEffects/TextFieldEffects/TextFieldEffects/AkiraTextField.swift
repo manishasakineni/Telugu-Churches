@@ -97,7 +97,8 @@ import UIKit
     private func updatePlaceholder() {
         placeholderLabel.frame = placeholderRect(forBounds: bounds)
         placeholderLabel.text = placeholder
-        placeholderLabel.font = placeholderFontFromFont(font!)
+       // placeholderLabel.font = placeholderFontFromFont(font!)
+        placeholderLabel.font = (isFirstResponder || text!.isNotEmpty) ? UIFont.systemFont(ofSize: 11) : placeholderFontFromFont(font!)
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.textAlignment = textAlignment
         borderLayer.cornerRadius = 4

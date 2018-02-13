@@ -124,6 +124,7 @@
 		CB83474020287EA20034AD4E /* ChangePasswordVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83473F20287EA20034AD4E /* ChangePasswordVo.swift */; };
 		CBE68D37202EF61200B994D4 /* UserDetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE68D36202EF61200B994D4 /* UserDetailsVO.swift */; };
 		CBE68D3B202EF9A600B994D4 /* LoginJsonVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE68D3A202EF9A600B994D4 /* LoginJsonVO.swift */; };
+		CBFA12762032AA6600CADED6 /* ForgotPassWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFA12752032AA6600CADED6 /* ForgotPassWordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -255,6 +256,7 @@
 		CB83473F20287EA20034AD4E /* ChangePasswordVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVo.swift; sourceTree = "<group>"; };
 		CBE68D36202EF61200B994D4 /* UserDetailsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsVO.swift; sourceTree = "<group>"; };
 		CBE68D3A202EF9A600B994D4 /* LoginJsonVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginJsonVO.swift; sourceTree = "<group>"; };
+		CBFA12752032AA6600CADED6 /* ForgotPassWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPassWordViewController.swift; sourceTree = "<group>"; };
 		CE32E04C483467733EE22566 /* Pods_Telugu_Churches.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Telugu_Churches.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -386,6 +388,7 @@
 		9A5D26401FFF95EF00316988 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CBFA12742032AA3400CADED6 /* ForgotPassWordViewController */,
 				CB0256BF2024731F0017E240 /* ProfileViewController */,
 				CB0256B0202430530017E240 /* SettingViewController */,
 				9AF564972020941200AEA0EF /* ChangePassWordViewController */,
@@ -646,6 +649,14 @@
 			name = ChangePasswordVo;
 			sourceTree = "<group>";
 		};
+		CBFA12742032AA3400CADED6 /* ForgotPassWordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CBFA12752032AA6600CADED6 /* ForgotPassWordViewController.swift */,
+			);
+			name = ForgotPassWordViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -846,6 +857,7 @@
 				3DDD891520186E5E00918711 /* SignUpButtonsCell.swift in Sources */,
 				9AA3AB732011D7420065D4BD /* IntegerOperators.swift in Sources */,
 				9AA3AB712011D7420065D4BD /* ToJSON.swift in Sources */,
+				CBFA12762032AA6600CADED6 /* ForgotPassWordViewController.swift in Sources */,
 				9A5D26221FFF89F200316988 /* TermsAndConditionCell.swift in Sources */,
 				3D551C5F2011F462005DB3B2 /* Constants.swift in Sources */,
 				9A5D262E1FFF8A3700316988 /* AddMoneyCell.swift in Sources */,

@@ -67,6 +67,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
    // var updatedByUserId : Int = 0
     var updatedDate:String =  "2018-01-31T10:43:28.8329795+05:30"
     
+    
     var sectionsTitle : [String] = [" "]
      var signUpTFPlaceholdersArray = ["FirstNam","MiddleName","LastName","User Name","E-Mail","Mobile Number","Password","Confirm Password"]
 
