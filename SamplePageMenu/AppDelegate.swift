@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        // IQKeyboardManager.sharedManager().accessibilityElementsHidden = false
         // Override point for customization after application launch.
         
-        if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
+     //   if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
             
             UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
             UserDefaults.standard.synchronize()
@@ -39,20 +39,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = homeNav
             lunchScreenView()
 
-        }
+     //   }
             
-        else{
-            
-          //  let launchNav : LaunchScreenViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LaunchScreenViewController") as! LaunchScreenViewController
-          //  self.window?.rootViewController = launchNav
-            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
-            desController.showNav = false
-            let newController = UINavigationController.init(rootViewController:desController)
-            let LoginNav : UINavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootloginVC") as! UINavigationController
-            appDelegate.window?.rootViewController = newController
-            lunchScreenView()
-        }
+//        else{
+//            
+//          //  let launchNav : LaunchScreenViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LaunchScreenViewController") as! LaunchScreenViewController
+//          //  self.window?.rootViewController = launchNav
+//            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+//            desController.showNav = false
+//            let newController = UINavigationController.init(rootViewController:desController)
+//            let LoginNav : UINavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootloginVC") as! UINavigationController
+//            appDelegate.window?.rootViewController = newController
+//            lunchScreenView()
+//        }
         return true
     }
 

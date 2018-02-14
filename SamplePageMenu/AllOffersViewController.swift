@@ -65,8 +65,7 @@ var playerVars = Dictionary<String, Any>()
        // UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
       //  UserDefaults.standard.synchronize()
         
-        UserDefaults.standard.set("1", forKey: "1")
-        UserDefaults.standard.synchronize()
+       
         
         self.player.delegate = self
         
@@ -335,6 +334,10 @@ var playerVars = Dictionary<String, Any>()
     
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+        
+        
+        UserDefaults.standard.removeObject(forKey: kuserId)
+        UserDefaults.standard.synchronize()
         
         //   navigationItem.leftBarButtonItems = []
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController

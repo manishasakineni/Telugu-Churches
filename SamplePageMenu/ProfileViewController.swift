@@ -57,7 +57,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
         
         let nibName  = UINib(nibName: "EditProfileTableViewCell" , bundle: nil)
         editProfileTableView.register(nibName, forCellReuseIdentifier: "EditProfileTableViewCell")
@@ -71,6 +72,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
         self.loginid = UserDefaults.standard.value(forKey: kLoginId) as! Int
+        
+        UserDefaults.standard.synchronize()
         
         print(self.loginid)
         
@@ -866,7 +869,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         //   navigationItem.leftBarButtonItems = []
         
         UserDefaults.standard.removeObject(forKey: "1")
-        UserDefaults.standard.removeObject(forKey: KFirstTimeLogin)
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.synchronize()
         

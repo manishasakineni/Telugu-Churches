@@ -95,9 +95,22 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             as!menuNameTableViewCell
         
         
-        cell1.menuNameImg.image = UIImage(named: String(imageView[indexPath.row]))
+        if(indexPath.row == menuArray.count - 1){
+            cell1.menuNameImg.image = UIImage(named: String(imageView[indexPath.row]))
+            
+              if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
+                  cell1.menuNameLabel.text! = "LogOut"
+              }else{
+                  cell1.menuNameLabel.text! = "Login"
+            }
+          
+        }else{
+            cell1.menuNameImg.image = UIImage(named: String(imageView[indexPath.row]))
+            
+            cell1.menuNameLabel.text! = menuArray[indexPath.row]
+        }
         
-        cell1.menuNameLabel.text! = menuArray[indexPath.row]
+    
         
         
         
@@ -108,14 +121,15 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         
-        
+      //  var menuArray = ["EditProfile","ChangePassWord","LogOut"]
+
         
         
         let revealviewcontroller:SWRevealViewController = self.revealViewController()
         
         let cell:menuNameTableViewCell = tableView.cellForRow(at: indexPath) as!menuNameTableViewCell
         
-        if indexPath.row == 0
+        if cell.menuNameLabel.text == "EditProfile"
         {
             
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -129,7 +143,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             revealviewcontroller.pushFrontViewController(newController, animated: true)
         }
-        else if indexPath.row == 1{
+        else if cell.menuNameLabel.text == "ChangePassWord"{
             
        
             
@@ -176,33 +190,50 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             
             
-        }else  if indexPath.row == 2{
+        }
+        else  if cell.menuNameLabel.text == "LogOut" {
           
+         //   if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
+
+          //  UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+           // UserDefaults.standard.synchronize()
             
-            UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+            let defaults = UserDefaults.standard
+            defaults.set("false", forKey: KFirstTimeLogin)
+            
             UserDefaults.standard.synchronize()
-            
-           /* UserDefaults.standard.removeObject(forKey: KFirstTimeLogin)
-            UserDefaults.standard.removeObject(forKey: "1")
-            UserDefaults.standard.removeObject(forKey: kuserId)
-            UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-            UserDefaults.standard.removeObject(forKey: kRegisterSucessStatus)
-            UserDefaults.standard.synchronize() */
             
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
             desController.showNav = true
             let newController = UINavigationController.init(rootViewController:desController)
             revealviewcontroller.pushFrontViewController(newController, animated: true)
+                
+                
+           // }
         }
-   
-        
-   
-        
-        
+        else  if cell.menuNameLabel.text == "Login" {
+            
+            //   if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
+            
+            //  UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+            // UserDefaults.standard.synchronize()
+            
+            let defaults = UserDefaults.standard
+            defaults.set("false", forKey: KFirstTimeLogin)
+            
+            UserDefaults.standard.synchronize()
+            
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+            desController.showNav = true
+            let newController = UINavigationController.init(rootViewController:desController)
+            revealviewcontroller.pushFrontViewController(newController, animated: true)
+            
+            
+            // }
+        }
+
     }
-    
-    
-    
     
 }

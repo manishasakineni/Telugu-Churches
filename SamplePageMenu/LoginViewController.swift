@@ -81,14 +81,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         
         
-        self.navigationController?.navigationBar.isHidden = true
+      //  self.navigationController?.navigationBar.isHidden = true
 
-     //   print(showNav)
+        print(showNav)
         
-        
-        
-      //  self.navigationController?.navigationBar.isHidden = !showNav
-       //    Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " ", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        self.navigationController?.navigationBar.isHidden = !showNav
+           Utilities.setLoginViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: " ", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
     }
     override func viewWillDisappear(_ animated: Bool) {
         
@@ -450,7 +448,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
-        //   navigationItem.leftBarButtonItems = []
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController
