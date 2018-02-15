@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0830"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5456627FEE1DB0D015F7C43B50096F59"
+               BlueprintIdentifier = "5AAFB6D3BBE78616291335486619395F"
                BuildableName = "Pods_Telugu_Churches.framework"
                BlueprintName = "Pods-Telugu Churches"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5456627FEE1DB0D015F7C43B50096F59"
+            BlueprintIdentifier = "5AAFB6D3BBE78616291335486619395F"
             BuildableName = "Pods_Telugu_Churches.framework"
             BlueprintName = "Pods-Telugu Churches"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5456627FEE1DB0D015F7C43B50096F59"
-            BuildableName = "Pods_Telugu_Churches.framework"
-            BlueprintName = "Pods-Telugu Churches"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

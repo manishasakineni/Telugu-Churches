@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import Localize
 
 class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var menuTableView: UITableView!
     
     
+    @IBOutlet weak var chooseLanguageBtn: UIButton!
 
-    var menuArray = ["EditProfile","ChangePassWord","LogOut"]
+    var menuArray = [String]()
+
     
     let imageView = ["EditProfile","ChangePSW","LogOutlightGray"]
     
@@ -28,18 +31,30 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
 //        
         let nibName2  = UINib(nibName: "menuNameTableViewCell" , bundle: nil)
         menuTableView.register(nibName2, forCellReuseIdentifier: "menuNameTableViewCell")
-        
+
 
         
         menuTableView.delegate = self
         menuTableView.dataSource = self
         
         
+        self.menuArray = ["EditProfile".localize(),"ChangepassWord".localize(),"LogOut".localize()]
 
-        
-        
+        borderColor()
         // Do any additional setup after loading the view.
         
+    }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.menuArray = ["EditProfile".localize(),"ChangepassWord".localize(),"LogOut".localize()]
+
+        
+      //  menuTableView.reloadData()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,6 +62,31 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func borderColor(){
+        
+        
+        chooseLanguageBtn.layer.cornerRadius = 3.0
+        chooseLanguageBtn.layer.shadowColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
+        chooseLanguageBtn.layer.shadowOffset = CGSize(width: 0, height: 3)
+        chooseLanguageBtn.layer.shadowOpacity = 0.6
+        chooseLanguageBtn.layer.shadowRadius = 10.0
+        
+        chooseLanguageBtn.layer.cornerRadius = 5.0
+        chooseLanguageBtn.layer.borderWidth = 1
+        chooseLanguageBtn.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
+        
+        
+        
+        //    collectionImgView.layer.cornerRadius = 3.0
+        //  collectionImgView.layer.shadowColor = UIColor.lightGray.cgColor
+        //   collectionImgView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        //  collectionImgView.layer.shadowOpacity = 0.6
+        //   collectionImgView.layer.shadowRadius = 0.5
+        
+    }
+    
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -99,9 +139,9 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             cell1.menuNameImg.image = UIImage(named: String(imageView[indexPath.row]))
             
               if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
-                  cell1.menuNameLabel.text! = "LogOut"
+                  cell1.menuNameLabel.text! = "LogOut".localize()
               }else{
-                  cell1.menuNameLabel.text! = "Login"
+                  cell1.menuNameLabel.text! = "Login".localize()
             }
           
         }else{
@@ -129,7 +169,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         let cell:menuNameTableViewCell = tableView.cellForRow(at: indexPath) as!menuNameTableViewCell
         
-        if cell.menuNameLabel.text == "EditProfile"
+        if cell.menuNameLabel.text == "EditProfile".localize()
         {
             
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -143,7 +183,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             revealviewcontroller.pushFrontViewController(newController, animated: true)
         }
-        else if cell.menuNameLabel.text == "ChangePassWord"{
+        else if cell.menuNameLabel.text == "ChangepassWord".localize(){
             
        
             
@@ -191,7 +231,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             
         }
-        else  if cell.menuNameLabel.text == "LogOut" {
+        else  if cell.menuNameLabel.text == "LogOut".localize() {
           
          //   if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
 
@@ -212,7 +252,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 
            // }
         }
-        else  if cell.menuNameLabel.text == "Login" {
+        else  if cell.menuNameLabel.text == "Login".localize() {
             
             //   if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
             
@@ -235,5 +275,53 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         }
 
     }
+    
+    
+    @IBAction func chooseLanguageClicked(_ sender: Any) {
+        
+        
+        let actionSheet = UIAlertController(title: nil, message: "ChooseLanguage".localize(), preferredStyle: UIAlertControllerStyle.actionSheet)
+        for language in Localize.availableLanguages() {
+            let displayName = Localize.displayNameForLanguage(language)
+            
+            //  let ary : Array<String> = ["English","Sinhala","Tamil"]
+            let languageAction = UIAlertAction(title: displayName, style: .default, handler: {
+                (alert: UIAlertAction!) -> Void in
+                Localize.update(language: language)
+                self.chooseLanguageBtn.setTitle("ChooseLanguage".localize(), for: .normal)
+                self.menuArray = ["EditProfile".localize(),"ChangepassWord".localize(),"LogOut".localize()]
+                self.menuTableView.reloadData()
+            })
+            actionSheet.addAction(languageAction)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel".localize(), style: UIAlertActionStyle.cancel, handler: {
+            (alert: UIAlertAction) -> Void in
+        })
+        actionSheet.addAction(cancelAction)
+        
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone) {
+            
+            
+            self.present(actionSheet, animated: true, completion: nil)
+        }
+            
+        else{
+            
+            let popup = UIPopoverController.init(contentViewController: actionSheet)
+            
+            //            popup.present(from: CGRect(x:self.chooseLanguageBtn.frame.minX+self.chooseLanguageBtn.frame.size.width/2, y:self.chooseLanguageBtn.frame.maxY, width:0, height:0), in: self.view, permittedArrowDirections: UIPopoverArrowDirection.up, animated: true)
+  popup.present(from: CGRect(x:self.chooseLanguageBtn.frame.midX - 50, y:self.chooseLanguageBtn.frame.maxY - self.chooseLanguageBtn.frame.height, width:0, height:0), in: self.chooseLanguageBtn, permittedArrowDirections: UIPopoverArrowDirection.down, animated: true)
+         
+
+            
+            
+            //newRegTableViewCell
+        }
+        
+        
+    }
+    
+    
     
 }

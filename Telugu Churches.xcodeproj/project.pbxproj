@@ -111,6 +111,11 @@
 		CB0256C1202473420017E240 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0256C0202473420017E240 /* ProfileViewController.swift */; };
 		CB150A5D2029779E00626CA1 /* ChangePassWordResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB150A5C2029779E00626CA1 /* ChangePassWordResult.swift */; };
 		CB150A5F2029788700626CA1 /* PSWMessageTypeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB150A5E2029788700626CA1 /* PSWMessageTypeResult.swift */; };
+		CB1E30BE203425EE009FB001 /* Localize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1E30BD203425EE009FB001 /* Localize.framework */; };
+		CB1E30C020343EBC009FB001 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1E30BF20343EBC009FB001 /* SystemConfiguration.framework */; };
+		CB1E30C220343F23009FB001 /* lang-te.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E30C120343F23009FB001 /* lang-te.json */; };
+		CB1E30C420344131009FB001 /* lang-en-DE.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E30C320344131009FB001 /* lang-en-DE.json */; };
+		CB1E30C62034416D009FB001 /* lang-en.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E30C52034416D009FB001 /* lang-en.json */; };
 		CB3226D5202C96440050D06B /* GetProfileInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3226D4202C96440050D06B /* GetProfileInfoVO.swift */; };
 		CB3226D7202C96660050D06B /* GetProfileResultInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3226D6202C96660050D06B /* GetProfileResultInfoVO.swift */; };
 		CB345E18202339B6006CC378 /* homeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB345E14202339B6006CC378 /* homeTableViewCell.swift */; };
@@ -243,6 +248,11 @@
 		CB0256C0202473420017E240 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CB150A5C2029779E00626CA1 /* ChangePassWordResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePassWordResult.swift; sourceTree = "<group>"; };
 		CB150A5E2029788700626CA1 /* PSWMessageTypeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSWMessageTypeResult.swift; sourceTree = "<group>"; };
+		CB1E30BD203425EE009FB001 /* Localize.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Localize.framework; path = "../../Library/Developer/Xcode/DerivedData/Telugu_Churches-ehialcnkpmttdzfzlawdvzxzpmib/Build/Products/Debug-iphonesimulator/Localize/Localize.framework"; sourceTree = "<group>"; };
+		CB1E30BF20343EBC009FB001 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CB1E30C120343F23009FB001 /* lang-te.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lang-te.json"; sourceTree = "<group>"; };
+		CB1E30C320344131009FB001 /* lang-en-DE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lang-en-DE.json"; sourceTree = "<group>"; };
+		CB1E30C52034416D009FB001 /* lang-en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lang-en.json"; sourceTree = "<group>"; };
 		CB3226D4202C96440050D06B /* GetProfileInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetProfileInfoVO.swift; sourceTree = "<group>"; };
 		CB3226D6202C96660050D06B /* GetProfileResultInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetProfileResultInfoVO.swift; sourceTree = "<group>"; };
 		CB345E14202339B6006CC378 /* homeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeTableViewCell.swift; sourceTree = "<group>"; };
@@ -265,6 +275,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB1E30C020343EBC009FB001 /* SystemConfiguration.framework in Frameworks */,
+				CB1E30BE203425EE009FB001 /* Localize.framework in Frameworks */,
 				2D4CC1E3CECC568019D58A4D /* Pods_Telugu_Churches.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +391,9 @@
 				9A5D25F71FFF76A300316988 /* Assets.xcassets */,
 				9A5D25F91FFF76A300316988 /* LaunchScreen.storyboard */,
 				9A5D25FC1FFF76A300316988 /* Info.plist */,
+				CB1E30C320344131009FB001 /* lang-en-DE.json */,
+				CB1E30C120343F23009FB001 /* lang-te.json */,
+				CB1E30C52034416D009FB001 /* lang-en.json */,
 				9A5D26041FFF795100316988 /* SamplePageMenu-Bridging-Header.h */,
 			);
 			name = "Telugu Churches";
@@ -567,6 +582,8 @@
 		B479AB571936CD8C6FA5D596 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB1E30BF20343EBC009FB001 /* SystemConfiguration.framework */,
+				CB1E30BD203425EE009FB001 /* Localize.framework */,
 				CE32E04C483467733EE22566 /* Pods_Telugu_Churches.framework */,
 			);
 			name = Frameworks;
@@ -738,9 +755,11 @@
 				9A5D26271FFF8A2000316988 /* AddMoneyToWalletCell.xib in Resources */,
 				CB834734202825980034AD4E /* EditProfileTableViewCell.xib in Resources */,
 				9A5D263F1FFF8A5D00316988 /* ScrollImagesCell.xib in Resources */,
+				CB1E30C220343F23009FB001 /* lang-te.json in Resources */,
 				CB345E19202339B6006CC378 /* homeTableViewCell.xib in Resources */,
 				9A5D26231FFF89F200316988 /* TermsAndConditionCell.xib in Resources */,
 				3DDD8911201865F600918711 /* SignUPTableViewCell.xib in Resources */,
+				CB1E30C420344131009FB001 /* lang-en-DE.json in Resources */,
 				AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */,
 				9A5D260F1FFF89B700316988 /* AllOffersViewController.xib in Resources */,
 				3DDD891620186E5E00918711 /* SignUpButtonsCell.xib in Resources */,
@@ -748,6 +767,7 @@
 				3D65D4B72004D9A200CAB226 /* DrawerView.xib in Resources */,
 				9A5D25F81FFF76A300316988 /* Assets.xcassets in Resources */,
 				9AF564A220209C4F00AEA0EF /* ConformButtonPassWordCell.xib in Resources */,
+				CB1E30C62034416D009FB001 /* lang-en.json in Resources */,
 				9A5D25F61FFF76A300316988 /* Main.storyboard in Resources */,
 				CB0256BC202442EF0017E240 /* SettingTableViewCell.xib in Resources */,
 				9AF5649E2020972900AEA0EF /* ForgotPasswordCell.xib in Resources */,
@@ -780,12 +800,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Telugu Churches/Pods-Telugu Churches-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Localize/Localize.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);

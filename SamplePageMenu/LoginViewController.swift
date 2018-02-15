@@ -26,6 +26,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginBtnOutLet: UIButton!
     
     
+    @IBOutlet weak var loginLabel: UILabel!
     var email : String? = ""
     var password : String? = ""
     
@@ -67,6 +68,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTF.maxLengthTextField = 15
         passwordTF.keyboardType = .emailAddress
 
+        loginLabel.text = "Login".localize()
         // Do any additional setup after loading the view, typically from a nib.
     }
 

@@ -14,7 +14,7 @@ import IQKeyboardManagerSwift
 //import GoogleSignIn
 //import FBSDKLoginKit
 import SystemConfiguration
-//import Localize
+import Localize
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,17 +27,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         IQKeyboardManager.sharedManager().enable = true
-       // IQKeyboardManager.sharedManager().accessibilityElementsHidden = false
-        // Override point for customization after application launch.
         
+        
+        
+        let localize = Localize.shared
+        localize.update(provider: .json)
+        localize.update(fileName: "lang")
+        print(localize.language())
+        print(localize.availableLanguages())
+       // IQKeyboardManager.sharedManager().accessibilityElementsHidden = false
+      // Override point for customization after application launch.
      //   if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
-            
             UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
             UserDefaults.standard.synchronize()
-            
             let homeNav : SWRevealViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
             self.window?.rootViewController = homeNav
-            lunchScreenView()
+         //   lunchScreenView()
 
      //   }
             
