@@ -127,6 +127,10 @@
 		CB834737202837020034AD4E /* HeaderProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB834735202837020034AD4E /* HeaderProfileCell.swift */; };
 		CB834738202837020034AD4E /* HeaderProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB834736202837020034AD4E /* HeaderProfileCell.xib */; };
 		CB83474020287EA20034AD4E /* ChangePasswordVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83473F20287EA20034AD4E /* ChangePasswordVo.swift */; };
+		CB9BC7FD2037122400625179 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9BC7FC2037122400625179 /* EventViewController.swift */; };
+		CB9BC8012037126900625179 /* DIYCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9BC7FE2037126900625179 /* DIYCalendarCell.swift */; };
+		CB9BC8022037126900625179 /* DIYExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9BC7FF2037126900625179 /* DIYExampleViewController.swift */; };
+		CB9BC8032037126900625179 /* DatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9BC8002037126900625179 /* DatePopUpViewController.swift */; };
 		CBE68D37202EF61200B994D4 /* UserDetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE68D36202EF61200B994D4 /* UserDetailsVO.swift */; };
 		CBE68D3B202EF9A600B994D4 /* LoginJsonVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE68D3A202EF9A600B994D4 /* LoginJsonVO.swift */; };
 		CBFA12762032AA6600CADED6 /* ForgotPassWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFA12752032AA6600CADED6 /* ForgotPassWordViewController.swift */; };
@@ -164,7 +168,6 @@
 		9A5D25F71FFF76A300316988 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A5D25FA1FFF76A300316988 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A5D25FC1FFF76A300316988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A5D26041FFF795100316988 /* SamplePageMenu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SamplePageMenu-Bridging-Header.h"; sourceTree = "<group>"; };
 		9A5D26051FFF795200316988 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		9A5D26061FFF795200316988 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		9A5D26081FFF7D2500316988 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -264,6 +267,11 @@
 		CB834735202837020034AD4E /* HeaderProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderProfileCell.swift; sourceTree = "<group>"; };
 		CB834736202837020034AD4E /* HeaderProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderProfileCell.xib; sourceTree = "<group>"; };
 		CB83473F20287EA20034AD4E /* ChangePasswordVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVo.swift; sourceTree = "<group>"; };
+		CB9BC7FC2037122400625179 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		CB9BC7FE2037126900625179 /* DIYCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIYCalendarCell.swift; sourceTree = "<group>"; };
+		CB9BC7FF2037126900625179 /* DIYExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIYExampleViewController.swift; sourceTree = "<group>"; };
+		CB9BC8002037126900625179 /* DatePopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePopUpViewController.swift; sourceTree = "<group>"; };
+		CB9BC804203717EF00625179 /* SamplePageMenu-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SamplePageMenu-Bridging-Header.h"; sourceTree = "<group>"; };
 		CBE68D36202EF61200B994D4 /* UserDetailsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsVO.swift; sourceTree = "<group>"; };
 		CBE68D3A202EF9A600B994D4 /* LoginJsonVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginJsonVO.swift; sourceTree = "<group>"; };
 		CBFA12752032AA6600CADED6 /* ForgotPassWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPassWordViewController.swift; sourceTree = "<group>"; };
@@ -350,6 +358,7 @@
 		9A5D25E41FFF76A300316988 = {
 			isa = PBXGroup;
 			children = (
+				CB9BC804203717EF00625179 /* SamplePageMenu-Bridging-Header.h */,
 				9A5D25F01FFF76A300316988 /* AppDelegate.swift */,
 				9AEAE825201F4FC700DB9D8E /* BaseViewController.swift */,
 				9A623B862021A56400A674F2 /* Utilities */,
@@ -394,7 +403,6 @@
 				CB1E30C320344131009FB001 /* lang-en-DE.json */,
 				CB1E30C120343F23009FB001 /* lang-te.json */,
 				CB1E30C52034416D009FB001 /* lang-en.json */,
-				9A5D26041FFF795100316988 /* SamplePageMenu-Bridging-Header.h */,
 			);
 			name = "Telugu Churches";
 			path = SamplePageMenu;
@@ -403,6 +411,7 @@
 		9A5D26401FFF95EF00316988 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CB9BC7F92037104D00625179 /* EventViewController */,
 				CBFA12742032AA3400CADED6 /* ForgotPassWordViewController */,
 				CB0256BF2024731F0017E240 /* ProfileViewController */,
 				CB0256B0202430530017E240 /* SettingViewController */,
@@ -666,6 +675,17 @@
 			name = ChangePasswordVo;
 			sourceTree = "<group>";
 		};
+		CB9BC7F92037104D00625179 /* EventViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB9BC7FC2037122400625179 /* EventViewController.swift */,
+				CB9BC7FE2037126900625179 /* DIYCalendarCell.swift */,
+				CB9BC7FF2037126900625179 /* DIYExampleViewController.swift */,
+				CB9BC8002037126900625179 /* DatePopUpViewController.swift */,
+			);
+			name = EventViewController;
+			sourceTree = "<group>";
+		};
 		CBFA12742032AA3400CADED6 /* ForgotPassWordViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -799,6 +819,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Telugu Churches/Pods-Telugu Churches-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Localize/Localize.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
@@ -806,6 +827,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
@@ -849,6 +871,7 @@
 				9AA3AB792011D7420065D4BD /* DateFormatterTransform.swift in Sources */,
 				9A5D26121FFF89C300316988 /* RechargesViewController.swift in Sources */,
 				3D551C612011F617005DB3B2 /* VideosVO.swift in Sources */,
+				CB9BC7FD2037122400625179 /* EventViewController.swift in Sources */,
 				AF1956EA200492F4007AC82A /* menuTableViewCell.swift in Sources */,
 				9AA3AB742011D7420065D4BD /* HexColorTransform.swift in Sources */,
 				9A623B8A2021A5B700A674F2 /* UIView+Toast.m in Sources */,
@@ -856,6 +879,7 @@
 				3D65D4A72004CE4A00CAB226 /* VideoTableViewCell.swift in Sources */,
 				CB150A5D2029779E00626CA1 /* ChangePassWordResult.swift in Sources */,
 				3D65D4B42004D9A200CAB226 /* DrawerCell.m in Sources */,
+				CB9BC8012037126900625179 /* DIYCalendarCell.swift in Sources */,
 				CB834737202837020034AD4E /* HeaderProfileCell.swift in Sources */,
 				9AA3AB6F2011D7420065D4BD /* FromJSON.swift in Sources */,
 				9AEAE824201F491800DB9D8E /* GlobalSupportingClass.swift in Sources */,
@@ -871,6 +895,7 @@
 				9A5D262A1FFF8A2F00316988 /* PriceSortCell.swift in Sources */,
 				9AA3AB782011D7420065D4BD /* NSDecimalNumberTransform.swift in Sources */,
 				CB150A5F2029788700626CA1 /* PSWMessageTypeResult.swift in Sources */,
+				CB9BC8022037126900625179 /* DIYExampleViewController.swift in Sources */,
 				9A058AFB2021F395005A611C /* LoginVo.swift in Sources */,
 				9AA3AB7C2011D7420065D4BD /* ISO8601DateTransform.swift in Sources */,
 				3D65D4B32004D9A200CAB226 /* CCKFNavDrawer.m in Sources */,
@@ -921,6 +946,7 @@
 				9A5D261E1FFF89EA00316988 /* TransactionCell.swift in Sources */,
 				CB83474020287EA20034AD4E /* ChangePasswordVo.swift in Sources */,
 				9AEAE822201F1D0100DB9D8E /* Utilities.swift in Sources */,
+				CB9BC8032037126900625179 /* DatePopUpViewController.swift in Sources */,
 				AF1956E520048BE3007AC82A /* SideMenuViewController.swift in Sources */,
 				9A5D26161FFF89D100316988 /* DetAndBillsViewController.swift in Sources */,
 				9AA3AB762011D7420065D4BD /* URLTransform.swift in Sources */,
@@ -1059,7 +1085,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SamplePageMenu/SamplePageMenu-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/praveendole/Desktop/Telugu Churchues/SamplePageMenu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1076,7 +1102,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SamplePageMenu/SamplePageMenu-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/praveendole/Desktop/Telugu Churchues/SamplePageMenu-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

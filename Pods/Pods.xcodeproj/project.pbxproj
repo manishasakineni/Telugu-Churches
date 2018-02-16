@@ -7,194 +7,287 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0070774962C4958B056FA13697C85DB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */; };
-		0289BB059BAD2E5DAA33767546EFDAEB /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C37AE9A7BF507D84E3C50AA5511386 /* MadokaTextField.swift */; };
-		02A8CD406255AE081E99A62241BAC587 /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5365C8275F5712255894D6814A5DFA /* IQToolbar.swift */; };
-		02AC0409E48BCB5046EBAF790090CB04 /* LocalizeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE3C4C40674CD23592F82AE305005E2 /* LocalizeString.swift */; };
-		0A24416D6BD5D5875E5A487628059A48 /* Pods-Telugu Churches-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4AF2EF8298AAB0BDAE01E772D530D6 /* Pods-Telugu Churches-dummy.m */; };
-		1B44B0628E9FCFE2FDD7A0DCAB2024FE /* Localize-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3871384E0363D0662B5DB1D455742AC4 /* Localize-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1F0F49D029C4471F2AE3712D1FCB1D8A /* IQTitleBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F898449F99225919E7B676FB1119C2 /* IQTitleBarButtonItem.swift */; };
-		1F26C263BB1FE0E69B026263C2957D14 /* LocalizeStatic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B83913FA317CADC1418E528306F5FAA /* LocalizeStatic.swift */; };
-		2290DC2C2D08C19225362AF7D3ABA974 /* LocalizeCommonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FC4F2BEB6C374B0A864410C05633FD /* LocalizeCommonProtocol.swift */; };
-		2384AC373E752D55842F37DE4F2CE2A7 /* IQUIScrollView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98251B49873DA3DF58944378C0B9AFCB /* IQUIScrollView+Additions.swift */; };
-		2A2FE216328BFC23AF9D30EAEFAA2303 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1A58B08CC9539C397233C0C3E4576093 /* IQKeyboardManager.bundle */; };
-		2B1C38C65AD7D896C7E749415027240A /* JiroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2213517BEF7C2E23517B6FE48D771A6D /* JiroTextField.swift */; };
-		2F6B32318E5B0862449553189AABCDF6 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA978AF800A403417B6A6945EC51FC82 /* TextFieldEffects.swift */; };
-		3077B4186B916A8DB980BBB72DF7FFB9 /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D1026574A84CC59A8FD5BFA86F969 /* IQUIView+Hierarchy.swift */; };
-		31151FF9FFB674F93FDC9A5831C9B80E /* AkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ED96172B7098C08509E898D10EF70C /* AkiraTextField.swift */; };
-		3BFACCB80DCCC9111CCC0180AB3BD9E2 /* TextFieldEffects-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E6C3449F8CA7C8394F29BBAFC39D4D68 /* TextFieldEffects-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3FD2C1A7C25724C630BEA46D7381F823 /* KaedeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C3FE59B45D769DF24BCF93D472AFB /* KaedeTextField.swift */; };
-		4882783C5576C5D43CE79C03DE33C3DD /* IQKeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B204242FBE581EDE31135102C35A2B /* IQKeyboardManager.swift */; };
-		551C285DBA93E383DE8CC826AA003BCD /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9E809AB2360053D318B7E8A1590946 /* YTPlayerView.m */; };
-		64FFC1F647245F61C405AE7AC1DA9D31 /* IQUIWindow+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565977A5ED8B29308E4B002576B9ED1B /* IQUIWindow+Hierarchy.swift */; };
-		6F4B8547824B21EAFB4F1DC64881A9B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */; };
-		7C8F19B96DB7DEC95D419026B220E240 /* Pods-Telugu Churches-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF53537797605B90F27E556928F6925 /* Pods-Telugu Churches-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02A8CD406255AE081E99A62241BAC587 /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBDEE844AAA63F040DD0001E859F764 /* IQToolbar.swift */; };
+		02AC0409E48BCB5046EBAF790090CB04 /* LocalizeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3109BEDA7B7436F1D2F165E758E5E1 /* LocalizeString.swift */; };
+		0A7AF0E9B853211DE831CAAD4C21F11C /* FSCalendarConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = E34D2A30F1E6A99D70D54DAB924A8C79 /* FSCalendarConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0DD46AF65FABE6D2BDE4501F807046A6 /* FSCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A5319DD40D9C7D97A97FDDA1335D85 /* FSCalendarAppearance.m */; };
+		1123F0E607157A39A55E76AFB0CFCE08 /* Pods-Telugu Churches-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4AF2EF8298AAB0BDAE01E772D530D6 /* Pods-Telugu Churches-dummy.m */; };
+		11BF41E2474EE32B91B7A7C30E031A17 /* JiroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE80B62B7FEBE986E81956337CC25CE2 /* JiroTextField.swift */; };
+		1B44B0628E9FCFE2FDD7A0DCAB2024FE /* Localize-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F7E3ADA67A356159793BDFD5808F0B9C /* Localize-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F0F49D029C4471F2AE3712D1FCB1D8A /* IQTitleBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EFEE91847F1AF255AB2340902D3778 /* IQTitleBarButtonItem.swift */; };
+		1F26C263BB1FE0E69B026263C2957D14 /* LocalizeStatic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582EFAF24B0F77523C30FDA9258F2B9 /* LocalizeStatic.swift */; };
+		218F818EE5617C6741B8799DD1ED222F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */; };
+		2290DC2C2D08C19225362AF7D3ABA974 /* LocalizeCommonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C00F7F36B1B86E4F4F91ED7F87277 /* LocalizeCommonProtocol.swift */; };
+		2384AC373E752D55842F37DE4F2CE2A7 /* IQUIScrollView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487ACD6E3F37CB5D58B35C1F26251056 /* IQUIScrollView+Additions.swift */; };
+		243E3FBB25AD6B55CDF6971E0D22DA4F /* FSCalendarConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C20A044DD2A3F2FC91113E1B213CEB49 /* FSCalendarConstants.m */; };
+		2A2FE216328BFC23AF9D30EAEFAA2303 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1624913F07EA3677013E950C70349B70 /* IQKeyboardManager.bundle */; };
+		2FC7F8A3A2C33910532ACEF1B10B6E88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */; };
+		3077B4186B916A8DB980BBB72DF7FFB9 /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F60DE3CFE429729A44447CEB7E16FD /* IQUIView+Hierarchy.swift */; };
+		309242723F222893F3485FBCFDE47EC7 /* AkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC2BA08B1589C0980B496500D37AC3 /* AkiraTextField.swift */; };
+		3375E038A34E71244B6AB2577AB7769D /* YoshikoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0933B5C36ADE5F731115E02E164C6ED6 /* YoshikoTextField.swift */; };
+		37C0C24B2665D607601D8B020CE723A9 /* TextFieldEffects-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C42F88162CE20BE79AB595AECFCE2 /* TextFieldEffects-dummy.m */; };
+		4882783C5576C5D43CE79C03DE33C3DD /* IQKeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE67746856690FF02F614E5556A62CF9 /* IQKeyboardManager.swift */; };
+		49F1C59A34E52484FD2B6462CE8D7C91 /* FSCalendarDelegationProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = C43A39A188461BEA1232CACD58D32F46 /* FSCalendarDelegationProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55F4561E55A6CF264BEDB8FB18B5FA8C /* FSCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A62D85FCC09441C4EB2B2EEE3AFB663 /* FSCalendarCell.m */; };
+		57D4F36C483A487950FA1F143AE5DCBC /* FSCalendarDelegationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D093C2BE190363E19C04BA0E7309186 /* FSCalendarDelegationFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5C62C27E2855390100E9519DE3095DDB /* FSCalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F60B088FF6EB4CD689ADD5E7A31892BC /* FSCalendarHeaderView.m */; };
+		60669BC41FB8C0ECA03EA91326254073 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */; };
+		625F05F7702CA250DEB66A699766DA9E /* FSCalendar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 217619C15312C33E84D9105BBCC3D9B1 /* FSCalendar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		62DA92A3564CFF4A8B14AA4C87A81E29 /* IsaoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A92A64E5CDC7A4CC121CCA2BD0F22F7 /* IsaoTextField.swift */; };
+		64FFC1F647245F61C405AE7AC1DA9D31 /* IQUIWindow+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DC43F0328D089EE67C1A063DD604C1 /* IQUIWindow+Hierarchy.swift */; };
+		65ED87F661E7964A4D80E9A2C7CD90AF /* TextFieldEffects-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ACCE6C5FE8E4C78353467D5D8F1ED05F /* TextFieldEffects-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		66737F48243D514269C499D65A7B4DBE /* FSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = C187742683E40398AF0038BCDD8742C6 /* FSCalendar.m */; };
+		712FF0C70B4C85F44AFB5CDDC1DD9018 /* FSCalendarDynamicHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABD7CB26F0F8FADEEE9B283B18A3F28 /* FSCalendarDynamicHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77A0211EBDA81D50B547EE57504C8E6F /* youtube-ios-player-helper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 422A3FE16031257E05625E1D6EDE9E2F /* youtube-ios-player-helper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79521C5DAFC2C064C0DE9DF44AA2766B /* Pods-Telugu Churches-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF53537797605B90F27E556928F6925 /* Pods-Telugu Churches-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79AB7E1060477CDF4B304343EE394DA6 /* KaedeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADE9FF6978035ADC73A234604FC4619 /* KaedeTextField.swift */; };
+		7E320930D1F4218F307C7FB786F0C514 /* FSCalendarCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2607E49F16787737968C4196E3D275F /* FSCalendarCollectionView.m */; };
 		7F364C7F150097832E0AD8A155C1127A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */; };
-		80C2121367F2C2EDC5664123A2D9EE17 /* YTPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F826C18E8FA90790EAAB0151B3A1BA /* YTPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81A2F975614A9B94F265CD3BA816B0A4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F748DA8F98E61F788C3488D6BA25DD /* QuartzCore.framework */; };
-		866952184CCB9236E8D567A97A7C3224 /* IQUIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75526C319F809818F0B2B974A910BD3 /* IQUIViewController+Additions.swift */; };
-		87AD9D97F0F94C85720FC018235CD8A9 /* IQKeyboardManagerSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 541AE69F476DD45D58CE7F77CBC43734 /* IQKeyboardManagerSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		88A25F661A4435D57041D21700515CC6 /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FE86DE9A6BDA8EB4C9677C9658B6F /* IQTextView.swift */; };
-		88D76B96669E02FF488E885EED78C6CB /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2AA68D482DB86D60BE961C80F9525A /* HoshiTextField.swift */; };
-		8ADDE085BF4A40A600891A69C1F7CCB6 /* YoshikoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F974DAB757B1D8DFC66EECAE88DCAE /* YoshikoTextField.swift */; };
-		9531586052CC28CC65B5C19D6BDC44AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */; };
-		9B9C1A095D68E3B91BD38F910C6F2E7F /* IQKeyboardManagerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855EB5306BFACE16BB805EB5CE7C220C /* IQKeyboardManagerConstants.swift */; };
-		9C178A996A6A0F14CF4B1F1D1BA4B2EB /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E153FF583624AD40DC583FCDB81E1B0 /* IQUIView+IQKeyboardToolbar.swift */; };
-		9C885E46529A76800D1939F8A4749534 /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E0D4DA495E0186CCD031AA01299C954 /* Assets.bundle */; };
+		8632FCFA0471878FC95240290BE97458 /* FSCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B5767BB2D1835406CD020B7C1CAE7276 /* FSCalendar-dummy.m */; };
+		866952184CCB9236E8D567A97A7C3224 /* IQUIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6474E362F3500CD439DE9240FB5C020B /* IQUIViewController+Additions.swift */; };
+		87AD9D97F0F94C85720FC018235CD8A9 /* IQKeyboardManagerSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 57A9910F6F33DDC378F9030BF40CCED1 /* IQKeyboardManagerSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88A25F661A4435D57041D21700515CC6 /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6647B84A66B657F1CC82F989DF4E338 /* IQTextView.swift */; };
+		8B2FF7C3B091182FE9AF8A50112EBE8A /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB997EB1E7679BB06336E7686F71402 /* HoshiTextField.swift */; };
+		8E8E60E0406837DF7038528766C90AEA /* FSCalendarScopeHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2270728E0990E1A09735CB84F233A82F /* FSCalendarScopeHandle.m */; };
+		8F7003744526BA3547F59200EE4F4D16 /* FSCalendarWeekdayView.m in Sources */ = {isa = PBXBuildFile; fileRef = C02C688A9A2269351988CAA1D304FFDC /* FSCalendarWeekdayView.m */; };
+		91693C90642539B4F411E794548A9E2A /* FSCalendarCollectionViewLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA13BBB0079B6F10FA0560B36FAEAE1 /* FSCalendarCollectionViewLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96E021283F050BCADF9A9B668C77B203 /* FSCalendarExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C4302050A8406A0E42A89C014E0016B3 /* FSCalendarExtensions.m */; };
+		9B9C1A095D68E3B91BD38F910C6F2E7F /* IQKeyboardManagerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F251F6A5A36725A3877D9CAC5616132 /* IQKeyboardManagerConstants.swift */; };
+		9C178A996A6A0F14CF4B1F1D1BA4B2EB /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6AD9924ACE65D28F7F2DBE6889F77C /* IQUIView+IQKeyboardToolbar.swift */; };
+		9CF04404C01848D25E78B22A88BFF129 /* FSCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = 544621428EE67C094A8F211CC9B9891A /* FSCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D0D93DA8BB6979EF78ECF24AFD50733 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDBA94A94B982885ECCA1662BE8CD7CF /* UIKit.framework */; };
+		9F735FB9BAF9724DB38C99C9D361C359 /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDAA741E608E87FDBCD912FB8AB5E81 /* MadokaTextField.swift */; };
+		9FE799FF5512C02C097E2D184B61C4BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */; };
+		A000A7A7023F7FB4CEDD1023EB87BF93 /* FSCalendarCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F18492BB77B890EA0C5A5C1DDD2E63F7 /* FSCalendarCollectionViewLayout.m */; };
 		A25F717B5E0C4E6A6DE933B0BF0F6417 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */; };
-		B0EF72D8E2CB6594FEE4DB2600B32650 /* IQKeyboardManagerSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6AB42998B663D83306AA4649FC5253 /* IQKeyboardManagerSwift-dummy.m */; };
-		B1A7ADAE2CAEDA5D703CE5C6A6DA405B /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1153CADB1BFE660DF219431483982 /* IQUITextFieldView+Additions.swift */; };
-		B7C8C10650919C1F4E7E28FB89E0645C /* Localize-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 384CACE3DD5EC06F6F80D06C3FE2C560 /* Localize-dummy.m */; };
-		B8E0B9036AB4425D312F3A092A926377 /* LocalizeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A183732F190996F6D3006F0DDA6CED /* LocalizeExtensions.swift */; };
+		A3D1147CED9648BEDE2E47B8E8A44924 /* FSCalendar+Deprecated.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCBFA80160B12801CAFCA93D41A0B53 /* FSCalendar+Deprecated.m */; };
+		AA978FCF3EF1D8D10DDE3BB4C6312A7B /* FSCalendarDelegationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA2F48D5E349BE92244DBF51A0AD9A0 /* FSCalendarDelegationProxy.m */; };
+		AA9C5CF6E35B50C4F419F485E4A8B4C4 /* YokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7456E805B4150B18493544DF3C06D05A /* YokoTextField.swift */; };
+		B0EF72D8E2CB6594FEE4DB2600B32650 /* IQKeyboardManagerSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A569F3FC4A1B0B82C2C0086C20FFD74 /* IQKeyboardManagerSwift-dummy.m */; };
+		B1A7ADAE2CAEDA5D703CE5C6A6DA405B /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFD2D87581FBB9C98C1BB25566CCFC5 /* IQUITextFieldView+Additions.swift */; };
+		B1DF1DD47C07CF2F5502AD40601BB8EF /* youtube-ios-player-helper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 422960FB1DAC80C81F2FAB2D78AB02A2 /* youtube-ios-player-helper-dummy.m */; };
+		B7C8C10650919C1F4E7E28FB89E0645C /* Localize-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DBC0C42A1C11A00CEB2D31712CACF6 /* Localize-dummy.m */; };
+		B856C8262C2C2027EE3926101A4906AB /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA06BE9D3A493301197890EA2FF9B97 /* YTPlayerView.m */; };
+		B8E0B9036AB4425D312F3A092A926377 /* LocalizeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E1660C582DCAE911C3D393EA1D38CC /* LocalizeExtensions.swift */; };
 		BB04209DDB72CD325AE09D2EC3EBC380 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3292CC8DBF6352C2BF2B949CB548248F /* CoreGraphics.framework */; };
-		BBBE4C50AA097ABC22F7F3D84CB633EE /* TextFieldEffects-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFACAE406992EEB4B387E422BD1A1B10 /* TextFieldEffects-dummy.m */; };
-		C1D010464C175F5BAF19ACE605DC8FB0 /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76324C6F2489E9422B1760459CEAE53 /* MinoruTextField.swift */; };
-		C40824AB935992D4D0FDEB5A67F16CE5 /* youtube-ios-player-helper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EB587E645D9D92EB2D98C4B568AC6354 /* youtube-ios-player-helper-dummy.m */; };
-		C40F6D2FE20755C045864C23F73260C8 /* IQKeyboardReturnKeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E224DF25F05A7A35A4F818341501D363 /* IQKeyboardReturnKeyHandler.swift */; };
-		C4BAB0DC77C5846CD3A53A8FBA6FDA4D /* LocalizeJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E6ADFB0D83FA926D5FF35BE14A67DF /* LocalizeJson.swift */; };
-		CB29E86F679E9DDC5C5A1C89482701CA /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A123DE12B761CAA600521B38BDB7DC06 /* IQPreviousNextView.swift */; };
-		CC93854C66A808596F5A3B58FDB49BF8 /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F165285975FE86F912AB9EB6CAD7910 /* IQNSArray+Sort.swift */; };
-		D044BFE9CAB010864F7B1F8362745C18 /* IsaoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05022AA68C7267816CBC69028E2EA39 /* IsaoTextField.swift */; };
-		D6F01E666FF79C9A14AED0FB08ECEB8A /* LocalizeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B4FB61708A892DE4C72CC2CF8071E3 /* LocalizeProtocol.swift */; };
-		EC2CCB07B8CCEF669FAF345D29691030 /* IQKeyboardManagerConstantsInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402EC9FBEB34BAB7E0A921F891BAB3BA /* IQKeyboardManagerConstantsInternal.swift */; };
+		BDA1ED05CBA5580B30785A431D5B231B /* FSCalendarTransitionCoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FCF8F16AAFF9D2EDBF3A870DF3C6C89 /* FSCalendarTransitionCoordinator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDF5877F2762AFB7869C8D94DEBDA415 /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2023890F94F914642FF9AE993AE19DA /* MinoruTextField.swift */; };
+		C17D68C964954EF1C0BB3C314C2F452F /* FSCalendarWeekdayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9656A632D58095D87E7BCDAD6A782DFC /* FSCalendarWeekdayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C40F6D2FE20755C045864C23F73260C8 /* IQKeyboardReturnKeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CF491E47E6826FB5CDEFA1E862542 /* IQKeyboardReturnKeyHandler.swift */; };
+		C4BAB0DC77C5846CD3A53A8FBA6FDA4D /* LocalizeJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80408B34ADBD79A29553294962C75B3 /* LocalizeJson.swift */; };
+		C69663957B2EB4C7CF4D8192480AA8B4 /* FSCalendarExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3230D5C7EFEEC65BF3477F37586F8796 /* FSCalendarExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CB29E86F679E9DDC5C5A1C89482701CA /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781846B525CEFE76C94C7E8D238EA20F /* IQPreviousNextView.swift */; };
+		CC93854C66A808596F5A3B58FDB49BF8 /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBAB1C4FF40E5268D5EB9E9FB8548F1 /* IQNSArray+Sort.swift */; };
+		CDB052C277F6148BBAACB2C2C7C6321B /* FSCalendarTransitionCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DBFDE2CAB2575911A2A42CEC3EAE5D /* FSCalendarTransitionCoordinator.m */; };
+		D4F3BEEB43698475E5443150838E84ED /* FSCalendarStickyHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 57E1927BBD65FADF12A6CA3DEE2045CF /* FSCalendarStickyHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6F01E666FF79C9A14AED0FB08ECEB8A /* LocalizeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF232F2866BE765C400847A9A1CF13D2 /* LocalizeProtocol.swift */; };
+		D968B031E853DAC6538A13788E4DD020 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB733DC9F8BE958B3B73A1CA0850D5DB /* TextFieldEffects.swift */; };
+		E1B077BAFD8840CA3D96BB4545B7B255 /* FSCalendarScopeHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = B576508835245681AD977D9BCC9AAF96 /* FSCalendarScopeHandle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E3B93CDF418A2678614DDAD9331C0C0D /* FSCalendarCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F7ABD70289FBFFD596D9817571A89D7 /* FSCalendarCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E8A43A681126212945376FC261DCA20B /* YTPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = A7E158C25F1B11FD469811ACFF97075D /* YTPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC2CCB07B8CCEF669FAF345D29691030 /* IQKeyboardManagerConstantsInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF63D3604AAD119F0B0732C5E462044 /* IQKeyboardManagerConstantsInternal.swift */; };
+		EE078A13105301767BE0ECAC1705A9B5 /* FSCalendarStickyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD7A4891A3C92320851EB456D6B003 /* FSCalendarStickyHeader.m */; };
 		EE20C85515D53DE61D8435080677F58E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDBA94A94B982885ECCA1662BE8CD7CF /* UIKit.framework */; };
-		F48DD4AF7C254B7A2F67A690AF8EF143 /* IQBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB5432720A88E1323D523AD35E8F35 /* IQBarButtonItem.swift */; };
-		F5713F451715DAEA5500B4BCEC7AFE4C /* youtube-ios-player-helper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9161718F241EB31DBE0FA2A8C37A303E /* youtube-ios-player-helper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F78B5FA765B3A801806472F47420DF8B /* YokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515639591EC537C153DF459881E6A1F7 /* YokoTextField.swift */; };
-		F90261AC2E8ADF9929D7FE1E38D2001A /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACF9EC81914DD0A09991EFD8E52BA0 /* Localize.swift */; };
-		FEEF0F632162D140A2490BB6DD5F9A9F /* LocalizeStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2B3E6EEB4F3381C987A1477184351F /* LocalizeStrings.swift */; };
+		EF79B42952D4B407242484D9CC034392 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F748DA8F98E61F788C3488D6BA25DD /* QuartzCore.framework */; };
+		F48DD4AF7C254B7A2F67A690AF8EF143 /* IQBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D9FDB00E5D285B15FAB86D6E60969 /* IQBarButtonItem.swift */; };
+		F54E2CAED6EAE74D9E1F878E10FA30BD /* FSCalendarDelegationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F05E6578B7138F6A2BFBCECD09A406A8 /* FSCalendarDelegationFactory.m */; };
+		F6A1EC699E916996EF2B7B4C6137DB8D /* FSCalendarHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 664369DBDCEA956DEFA1C889BB6DBD5C /* FSCalendarHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F746795DC38AD2DB3D584A110174FED0 /* FSCalendarCalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A1ABF4150894C04D2451D4B47EF8E02 /* FSCalendarCalculator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F75DFB5A6E8642C4964CC3968A2DD0C8 /* FSCalendarCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 802745569FF0DE1594FC4E8D12AF7304 /* FSCalendarCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F90261AC2E8ADF9929D7FE1E38D2001A /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3509988F7967E4CFA15EB8616B501A /* Localize.swift */; };
+		FCB11F1E2F386EEC2BD346895B1129ED /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 02C4D9909C73A074AFF500117110FD7C /* Assets.bundle */; };
+		FD051B5A9F3E663081656EB261A724D2 /* FSCalendarAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 50A4E8241BABE844F904332E96C9ED20 /* FSCalendarAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FEEF0F632162D140A2490BB6DD5F9A9F /* LocalizeStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A72A1C2616370372ADDA35B503592F /* LocalizeStrings.swift */; };
+		FFBEAF63A28F6A7DD881E8256F9503B7 /* FSCalendarCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7B0653761783C28FDF1FEC83E2ABBD /* FSCalendarCalculator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		02A4B5629756C9FD843FEECE1D8CE75C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C235F77E101E742652CCF98FFDFA5182;
-			remoteInfo = IQKeyboardManagerSwift;
-		};
-		71EE31587BE41C57FD5C608C5D4999FB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 38B4C8615591E20A5C5F12A1DEB54C5B;
-			remoteInfo = TextFieldEffects;
-		};
-		784F6AF0671B8F32E62CF4A86A5BE475 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9E9B7856FF1F8DA53F8E08DEF4360E95;
-			remoteInfo = "youtube-ios-player-helper";
-		};
-		AD1AFEA123B4F0317922B35AA2BC4056 /* PBXContainerItemProxy */ = {
+		7779BE799920EAF65BEB3CD46619EDF4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F09CE227DAF6C882933D4DDED02EDEB6;
 			remoteInfo = Localize;
 		};
+		8560FABA61F5AB15DA3888990E5D4E90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C235F77E101E742652CCF98FFDFA5182;
+			remoteInfo = IQKeyboardManagerSwift;
+		};
+		9D8680DD7DF6E5980D9E0F541398BF2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1CCBBDB68906BFE4933D58D3B6BDA1C;
+			remoteInfo = TextFieldEffects;
+		};
+		BD67E01A9980C9D2ADC7216EA015BA73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C5A2DB7A84B7B78E359870D2E1B24AA7;
+			remoteInfo = FSCalendar;
+		};
+		D0B53C333BF57CC1D7367BA799848BCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7494DC8281C2561888C2DCAC9EDE4B3D;
+			remoteInfo = "youtube-ios-player-helper";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008CBF31E30206C73B7A44C8FB533672 /* Localize.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Localize.modulemap; sourceTree = "<group>"; };
-		0123A872415052E2EB5E8B97034BD9AA /* Pods_Telugu_Churches.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Telugu_Churches.framework; path = "Pods-Telugu Churches.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		04F974DAB757B1D8DFC66EECAE88DCAE /* YoshikoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YoshikoTextField.swift; path = TextFieldEffects/TextFieldEffects/YoshikoTextField.swift; sourceTree = "<group>"; };
-		06D4F9F402F54D6835DEDC5F82857258 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01F281963B9338FBC6C9C6FF9BBB3DC1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02C4D9909C73A074AFF500117110FD7C /* Assets.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Assets.bundle; path = "youtube-ios-player-helper/Assets.bundle"; sourceTree = "<group>"; };
 		0777DDE04E7B56DBDDCEE2560E25CE40 /* Pods-Telugu Churches.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Telugu Churches.release.xcconfig"; sourceTree = "<group>"; };
+		086AF8FC58B623E54BF562692E5C17EA /* Localize.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Localize.modulemap; sourceTree = "<group>"; };
+		08B7578AEE51CF0C64E9516E9BCB2608 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0933B5C36ADE5F731115E02E164C6ED6 /* YoshikoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YoshikoTextField.swift; path = TextFieldEffects/TextFieldEffects/YoshikoTextField.swift; sourceTree = "<group>"; };
 		0F3B5CCD25FE47A2A6AD2543A836A6DA /* Pods-Telugu Churches-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Telugu Churches-acknowledgements.plist"; sourceTree = "<group>"; };
-		1019F020285D8024A6425E3857E0B0D7 /* youtube-ios-player-helper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "youtube-ios-player-helper.modulemap"; sourceTree = "<group>"; };
-		18B204242FBE581EDE31135102C35A2B /* IQKeyboardManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManager.swift; path = IQKeyboardManagerSwift/IQKeyboardManager.swift; sourceTree = "<group>"; };
-		1A58B08CC9539C397233C0C3E4576093 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = IQKeyboardManager.bundle; path = IQKeyboardManagerSwift/Resources/IQKeyboardManager.bundle; sourceTree = "<group>"; };
-		1A8FE86DE9A6BDA8EB4C9677C9658B6F /* IQTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQTextView.swift; path = IQKeyboardManagerSwift/IQTextView/IQTextView.swift; sourceTree = "<group>"; };
-		2213517BEF7C2E23517B6FE48D771A6D /* JiroTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JiroTextField.swift; path = TextFieldEffects/TextFieldEffects/JiroTextField.swift; sourceTree = "<group>"; };
+		10B571974976E9B7B064FAC604AD50C2 /* youtube_ios_player_helper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = youtube_ios_player_helper.framework; path = "youtube-ios-player-helper.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1493EB8EF4A8B540FE3B29A1DA169093 /* Localize.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Localize.xcconfig; sourceTree = "<group>"; };
+		1624913F07EA3677013E950C70349B70 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = IQKeyboardManager.bundle; path = IQKeyboardManagerSwift/Resources/IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		17F60DE3CFE429729A44447CEB7E16FD /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIView+Hierarchy.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
+		1A62D85FCC09441C4EB2B2EEE3AFB663 /* FSCalendarCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarCell.m; path = FSCalendar/FSCalendarCell.m; sourceTree = "<group>"; };
+		1CFD2D87581FBB9C98C1BB25566CCFC5 /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUITextFieldView+Additions.swift"; path = "IQKeyboardManagerSwift/Categories/IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
+		1DBDEE844AAA63F040DD0001E859F764 /* IQToolbar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQToolbar.swift; path = IQKeyboardManagerSwift/IQToolbar/IQToolbar.swift; sourceTree = "<group>"; };
+		1E7B0653761783C28FDF1FEC83E2ABBD /* FSCalendarCalculator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarCalculator.m; path = FSCalendar/FSCalendarCalculator.m; sourceTree = "<group>"; };
+		1F7ABD70289FBFFD596D9817571A89D7 /* FSCalendarCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarCollectionView.h; path = FSCalendar/FSCalendarCollectionView.h; sourceTree = "<group>"; };
+		1F95B3244579104C42D0B8E39B71FAF8 /* TextFieldEffects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TextFieldEffects.framework; path = TextFieldEffects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		217619C15312C33E84D9105BBCC3D9B1 /* FSCalendar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSCalendar-umbrella.h"; sourceTree = "<group>"; };
+		2270728E0990E1A09735CB84F233A82F /* FSCalendarScopeHandle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarScopeHandle.m; path = FSCalendar/FSCalendarScopeHandle.m; sourceTree = "<group>"; };
+		252C42F88162CE20BE79AB595AECFCE2 /* TextFieldEffects-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TextFieldEffects-dummy.m"; sourceTree = "<group>"; };
 		25B5673B6515B4D15A06C6A1F8419B78 /* Pods-Telugu Churches.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Telugu Churches.modulemap"; sourceTree = "<group>"; };
-		2826E4D71EFBD40DFB6EC422C08D4655 /* TextFieldEffects-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TextFieldEffects-prefix.pch"; sourceTree = "<group>"; };
-		2CB6CBA80D63052B1F1E1BF3470B384D /* youtube_ios_player_helper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = youtube_ios_player_helper.framework; path = "youtube-ios-player-helper.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26E1DF286C188B59C714397BEDAFDA11 /* youtube-ios-player-helper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "youtube-ios-player-helper-prefix.pch"; sourceTree = "<group>"; };
+		26FD404BF4F98FDC0A7B5AEA9DA6346D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27EDD18662F383F7DF27776284CDAA18 /* TextFieldEffects.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TextFieldEffects.modulemap; sourceTree = "<group>"; };
+		29DE6AB17AAEA5104EBD69D34960E385 /* Pods_Telugu_Churches.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Telugu_Churches.framework; path = "Pods-Telugu Churches.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF53537797605B90F27E556928F6925 /* Pods-Telugu Churches-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Telugu Churches-umbrella.h"; sourceTree = "<group>"; };
-		2E6654548B7C5FBA9BB30760D8FD8E3D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2F165285975FE86F912AB9EB6CAD7910 /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQNSArray+Sort.swift"; path = "IQKeyboardManagerSwift/Categories/IQNSArray+Sort.swift"; sourceTree = "<group>"; };
-		2F6342097B6D3415170F6EC00637A8DD /* TextFieldEffects.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TextFieldEffects.xcconfig; sourceTree = "<group>"; };
+		2D093C2BE190363E19C04BA0E7309186 /* FSCalendarDelegationFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarDelegationFactory.h; path = FSCalendar/FSCalendarDelegationFactory.h; sourceTree = "<group>"; };
+		2DB997EB1E7679BB06336E7686F71402 /* HoshiTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HoshiTextField.swift; path = TextFieldEffects/TextFieldEffects/HoshiTextField.swift; sourceTree = "<group>"; };
+		2EF63D3604AAD119F0B0732C5E462044 /* IQKeyboardManagerConstantsInternal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManagerConstantsInternal.swift; path = IQKeyboardManagerSwift/Constants/IQKeyboardManagerConstantsInternal.swift; sourceTree = "<group>"; };
+		2FCF8F16AAFF9D2EDBF3A870DF3C6C89 /* FSCalendarTransitionCoordinator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarTransitionCoordinator.h; path = FSCalendar/FSCalendarTransitionCoordinator.h; sourceTree = "<group>"; };
+		3230D5C7EFEEC65BF3477F37586F8796 /* FSCalendarExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarExtensions.h; path = FSCalendar/FSCalendarExtensions.h; sourceTree = "<group>"; };
 		3292CC8DBF6352C2BF2B949CB548248F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		384CACE3DD5EC06F6F80D06C3FE2C560 /* Localize-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Localize-dummy.m"; sourceTree = "<group>"; };
-		3871384E0363D0662B5DB1D455742AC4 /* Localize-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Localize-umbrella.h"; sourceTree = "<group>"; };
-		3B83913FA317CADC1418E528306F5FAA /* LocalizeStatic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalizeStatic.swift; path = Source/LocalizeStatic.swift; sourceTree = "<group>"; };
+		3331E4752FC9CBFA8F910CC5B055EE4C /* TextFieldEffects-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TextFieldEffects-prefix.pch"; sourceTree = "<group>"; };
 		3C4AF2EF8298AAB0BDAE01E772D530D6 /* Pods-Telugu Churches-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Telugu Churches-dummy.m"; sourceTree = "<group>"; };
-		402EC9FBEB34BAB7E0A921F891BAB3BA /* IQKeyboardManagerConstantsInternal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManagerConstantsInternal.swift; path = IQKeyboardManagerSwift/Constants/IQKeyboardManagerConstantsInternal.swift; sourceTree = "<group>"; };
-		42DFC278A4C9F5BA199A05CC9189858F /* youtube-ios-player-helper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "youtube-ios-player-helper.xcconfig"; sourceTree = "<group>"; };
-		4C6AB42998B663D83306AA4649FC5253 /* IQKeyboardManagerSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IQKeyboardManagerSwift-dummy.m"; sourceTree = "<group>"; };
+		3E6F6303CFFC00DBCBE3ACAB4ADFC968 /* TextFieldEffects.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TextFieldEffects.xcconfig; sourceTree = "<group>"; };
+		422960FB1DAC80C81F2FAB2D78AB02A2 /* youtube-ios-player-helper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "youtube-ios-player-helper-dummy.m"; sourceTree = "<group>"; };
+		422A3FE16031257E05625E1D6EDE9E2F /* youtube-ios-player-helper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "youtube-ios-player-helper-umbrella.h"; sourceTree = "<group>"; };
+		486D9FDB00E5D285B15FAB86D6E60969 /* IQBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQBarButtonItem.swift; path = IQKeyboardManagerSwift/IQToolbar/IQBarButtonItem.swift; sourceTree = "<group>"; };
+		487ACD6E3F37CB5D58B35C1F26251056 /* IQUIScrollView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIScrollView+Additions.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIScrollView+Additions.swift"; sourceTree = "<group>"; };
+		4A1ABF4150894C04D2451D4B47EF8E02 /* FSCalendarCalculator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarCalculator.h; path = FSCalendar/FSCalendarCalculator.h; sourceTree = "<group>"; };
+		4A569F3FC4A1B0B82C2C0086C20FFD74 /* IQKeyboardManagerSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IQKeyboardManagerSwift-dummy.m"; sourceTree = "<group>"; };
+		4ABD7CB26F0F8FADEEE9B283B18A3F28 /* FSCalendarDynamicHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarDynamicHeader.h; path = FSCalendar/FSCalendarDynamicHeader.h; sourceTree = "<group>"; };
+		4BB870CCF63EFC406E65B8F6A1668C77 /* IQKeyboardManagerSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQKeyboardManagerSwift-prefix.pch"; sourceTree = "<group>"; };
 		4D038F56C8F96F006BF18BF4D83E6704 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4D2B3E6EEB4F3381C987A1477184351F /* LocalizeStrings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalizeStrings.swift; path = Source/LocalizeStrings.swift; sourceTree = "<group>"; };
-		4D6D1026574A84CC59A8FD5BFA86F969 /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIView+Hierarchy.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
+		4D3509988F7967E4CFA15EB8616B501A /* Localize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Localize.swift; path = Source/Localize.swift; sourceTree = "<group>"; };
+		50A4E8241BABE844F904332E96C9ED20 /* FSCalendarAppearance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarAppearance.h; path = FSCalendar/FSCalendarAppearance.h; sourceTree = "<group>"; };
 		50FCE659D0BD056C7AA88351929A197D /* Pods-Telugu Churches-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Telugu Churches-acknowledgements.markdown"; sourceTree = "<group>"; };
-		515639591EC537C153DF459881E6A1F7 /* YokoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YokoTextField.swift; path = TextFieldEffects/TextFieldEffects/YokoTextField.swift; sourceTree = "<group>"; };
-		541AE69F476DD45D58CE7F77CBC43734 /* IQKeyboardManagerSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQKeyboardManagerSwift-umbrella.h"; sourceTree = "<group>"; };
-		565977A5ED8B29308E4B002576B9ED1B /* IQUIWindow+Hierarchy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIWindow+Hierarchy.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIWindow+Hierarchy.swift"; sourceTree = "<group>"; };
-		56CB5432720A88E1323D523AD35E8F35 /* IQBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQBarButtonItem.swift; path = IQKeyboardManagerSwift/IQToolbar/IQBarButtonItem.swift; sourceTree = "<group>"; };
-		57927E3455F3E39CD8A74CF7028B0C65 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5E0D4DA495E0186CCD031AA01299C954 /* Assets.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Assets.bundle; path = "youtube-ios-player-helper/Assets.bundle"; sourceTree = "<group>"; };
-		603555AF41419605860199EF21C29348 /* Localize.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Localize.xcconfig; sourceTree = "<group>"; };
-		63ACF9EC81914DD0A09991EFD8E52BA0 /* Localize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Localize.swift; path = Source/Localize.swift; sourceTree = "<group>"; };
+		544621428EE67C094A8F211CC9B9891A /* FSCalendar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendar.h; path = FSCalendar/FSCalendar.h; sourceTree = "<group>"; };
+		57A9910F6F33DDC378F9030BF40CCED1 /* IQKeyboardManagerSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQKeyboardManagerSwift-umbrella.h"; sourceTree = "<group>"; };
+		57E1927BBD65FADF12A6CA3DEE2045CF /* FSCalendarStickyHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarStickyHeader.h; path = FSCalendar/FSCalendarStickyHeader.h; sourceTree = "<group>"; };
+		585BA7B94308920327976A2481178AA6 /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FSCalendar.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BDAA741E608E87FDBCD912FB8AB5E81 /* MadokaTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MadokaTextField.swift; path = TextFieldEffects/TextFieldEffects/MadokaTextField.swift; sourceTree = "<group>"; };
+		5BEAF8971F151C0FDEADE4FA25844883 /* youtube-ios-player-helper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "youtube-ios-player-helper.modulemap"; sourceTree = "<group>"; };
+		5ECE2EBAD9265294918F09E7615ECFD7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62D5C5A9B0E5AF42B03521063827AD4F /* FSCalendar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FSCalendar.xcconfig; sourceTree = "<group>"; };
+		6474E362F3500CD439DE9240FB5C020B /* IQUIViewController+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIViewController+Additions.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIViewController+Additions.swift"; sourceTree = "<group>"; };
+		664369DBDCEA956DEFA1C889BB6DBD5C /* FSCalendarHeaderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarHeaderView.h; path = FSCalendar/FSCalendarHeaderView.h; sourceTree = "<group>"; };
 		665EC8B56BE513515D6FAA8A8848736E /* Pods-Telugu Churches-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Telugu Churches-frameworks.sh"; sourceTree = "<group>"; };
-		6E153FF583624AD40DC583FCDB81E1B0 /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIView+IQKeyboardToolbar.swift"; path = "IQKeyboardManagerSwift/IQToolbar/IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
-		7C22ABD07A88FE8D0912C6C0A89AFF65 /* Localize-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Localize-prefix.pch"; sourceTree = "<group>"; };
-		7FE3C4C40674CD23592F82AE305005E2 /* LocalizeString.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalizeString.swift; path = Source/LocalizeString.swift; sourceTree = "<group>"; };
-		82FC4F2BEB6C374B0A864410C05633FD /* LocalizeCommonProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalizeCommonProtocol.swift; path = Source/LocalizeCommonProtocol.swift; sourceTree = "<group>"; };
-		855EB5306BFACE16BB805EB5CE7C220C /* IQKeyboardManagerConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManagerConstants.swift; path = IQKeyboardManagerSwift/Constants/IQKeyboardManagerConstants.swift; sourceTree = "<group>"; };
-		86B4FB61708A892DE4C72CC2CF8071E3 /* LocalizeProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalizeProtocol.swift; path = Source/LocalizeProtocol.swift; sourceTree = "<group>"; };
-		88DA647649B506BC703FC626B9EC3F54 /* youtube-ios-player-helper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "youtube-ios-player-helper-prefix.pch"; sourceTree = "<group>"; };
-		8D2AA68D482DB86D60BE961C80F9525A /* HoshiTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HoshiTextField.swift; path = TextFieldEffects/TextFieldEffects/HoshiTextField.swift; sourceTree = "<group>"; };
-		8F8B4BEFB82FDEEF941073991FDD2FBE /* TextFieldEffects.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TextFieldEffects.modulemap; sourceTree = "<group>"; };
-		9161718F241EB31DBE0FA2A8C37A303E /* youtube-ios-player-helper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "youtube-ios-player-helper-umbrella.h"; sourceTree = "<group>"; };
+		66DBFDE2CAB2575911A2A42CEC3EAE5D /* FSCalendarTransitionCoordinator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarTransitionCoordinator.m; path = FSCalendar/FSCalendarTransitionCoordinator.m; sourceTree = "<group>"; };
+		6BC8E0E4FDF59E580473EF646F5C299E /* FSCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FSCalendar.modulemap; sourceTree = "<group>"; };
+		6D6CF491E47E6826FB5CDEFA1E862542 /* IQKeyboardReturnKeyHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardReturnKeyHandler.swift; path = IQKeyboardManagerSwift/IQKeyboardReturnKeyHandler.swift; sourceTree = "<group>"; };
+		72EFEE91847F1AF255AB2340902D3778 /* IQTitleBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQTitleBarButtonItem.swift; path = IQKeyboardManagerSwift/IQToolbar/IQTitleBarButtonItem.swift; sourceTree = "<group>"; };
+		7456E805B4150B18493544DF3C06D05A /* YokoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YokoTextField.swift; path = TextFieldEffects/TextFieldEffects/YokoTextField.swift; sourceTree = "<group>"; };
+		76E1660C582DCAE911C3D393EA1D38CC /* LocalizeExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalizeExtensions.swift; path = Source/LocalizeExtensions.swift; sourceTree = "<group>"; };
+		781846B525CEFE76C94C7E8D238EA20F /* IQPreviousNextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQPreviousNextView.swift; path = IQKeyboardManagerSwift/IQToolbar/IQPreviousNextView.swift; sourceTree = "<group>"; };
+		791BE0E03B32E9A3997BE40D75B2ED3D /* Localize-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Localize-prefix.pch"; sourceTree = "<group>"; };
+		7C37F25BA3AA7E7C7E0DCE2A1F041C01 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IQKeyboardManagerSwift.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E0FAB58C9B7581FDA62666F1AB6B085 /* FSCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSCalendar-prefix.pch"; sourceTree = "<group>"; };
+		802745569FF0DE1594FC4E8D12AF7304 /* FSCalendarCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarCell.h; path = FSCalendar/FSCalendarCell.h; sourceTree = "<group>"; };
+		8A92A64E5CDC7A4CC121CCA2BD0F22F7 /* IsaoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IsaoTextField.swift; path = TextFieldEffects/TextFieldEffects/IsaoTextField.swift; sourceTree = "<group>"; };
+		8BA13BBB0079B6F10FA0560B36FAEAE1 /* FSCalendarCollectionViewLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarCollectionViewLayout.h; path = FSCalendar/FSCalendarCollectionViewLayout.h; sourceTree = "<group>"; };
+		8DFD7A4891A3C92320851EB456D6B003 /* FSCalendarStickyHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarStickyHeader.m; path = FSCalendar/FSCalendarStickyHeader.m; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9656A632D58095D87E7BCDAD6A782DFC /* FSCalendarWeekdayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarWeekdayView.h; path = FSCalendar/FSCalendarWeekdayView.h; sourceTree = "<group>"; };
 		97337063A7E3DAB2BF341C385B4E2165 /* Pods-Telugu Churches.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Telugu Churches.debug.xcconfig"; sourceTree = "<group>"; };
-		98251B49873DA3DF58944378C0B9AFCB /* IQUIScrollView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIScrollView+Additions.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIScrollView+Additions.swift"; sourceTree = "<group>"; };
-		98ED96172B7098C08509E898D10EF70C /* AkiraTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AkiraTextField.swift; path = TextFieldEffects/TextFieldEffects/AkiraTextField.swift; sourceTree = "<group>"; };
-		98F826C18E8FA90790EAAB0151B3A1BA /* YTPlayerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YTPlayerView.h; path = Classes/YTPlayerView.h; sourceTree = "<group>"; };
-		A0A183732F190996F6D3006F0DDA6CED /* LocalizeExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalizeExtensions.swift; path = Source/LocalizeExtensions.swift; sourceTree = "<group>"; };
-		A123DE12B761CAA600521B38BDB7DC06 /* IQPreviousNextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQPreviousNextView.swift; path = IQKeyboardManagerSwift/IQToolbar/IQPreviousNextView.swift; sourceTree = "<group>"; };
-		A1A7177C9A35E09F8B4775E67CBE0C19 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IQKeyboardManagerSwift.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97E7C74406D4F1FFFB0EE2549A23DE4F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9ADE9FF6978035ADC73A234604FC4619 /* KaedeTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KaedeTextField.swift; path = TextFieldEffects/TextFieldEffects/KaedeTextField.swift; sourceTree = "<group>"; };
+		9F251F6A5A36725A3877D9CAC5616132 /* IQKeyboardManagerConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManagerConstants.swift; path = IQKeyboardManagerSwift/Constants/IQKeyboardManagerConstants.swift; sourceTree = "<group>"; };
 		A252102E748D5AE117927C7938DA1069 /* Pods-Telugu Churches-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Telugu Churches-resources.sh"; sourceTree = "<group>"; };
-		B3E6ADFB0D83FA926D5FF35BE14A67DF /* LocalizeJson.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalizeJson.swift; path = Source/LocalizeJson.swift; sourceTree = "<group>"; };
-		B4ECD85A8D649326835A7E35BCA65F8F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B76324C6F2489E9422B1760459CEAE53 /* MinoruTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MinoruTextField.swift; path = TextFieldEffects/TextFieldEffects/MinoruTextField.swift; sourceTree = "<group>"; };
-		BA9E809AB2360053D318B7E8A1590946 /* YTPlayerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YTPlayerView.m; path = Classes/YTPlayerView.m; sourceTree = "<group>"; };
-		BC5365C8275F5712255894D6814A5DFA /* IQToolbar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQToolbar.swift; path = IQKeyboardManagerSwift/IQToolbar/IQToolbar.swift; sourceTree = "<group>"; };
-		BFACAE406992EEB4B387E422BD1A1B10 /* TextFieldEffects-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TextFieldEffects-dummy.m"; sourceTree = "<group>"; };
-		C0F898449F99225919E7B676FB1119C2 /* IQTitleBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQTitleBarButtonItem.swift; path = IQKeyboardManagerSwift/IQToolbar/IQTitleBarButtonItem.swift; sourceTree = "<group>"; };
-		C28C3FE59B45D769DF24BCF93D472AFB /* KaedeTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KaedeTextField.swift; path = TextFieldEffects/TextFieldEffects/KaedeTextField.swift; sourceTree = "<group>"; };
-		C42D5276DFF0CB1BCE57641117A2D22A /* TextFieldEffects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TextFieldEffects.framework; path = TextFieldEffects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7C37AE9A7BF507D84E3C50AA5511386 /* MadokaTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MadokaTextField.swift; path = TextFieldEffects/TextFieldEffects/MadokaTextField.swift; sourceTree = "<group>"; };
-		CDE63034C24620097DB0E8D8C84D71C0 /* IQKeyboardManagerSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQKeyboardManagerSwift-prefix.pch"; sourceTree = "<group>"; };
-		D05022AA68C7267816CBC69028E2EA39 /* IsaoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IsaoTextField.swift; path = TextFieldEffects/TextFieldEffects/IsaoTextField.swift; sourceTree = "<group>"; };
-		D364BD421DB4559FD7EA4EB562D27C4F /* IQKeyboardManagerSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IQKeyboardManagerSwift.modulemap; sourceTree = "<group>"; };
-		D75526C319F809818F0B2B974A910BD3 /* IQUIViewController+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIViewController+Additions.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIViewController+Additions.swift"; sourceTree = "<group>"; };
-		DA978AF800A403417B6A6945EC51FC82 /* TextFieldEffects.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFieldEffects.swift; path = TextFieldEffects/TextFieldEffects/TextFieldEffects.swift; sourceTree = "<group>"; };
-		E224DF25F05A7A35A4F818341501D363 /* IQKeyboardReturnKeyHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardReturnKeyHandler.swift; path = IQKeyboardManagerSwift/IQKeyboardReturnKeyHandler.swift; sourceTree = "<group>"; };
+		A582EFAF24B0F77523C30FDA9258F2B9 /* LocalizeStatic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalizeStatic.swift; path = Source/LocalizeStatic.swift; sourceTree = "<group>"; };
+		A5DBC0C42A1C11A00CEB2D31712CACF6 /* Localize-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Localize-dummy.m"; sourceTree = "<group>"; };
+		A7E158C25F1B11FD469811ACFF97075D /* YTPlayerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YTPlayerView.h; path = Classes/YTPlayerView.h; sourceTree = "<group>"; };
+		A8A72A1C2616370372ADDA35B503592F /* LocalizeStrings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalizeStrings.swift; path = Source/LocalizeStrings.swift; sourceTree = "<group>"; };
+		ABA06BE9D3A493301197890EA2FF9B97 /* YTPlayerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YTPlayerView.m; path = Classes/YTPlayerView.m; sourceTree = "<group>"; };
+		ACCE6C5FE8E4C78353467D5D8F1ED05F /* TextFieldEffects-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TextFieldEffects-umbrella.h"; sourceTree = "<group>"; };
+		AD204F777CA0B95A7CA485C832C8AFE5 /* youtube-ios-player-helper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "youtube-ios-player-helper.xcconfig"; sourceTree = "<group>"; };
+		B2607E49F16787737968C4196E3D275F /* FSCalendarCollectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarCollectionView.m; path = FSCalendar/FSCalendarCollectionView.m; sourceTree = "<group>"; };
+		B576508835245681AD977D9BCC9AAF96 /* FSCalendarScopeHandle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarScopeHandle.h; path = FSCalendar/FSCalendarScopeHandle.h; sourceTree = "<group>"; };
+		B5767BB2D1835406CD020B7C1CAE7276 /* FSCalendar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FSCalendar-dummy.m"; sourceTree = "<group>"; };
+		B89C00F7F36B1B86E4F4F91ED7F87277 /* LocalizeCommonProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalizeCommonProtocol.swift; path = Source/LocalizeCommonProtocol.swift; sourceTree = "<group>"; };
+		BBA2F48D5E349BE92244DBF51A0AD9A0 /* FSCalendarDelegationProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarDelegationProxy.m; path = FSCalendar/FSCalendarDelegationProxy.m; sourceTree = "<group>"; };
+		BE67746856690FF02F614E5556A62CF9 /* IQKeyboardManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManager.swift; path = IQKeyboardManagerSwift/IQKeyboardManager.swift; sourceTree = "<group>"; };
+		C02C688A9A2269351988CAA1D304FFDC /* FSCalendarWeekdayView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarWeekdayView.m; path = FSCalendar/FSCalendarWeekdayView.m; sourceTree = "<group>"; };
+		C187742683E40398AF0038BCDD8742C6 /* FSCalendar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendar.m; path = FSCalendar/FSCalendar.m; sourceTree = "<group>"; };
+		C20A044DD2A3F2FC91113E1B213CEB49 /* FSCalendarConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarConstants.m; path = FSCalendar/FSCalendarConstants.m; sourceTree = "<group>"; };
+		C2A5319DD40D9C7D97A97FDDA1335D85 /* FSCalendarAppearance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarAppearance.m; path = FSCalendar/FSCalendarAppearance.m; sourceTree = "<group>"; };
+		C4302050A8406A0E42A89C014E0016B3 /* FSCalendarExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarExtensions.m; path = FSCalendar/FSCalendarExtensions.m; sourceTree = "<group>"; };
+		C43A39A188461BEA1232CACD58D32F46 /* FSCalendarDelegationProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarDelegationProxy.h; path = FSCalendar/FSCalendarDelegationProxy.h; sourceTree = "<group>"; };
+		CB733DC9F8BE958B3B73A1CA0850D5DB /* TextFieldEffects.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFieldEffects.swift; path = TextFieldEffects/TextFieldEffects/TextFieldEffects.swift; sourceTree = "<group>"; };
+		D4F4F2A1DD625CF0EBE155730331D58B /* IQKeyboardManagerSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IQKeyboardManagerSwift.xcconfig; sourceTree = "<group>"; };
+		D572C219B52B1DE3E0A9B72736F8C414 /* Localize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Localize.framework; path = Localize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6647B84A66B657F1CC82F989DF4E338 /* IQTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQTextView.swift; path = IQKeyboardManagerSwift/IQTextView/IQTextView.swift; sourceTree = "<group>"; };
+		D80408B34ADBD79A29553294962C75B3 /* LocalizeJson.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalizeJson.swift; path = Source/LocalizeJson.swift; sourceTree = "<group>"; };
+		DA3109BEDA7B7436F1D2F165E758E5E1 /* LocalizeString.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalizeString.swift; path = Source/LocalizeString.swift; sourceTree = "<group>"; };
+		DAEC2BA08B1589C0980B496500D37AC3 /* AkiraTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AkiraTextField.swift; path = TextFieldEffects/TextFieldEffects/AkiraTextField.swift; sourceTree = "<group>"; };
+		E34D2A30F1E6A99D70D54DAB924A8C79 /* FSCalendarConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarConstants.h; path = FSCalendar/FSCalendarConstants.h; sourceTree = "<group>"; };
 		E5F748DA8F98E61F788C3488D6BA25DD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		E6C3449F8CA7C8394F29BBAFC39D4D68 /* TextFieldEffects-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TextFieldEffects-umbrella.h"; sourceTree = "<group>"; };
-		EB587E645D9D92EB2D98C4B568AC6354 /* youtube-ios-player-helper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "youtube-ios-player-helper-dummy.m"; sourceTree = "<group>"; };
+		E7DC43F0328D089EE67C1A063DD604C1 /* IQUIWindow+Hierarchy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIWindow+Hierarchy.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIWindow+Hierarchy.swift"; sourceTree = "<group>"; };
+		E893AEC68559D746AF21D3883F68A2C3 /* IQKeyboardManagerSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IQKeyboardManagerSwift.modulemap; sourceTree = "<group>"; };
+		EBCBFA80160B12801CAFCA93D41A0B53 /* FSCalendar+Deprecated.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "FSCalendar+Deprecated.m"; path = "FSCalendar/FSCalendar+Deprecated.m"; sourceTree = "<group>"; };
 		ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		F0A1153CADB1BFE660DF219431483982 /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUITextFieldView+Additions.swift"; path = "IQKeyboardManagerSwift/Categories/IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
-		F8AA65D466D58B05CC324AD65961D65E /* IQKeyboardManagerSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IQKeyboardManagerSwift.xcconfig; sourceTree = "<group>"; };
-		FCC8AD37E6217FC112C7708553133F28 /* Localize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Localize.framework; path = Localize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE80B62B7FEBE986E81956337CC25CE2 /* JiroTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JiroTextField.swift; path = TextFieldEffects/TextFieldEffects/JiroTextField.swift; sourceTree = "<group>"; };
+		EFBAB1C4FF40E5268D5EB9E9FB8548F1 /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQNSArray+Sort.swift"; path = "IQKeyboardManagerSwift/Categories/IQNSArray+Sort.swift"; sourceTree = "<group>"; };
+		F05E6578B7138F6A2BFBCECD09A406A8 /* FSCalendarDelegationFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarDelegationFactory.m; path = FSCalendar/FSCalendarDelegationFactory.m; sourceTree = "<group>"; };
+		F18492BB77B890EA0C5A5C1DDD2E63F7 /* FSCalendarCollectionViewLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarCollectionViewLayout.m; path = FSCalendar/FSCalendarCollectionViewLayout.m; sourceTree = "<group>"; };
+		F2023890F94F914642FF9AE993AE19DA /* MinoruTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MinoruTextField.swift; path = TextFieldEffects/TextFieldEffects/MinoruTextField.swift; sourceTree = "<group>"; };
+		F60B088FF6EB4CD689ADD5E7A31892BC /* FSCalendarHeaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarHeaderView.m; path = FSCalendar/FSCalendarHeaderView.m; sourceTree = "<group>"; };
+		F7E3ADA67A356159793BDFD5808F0B9C /* Localize-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Localize-umbrella.h"; sourceTree = "<group>"; };
 		FDBA94A94B982885ECCA1662BE8CD7CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		FF232F2866BE765C400847A9A1CF13D2 /* LocalizeProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalizeProtocol.swift; path = Source/LocalizeProtocol.swift; sourceTree = "<group>"; };
+		FF6AD9924ACE65D28F7F2DBE6889F77C /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIView+IQKeyboardToolbar.swift"; path = "IQKeyboardManagerSwift/IQToolbar/IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		06055A496B454566A821B5406DBC4BD9 /* Frameworks */ = {
+		2B0C121755DBF940DA569A041E683C9E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0070774962C4958B056FA13697C85DB3 /* Foundation.framework in Frameworks */,
+				9FE799FF5512C02C097E2D184B61C4BE /* Foundation.framework in Frameworks */,
+				EF79B42952D4B407242484D9CC034392 /* QuartzCore.framework in Frameworks */,
+				9D0D93DA8BB6979EF78ECF24AFD50733 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		22ADC833EBCF015EF2A934C811EFD43D /* Frameworks */ = {
+		59C3993D896A6C35489BA660B4F3067F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F4B8547824B21EAFB4F1DC64881A9B4 /* Foundation.framework in Frameworks */,
+				218F818EE5617C6741B8799DD1ED222F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72E7515664197962FBF7FFE1C9E24A4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60669BC41FB8C0ECA03EA91326254073 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,43 +310,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8F87DC7C72CD3C5AE4F1E4CBDF012ABF /* Frameworks */ = {
+		D7CDE6CE67C42410455132AEC9EECA9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9531586052CC28CC65B5C19D6BDC44AE /* Foundation.framework in Frameworks */,
+				2FC7F8A3A2C33910532ACEF1B10B6E88 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00B4BB9A7084EAF807F4F826D5416B15 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A1A7177C9A35E09F8B4775E67CBE0C19 /* IQKeyboardManagerSwift.framework */,
-				FCC8AD37E6217FC112C7708553133F28 /* Localize.framework */,
-				0123A872415052E2EB5E8B97034BD9AA /* Pods_Telugu_Churches.framework */,
-				C42D5276DFF0CB1BCE57641117A2D22A /* TextFieldEffects.framework */,
-				2CB6CBA80D63052B1F1E1BF3470B384D /* youtube_ios_player_helper.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		0187A7EBFC8AD8E4A6780F62013CD1EB /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				57927E3455F3E39CD8A74CF7028B0C65 /* Info.plist */,
-				D364BD421DB4559FD7EA4EB562D27C4F /* IQKeyboardManagerSwift.modulemap */,
-				F8AA65D466D58B05CC324AD65961D65E /* IQKeyboardManagerSwift.xcconfig */,
-				4C6AB42998B663D83306AA4649FC5253 /* IQKeyboardManagerSwift-dummy.m */,
-				CDE63034C24620097DB0E8D8C84D71C0 /* IQKeyboardManagerSwift-prefix.pch */,
-				541AE69F476DD45D58CE7F77CBC43734 /* IQKeyboardManagerSwift-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/IQKeyboardManagerSwift";
-			sourceTree = "<group>";
-		};
 		0B2A607240B0CD4E0251D510E64E6712 /* Pods-Telugu Churches */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,12 +339,16 @@
 			path = "Target Support Files/Pods-Telugu Churches";
 			sourceTree = "<group>";
 		};
-		0B83CA623E3FAAE5F5CC31F6416E0B5E /* Resources */ = {
+		0EC36BDDA1299B17CF5F76604A219BEF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1A58B08CC9539C397233C0C3E4576093 /* IQKeyboardManager.bundle */,
+				EF6FF0A527072D62216D6B4214236019 /* FSCalendar */,
+				628A1A183B48D7204BFDF1F1A29D8A97 /* IQKeyboardManagerSwift */,
+				83AEE42864E8B1B7E7FF9AD06B5D5F07 /* Localize */,
+				8446BE49B717F50B4A3A5C629C6B2BF1 /* TextFieldEffects */,
+				C3058A2086D8B7C452744197B06DC507 /* youtube-ios-player-helper */,
 			);
-			name = Resources;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */ = {
@@ -288,18 +359,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1C14BB8A912D79671AC17FC6CD5F7A18 /* Support Files */ = {
+		38E5B5EDA597F521ABC8479FA98B31E7 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				06D4F9F402F54D6835DEDC5F82857258 /* Info.plist */,
-				1019F020285D8024A6425E3857E0B0D7 /* youtube-ios-player-helper.modulemap */,
-				42DFC278A4C9F5BA199A05CC9189858F /* youtube-ios-player-helper.xcconfig */,
-				EB587E645D9D92EB2D98C4B568AC6354 /* youtube-ios-player-helper-dummy.m */,
-				88DA647649B506BC703FC626B9EC3F54 /* youtube-ios-player-helper-prefix.pch */,
-				9161718F241EB31DBE0FA2A8C37A303E /* youtube-ios-player-helper-umbrella.h */,
+				5ECE2EBAD9265294918F09E7615ECFD7 /* Info.plist */,
+				27EDD18662F383F7DF27776284CDAA18 /* TextFieldEffects.modulemap */,
+				3E6F6303CFFC00DBCBE3ACAB4ADFC968 /* TextFieldEffects.xcconfig */,
+				252C42F88162CE20BE79AB595AECFCE2 /* TextFieldEffects-dummy.m */,
+				3331E4752FC9CBFA8F910CC5B055EE4C /* TextFieldEffects-prefix.pch */,
+				ACCE6C5FE8E4C78353467D5D8F1ED05F /* TextFieldEffects-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/youtube-ios-player-helper";
+			path = "../Target Support Files/TextFieldEffects";
 			sourceTree = "<group>";
 		};
 		3A1815C5C9A8417390CA4E5A902F4C85 /* Targets Support Files */ = {
@@ -310,18 +381,51 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		3AA642D8D2C9444E1ECC32BE1AF26067 /* Support Files */ = {
+		3D22368B7E6789E9DF03317C7113F39C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B4ECD85A8D649326835A7E35BCA65F8F /* Info.plist */,
-				008CBF31E30206C73B7A44C8FB533672 /* Localize.modulemap */,
-				603555AF41419605860199EF21C29348 /* Localize.xcconfig */,
-				384CACE3DD5EC06F6F80D06C3FE2C560 /* Localize-dummy.m */,
-				7C22ABD07A88FE8D0912C6C0A89AFF65 /* Localize-prefix.pch */,
-				3871384E0363D0662B5DB1D455742AC4 /* Localize-umbrella.h */,
+				585BA7B94308920327976A2481178AA6 /* FSCalendar.framework */,
+				7C37F25BA3AA7E7C7E0DCE2A1F041C01 /* IQKeyboardManagerSwift.framework */,
+				D572C219B52B1DE3E0A9B72736F8C414 /* Localize.framework */,
+				29DE6AB17AAEA5104EBD69D34960E385 /* Pods_Telugu_Churches.framework */,
+				1F95B3244579104C42D0B8E39B71FAF8 /* TextFieldEffects.framework */,
+				10B571974976E9B7B064FAC604AD50C2 /* youtube_ios_player_helper.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Localize";
+			name = Products;
+			sourceTree = "<group>";
+		};
+		628A1A183B48D7204BFDF1F1A29D8A97 /* IQKeyboardManagerSwift */ = {
+			isa = PBXGroup;
+			children = (
+				486D9FDB00E5D285B15FAB86D6E60969 /* IQBarButtonItem.swift */,
+				BE67746856690FF02F614E5556A62CF9 /* IQKeyboardManager.swift */,
+				9F251F6A5A36725A3877D9CAC5616132 /* IQKeyboardManagerConstants.swift */,
+				2EF63D3604AAD119F0B0732C5E462044 /* IQKeyboardManagerConstantsInternal.swift */,
+				6D6CF491E47E6826FB5CDEFA1E862542 /* IQKeyboardReturnKeyHandler.swift */,
+				EFBAB1C4FF40E5268D5EB9E9FB8548F1 /* IQNSArray+Sort.swift */,
+				781846B525CEFE76C94C7E8D238EA20F /* IQPreviousNextView.swift */,
+				D6647B84A66B657F1CC82F989DF4E338 /* IQTextView.swift */,
+				72EFEE91847F1AF255AB2340902D3778 /* IQTitleBarButtonItem.swift */,
+				1DBDEE844AAA63F040DD0001E859F764 /* IQToolbar.swift */,
+				487ACD6E3F37CB5D58B35C1F26251056 /* IQUIScrollView+Additions.swift */,
+				1CFD2D87581FBB9C98C1BB25566CCFC5 /* IQUITextFieldView+Additions.swift */,
+				17F60DE3CFE429729A44447CEB7E16FD /* IQUIView+Hierarchy.swift */,
+				FF6AD9924ACE65D28F7F2DBE6889F77C /* IQUIView+IQKeyboardToolbar.swift */,
+				6474E362F3500CD439DE9240FB5C020B /* IQUIViewController+Additions.swift */,
+				E7DC43F0328D089EE67C1A063DD604C1 /* IQUIWindow+Hierarchy.swift */,
+				A4843EDE9DE9F13C0224FA138855D4D0 /* Resources */,
+				C29E93BDC2FCC0E8FA10DE902D9EE4CC /* Support Files */,
+			);
+			name = IQKeyboardManagerSwift;
+			path = IQKeyboardManagerSwift;
+			sourceTree = "<group>";
+		};
+		78FFB80B7852C5109B135647DF4116A2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				02C4D9909C73A074AFF500117110FD7C /* Assets.bundle */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -329,26 +433,43 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */,
-				B65C49CC1495295E1A3620BC034B33D6 /* Pods */,
-				00B4BB9A7084EAF807F4F826D5416B15 /* Products */,
+				0EC36BDDA1299B17CF5F76604A219BEF /* Pods */,
+				3D22368B7E6789E9DF03317C7113F39C /* Products */,
 				3A1815C5C9A8417390CA4E5A902F4C85 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8418D9CE96732F27F1DF7D6A172CE19A /* TextFieldEffects */ = {
+		83AEE42864E8B1B7E7FF9AD06B5D5F07 /* Localize */ = {
 			isa = PBXGroup;
 			children = (
-				98ED96172B7098C08509E898D10EF70C /* AkiraTextField.swift */,
-				8D2AA68D482DB86D60BE961C80F9525A /* HoshiTextField.swift */,
-				D05022AA68C7267816CBC69028E2EA39 /* IsaoTextField.swift */,
-				2213517BEF7C2E23517B6FE48D771A6D /* JiroTextField.swift */,
-				C28C3FE59B45D769DF24BCF93D472AFB /* KaedeTextField.swift */,
-				C7C37AE9A7BF507D84E3C50AA5511386 /* MadokaTextField.swift */,
-				B76324C6F2489E9422B1760459CEAE53 /* MinoruTextField.swift */,
-				DA978AF800A403417B6A6945EC51FC82 /* TextFieldEffects.swift */,
-				515639591EC537C153DF459881E6A1F7 /* YokoTextField.swift */,
-				04F974DAB757B1D8DFC66EECAE88DCAE /* YoshikoTextField.swift */,
-				FC55B7C8CA2981522F58F0C34E963D08 /* Support Files */,
+				4D3509988F7967E4CFA15EB8616B501A /* Localize.swift */,
+				B89C00F7F36B1B86E4F4F91ED7F87277 /* LocalizeCommonProtocol.swift */,
+				76E1660C582DCAE911C3D393EA1D38CC /* LocalizeExtensions.swift */,
+				D80408B34ADBD79A29553294962C75B3 /* LocalizeJson.swift */,
+				FF232F2866BE765C400847A9A1CF13D2 /* LocalizeProtocol.swift */,
+				A582EFAF24B0F77523C30FDA9258F2B9 /* LocalizeStatic.swift */,
+				DA3109BEDA7B7436F1D2F165E758E5E1 /* LocalizeString.swift */,
+				A8A72A1C2616370372ADDA35B503592F /* LocalizeStrings.swift */,
+				C0EE995A210F366F4744621C33319E74 /* Support Files */,
+			);
+			name = Localize;
+			path = Localize;
+			sourceTree = "<group>";
+		};
+		8446BE49B717F50B4A3A5C629C6B2BF1 /* TextFieldEffects */ = {
+			isa = PBXGroup;
+			children = (
+				DAEC2BA08B1589C0980B496500D37AC3 /* AkiraTextField.swift */,
+				2DB997EB1E7679BB06336E7686F71402 /* HoshiTextField.swift */,
+				8A92A64E5CDC7A4CC121CCA2BD0F22F7 /* IsaoTextField.swift */,
+				EE80B62B7FEBE986E81956337CC25CE2 /* JiroTextField.swift */,
+				9ADE9FF6978035ADC73A234604FC4619 /* KaedeTextField.swift */,
+				5BDAA741E608E87FDBCD912FB8AB5E81 /* MadokaTextField.swift */,
+				F2023890F94F914642FF9AE993AE19DA /* MinoruTextField.swift */,
+				CB733DC9F8BE958B3B73A1CA0850D5DB /* TextFieldEffects.swift */,
+				7456E805B4150B18493544DF3C06D05A /* YokoTextField.swift */,
+				0933B5C36ADE5F731115E02E164C6ED6 /* YoshikoTextField.swift */,
+				38E5B5EDA597F521ABC8479FA98B31E7 /* Support Files */,
 			);
 			name = TextFieldEffects;
 			path = TextFieldEffects;
@@ -365,103 +486,140 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		91072562C437F5A9143D14541800138B /* IQKeyboardManagerSwift */ = {
+		A4843EDE9DE9F13C0224FA138855D4D0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				56CB5432720A88E1323D523AD35E8F35 /* IQBarButtonItem.swift */,
-				18B204242FBE581EDE31135102C35A2B /* IQKeyboardManager.swift */,
-				855EB5306BFACE16BB805EB5CE7C220C /* IQKeyboardManagerConstants.swift */,
-				402EC9FBEB34BAB7E0A921F891BAB3BA /* IQKeyboardManagerConstantsInternal.swift */,
-				E224DF25F05A7A35A4F818341501D363 /* IQKeyboardReturnKeyHandler.swift */,
-				2F165285975FE86F912AB9EB6CAD7910 /* IQNSArray+Sort.swift */,
-				A123DE12B761CAA600521B38BDB7DC06 /* IQPreviousNextView.swift */,
-				1A8FE86DE9A6BDA8EB4C9677C9658B6F /* IQTextView.swift */,
-				C0F898449F99225919E7B676FB1119C2 /* IQTitleBarButtonItem.swift */,
-				BC5365C8275F5712255894D6814A5DFA /* IQToolbar.swift */,
-				98251B49873DA3DF58944378C0B9AFCB /* IQUIScrollView+Additions.swift */,
-				F0A1153CADB1BFE660DF219431483982 /* IQUITextFieldView+Additions.swift */,
-				4D6D1026574A84CC59A8FD5BFA86F969 /* IQUIView+Hierarchy.swift */,
-				6E153FF583624AD40DC583FCDB81E1B0 /* IQUIView+IQKeyboardToolbar.swift */,
-				D75526C319F809818F0B2B974A910BD3 /* IQUIViewController+Additions.swift */,
-				565977A5ED8B29308E4B002576B9ED1B /* IQUIWindow+Hierarchy.swift */,
-				0B83CA623E3FAAE5F5CC31F6416E0B5E /* Resources */,
-				0187A7EBFC8AD8E4A6780F62013CD1EB /* Support Files */,
-			);
-			name = IQKeyboardManagerSwift;
-			path = IQKeyboardManagerSwift;
-			sourceTree = "<group>";
-		};
-		94E137799E81C4D0551200224E32CF9E /* Localize */ = {
-			isa = PBXGroup;
-			children = (
-				63ACF9EC81914DD0A09991EFD8E52BA0 /* Localize.swift */,
-				82FC4F2BEB6C374B0A864410C05633FD /* LocalizeCommonProtocol.swift */,
-				A0A183732F190996F6D3006F0DDA6CED /* LocalizeExtensions.swift */,
-				B3E6ADFB0D83FA926D5FF35BE14A67DF /* LocalizeJson.swift */,
-				86B4FB61708A892DE4C72CC2CF8071E3 /* LocalizeProtocol.swift */,
-				3B83913FA317CADC1418E528306F5FAA /* LocalizeStatic.swift */,
-				7FE3C4C40674CD23592F82AE305005E2 /* LocalizeString.swift */,
-				4D2B3E6EEB4F3381C987A1477184351F /* LocalizeStrings.swift */,
-				3AA642D8D2C9444E1ECC32BE1AF26067 /* Support Files */,
-			);
-			name = Localize;
-			path = Localize;
-			sourceTree = "<group>";
-		};
-		B65C49CC1495295E1A3620BC034B33D6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				91072562C437F5A9143D14541800138B /* IQKeyboardManagerSwift */,
-				94E137799E81C4D0551200224E32CF9E /* Localize */,
-				8418D9CE96732F27F1DF7D6A172CE19A /* TextFieldEffects */,
-				CFB5A9959B50F998ED941CD6F1FF1E61 /* youtube-ios-player-helper */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		C25B7C315A33575A42C802F21891B36D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				5E0D4DA495E0186CCD031AA01299C954 /* Assets.bundle */,
+				1624913F07EA3677013E950C70349B70 /* IQKeyboardManager.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		CFB5A9959B50F998ED941CD6F1FF1E61 /* youtube-ios-player-helper */ = {
+		C0EE995A210F366F4744621C33319E74 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				98F826C18E8FA90790EAAB0151B3A1BA /* YTPlayerView.h */,
-				BA9E809AB2360053D318B7E8A1590946 /* YTPlayerView.m */,
-				C25B7C315A33575A42C802F21891B36D /* Resources */,
-				1C14BB8A912D79671AC17FC6CD5F7A18 /* Support Files */,
+				26FD404BF4F98FDC0A7B5AEA9DA6346D /* Info.plist */,
+				086AF8FC58B623E54BF562692E5C17EA /* Localize.modulemap */,
+				1493EB8EF4A8B540FE3B29A1DA169093 /* Localize.xcconfig */,
+				A5DBC0C42A1C11A00CEB2D31712CACF6 /* Localize-dummy.m */,
+				791BE0E03B32E9A3997BE40D75B2ED3D /* Localize-prefix.pch */,
+				F7E3ADA67A356159793BDFD5808F0B9C /* Localize-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Localize";
+			sourceTree = "<group>";
+		};
+		C29E93BDC2FCC0E8FA10DE902D9EE4CC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				01F281963B9338FBC6C9C6FF9BBB3DC1 /* Info.plist */,
+				E893AEC68559D746AF21D3883F68A2C3 /* IQKeyboardManagerSwift.modulemap */,
+				D4F4F2A1DD625CF0EBE155730331D58B /* IQKeyboardManagerSwift.xcconfig */,
+				4A569F3FC4A1B0B82C2C0086C20FFD74 /* IQKeyboardManagerSwift-dummy.m */,
+				4BB870CCF63EFC406E65B8F6A1668C77 /* IQKeyboardManagerSwift-prefix.pch */,
+				57A9910F6F33DDC378F9030BF40CCED1 /* IQKeyboardManagerSwift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IQKeyboardManagerSwift";
+			sourceTree = "<group>";
+		};
+		C3058A2086D8B7C452744197B06DC507 /* youtube-ios-player-helper */ = {
+			isa = PBXGroup;
+			children = (
+				A7E158C25F1B11FD469811ACFF97075D /* YTPlayerView.h */,
+				ABA06BE9D3A493301197890EA2FF9B97 /* YTPlayerView.m */,
+				78FFB80B7852C5109B135647DF4116A2 /* Resources */,
+				C42B5D606E74467A5B687CAADB68A4F9 /* Support Files */,
 			);
 			name = "youtube-ios-player-helper";
 			path = "youtube-ios-player-helper";
 			sourceTree = "<group>";
 		};
-		FC55B7C8CA2981522F58F0C34E963D08 /* Support Files */ = {
+		C42B5D606E74467A5B687CAADB68A4F9 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				2E6654548B7C5FBA9BB30760D8FD8E3D /* Info.plist */,
-				8F8B4BEFB82FDEEF941073991FDD2FBE /* TextFieldEffects.modulemap */,
-				2F6342097B6D3415170F6EC00637A8DD /* TextFieldEffects.xcconfig */,
-				BFACAE406992EEB4B387E422BD1A1B10 /* TextFieldEffects-dummy.m */,
-				2826E4D71EFBD40DFB6EC422C08D4655 /* TextFieldEffects-prefix.pch */,
-				E6C3449F8CA7C8394F29BBAFC39D4D68 /* TextFieldEffects-umbrella.h */,
+				97E7C74406D4F1FFFB0EE2549A23DE4F /* Info.plist */,
+				5BEAF8971F151C0FDEADE4FA25844883 /* youtube-ios-player-helper.modulemap */,
+				AD204F777CA0B95A7CA485C832C8AFE5 /* youtube-ios-player-helper.xcconfig */,
+				422960FB1DAC80C81F2FAB2D78AB02A2 /* youtube-ios-player-helper-dummy.m */,
+				26E1DF286C188B59C714397BEDAFDA11 /* youtube-ios-player-helper-prefix.pch */,
+				422A3FE16031257E05625E1D6EDE9E2F /* youtube-ios-player-helper-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/TextFieldEffects";
+			path = "../Target Support Files/youtube-ios-player-helper";
+			sourceTree = "<group>";
+		};
+		DDA4ACCD09E01F2AA4F9F4D8E9858B1A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6BC8E0E4FDF59E580473EF646F5C299E /* FSCalendar.modulemap */,
+				62D5C5A9B0E5AF42B03521063827AD4F /* FSCalendar.xcconfig */,
+				B5767BB2D1835406CD020B7C1CAE7276 /* FSCalendar-dummy.m */,
+				7E0FAB58C9B7581FDA62666F1AB6B085 /* FSCalendar-prefix.pch */,
+				217619C15312C33E84D9105BBCC3D9B1 /* FSCalendar-umbrella.h */,
+				08B7578AEE51CF0C64E9516E9BCB2608 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FSCalendar";
+			sourceTree = "<group>";
+		};
+		EF6FF0A527072D62216D6B4214236019 /* FSCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				544621428EE67C094A8F211CC9B9891A /* FSCalendar.h */,
+				C187742683E40398AF0038BCDD8742C6 /* FSCalendar.m */,
+				EBCBFA80160B12801CAFCA93D41A0B53 /* FSCalendar+Deprecated.m */,
+				50A4E8241BABE844F904332E96C9ED20 /* FSCalendarAppearance.h */,
+				C2A5319DD40D9C7D97A97FDDA1335D85 /* FSCalendarAppearance.m */,
+				4A1ABF4150894C04D2451D4B47EF8E02 /* FSCalendarCalculator.h */,
+				1E7B0653761783C28FDF1FEC83E2ABBD /* FSCalendarCalculator.m */,
+				802745569FF0DE1594FC4E8D12AF7304 /* FSCalendarCell.h */,
+				1A62D85FCC09441C4EB2B2EEE3AFB663 /* FSCalendarCell.m */,
+				1F7ABD70289FBFFD596D9817571A89D7 /* FSCalendarCollectionView.h */,
+				B2607E49F16787737968C4196E3D275F /* FSCalendarCollectionView.m */,
+				8BA13BBB0079B6F10FA0560B36FAEAE1 /* FSCalendarCollectionViewLayout.h */,
+				F18492BB77B890EA0C5A5C1DDD2E63F7 /* FSCalendarCollectionViewLayout.m */,
+				E34D2A30F1E6A99D70D54DAB924A8C79 /* FSCalendarConstants.h */,
+				C20A044DD2A3F2FC91113E1B213CEB49 /* FSCalendarConstants.m */,
+				2D093C2BE190363E19C04BA0E7309186 /* FSCalendarDelegationFactory.h */,
+				F05E6578B7138F6A2BFBCECD09A406A8 /* FSCalendarDelegationFactory.m */,
+				C43A39A188461BEA1232CACD58D32F46 /* FSCalendarDelegationProxy.h */,
+				BBA2F48D5E349BE92244DBF51A0AD9A0 /* FSCalendarDelegationProxy.m */,
+				4ABD7CB26F0F8FADEEE9B283B18A3F28 /* FSCalendarDynamicHeader.h */,
+				3230D5C7EFEEC65BF3477F37586F8796 /* FSCalendarExtensions.h */,
+				C4302050A8406A0E42A89C014E0016B3 /* FSCalendarExtensions.m */,
+				664369DBDCEA956DEFA1C889BB6DBD5C /* FSCalendarHeaderView.h */,
+				F60B088FF6EB4CD689ADD5E7A31892BC /* FSCalendarHeaderView.m */,
+				B576508835245681AD977D9BCC9AAF96 /* FSCalendarScopeHandle.h */,
+				2270728E0990E1A09735CB84F233A82F /* FSCalendarScopeHandle.m */,
+				57E1927BBD65FADF12A6CA3DEE2045CF /* FSCalendarStickyHeader.h */,
+				8DFD7A4891A3C92320851EB456D6B003 /* FSCalendarStickyHeader.m */,
+				2FCF8F16AAFF9D2EDBF3A870DF3C6C89 /* FSCalendarTransitionCoordinator.h */,
+				66DBFDE2CAB2575911A2A42CEC3EAE5D /* FSCalendarTransitionCoordinator.m */,
+				9656A632D58095D87E7BCDAD6A782DFC /* FSCalendarWeekdayView.h */,
+				C02C688A9A2269351988CAA1D304FFDC /* FSCalendarWeekdayView.m */,
+				DDA4ACCD09E01F2AA4F9F4D8E9858B1A /* Support Files */,
+			);
+			name = FSCalendar;
+			path = FSCalendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		45EFAD61D00ED3B06747C9042BFD359B /* Headers */ = {
+		2725D3A8ACED9AE032670B8C84A759AD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5713F451715DAEA5500B4BCEC7AFE4C /* youtube-ios-player-helper-umbrella.h in Headers */,
-				80C2121367F2C2EDC5664123A2D9EE17 /* YTPlayerView.h in Headers */,
+				77A0211EBDA81D50B547EE57504C8E6F /* youtube-ios-player-helper-umbrella.h in Headers */,
+				E8A43A681126212945376FC261DCA20B /* YTPlayerView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5112643C430C3BE631B426A2BB3C8F6F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65ED87F661E7964A4D80E9A2C7CD90AF /* TextFieldEffects-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,19 +631,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A4398B6C5793C7C3120C0668D52F3DBC /* Headers */ = {
+		887992AA35E53EE970BC66FBE15FE7AB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BFACCB80DCCC9111CCC0180AB3BD9E2 /* TextFieldEffects-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE56CFBC2FAB5B4AB711193646EDDC2D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7C8F19B96DB7DEC95D419026B220E240 /* Pods-Telugu Churches-umbrella.h in Headers */,
+				79521C5DAFC2C064C0DE9DF44AA2766B /* Pods-Telugu Churches-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,55 +647,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA5EFE33C112D00A2A9DE597CBC519EF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				625F05F7702CA250DEB66A699766DA9E /* FSCalendar-umbrella.h in Headers */,
+				9CF04404C01848D25E78B22A88BFF129 /* FSCalendar.h in Headers */,
+				FD051B5A9F3E663081656EB261A724D2 /* FSCalendarAppearance.h in Headers */,
+				F746795DC38AD2DB3D584A110174FED0 /* FSCalendarCalculator.h in Headers */,
+				F75DFB5A6E8642C4964CC3968A2DD0C8 /* FSCalendarCell.h in Headers */,
+				E3B93CDF418A2678614DDAD9331C0C0D /* FSCalendarCollectionView.h in Headers */,
+				91693C90642539B4F411E794548A9E2A /* FSCalendarCollectionViewLayout.h in Headers */,
+				0A7AF0E9B853211DE831CAAD4C21F11C /* FSCalendarConstants.h in Headers */,
+				57D4F36C483A487950FA1F143AE5DCBC /* FSCalendarDelegationFactory.h in Headers */,
+				49F1C59A34E52484FD2B6462CE8D7C91 /* FSCalendarDelegationProxy.h in Headers */,
+				712FF0C70B4C85F44AFB5CDDC1DD9018 /* FSCalendarDynamicHeader.h in Headers */,
+				C69663957B2EB4C7CF4D8192480AA8B4 /* FSCalendarExtensions.h in Headers */,
+				F6A1EC699E916996EF2B7B4C6137DB8D /* FSCalendarHeaderView.h in Headers */,
+				E1B077BAFD8840CA3D96BB4545B7B255 /* FSCalendarScopeHandle.h in Headers */,
+				D4F3BEEB43698475E5443150838E84ED /* FSCalendarStickyHeader.h in Headers */,
+				BDA1ED05CBA5580B30785A431D5B231B /* FSCalendarTransitionCoordinator.h in Headers */,
+				C17D68C964954EF1C0BB3C314C2F452F /* FSCalendarWeekdayView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		38B4C8615591E20A5C5F12A1DEB54C5B /* TextFieldEffects */ = {
+		7494DC8281C2561888C2DCAC9EDE4B3D /* youtube-ios-player-helper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 401ECED2888A49458C651892C800E4A9 /* Build configuration list for PBXNativeTarget "TextFieldEffects" */;
+			buildConfigurationList = CFE5D34CA6CD0784F3803FEC4BB4F95D /* Build configuration list for PBXNativeTarget "youtube-ios-player-helper" */;
 			buildPhases = (
-				093B0D790B6636AB5A000E8D0BDDD323 /* Sources */,
-				8F87DC7C72CD3C5AE4F1E4CBDF012ABF /* Frameworks */,
-				A4398B6C5793C7C3120C0668D52F3DBC /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = TextFieldEffects;
-			productName = TextFieldEffects;
-			productReference = C42D5276DFF0CB1BCE57641117A2D22A /* TextFieldEffects.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		5AAFB6D3BBE78616291335486619395F /* Pods-Telugu Churches */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6223E29D90E63A4374EC1FEB74ED309E /* Build configuration list for PBXNativeTarget "Pods-Telugu Churches" */;
-			buildPhases = (
-				D691A69DFE1F47510888330D1A5627A1 /* Sources */,
-				22ADC833EBCF015EF2A934C811EFD43D /* Frameworks */,
-				BE56CFBC2FAB5B4AB711193646EDDC2D /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				55FB244E3550558B3288E63A53B47A48 /* PBXTargetDependency */,
-				5C59800895EE8FF54CFCA270BE17727A /* PBXTargetDependency */,
-				2E88CE26B2A966678F2C082A7F1F51F8 /* PBXTargetDependency */,
-				82F21F74E8F78514218E595CC80C49FB /* PBXTargetDependency */,
-			);
-			name = "Pods-Telugu Churches";
-			productName = "Pods-Telugu Churches";
-			productReference = 0123A872415052E2EB5E8B97034BD9AA /* Pods_Telugu_Churches.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		9E9B7856FF1F8DA53F8E08DEF4360E95 /* youtube-ios-player-helper */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2BE8EA14340EE5FC68210606AEAF6E56 /* Build configuration list for PBXNativeTarget "youtube-ios-player-helper" */;
-			buildPhases = (
-				F95A99A2BACEBDD3E3D8FBE605E89681 /* Sources */,
-				06055A496B454566A821B5406DBC4BD9 /* Frameworks */,
-				45EFAD61D00ED3B06747C9042BFD359B /* Headers */,
-				9681EBFE05075C81FB099C6F5DF4398F /* Resources */,
+				0D52B42E09C6AE60DEA934917142009B /* Sources */,
+				72E7515664197962FBF7FFE1C9E24A4A /* Frameworks */,
+				2725D3A8ACED9AE032670B8C84A759AD /* Headers */,
+				81B8A4CBB9A072B2F936ED71DF319C9A /* Resources */,
 			);
 			buildRules = (
 			);
@@ -553,7 +689,46 @@
 			);
 			name = "youtube-ios-player-helper";
 			productName = "youtube-ios-player-helper";
-			productReference = 2CB6CBA80D63052B1F1E1BF3470B384D /* youtube_ios_player_helper.framework */;
+			productReference = 10B571974976E9B7B064FAC604AD50C2 /* youtube_ios_player_helper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AA00C4B4DB4DDE9D75DCA68C8ADE1FC0 /* Pods-Telugu Churches */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5399D6926BA60C9C78F6E84A0819519 /* Build configuration list for PBXNativeTarget "Pods-Telugu Churches" */;
+			buildPhases = (
+				839869DE7B48B4EC2509687A85515D4B /* Sources */,
+				59C3993D896A6C35489BA660B4F3067F /* Frameworks */,
+				887992AA35E53EE970BC66FBE15FE7AB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E768CB809FF7958F90ED51BB9703BC3C /* PBXTargetDependency */,
+				DBD45563640E090A56745DD01F0F1AA5 /* PBXTargetDependency */,
+				21888AD42DEA51EFC7126D1A72BD4435 /* PBXTargetDependency */,
+				A57296419F3E353EC9A4CBC444A97C2B /* PBXTargetDependency */,
+				92AAA550749C342EA2616A34F430E3E1 /* PBXTargetDependency */,
+			);
+			name = "Pods-Telugu Churches";
+			productName = "Pods-Telugu Churches";
+			productReference = 29DE6AB17AAEA5104EBD69D34960E385 /* Pods_Telugu_Churches.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B1CCBBDB68906BFE4933D58D3B6BDA1C /* TextFieldEffects */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 308D86311DB898B69988B50632BBEEFF /* Build configuration list for PBXNativeTarget "TextFieldEffects" */;
+			buildPhases = (
+				ED38D87FB71170AA455DC75D4440C30C /* Sources */,
+				D7CDE6CE67C42410455132AEC9EECA9A /* Frameworks */,
+				5112643C430C3BE631B426A2BB3C8F6F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TextFieldEffects;
+			productName = TextFieldEffects;
+			productReference = 1F95B3244579104C42D0B8E39B71FAF8 /* TextFieldEffects.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C235F77E101E742652CCF98FFDFA5182 /* IQKeyboardManagerSwift */ = {
@@ -571,7 +746,24 @@
 			);
 			name = IQKeyboardManagerSwift;
 			productName = IQKeyboardManagerSwift;
-			productReference = A1A7177C9A35E09F8B4775E67CBE0C19 /* IQKeyboardManagerSwift.framework */;
+			productReference = 7C37F25BA3AA7E7C7E0DCE2A1F041C01 /* IQKeyboardManagerSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C5A2DB7A84B7B78E359870D2E1B24AA7 /* FSCalendar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E489D1BD67E6516082312A3038C627E /* Build configuration list for PBXNativeTarget "FSCalendar" */;
+			buildPhases = (
+				3ECDCA9AFCCC7F02686144C6CFD30A86 /* Sources */,
+				2B0C121755DBF940DA569A041E683C9E /* Frameworks */,
+				FA5EFE33C112D00A2A9DE597CBC519EF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FSCalendar;
+			productName = FSCalendar;
+			productReference = 585BA7B94308920327976A2481178AA6 /* FSCalendar.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		F09CE227DAF6C882933D4DDED02EDEB6 /* Localize */ = {
@@ -588,7 +780,7 @@
 			);
 			name = Localize;
 			productName = Localize;
-			productReference = FCC8AD37E6217FC112C7708553133F28 /* Localize.framework */;
+			productReference = D572C219B52B1DE3E0A9B72736F8C414 /* Localize.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -608,33 +800,34 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 00B4BB9A7084EAF807F4F826D5416B15 /* Products */;
+			productRefGroup = 3D22368B7E6789E9DF03317C7113F39C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				C5A2DB7A84B7B78E359870D2E1B24AA7 /* FSCalendar */,
 				C235F77E101E742652CCF98FFDFA5182 /* IQKeyboardManagerSwift */,
 				F09CE227DAF6C882933D4DDED02EDEB6 /* Localize */,
-				5AAFB6D3BBE78616291335486619395F /* Pods-Telugu Churches */,
-				38B4C8615591E20A5C5F12A1DEB54C5B /* TextFieldEffects */,
-				9E9B7856FF1F8DA53F8E08DEF4360E95 /* youtube-ios-player-helper */,
+				AA00C4B4DB4DDE9D75DCA68C8ADE1FC0 /* Pods-Telugu Churches */,
+				B1CCBBDB68906BFE4933D58D3B6BDA1C /* TextFieldEffects */,
+				7494DC8281C2561888C2DCAC9EDE4B3D /* youtube-ios-player-helper */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		81B8A4CBB9A072B2F936ED71DF319C9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCB11F1E2F386EEC2BD346895B1129ED /* Assets.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		918D58E08AC7FD6CC66B75FF048005F7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2A2FE216328BFC23AF9D30EAEFAA2303 /* IQKeyboardManager.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9681EBFE05075C81FB099C6F5DF4398F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9C885E46529A76800D1939F8A4749534 /* Assets.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,21 +850,44 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		093B0D790B6636AB5A000E8D0BDDD323 /* Sources */ = {
+		0D52B42E09C6AE60DEA934917142009B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31151FF9FFB674F93FDC9A5831C9B80E /* AkiraTextField.swift in Sources */,
-				88D76B96669E02FF488E885EED78C6CB /* HoshiTextField.swift in Sources */,
-				D044BFE9CAB010864F7B1F8362745C18 /* IsaoTextField.swift in Sources */,
-				2B1C38C65AD7D896C7E749415027240A /* JiroTextField.swift in Sources */,
-				3FD2C1A7C25724C630BEA46D7381F823 /* KaedeTextField.swift in Sources */,
-				0289BB059BAD2E5DAA33767546EFDAEB /* MadokaTextField.swift in Sources */,
-				C1D010464C175F5BAF19ACE605DC8FB0 /* MinoruTextField.swift in Sources */,
-				BBBE4C50AA097ABC22F7F3D84CB633EE /* TextFieldEffects-dummy.m in Sources */,
-				2F6B32318E5B0862449553189AABCDF6 /* TextFieldEffects.swift in Sources */,
-				F78B5FA765B3A801806472F47420DF8B /* YokoTextField.swift in Sources */,
-				8ADDE085BF4A40A600891A69C1F7CCB6 /* YoshikoTextField.swift in Sources */,
+				B1DF1DD47C07CF2F5502AD40601BB8EF /* youtube-ios-player-helper-dummy.m in Sources */,
+				B856C8262C2C2027EE3926101A4906AB /* YTPlayerView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ECDCA9AFCCC7F02686144C6CFD30A86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3D1147CED9648BEDE2E47B8E8A44924 /* FSCalendar+Deprecated.m in Sources */,
+				8632FCFA0471878FC95240290BE97458 /* FSCalendar-dummy.m in Sources */,
+				66737F48243D514269C499D65A7B4DBE /* FSCalendar.m in Sources */,
+				0DD46AF65FABE6D2BDE4501F807046A6 /* FSCalendarAppearance.m in Sources */,
+				FFBEAF63A28F6A7DD881E8256F9503B7 /* FSCalendarCalculator.m in Sources */,
+				55F4561E55A6CF264BEDB8FB18B5FA8C /* FSCalendarCell.m in Sources */,
+				7E320930D1F4218F307C7FB786F0C514 /* FSCalendarCollectionView.m in Sources */,
+				A000A7A7023F7FB4CEDD1023EB87BF93 /* FSCalendarCollectionViewLayout.m in Sources */,
+				243E3FBB25AD6B55CDF6971E0D22DA4F /* FSCalendarConstants.m in Sources */,
+				F54E2CAED6EAE74D9E1F878E10FA30BD /* FSCalendarDelegationFactory.m in Sources */,
+				AA978FCF3EF1D8D10DDE3BB4C6312A7B /* FSCalendarDelegationProxy.m in Sources */,
+				96E021283F050BCADF9A9B668C77B203 /* FSCalendarExtensions.m in Sources */,
+				5C62C27E2855390100E9519DE3095DDB /* FSCalendarHeaderView.m in Sources */,
+				8E8E60E0406837DF7038528766C90AEA /* FSCalendarScopeHandle.m in Sources */,
+				EE078A13105301767BE0ECAC1705A9B5 /* FSCalendarStickyHeader.m in Sources */,
+				CDB052C277F6148BBAACB2C2C7C6321B /* FSCalendarTransitionCoordinator.m in Sources */,
+				8F7003744526BA3547F59200EE4F4D16 /* FSCalendarWeekdayView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		839869DE7B48B4EC2509687A85515D4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1123F0E607157A39A55E76AFB0CFCE08 /* Pods-Telugu Churches-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,56 +915,63 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D691A69DFE1F47510888330D1A5627A1 /* Sources */ = {
+		ED38D87FB71170AA455DC75D4440C30C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A24416D6BD5D5875E5A487628059A48 /* Pods-Telugu Churches-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F95A99A2BACEBDD3E3D8FBE605E89681 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C40824AB935992D4D0FDEB5A67F16CE5 /* youtube-ios-player-helper-dummy.m in Sources */,
-				551C285DBA93E383DE8CC826AA003BCD /* YTPlayerView.m in Sources */,
+				309242723F222893F3485FBCFDE47EC7 /* AkiraTextField.swift in Sources */,
+				8B2FF7C3B091182FE9AF8A50112EBE8A /* HoshiTextField.swift in Sources */,
+				62DA92A3564CFF4A8B14AA4C87A81E29 /* IsaoTextField.swift in Sources */,
+				11BF41E2474EE32B91B7A7C30E031A17 /* JiroTextField.swift in Sources */,
+				79AB7E1060477CDF4B304343EE394DA6 /* KaedeTextField.swift in Sources */,
+				9F735FB9BAF9724DB38C99C9D361C359 /* MadokaTextField.swift in Sources */,
+				BDF5877F2762AFB7869C8D94DEBDA415 /* MinoruTextField.swift in Sources */,
+				37C0C24B2665D607601D8B020CE723A9 /* TextFieldEffects-dummy.m in Sources */,
+				D968B031E853DAC6538A13788E4DD020 /* TextFieldEffects.swift in Sources */,
+				AA9C5CF6E35B50C4F419F485E4A8B4C4 /* YokoTextField.swift in Sources */,
+				3375E038A34E71244B6AB2577AB7769D /* YoshikoTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2E88CE26B2A966678F2C082A7F1F51F8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TextFieldEffects;
-			target = 38B4C8615591E20A5C5F12A1DEB54C5B /* TextFieldEffects */;
-			targetProxy = 71EE31587BE41C57FD5C608C5D4999FB /* PBXContainerItemProxy */;
-		};
-		55FB244E3550558B3288E63A53B47A48 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = IQKeyboardManagerSwift;
-			target = C235F77E101E742652CCF98FFDFA5182 /* IQKeyboardManagerSwift */;
-			targetProxy = 02A4B5629756C9FD843FEECE1D8CE75C /* PBXContainerItemProxy */;
-		};
-		5C59800895EE8FF54CFCA270BE17727A /* PBXTargetDependency */ = {
+		21888AD42DEA51EFC7126D1A72BD4435 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Localize;
 			target = F09CE227DAF6C882933D4DDED02EDEB6 /* Localize */;
-			targetProxy = AD1AFEA123B4F0317922B35AA2BC4056 /* PBXContainerItemProxy */;
+			targetProxy = 7779BE799920EAF65BEB3CD46619EDF4 /* PBXContainerItemProxy */;
 		};
-		82F21F74E8F78514218E595CC80C49FB /* PBXTargetDependency */ = {
+		92AAA550749C342EA2616A34F430E3E1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "youtube-ios-player-helper";
-			target = 9E9B7856FF1F8DA53F8E08DEF4360E95 /* youtube-ios-player-helper */;
-			targetProxy = 784F6AF0671B8F32E62CF4A86A5BE475 /* PBXContainerItemProxy */;
+			target = 7494DC8281C2561888C2DCAC9EDE4B3D /* youtube-ios-player-helper */;
+			targetProxy = D0B53C333BF57CC1D7367BA799848BCB /* PBXContainerItemProxy */;
+		};
+		A57296419F3E353EC9A4CBC444A97C2B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TextFieldEffects;
+			target = B1CCBBDB68906BFE4933D58D3B6BDA1C /* TextFieldEffects */;
+			targetProxy = 9D8680DD7DF6E5980D9E0F541398BF2D /* PBXContainerItemProxy */;
+		};
+		DBD45563640E090A56745DD01F0F1AA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IQKeyboardManagerSwift;
+			target = C235F77E101E742652CCF98FFDFA5182 /* IQKeyboardManagerSwift */;
+			targetProxy = 8560FABA61F5AB15DA3888990E5D4E90 /* PBXContainerItemProxy */;
+		};
+		E768CB809FF7958F90ED51BB9703BC3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FSCalendar;
+			target = C5A2DB7A84B7B78E359870D2E1B24AA7 /* FSCalendar */;
+			targetProxy = BD67E01A9980C9D2ADC7216EA015BA73 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2B7F3DDA8466143744F66D3D3DDA5FF8 /* Debug */ = {
+		0E400340CB4C1A598EE6D12BAEE80E9F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F6342097B6D3415170F6EC00637A8DD /* TextFieldEffects.xcconfig */;
+			baseConfigurationReference = AD204F777CA0B95A7CA485C832C8AFE5 /* youtube-ios-player-helper.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -759,17 +982,16 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/TextFieldEffects/TextFieldEffects-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/TextFieldEffects/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/youtube-ios-player-helper/youtube-ios-player-helper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/youtube-ios-player-helper/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/TextFieldEffects/TextFieldEffects.modulemap";
-				PRODUCT_NAME = TextFieldEffects;
+				MODULEMAP_FILE = "Target Support Files/youtube-ios-player-helper/youtube-ios-player-helper.modulemap";
+				PRODUCT_NAME = youtube_ios_player_helper;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -777,41 +999,9 @@
 			};
 			name = Debug;
 		};
-		2E771C445A47854D0057B9BC6D488799 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F6342097B6D3415170F6EC00637A8DD /* TextFieldEffects.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/TextFieldEffects/TextFieldEffects-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/TextFieldEffects/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/TextFieldEffects/TextFieldEffects.modulemap";
-				PRODUCT_NAME = TextFieldEffects;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		43C0716E9E98E7BB56F2F51D5DC0A549 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 603555AF41419605860199EF21C29348 /* Localize.xcconfig */;
+			baseConfigurationReference = 1493EB8EF4A8B540FE3B29A1DA169093 /* Localize.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -842,7 +1032,7 @@
 		};
 		4D049E6148ECCA2DF9A97CC8A4C6A964 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8AA65D466D58B05CC324AD65961D65E /* IQKeyboardManagerSwift.xcconfig */;
+			baseConfigurationReference = D4F4F2A1DD625CF0EBE155730331D58B /* IQKeyboardManagerSwift.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -874,7 +1064,7 @@
 		};
 		4FA297B0C97B5B046B80E4395A94AD62 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 603555AF41419605860199EF21C29348 /* Localize.xcconfig */;
+			baseConfigurationReference = 1493EB8EF4A8B540FE3B29A1DA169093 /* Localize.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -904,9 +1094,9 @@
 			};
 			name = Release;
 		};
-		6D79DBA66F8669CE71BAA54B331D6B79 /* Debug */ = {
+		55B552C76F4413CA7C3CF79A0EB979B6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42DFC278A4C9F5BA199A05CC9189858F /* youtube-ios-player-helper.xcconfig */;
+			baseConfigurationReference = 3E6F6303CFFC00DBCBE3ACAB4ADFC968 /* TextFieldEffects.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -917,16 +1107,49 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/youtube-ios-player-helper/youtube-ios-player-helper-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/youtube-ios-player-helper/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/TextFieldEffects/TextFieldEffects-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TextFieldEffects/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/youtube-ios-player-helper/youtube-ios-player-helper.modulemap";
-				PRODUCT_NAME = youtube_ios_player_helper;
+				MODULEMAP_FILE = "Target Support Files/TextFieldEffects/TextFieldEffects.modulemap";
+				PRODUCT_NAME = TextFieldEffects;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8C372E86785BB15B82736A14C84AEA60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E6F6303CFFC00DBCBE3ACAB4ADFC968 /* TextFieldEffects.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/TextFieldEffects/TextFieldEffects-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TextFieldEffects/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/TextFieldEffects/TextFieldEffects.modulemap";
+				PRODUCT_NAME = TextFieldEffects;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -934,9 +1157,40 @@
 			};
 			name = Debug;
 		};
-		8E1968A5BEA317D763DC8DC3C0DBE637 /* Release */ = {
+		9833703705D558C042C9BB629A2488F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0777DDE04E7B56DBDDCEE2560E25CE40 /* Pods-Telugu Churches.release.xcconfig */;
+			baseConfigurationReference = 62D5C5A9B0E5AF42B03521063827AD4F /* FSCalendar.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FSCalendar/FSCalendar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FSCalendar/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FSCalendar/FSCalendar.modulemap";
+				PRODUCT_NAME = FSCalendar;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A499EFB68CEFA4BE21FFBACE8F4774EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97337063A7E3DAB2BF341C385B4E2165 /* Pods-Telugu Churches.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -960,13 +1214,13 @@
 				PRODUCT_NAME = Pods_Telugu_Churches;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		C3E37FB098AE76440E29106ADBF00CEB /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1033,7 +1287,7 @@
 		};
 		CFD80DB712FDBDE4262680DE0D87F74E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8AA65D466D58B05CC324AD65961D65E /* IQKeyboardManagerSwift.xcconfig */;
+			baseConfigurationReference = D4F4F2A1DD625CF0EBE155730331D58B /* IQKeyboardManagerSwift.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1061,6 +1315,37 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		D77488F7B0044A7265AF9D956CD51507 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD204F777CA0B95A7CA485C832C8AFE5 /* youtube-ios-player-helper.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/youtube-ios-player-helper/youtube-ios-player-helper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/youtube-ios-player-helper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/youtube-ios-player-helper/youtube-ios-player-helper.modulemap";
+				PRODUCT_NAME = youtube_ios_player_helper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		DA03565BE765DB55C6448FB363A44481 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1120,9 +1405,9 @@
 			};
 			name = Release;
 		};
-		E2C951257253F99C5CCCAF9D4D69380A /* Release */ = {
+		E417616984BAA3DCB395A6A330459611 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42DFC278A4C9F5BA199A05CC9189858F /* youtube-ios-player-helper.xcconfig */;
+			baseConfigurationReference = 62D5C5A9B0E5AF42B03521063827AD4F /* FSCalendar.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1133,27 +1418,26 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/youtube-ios-player-helper/youtube-ios-player-helper-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/youtube-ios-player-helper/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/FSCalendar/FSCalendar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FSCalendar/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/youtube-ios-player-helper/youtube-ios-player-helper.modulemap";
-				PRODUCT_NAME = youtube_ios_player_helper;
+				MODULEMAP_FILE = "Target Support Files/FSCalendar/FSCalendar.modulemap";
+				PRODUCT_NAME = FSCalendar;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		FB5FB06A36F52C2A90369298D7AF5386 /* Debug */ = {
+		F33611B183B67CD8031546C4809830E6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 97337063A7E3DAB2BF341C385B4E2165 /* Pods-Telugu Churches.debug.xcconfig */;
+			baseConfigurationReference = 0777DDE04E7B56DBDDCEE2560E25CE40 /* Pods-Telugu Churches.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1177,26 +1461,17 @@
 				PRODUCT_NAME = Pods_Telugu_Churches;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2BE8EA14340EE5FC68210606AEAF6E56 /* Build configuration list for PBXNativeTarget "youtube-ios-player-helper" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6D79DBA66F8669CE71BAA54B331D6B79 /* Debug */,
-				E2C951257253F99C5CCCAF9D4D69380A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1206,20 +1481,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		401ECED2888A49458C651892C800E4A9 /* Build configuration list for PBXNativeTarget "TextFieldEffects" */ = {
+		308D86311DB898B69988B50632BBEEFF /* Build configuration list for PBXNativeTarget "TextFieldEffects" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2B7F3DDA8466143744F66D3D3DDA5FF8 /* Debug */,
-				2E771C445A47854D0057B9BC6D488799 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6223E29D90E63A4374EC1FEB74ED309E /* Build configuration list for PBXNativeTarget "Pods-Telugu Churches" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FB5FB06A36F52C2A90369298D7AF5386 /* Debug */,
-				8E1968A5BEA317D763DC8DC3C0DBE637 /* Release */,
+				8C372E86785BB15B82736A14C84AEA60 /* Debug */,
+				55B552C76F4413CA7C3CF79A0EB979B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1229,6 +1495,33 @@
 			buildConfigurations = (
 				43C0716E9E98E7BB56F2F51D5DC0A549 /* Debug */,
 				4FA297B0C97B5B046B80E4395A94AD62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E489D1BD67E6516082312A3038C627E /* Build configuration list for PBXNativeTarget "FSCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E417616984BAA3DCB395A6A330459611 /* Debug */,
+				9833703705D558C042C9BB629A2488F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFE5D34CA6CD0784F3803FEC4BB4F95D /* Build configuration list for PBXNativeTarget "youtube-ios-player-helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E400340CB4C1A598EE6D12BAEE80E9F /* Debug */,
+				D77488F7B0044A7265AF9D956CD51507 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5399D6926BA60C9C78F6E84A0819519 /* Build configuration list for PBXNativeTarget "Pods-Telugu Churches" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A499EFB68CEFA4BE21FFBACE8F4774EC /* Debug */,
+				F33611B183B67CD8031546C4809830E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B1CCBBDB68906BFE4933D58D3B6BDA1C"
-               BlueprintName = "TextFieldEffects"
+               BlueprintIdentifier = "C5A2DB7A84B7B78E359870D2E1B24AA7"
+               BlueprintName = "FSCalendar"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "TextFieldEffects.framework">
+               BuildableName = "FSCalendar.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

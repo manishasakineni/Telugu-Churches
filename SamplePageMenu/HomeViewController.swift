@@ -325,15 +325,15 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         
        if indexPath.item == 0 {
             
-          //  let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "HolyBibleViewController") as! HolyBibleViewController
-          //  self.navigationController?.pushViewController(holyBibleViewController, animated: true)
+            let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+            self.navigationController?.pushViewController(holyBibleViewController, animated: true)
         
         
-        let  failedViewController = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
-        
-        
-        self.navigationController?.pushViewController(failedViewController, animated: true)
-        
+//        let  failedViewController = AllOffersViewController(nibName: "AllOffersViewController", bundle: nil)
+//        
+//        
+//        self.navigationController?.pushViewController(failedViewController, animated: true)
+//        
       
         
         

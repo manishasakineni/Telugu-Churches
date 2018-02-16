@@ -575,6 +575,77 @@
             </objects>
             <point key="canvasLocation" x="3894" y="333"/>
         </scene>
+        <!--Event View Controller-->
+        <scene sceneID="rZa-Hc-Bf1">
+            <objects>
+                <viewController storyboardIdentifier="EventViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vu1-fz-ujK" customClass="EventViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="en5-5d-AOO"/>
+                        <viewControllerLayoutGuide type="bottom" id="vIm-ut-51p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ldm-JT-Srv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVB-Zz-rX4" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="70" width="375" height="547"/>
+                                <color key="backgroundColor" red="0.33333333333333331" green="0.47058823529411764" blue="0.035294117647058823" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="subtitleDefaultColor">
+                                        <color key="value" red="0.79616970490000005" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hVB-Zz-rX4" firstAttribute="leading" secondItem="ldm-JT-Srv" secondAttribute="leading" id="W6N-j9-G6r"/>
+                            <constraint firstAttribute="trailing" secondItem="hVB-Zz-rX4" secondAttribute="trailing" id="fOR-0N-TUH"/>
+                            <constraint firstItem="vIm-ut-51p" firstAttribute="top" secondItem="hVB-Zz-rX4" secondAttribute="bottom" constant="50" id="gCZ-V7-Ek5"/>
+                            <constraint firstItem="hVB-Zz-rX4" firstAttribute="top" secondItem="en5-5d-AOO" secondAttribute="bottom" constant="50" id="phw-SC-6oU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calendar" destination="hVB-Zz-rX4" id="h5V-rK-axh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B8b-lR-gyZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3229.5999999999999" y="1006.1469265367317"/>
+        </scene>
+        <!--Date Pop Up View Controller-->
+        <scene sceneID="hSx-l7-Bav">
+            <objects>
+                <viewController storyboardIdentifier="DatePopUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jEv-vj-BTU" customClass="DatePopUpViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jJv-EJ-IwB"/>
+                        <viewControllerLayoutGuide type="bottom" id="qYJ-6r-awk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="83H-ID-T8C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MEk-QU-5yK">
+                                <rect key="frame" x="0.0" y="96" width="375" height="349"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qYJ-6r-awk" firstAttribute="top" secondItem="MEk-QU-5yK" secondAttribute="bottom" constant="222" id="2UN-4s-MN4"/>
+                            <constraint firstItem="MEk-QU-5yK" firstAttribute="leading" secondItem="83H-ID-T8C" secondAttribute="leading" id="FVk-A1-UIH"/>
+                            <constraint firstAttribute="trailing" secondItem="MEk-QU-5yK" secondAttribute="trailing" id="HdZ-M4-re3"/>
+                            <constraint firstItem="MEk-QU-5yK" firstAttribute="top" secondItem="jJv-EJ-IwB" secondAttribute="bottom" constant="76" id="OIp-GX-31Z"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PVV-5n-d1A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3893.5999999999999" y="1008.8455772113944"/>
+        </scene>
         <!--Setting View Controller-->
         <scene sceneID="zh0-0i-pYZ">
             <objects>

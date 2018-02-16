@@ -9,6 +9,8 @@ pod 'youtube-ios-player-helper', :git=>'https://github.com/youtube/youtube-ios-p
 pod "TextFieldEffects"
 pod 'IQKeyboardManagerSwift'
 pod 'Localize' , '~> 1.5.2'
+pod 'FSCalendar'
+
 
 
   # Pods for Telugu Churches
