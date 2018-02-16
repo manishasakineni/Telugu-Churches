@@ -30,7 +30,7 @@ class ForgotPassWordViewController: UIViewController {
         
         super.viewWillAppear(animated)
         
-        Utilities.forgotPassWordViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "ForgotPassWord", backTitle: " ForgotPassWord", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.forgotPassWordViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "forgot Password".localize(), backTitle: " forgot Password".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
         
      //   self.navigationController?.navigationBar.isHidden = true

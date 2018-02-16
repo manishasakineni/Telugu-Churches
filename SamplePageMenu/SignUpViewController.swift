@@ -18,6 +18,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     @IBOutlet weak var signeUpOutLet: UIButton!
     let utillites =  Utilities()
     
+    @IBOutlet weak var allreadyhaveanAccount: UILabel!
     
     
     var appVersion          : String = ""
@@ -69,11 +70,13 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     
     
     var sectionsTitle : [String] = [" "]
-     var signUpTFPlaceholdersArray = ["FirstNam","MiddleName","LastName","User Name","E-Mail","Mobile Number","Password","Confirm Password"]
+     var signUpTFPlaceholdersArray = ["FirstNam".localize(),"MiddleName".localize(),"LastName".localize(),"UserName".localize(),"E-Mail".localize(),"MobileNumber".localize(),"Password".localize(),"Confirm Password".localize()]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        signeUpOutLet.setTitle("Submit".localize(), for: .normal)
+        allreadyhaveanAccount.text = "all ready have an Account?".localize()
         
         signeUpOutLet.layer.borderWidth = 1.0
         signeUpOutLet.layer.cornerRadius = 6.0
@@ -109,7 +112,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         super.viewWillAppear(animated)
         
-        Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Registration", backTitle: " Registration", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Registration".localize(), backTitle: " Registration".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
         //navigationItem.leftBarButtonItems = []
         
@@ -379,7 +382,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
             //   signUPCell.registrationTextfield.keyboardType = .namePhonePad
             // signUPCell.registrationTextfield?.text = "app.UserName".localize()
-            signUPCell.registrationTextfield.placeholder = "FirstName"
+            signUPCell.registrationTextfield.placeholder = "FirstName".localize()
             signUPCell.registrationTextfield.text = firstName
             signUPCell.eyeButtonOutlet.isHidden = true
             
@@ -389,7 +392,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
             //   signUPCell.registrationTextfield.keyboardType = .namePhonePad
             // signUPCell.registrationTextfield?.text = "app.UserName".localize()
-            signUPCell.registrationTextfield.placeholder = "MiddleName"
+            signUPCell.registrationTextfield.placeholder = "MiddleName".localize()
             signUPCell.registrationTextfield.text = middleName
             signUPCell.eyeButtonOutlet.isHidden = true
 
@@ -400,7 +403,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
             //   signUPCell.registrationTextfield.keyboardType = .namePhonePad
             // signUPCell.registrationTextfield?.text = "app.UserName".localize()
-            signUPCell.registrationTextfield.placeholder = "LastNane"
+            signUPCell.registrationTextfield.placeholder = "LastName".localize()
             signUPCell.registrationTextfield.text = lastName
             signUPCell.eyeButtonOutlet.isHidden = true
 
@@ -412,7 +415,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
          //   signUPCell.registrationTextfield.keyboardType = .namePhonePad
            // signUPCell.registrationTextfield?.text = "app.UserName".localize()
-            signUPCell.registrationTextfield.placeholder = "UserName"
+            signUPCell.registrationTextfield.placeholder = "UserName".localize()
             signUPCell.registrationTextfield.text = userName
             signUPCell.eyeButtonOutlet.isHidden = true
 
@@ -426,7 +429,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
           //  signUPCell.registrationTextfield.keyboardType = .emailAddress
 
            // signUPCell.registrationTextfield?.text = "app.Address1".localize()
-            signUPCell.registrationTextfield.placeholder = "E-Mail"
+            signUPCell.registrationTextfield.placeholder = "E-mail".localize()
             signUPCell.eyeButtonOutlet.isHidden = true
 
             
@@ -438,7 +441,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
           //  signUPCell.registrationTextfield.keyboardType = .numberPad
 
            // signUPCell.registrationTextfield?.text = "app.Address2".localize()
-            signUPCell.registrationTextfield.placeholder = "Mobile Number"
+            signUPCell.registrationTextfield.placeholder = "Mobile Number".localize()
             signUPCell.eyeButtonOutlet.isHidden = true
 
             
@@ -450,7 +453,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             signUPCell.registrationTextfield.text = password
           //  signUPCell.registrationTextfield.keyboardType = .emailAddress
            // signUPCell.registrationTextfield?.text = "app.Landmark".localize()
-            signUPCell.registrationTextfield.placeholder = "Password"
+            signUPCell.registrationTextfield.placeholder = "Password".localize()
             signUPCell.eyeButtonOutlet.isHidden = false
             signUPCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
 
@@ -463,7 +466,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             signUPCell.registrationTextfield.text = confirmpassword
            // signUPCell.registrationTextfield.keyboardType = .emailAddress
             // signUPCell.registrationTextfield?.text = "app.Landmark".localize()
-            signUPCell.registrationTextfield.placeholder = "Confirm Password"
+            signUPCell.registrationTextfield.placeholder = "Confirm Password".localize()
             signUPCell.eyeButtonOutlet.isHidden = false
             signUPCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
 
@@ -634,7 +637,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 
                 if let errorMsg = errorMessage{
         
-                    self.showAlertViewWithTitle("Alert", message: errorMsg as String, buttonTitle: "Retry")
+                    self.showAlertViewWithTitle("Alert".localize(), message: errorMsg as String, buttonTitle: "Retry".localize())
                     return false;
                 }
         return true
@@ -705,7 +708,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
                     
          
                         
-                        self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege: successMsg!, clickAction: {
+                        self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success".localize(), messege: successMsg!, clickAction: {
                                 let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
                         
                         
@@ -719,7 +722,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
                         
                         let failMsg = respVO.endUserMessage
                         
-                        self.showAlertViewWithTitle("Alert", message: failMsg!, buttonTitle: "Ok")
+                        self.showAlertViewWithTitle("Alert".localize(), message: failMsg!, buttonTitle: "Ok".localize())
                         
                         return
                         

@@ -209,7 +209,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             let section1HeaderLabel2 = UILabel(frame: CGRect(x: 90, y: -3, width:150, height: 35))
             // section1HeaderLabel.text = sectionsTitle[section]
             section1HeaderLabel2.textColor = UIColor.white
-            section1HeaderLabel2.text = "Change Password"
+            section1HeaderLabel2.text = "Change Password".localize()
             section1HeaderLabel2.textAlignment = .center
             // section1HeaderLabel2.backgroundColor = UIColor.purple
             section1HeaderLabel2.font = UIFont(name: "HelveticaNeue-Bold", size: 13.0)!
@@ -256,7 +256,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             forgotPasswordCell.resetPasswordTF.tag = indexPath.row
             if indexPath.row == 0 {
                
-                forgotPasswordCell.resetPasswordTF.placeholder = "Old PassWord"
+                forgotPasswordCell.resetPasswordTF.placeholder = "Old Password".localize()
                 forgotPasswordCell.resetPasswordTF.text = oldPassWordString
                 forgotPasswordCell.eyeButtonOutlet.isHidden = true
                 
@@ -265,7 +265,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             else if indexPath.row == 1 {
                 
                
-                forgotPasswordCell.resetPasswordTF.placeholder = "New PassWord"
+                forgotPasswordCell.resetPasswordTF.placeholder = "New Password".localize()
                 forgotPasswordCell.resetPasswordTF.text = newPassWordString
                 forgotPasswordCell.eyeButtonOutlet.isHidden = false
                 forgotPasswordCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
@@ -275,7 +275,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             }
             else if indexPath.row == 2 {
       
-                forgotPasswordCell.resetPasswordTF.placeholder = "Confirm PassWord"
+                forgotPasswordCell.resetPasswordTF.placeholder = "Confirm Password".localize()
                 forgotPasswordCell.resetPasswordTF.text = confirmPassWordString
                 forgotPasswordCell.eyeButtonOutlet.isHidden = false
                 forgotPasswordCell.eyeButtonOutlet.addTarget(self, action: #selector(eyeButtonClicked(_:)), for: UIControlEvents.touchUpInside)
@@ -403,7 +403,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         if let errorMsg = errorMessage{
             
-            self.showAlertViewWithTitle("Alert", message: errorMsg as String, buttonTitle: "Retry")
+            self.showAlertViewWithTitle("Alert".localize(), message: errorMsg as String, buttonTitle: "Retry".localize())
             return false;
         }
             
@@ -504,7 +504,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
                         
                         
                         
-                        self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege: successMsg!, clickAction: {
+                        self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success".localize(), messege: successMsg!, clickAction: {
                             
                             
                           self.removeAnimate()
@@ -522,7 +522,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
                         
                         let failMsg = respVO.endUserMessage
                         
-                        self.showAlertViewWithTitle("Alert", message: failMsg!, buttonTitle: "Ok")
+                        self.showAlertViewWithTitle("Alert".localize(), message: failMsg!, buttonTitle: "Ok".localize())
                         
                         return
                         

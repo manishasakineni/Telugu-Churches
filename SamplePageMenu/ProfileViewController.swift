@@ -27,7 +27,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     
     
-    var placeholdersAry  = ["First Name","Middle Name","Last Name","Mobile No","Email ID"]
+    var placeholdersAry  = ["FirstName".localize(),"MiddleName".localize(),"LastName".localize(),"Mobile Number".localize(),"E-mail".localize()]
     
     var firstName   : String = ""
     var middleName  : String = ""
@@ -155,7 +155,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                                 
                                 let failMsg = respVO.endUserMessage
                                 
-                                self.showAlertViewWithTitle("Alert", message: failMsg!, buttonTitle: "Ok")
+                                self.showAlertViewWithTitle("Alert".localize(), message: failMsg!, buttonTitle: "Ok".localize())
                                 
                                 return
                                 
@@ -171,7 +171,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     if(error == "unAuthorized"){
                         
                         
-                        self.showAlertViewWithTitle("Alert", message: error, buttonTitle: "Ok")
+                        self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
                         
                         
                     }
@@ -202,7 +202,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.navigationController?.navigationBar.isHidden = false
 
         
-        Utilities.setProfileViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Edit Profile", backTitle: " Edit Profile", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setProfileViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Edit Profile".localize(), backTitle: " Edit Profile".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
         //   self.navigationItem.hidesBackButton = false
         
@@ -501,7 +501,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         if indexPath.row == 0{
             
-            signUPCell.editProfileTF.placeholder = "First Name"
+            signUPCell.editProfileTF.placeholder = "FirstName".localize()
             signUPCell.editProfileTF.text = self.firstName
             
             
@@ -510,7 +510,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         else if indexPath.row == 1{
             
             
-            signUPCell.editProfileTF.placeholder = "Middle Name"
+            signUPCell.editProfileTF.placeholder = "MiddleName".localize()
             signUPCell.editProfileTF.text = self.middleName
             
             
@@ -519,7 +519,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         else if indexPath.row == 2{
             
             
-            signUPCell.editProfileTF.placeholder = "Last Name"
+            signUPCell.editProfileTF.placeholder = "LastName".localize()
             signUPCell.editProfileTF.text = self.lastName
             
             
@@ -527,7 +527,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         else if indexPath.row == 3{
             
-            signUPCell.editProfileTF.placeholder = "Mobile Number"
+            signUPCell.editProfileTF.placeholder = "Mobile Number".localize()
             signUPCell.editProfileTF.isUserInteractionEnabled = false
             signUPCell.editProfileTF.textColor = UIColor.lightGray
             signUPCell.editProfileTF.text = self.mobileNumber
@@ -538,7 +538,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
         else if indexPath.row == 4{
             
-            signUPCell.editProfileTF.placeholder = "Email ID"
+            signUPCell.editProfileTF.placeholder = "E-mail".localize()
             signUPCell.editProfileTF.text = self.email
             
             

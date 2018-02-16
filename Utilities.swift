@@ -66,7 +66,7 @@ class Utilities: NSObject {
         let capsMsg  = messege.capitalizingFirstLetter()
         let alrtControl = UIAlertController(title: alertTitle, message: capsMsg , preferredStyle: .alert)
         
-        let cancelButton = UIAlertAction(title: "OK", style: .default) { _ in
+        let cancelButton = UIAlertAction(title: "Ok".localize(), style: .default) { _ in
             clickAction()
             
         }
@@ -418,11 +418,11 @@ class Utilities: NSObject {
         let capsMsg  =  messege.capitalizingFirstLetter()
         let alrtControl = UIAlertController(title: alertTitle, message: capsMsg , preferredStyle: .alert)
         
-        let okButton = UIAlertAction(title: "Ok", style: .default) { _ in
+        let okButton = UIAlertAction(title: "Ok".localize(), style: .default) { _ in
             clickAction()
             
         }
-        let cancelButton = UIAlertAction(title: "Cancel", style: .default) { _ in
+        let cancelButton = UIAlertAction(title: "Cancel".localize(), style: .default) { _ in
             
         }
         alrtControl.addAction(cancelButton)

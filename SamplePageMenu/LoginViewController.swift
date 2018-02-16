@@ -27,6 +27,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var loginLabel: UILabel!
+    
+    
+    @IBOutlet weak var forgotBtn: UIButton!
+    
+    @IBOutlet weak var registerBtn: UIButton!
+    
+    @IBOutlet weak var dontHaveAccountLbl: UILabel!
     var email : String? = ""
     var password : String? = ""
     
@@ -34,10 +41,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     let utillites =  Utilities()
 
+    var placeHolderName = ["UserName","Password"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mobileEmailTF.placeholder = "UserName".localize()
+        passwordTF.placeholder = "Password".localize()
+        forgotBtn.setTitle("forgot Password".localize(), for: .normal)
+        registerBtn.setTitle("Register".localize(), for: .normal)
+        dontHaveAccountLbl.text = "Don't have an Account?".localize()
 
       /*  let defaults = UserDefaults.standard
         
@@ -178,7 +191,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
             if email!.isEmpty{
                 
-                Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message", messege: "Please Enter UserName", clickAction: {
+                Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize(), messege: "Please Enter UserName".localize(), clickAction: {
                     
                     
                 })
@@ -186,7 +199,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             else if password!.isEmpty{
                 
-                Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message", messege: "Please Enter PassWord", clickAction: {
+                Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize(), messege: "Please Enter Password".localize(), clickAction: {
                     
                     
                 })
@@ -231,15 +244,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } */
          if email!.isEmpty{
             
-            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message", messege: "Please Enter UserName", clickAction: {
+            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize().localize(), messege: "Please Enter UserName".localize(), clickAction: {
                 
                 
             })
             
         }
-        if email!.isEmpty{
+        if password!.isEmpty{
             
-            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message", messege: "Please Enter UserName", clickAction: {
+            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize(), messege: "Please Enter Password".localize(), clickAction: {
                 
                 
             })
@@ -350,7 +363,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             if  let failMsg = respVO.userDetails?.endUserMessage {
                             print(failMsg)
                                 
-                                self.showAlertViewWithTitle("Alert", message: failMsg, buttonTitle: "Ok")
+                                self.showAlertViewWithTitle("Alert".localize(), message: failMsg, buttonTitle: "Ok".localize())
                                 
                                 return
                             }
@@ -364,7 +377,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     if(error == "Enter Valid Credentials"){
                     
                        
-                        self.showAlertViewWithTitle("Alert", message: error, buttonTitle: "Ok")
+                        self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
 
                     
                     }
@@ -452,6 +465,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
+        
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         
         appDelegate.window?.rootViewController = rootController

@@ -8,16 +8,76 @@
     "Login"  :  "Login",
     "ChooseLanguage" : "Choose Language",
     "Telugu Churches" :  "Telugu Churches",
-    "Bibleapps" : "Bible apps",
-           
-    "Biblestudy"  : "Biblestudy",
-    "Bookshop" : "Bookshop",
-    "Donation" : "Donation",
-    "Doubts"  : "Doubts",
-    "Events" : "Events"
+    
+
+    
+    "UserName" : "UserName",
+    
+    "Password" : "Password",
+    "forgot Password" : "forgot Password",
+    "Register" : "Register",
+    "Don't have an Account?" : "Don't have an Account?",
+    "FirstName" : "FirstName",
+    "LastName" : "LastName",
+    "MiddleName" : "MiddleName",
+    "Mobile Number" : "Mobile Number",
+    "E-mail" : "E-mail",
+    "Confirm Password" : "Confirm Password",
+    "Submit" : "Submit",
+    "Registration" : "Registration",
+    "all ready have an Account?" : "all ready have an Account?",
+    "Message" : "Message",
+    "Please Enter UserName" : "Please Enter UserName",
+    "Please Enter Password" : "Please Enter Password",
+    "Alert" : "Alert",
+    "Ok" : "Ok",
+    "Success" :"Success",
+    "Retry" : "Retry",
+    "Please provide First Name" : "Please provide First Name",
+    "Only AlphaBets Allowed" : "Only AlphaBets Allowed",
+    "Please provide MiddleName" :"Please provide MiddleName",
+    "Please provide Lastname" :"Please provide Lastname",
+    "Please provide UserName" : "Please provide UserName",
+    "Please provide e-mail" :"Please provide e-mail",
+    "Please provide Mobile Number" : "Please provide Mobile Number",
+    "invalid Mobile Number" : "invalid Mobile Number",
+    "Email Should Minimum 5-Character" : "Email Should Minimum 5-Character",
+    "Please provide valid e-maild Format" : "Please provide valid e-maild Format",
+    "Please provide Password" : "Please provide Password",
+    "Please provide Confirm Password" : "Please provide Confirm Password",
+    "Incorrect Confirm Password" : "Incorrect Confirm Password",
+    "Password Missmatch" : "Password Missmatch",
+    "Please Provide New Password" : "Please Provide New Password",
+    "Please Provide Reset-Password" : "Please Provide Reset-Password",
+    "password must have at least one uppercase letter" : "password must have at least one uppercase letter",
+    "Please Provide Your Mobile Number" : "Please Provide Your Mobile Number",
+    "Please Provide 10-Digits MobileNumber" : "Please Provide 10-Digits MobileNumber",
+    "Please Provide Minimum 8 Characters Password" : "Please Provide Minimum 8 Characters Password",
+    "Password must have at least one number" : "Password must have at least one number",
+    "Password must have at least one special Character" : "Password must have at least one special Character",
+    "Provied Old Password" : "Provied Old Password",
+    "Please Provied Old Password" : "Please Provied Old Password",
+    "Please Login" : "Please Login",
+    "Cancel" : "Cancel",
+    "Personal Detail's" : "Personal Detail's",
+    "Edit Profile"  : "Edit Profile",
+    "Confirm" : "Confirm",
+    "Change Password" : "Change Password",
+    "Old Password" : "Old Password",
+    "New Password" : "New Password",
+
+    
+    
+    
+    
+    
+    
+    
 
 
 
-   
+
+
+
 
 }

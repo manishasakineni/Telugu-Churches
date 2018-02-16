@@ -120,7 +120,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter PassWord" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k6a-pi-HoT" customClass="AkiraTextField" customModule="TextFieldEffects">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="PassWord" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k6a-pi-HoT" customClass="AkiraTextField" customModule="TextFieldEffects">
                                 <rect key="frame" x="16" y="344" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="pD8-xV-a6M"/>
@@ -269,11 +269,14 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="dontHaveAccountLbl" destination="m1e-4J-e5w" id="rwT-OD-3Iw"/>
                         <outlet property="eyeBtnOutlet" destination="ZxN-Lp-WaH" id="2kQ-qd-miI"/>
+                        <outlet property="forgotBtn" destination="l4y-41-aCd" id="RfU-gP-2b9"/>
                         <outlet property="loginBtnOutLet" destination="Ufj-px-E5r" id="ixa-xt-3o5"/>
                         <outlet property="loginLabel" destination="0jY-b9-PZn" id="ahT-CH-rvi"/>
                         <outlet property="mobileEmailTF" destination="aU1-nw-80o" id="odg-BO-Il0"/>
                         <outlet property="passwordTF" destination="k6a-pi-HoT" id="Zqf-2a-7EF"/>
+                        <outlet property="registerBtn" destination="WlW-Ll-xCJ" id="OUG-n4-zo8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -316,7 +319,6 @@
                                         <rect key="frame" x="115" y="47" width="145" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="we0-ww-bAd"/>
-                                            <constraint firstAttribute="width" constant="145" id="yBW-8o-fXP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                         <color key="textColor" red="0.92549020049999997" green="0.23529411850000001" blue="0.1019607857" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -372,6 +374,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="allreadyhaveanAccount" destination="0bs-wx-tl0" id="EZV-oX-fGU"/>
                         <outlet property="signUpTableView" destination="Q1B-tN-SMs" id="MxI-Kg-Z2c"/>
                         <outlet property="signeUpOutLet" destination="btN-o0-2vA" id="w9C-EQ-99i"/>
                     </connections>

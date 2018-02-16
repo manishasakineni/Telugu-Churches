@@ -17,6 +17,9 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     @IBOutlet weak var chooseLanguageBtn: UIButton!
 
     var menuArray = [String]()
+    let utillites =  Utilities()
+
+    
 
     
     let imageView = ["EditProfile","ChangePSW","LogOutlightGray"]
@@ -32,6 +35,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let nibName2  = UINib(nibName: "menuNameTableViewCell" , bundle: nil)
         menuTableView.register(nibName2, forCellReuseIdentifier: "menuNameTableViewCell")
 
+        self.chooseLanguageBtn.setTitle("ChooseLanguage".localize(), for: .normal)
 
         
         menuTableView.delegate = self
@@ -122,14 +126,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-//        if indexPath.row == 0 {
-//            
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "menuTableViewCell")
-//                as!menuTableViewCell
-//        
-//            
-//            return cell
-//        }
         
         let cell1 = tableView.dequeueReusableCell(withIdentifier: "menuNameTableViewCell")
             as!menuNameTableViewCell
@@ -169,9 +165,11 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         let cell:menuNameTableViewCell = tableView.cellForRow(at: indexPath) as!menuNameTableViewCell
         
+
         if cell.menuNameLabel.text == "EditProfile".localize()
         {
-            
+            if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
+
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
             
@@ -182,6 +180,26 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             let newController = UINavigationController.init(rootViewController:desController)
             
             revealviewcontroller.pushFrontViewController(newController, animated: true)
+            
+            }else{
+                 utillites.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Login".localize(), clickAction: {
+                    
+                    UserDefaults.standard.set("1", forKey: "1")
+                    UserDefaults.standard.synchronize()
+                    let defaults = UserDefaults.standard
+                    defaults.set("false", forKey: KFirstTimeLogin)
+                    UserDefaults.standard.synchronize()
+                    
+                    let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+                    desController.showNav = true
+                    let newController = UINavigationController.init(rootViewController:desController)
+                    revealviewcontroller.pushFrontViewController(newController, animated: true)
+
+                 })
+
+                print("Cancel")
+            }
         }
         else if cell.menuNameLabel.text == "ChangepassWord".localize(){
             
@@ -189,7 +207,8 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
            // revealviewcontroller.pushFrontViewController(desController, animated: true)
             
-            
+            if UserDefaults.standard.value(forKey: KFirstTimeLogin) as? String == "true" {
+
             if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
 
                 let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChangePassWordViewController") as! ChangePassWordViewController
@@ -227,7 +246,26 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 self.revealViewController().revealToggle(animated: true)
                 
             }
-            
+            }else{
+                utillites.alertWithOkAndCancelButtonAction(vc: self, alertTitle: "Alert".localize(), messege: "Please Login".localize(), clickAction: {
+                    
+                    UserDefaults.standard.set("1", forKey: "1")
+                    UserDefaults.standard.synchronize()
+                    let defaults = UserDefaults.standard
+                    defaults.set("false", forKey: KFirstTimeLogin)
+                    
+                    UserDefaults.standard.synchronize()
+                    let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
+                    desController.showNav = true
+                    let newController = UINavigationController.init(rootViewController:desController)
+                    revealviewcontroller.pushFrontViewController(newController, animated: true)
+                    
+                })
+                
+                print("Cancel")
+            }
+
             
             
         }
@@ -240,7 +278,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             let defaults = UserDefaults.standard
             defaults.set("false", forKey: KFirstTimeLogin)
-            
             UserDefaults.standard.synchronize()
             
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -261,9 +298,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             let defaults = UserDefaults.standard
             defaults.set("false", forKey: KFirstTimeLogin)
-            
             UserDefaults.standard.synchronize()
-            
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let desController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as!LoginViewController
             desController.showNav = true

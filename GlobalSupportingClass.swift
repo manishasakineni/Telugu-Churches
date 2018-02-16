@@ -21,82 +21,82 @@ class GlobalSupportingClass {
     
     // MARK: - Error Messages
     class func blankFirstNameErrorMessage() -> String {
-        return "Please Provide FirstName"
+        return "Please provide First Name".localize()
     }
     class func AlphaBetsOnlyErrorMessage() -> String {
-        return "Only AlphaBets Allowed"
+        return "Only AlphaBets Allowed".localize()
     }
     class func blankMiddleNameErrorMessage() -> String {
-        return "Please Provide MiddleName"
+        return "Please provide MiddleName".localize()
     }
    
     class func blankLastNameErrorMessage() -> String {
-        return "Please Provide LastName"
+        return "Please provide Lastname".localize()
     }
     class func blankUserNameErrorMessage() -> String {
-        return "Please Provide UserName"
+        return "Please provide UserName"
     }
     class func blankEmailIDErrorMessage() -> String {
-        return "Please Provide EmailID"
+        return "Please provide e-mail".localize()
     }
     class func blankMobileNumberErrorMessage() -> String {
-        return "Please Select MobileNumber"
+        return "Please provide Mobile Number".localize()
     }
     
     class func miniCharMobileNumberErrorMessage() -> String {
-        return "Please Select MobileNumber"
+        return "Please provide Mobile Number".localize()
     }
     class func invalidMobileNumberErrorMessage() -> String {
-        return "invalid MobileNumber"
+        return "invalid Mobile Number".localize()
     }
     class func miniCharEmailIDErrorMessage() -> String {
-        return "Email Should Minimum 5-Character"
+        return "Email Should Minimum 5-Character".localize()
     }
     class func invalidEmaildIDFormatErrorMessage() -> String {
-        return "Please Provide valid EmaildIDFormat"
+        return "Please provide valid e-maild Format".localize()
     }
     
     class func blankPassWordErrorMessage() -> String {
-        return "Please Provide PassWord"
+        return "Please provide Password".localize()
     }
     class func blankConfirmPasswordErrorMessage() -> String {
-        return "Please Provide ConfirmPassWord"
+        return "Please provide Confirm Password".localize()
    
     }
     
     class func invalidDigitsInPasswordErrorMessage() -> String {
-        return "InCorrect ConfirmPassWord"
+        return "Incorrect Confirm Password".localize()
     }
     class func passwordMissMatchErrorMessage() -> String {
-        return "Password MissMatch"
+        return "Password Missmatch".localize()
     }
     
     
     class func blankPasswordErrorMessage() -> String {
-        return "Please Provide NewPassword"
+        return "Please Provide New Password".localize()
     }
     
     class func blankResetPasswordErrorMessage() -> String {
-        return "Please Provide Reset-Password"
+        return "Please Provide Reset-Password".localize()
     }
 //    class func blankConfirmPassWordErrorMessage() -> String {
 //        return "Please ConfirmPassWord Password"
 //    }
     class func capitalLetterMessage() -> String {
-        return "Password Must Have At Least One UpperCase"
+        return "password must have at least one uppercase letter".localize()
     }
     
     
     
     class func blankMobilenumberErrorMessage() -> String {
-        return "Please Provide Your Mobilenumber"
+        return "Please Provide Your Mobile Number".localize()
     }
     class func invalidMobilenumberErrorMessage() -> String {
-        return "Please Provide 10-Digits Mobilenumber"
+        return "Please Provide 10-Digits MobileNumber".localize()
     }
    
     class func invalidPassWordErrorMessage() -> String {
-        return "Please Provide Minimum 8-Charecters PassWord"
+        return "Please Provide Minimum 8 Characters Password".localize()
     }
 //    class func invalidPhoneNumberErrorMessage() -> String {
 //        return "app.Pleaseprovide10digitsmobilenumber".localize()
@@ -104,19 +104,19 @@ class GlobalSupportingClass {
     
 
     class func numberMessage() -> String {
-        return "Password Must Have At Least One Digit"
+        return "Password must have at least one number".localize()
     }
     
     class func specialCharacterMessage() -> String {
-        return "Password Must Have At Least One Non AlphaNumericCharacter"
+        return "Password must have at least one special Character".localize()
     }
     
     class func blankOldPasswordErrorMessage() -> String {
-        return "Provied Old Password"
+        return "Provied Old Password".localize()
     }
    
     class func blankNilOldPasswordErrorMessage() -> String {
-        return "Please Provied Old Password"
+        return "Please Provied Old Password".localize()
     }
     
     // MARK: - Capital

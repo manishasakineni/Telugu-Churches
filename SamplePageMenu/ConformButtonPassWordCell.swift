@@ -20,6 +20,10 @@ class ConformButtonPassWordCell: UITableViewCell {
 
     override func awakeFromNib() {
         
+        confirmBtn.setTitle("Confirm".localize(), for: .normal)
+        cancelBtn.setTitle("Cancel".localize(), for: .normal)
+
+        
         confirmBtn.tintColor = UIColor.white
         cancelBtn.tintColor = UIColor.white
         
