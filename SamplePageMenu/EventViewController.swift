@@ -26,6 +26,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     let birthdays: [Date] = []
 
     var somedays : Array = [String]()
+    var calendarEvents : [FSCalendar] = []
 
     
 //    fileprivate lazy var dateFormatter2: DateFormatter = {
@@ -117,13 +118,17 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
 //        return 0
 //    }
     
+ 
+    
+    
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
         
         let dateString = self.dateFormatter2.string(from: date)
+       
 
-        if self.datesWithEvent.contains(dateString) {
-            return "Event"
-        }
+//        if self.datesWithEvent.contains(dateString) {
+//            return "Event"
+//        }
         
         if self.datesWithMultipleEvents.contains(dateString) {
             
@@ -131,6 +136,25 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         }
         return nil
     }
+
+   
+    
+//    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+//        let dateString = self.dateFormatter2.string(from: date)
+//
+//        if monthPosition == .previous || monthPosition == .next {
+//            calendar.setCurrentPage(date, animated: true)
+//            
+//            print("title date",date)
+//        }
+//
+//        
+//        
+//        
+//        
+//    }
+
+    
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
        // calendar.snp.updateConstraints { (make) in
         //    make.height.equalTo(bounds.height)
@@ -139,19 +163,25 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
       //  }
         self.view.layoutIfNeeded()
     }
+    
+    
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print("did select date \(self.dateFormatter2.string(from: date))")
-        self.configureVisibleCells()
         
-                let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
-               // reOrderPopOverVC.delegate = self
+    let selectedDateString = self.dateFormatter2.string(from: date)
+        if(datesWithMultipleEvents.contains(selectedDateString)){
+            //                let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
+            //               // reOrderPopOverVC.delegate = self
+            //
+            //                    //    reOrderPopOverVC. singleSelection =
+            //                    //   var imagesArray : Array<UIImage> = Array()
+            //                        self.addChildViewController(reOrderPopOverVC)
+            //                        reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            //                        self.view.addSubview(reOrderPopOverVC.view)
+            //                        reOrderPopOverVC.didMove(toParentViewController: self)
+        }
         
-                    //    reOrderPopOverVC. singleSelection =
-                    //   var imagesArray : Array<UIImage> = Array()
-                        self.addChildViewController(reOrderPopOverVC)
-                        reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-                        self.view.addSubview(reOrderPopOverVC.view)
-                        reOrderPopOverVC.didMove(toParentViewController: self)
+
         
     }
     
