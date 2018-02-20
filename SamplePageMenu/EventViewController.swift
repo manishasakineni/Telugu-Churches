@@ -166,19 +166,20 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print("did select date \(self.dateFormatter2.string(from: date))")
-        
+    print("did select date \(self.dateFormatter2.string(from: date))")
     let selectedDateString = self.dateFormatter2.string(from: date)
         if(datesWithMultipleEvents.contains(selectedDateString)){
-            //                let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
-            //               // reOrderPopOverVC.delegate = self
-            //
-            //                    //    reOrderPopOverVC. singleSelection =
-            //                    //   var imagesArray : Array<UIImage> = Array()
-            //                        self.addChildViewController(reOrderPopOverVC)
-            //                        reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-            //                        self.view.addSubview(reOrderPopOverVC.view)
-            //                        reOrderPopOverVC.didMove(toParentViewController: self)
+                            let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
+                           // reOrderPopOverVC.delegate = self
+            
+                                //    reOrderPopOverVC. singleSelection =
+                                //   var imagesArray : Array<UIImage> = Array()
+                                    self.addChildViewController(reOrderPopOverVC)
+                                    reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+                                    self.view.addSubview(reOrderPopOverVC.view)
+                                    reOrderPopOverVC.didMove(toParentViewController: self)
+            
+            print(numberEvent)
         }
         
 
