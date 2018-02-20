@@ -12,6 +12,16 @@ class ChurchDetailsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var churchImage: UIImageView!
     @IBOutlet weak var churchNameLbl: UILabel!
+    
+    
+    @IBOutlet weak var areaNameLabel: UILabel!
+    
+    
+    @IBOutlet weak var phNoLabel: UILabel!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

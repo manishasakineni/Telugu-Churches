@@ -16,6 +16,18 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     var listResultArray = Array<Any>()
     var churchNamesArray = Array<String>()
     
+    
+    var imageArray = [UIImage(named:"7"),UIImage(named:"5"),UIImage(named:"4"),UIImage(named:"7"),UIImage(named:"5"),UIImage(named:"4"),UIImage(named:"7"),UIImage(named:"4")]
+    
+      var AreanamesArray = ["Kukatpally","Uppal","Ameerpet","JNTU","MGPS","PUNG","KPHP","MYP"]
+    
+    var PhNumberArray = ["9999999999","22222222222","2444444444","2323232323","3434343434","4545454545","6767676767","5858585858"]
+    var TimingsArray = ["OPEN5AM Close5PM ","OPEN6AM Close5PM","OPEN7AM Close8PM","OPEN8AM Close5PM","OPEN9AM Close4PM","OPEN5AM Close5PM","OPEN7AM Close5PM","OPEN6AM Close5PM"]
+    
+
+
+    
+    
     var PageIndex = 1
     var totalPages : Int? = 0
     var totalRecords : Int? = 0
@@ -182,8 +194,12 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChurchDetailsTableViewCell", for: indexPath) as! ChurchDetailsTableViewCell
         
         cell.churchNameLbl.text = churchNamesArray[indexPath.row]
-
-        
+//        cell.churchImage.image = imageArray[ indexPath.row]
+//
+//        cell.areaNameLabel.text = AreanamesArray[indexPath.row]
+//        cell.phNoLabel.text = PhNumberArray[indexPath.row]
+//        cell.timeLabel.text = TimingsArray[indexPath.row]
+//x
         return cell
         
     }

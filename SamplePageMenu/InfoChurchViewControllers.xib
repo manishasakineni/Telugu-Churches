@@ -48,7 +48,7 @@
                         <constraint firstAttribute="height" constant="21" id="cqY-Rt-pgi"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" red="0.078431372549019607" green="0.40784313725490196" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>

@@ -22,7 +22,8 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
     var detAndBillsVC : DetAndBillsViewController?
     private var controllersArray: [UIViewController] = []
     
-    
+    var appVersion          : String = ""
+
    
 
     override func viewDidLoad() {
@@ -40,7 +41,32 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+    //    Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Registration".localize(), backTitle: " Registration".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+        //navigationItem.leftBarButtonItems = []
+        
+    }
+    
 
+    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+        
+        //   navigationItem.leftBarButtonItems = []
+        //   let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+        
+        self.navigationController?.popViewController(animated: true)
+        
+        
+        print("Back Button Clicked......")
+        
+    }
 
     
     private func createPageMenu() {
