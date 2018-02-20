@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol changeSubtitleOfIndexDelegate {
-    func nameOfItem(indexNumber: Int, countText : String)
-}
+//protocol changeSubtitleOfIndexDelegate {
+//    func nameOfItem(indexNumber: Int, countText : String)
+//}
 
 protocol SttingPopOverHomeDelegate {
     func helpClicked()
@@ -18,7 +18,7 @@ protocol SttingPopOverHomeDelegate {
     func notificationClicked()
 }
 
-class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleOfIndexDelegate,UIPopoverPresentationControllerDelegate,SttingPopOverHomeDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout  {
+class HomeViewController: UIViewController ,UIPopoverPresentationControllerDelegate,SttingPopOverHomeDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout  {
     
     
     @IBOutlet weak var menuBarButton: UIBarButtonItem!
@@ -350,7 +350,8 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         }
     }
  
-    
+}
+/*
     private func createPageMenu() {
         
         
@@ -507,3 +508,4 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
     */
 
 }
+ */

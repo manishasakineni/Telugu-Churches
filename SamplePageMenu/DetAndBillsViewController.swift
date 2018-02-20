@@ -12,7 +12,7 @@ class DetAndBillsViewController: UIViewController,UITableViewDelegate ,UITableVi
 
     @IBOutlet weak var detAndBillsTableView: UITableView!
     
-    var delegate: changeSubtitleOfIndexDelegate?
+    var delegate: churchChangeSubtitleOfIndexDelegate?
 
     
     

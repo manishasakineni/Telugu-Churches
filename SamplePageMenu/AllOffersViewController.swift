@@ -14,7 +14,7 @@ class AllOffersViewController: UIViewController,UITableViewDelegate ,UITableView
 
     var serviceController = ServiceController()
     @IBOutlet weak var allOffersTableView: UITableView!
-    var delegate: changeSubtitleOfIndexDelegate?
+ //   var delegate: changeSubtitleOfIndexDelegate?
     
     @IBOutlet weak var player: YTPlayerView!
     

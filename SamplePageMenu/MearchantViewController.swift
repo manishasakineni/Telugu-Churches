@@ -13,7 +13,7 @@ class MearchantViewController: UIViewController,UITableViewDelegate ,UITableView
     
     @IBOutlet weak var mearchantTableView: UITableView!
     
-    var delegate: changeSubtitleOfIndexDelegate?
+   // var delegate: changeSubtitleOfIndexDelegate?
 
     
     let imageView = ["bible7","bible2","bible3","images.jpeg","7c26c4322705738c08d90691d32ff29b-brown-bible","bible9","bible8","bible2","bible1"]

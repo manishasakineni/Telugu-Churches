@@ -21,9 +21,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     var totalRecords : Int? = 0
     
     
-    
-    
-    override func viewDidLoad() {
+         override func viewDidLoad() {
         super.viewDidLoad()
         
         self.churchDetailsTableView.delegate = self
@@ -173,7 +171,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 
             }
         }
-        
+    
         
         
     }
@@ -184,8 +182,17 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChurchDetailsTableViewCell", for: indexPath) as! ChurchDetailsTableViewCell
         
         cell.churchNameLbl.text = churchNamesArray[indexPath.row]
+
         
         return cell
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
+        self.navigationController?.pushViewController(holyBibleViewController, animated: true)
         
     }
 }

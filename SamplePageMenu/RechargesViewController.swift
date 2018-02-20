@@ -23,7 +23,7 @@ class RechargesViewController: UIViewController,UITableViewDelegate ,UITableView
     
     
     
-    var delegate: changeSubtitleOfIndexDelegate?
+    var delegate: churchChangeSubtitleOfIndexDelegate?
 
     
     var playerVars = Dictionary<String, Any>()
