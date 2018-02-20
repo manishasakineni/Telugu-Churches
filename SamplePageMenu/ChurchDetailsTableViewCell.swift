@@ -10,9 +10,17 @@ import UIKit
 
 class ChurchDetailsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var churchImage: UIImageView!
+    @IBOutlet weak var churchNameLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        churchImage.layer.borderWidth = 1
+        churchImage.layer.masksToBounds = false
+        
+       
+        churchImage.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

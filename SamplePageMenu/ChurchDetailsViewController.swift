@@ -8,12 +8,23 @@
 
 import UIKit
 
-class ChurchDetailsViewController: UIViewController {
+class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
+    @IBOutlet weak var churchDetailsTableView: UITableView!
+    
+    
+    var listResultArray = Array<Any>()
+    var churchNamesArray = Array<String>()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.churchDetailsTableView.delegate = self
+        self.churchDetailsTableView.dataSource = self
 
-        // Do any additional setup after loading the view.
+        churchDetailsTableView.register(UINib.init(nibName: "ChurchDetailsTableViewCell", bundle: nil),
+                              forCellReuseIdentifier: "ChurchDetailsTableViewCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +32,111 @@ class ChurchDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+      
+       getChurchDetailsAPICall()
+        
+        
     }
-    */
+    
+    
+   func getChurchDetailsAPICall(){
+    
+    
+    
+      let paramsDict = [ "pasterUserId": 0,
+                       "pageIndex": 1,
+                       "pageSize": 10,
+                       "sortbyColumnName": "UpdatedDate",
+                       "sortDirection": "desc",
+                       "searchName": ""
+                      ] as [String : Any]
+    
+      let dictHeaders = ["":"","":""] as NSDictionary
+    
+    
+     serviceController.postRequest(strURL: GETALLCHURCHES as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+    
+       print(result)
+    
+       let respVO:ChurchDetailsJsonVO = Mapper().map(JSONObject: result)!
+        
+        
+        let isSuccess = respVO.isSuccess
+        print("StatusCode:\(String(describing: isSuccess))")
+        
+        if isSuccess == true {
+            
+            
+        self.listResultArray = respVO.listResult!
+           
+            for churchName in respVO.listResult!{
+                
+                self.churchNamesArray.append(churchName.name!)
+                
+            }
+    
+            
+            print(self.churchNamesArray)
+            
+            
+            
+            self.churchDetailsTableView.reloadData()
+            
+            
+        
+        
+        }
+        
+        else {
+        
+        
+        
+        }
+        
+        
+    
+    
+      }) { (failureMessage) in
+    
+    
+       print(failureMessage)
+    
+      }
+    
+    
 
+}
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 1
+    }
+    
+
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
+        return churchNamesArray.count
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 163
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChurchDetailsTableViewCell", for: indexPath) as! ChurchDetailsTableViewCell
+        
+        cell.churchNameLbl.text = churchNamesArray[indexPath.row]
+        
+        return cell
+        
+    }
 }

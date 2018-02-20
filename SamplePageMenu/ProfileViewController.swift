@@ -100,7 +100,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 let strUrl = PROFILEGETINFO + "" +  "\(loginid)"
                 
                 
-                serviceController.requestGETURL(strURL:strUrl, success:{(result) in
+                serviceController.getRequest(strURL:strUrl, success:{(result) in
                     DispatchQueue.main.async()
                         {
                             
@@ -649,7 +649,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let dictHeaders = ["":"","":""] as NSDictionary
         
         
-        serviceController.signUpRequestPOSTURL(strURL: updateProfileAPI as NSString, postParams: updateProfiledictParams as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+        serviceController.postRequest(strURL: updateProfileAPI as NSString, postParams: updateProfiledictParams as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
             DispatchQueue.main.async()
                 {

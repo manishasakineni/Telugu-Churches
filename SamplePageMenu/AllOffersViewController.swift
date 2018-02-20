@@ -135,7 +135,7 @@ var playerVars = Dictionary<String, Any>()
 
     func getVideosAPICall(){
     
-    serviceController.requestGETURL(strURL: videosURL, success: { (json) in
+    serviceController.getRequest(strURL: videosURL, success: { (json) in
         
         DispatchQueue.main.async()
             {

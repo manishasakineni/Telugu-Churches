@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A405" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -755,6 +755,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GB7-M4-enq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5282" y="332"/>
+        </scene>
+        <!--Church Details View Controller-->
+        <scene sceneID="Jgk-UL-3LE">
+            <objects>
+                <viewController storyboardIdentifier="ChurchDetailsViewController" id="tiA-aV-1BB" customClass="ChurchDetailsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C5G-Tz-ObG"/>
+                        <viewControllerLayoutGuide type="bottom" id="wYn-2k-Z5B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="53I-aR-6QA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dRf-ch-tRM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="tiA-aV-1BB" id="MHp-ic-d32"/>
+                                    <outlet property="delegate" destination="tiA-aV-1BB" id="6Nz-OY-ETp"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dRf-ch-tRM" firstAttribute="top" secondItem="53I-aR-6QA" secondAttribute="top" id="K4z-vv-ZG7"/>
+                            <constraint firstItem="dRf-ch-tRM" firstAttribute="leading" secondItem="53I-aR-6QA" secondAttribute="leading" id="hEn-K5-p7R"/>
+                            <constraint firstAttribute="trailing" secondItem="dRf-ch-tRM" secondAttribute="trailing" id="mgN-aB-7TF"/>
+                            <constraint firstItem="dRf-ch-tRM" firstAttribute="bottom" secondItem="wYn-2k-Z5B" secondAttribute="top" id="z3l-sV-9pP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="churchDetailsTableView" destination="dRf-ch-tRM" id="BSz-8M-Yaj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SVe-6K-KuM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5952.8000000000002" y="330.58470764617692"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="QXq-vG-SPc">

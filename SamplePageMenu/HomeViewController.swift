@@ -339,7 +339,15 @@ class HomeViewController: UIViewController ,CAPSPageMenuDelegate,changeSubtitleO
         
         }
         
-     // return true
+     
+        
+        if indexPath.item == 1{
+        
+        
+            let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
+            self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+        
+        }
     }
  
     

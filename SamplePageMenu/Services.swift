@@ -24,7 +24,7 @@ class Services: NSObject {
 //        
 //        let url : NSURL = NSURL(string: strUrl)!
 //        
-//        serviceController.requestGETURL(strURL: url, success: { (result) in
+//        serviceController.getRequest(strURL: url, success: { (result) in
 //            
 ////            if let response = result {
 //            

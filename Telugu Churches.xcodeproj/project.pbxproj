@@ -20,6 +20,11 @@
 		3D65D4B62004D9A200CAB226 /* DrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D65D4B12004D9A200CAB226 /* DrawerView.m */; };
 		3D65D4B72004D9A200CAB226 /* DrawerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D65D4B22004D9A200CAB226 /* DrawerView.xib */; };
 		3D65D4B9200505F000CAB226 /* Loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3D65D4B8200505F000CAB226 /* Loading.gif */; };
+		3D72DBEE203ADDA000B913F7 /* ChurchDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D72DBED203ADDA000B913F7 /* ChurchDetailsViewController.swift */; };
+		3D72DBF0203AE37A00B913F7 /* ChurchDetailsJsonVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D72DBEF203AE37A00B913F7 /* ChurchDetailsJsonVO.swift */; };
+		3D72DBF2203AE60A00B913F7 /* ChurchDetailsListResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D72DBF1203AE60A00B913F7 /* ChurchDetailsListResultVO.swift */; };
+		3D72DBF9203B058000B913F7 /* ChurchDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D72DBF7203B058000B913F7 /* ChurchDetailsTableViewCell.swift */; };
+		3D72DBFA203B058000B913F7 /* ChurchDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D72DBF8203B058000B913F7 /* ChurchDetailsTableViewCell.xib */; };
 		3DDD890D2018567300918711 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD890C2018567300918711 /* SignUpViewController.swift */; };
 		3DDD8910201865F600918711 /* SignUPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD890E201865F600918711 /* SignUPTableViewCell.swift */; };
 		3DDD8911201865F600918711 /* SignUPTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DDD890F201865F600918711 /* SignUPTableViewCell.xib */; };
@@ -152,6 +157,11 @@
 		3D65D4B12004D9A200CAB226 /* DrawerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawerView.m; sourceTree = "<group>"; };
 		3D65D4B22004D9A200CAB226 /* DrawerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrawerView.xib; sourceTree = "<group>"; };
 		3D65D4B8200505F000CAB226 /* Loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Loading.gif; sourceTree = "<group>"; };
+		3D72DBED203ADDA000B913F7 /* ChurchDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchDetailsViewController.swift; sourceTree = "<group>"; };
+		3D72DBEF203AE37A00B913F7 /* ChurchDetailsJsonVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchDetailsJsonVO.swift; sourceTree = "<group>"; };
+		3D72DBF1203AE60A00B913F7 /* ChurchDetailsListResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchDetailsListResultVO.swift; sourceTree = "<group>"; };
+		3D72DBF7203B058000B913F7 /* ChurchDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		3D72DBF8203B058000B913F7 /* ChurchDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChurchDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		3DDD890C2018567300918711 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3DDD890E201865F600918711 /* SignUPTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUPTableViewCell.swift; sourceTree = "<group>"; };
 		3DDD890F201865F600918711 /* SignUPTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUPTableViewCell.xib; sourceTree = "<group>"; };
@@ -419,6 +429,7 @@
 				9A88D6162019EB0C0021F862 /* LaunchScreenViewControllwe */,
 				AF1956E320048BBC007AC82A /* SideMenuViewController */,
 				9A5D25F21FFF76A300316988 /* LoginViewController.swift */,
+				3D72DBED203ADDA000B913F7 /* ChurchDetailsViewController.swift */,
 				3DDD890C2018567300918711 /* SignUpViewController.swift */,
 				CB0256AF202430150017E240 /* HomeViewController */,
 			);
@@ -468,6 +479,8 @@
 				9A5D26351FFF8A4900316988 /* AllOffersCell.xib */,
 				9A5D263C1FFF8A5D00316988 /* ScrollImagesCell.swift */,
 				9A5D263D1FFF8A5D00316988 /* ScrollImagesCell.xib */,
+				3D72DBF7203B058000B913F7 /* ChurchDetailsTableViewCell.swift */,
+				3D72DBF8203B058000B913F7 /* ChurchDetailsTableViewCell.xib */,
 			);
 			name = ViewCells;
 			sourceTree = "<group>";
@@ -475,6 +488,8 @@
 		9A623B8120219B8700A674F2 /* MapperVO */ = {
 			isa = PBXGroup;
 			children = (
+				3D72DBEF203AE37A00B913F7 /* ChurchDetailsJsonVO.swift */,
+				3D72DBF1203AE60A00B913F7 /* ChurchDetailsListResultVO.swift */,
 				CB83473E20287E670034AD4E /* ChangePasswordVo */,
 				3D551C602011F617005DB3B2 /* VideosVO.swift */,
 				9A058AF72021E02D005A611C /* RegisterVo */,
@@ -758,6 +773,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D65D4B52004D9A200CAB226 /* DrawerCell.xib in Resources */,
+				3D72DBFA203B058000B913F7 /* ChurchDetailsTableViewCell.xib in Resources */,
 				9A5D262B1FFF8A2F00316988 /* PriceSortCell.xib in Resources */,
 				9A5D26331FFF8A3F00316988 /* SendMoneyToWalletCell.xib in Resources */,
 				CB345E1B202339B6006CC378 /* homeCollectionViewCell.xib in Resources */,
@@ -871,6 +887,7 @@
 				9AA3AB792011D7420065D4BD /* DateFormatterTransform.swift in Sources */,
 				9A5D26121FFF89C300316988 /* RechargesViewController.swift in Sources */,
 				3D551C612011F617005DB3B2 /* VideosVO.swift in Sources */,
+				3D72DBF9203B058000B913F7 /* ChurchDetailsTableViewCell.swift in Sources */,
 				CB9BC7FD2037122400625179 /* EventViewController.swift in Sources */,
 				AF1956EA200492F4007AC82A /* menuTableViewCell.swift in Sources */,
 				9AA3AB742011D7420065D4BD /* HexColorTransform.swift in Sources */,
@@ -885,6 +902,7 @@
 				9AEAE824201F491800DB9D8E /* GlobalSupportingClass.swift in Sources */,
 				3D551C632011F6BE005DB3B2 /* ServiceController.swift in Sources */,
 				CB345E1A202339B6006CC378 /* homeCollectionViewCell.swift in Sources */,
+				3D72DBF2203AE60A00B913F7 /* ChurchDetailsListResultVO.swift in Sources */,
 				3D551C652011FE59005DB3B2 /* VideosResultVO.swift in Sources */,
 				9AA3AB752011D7420065D4BD /* MapError.swift in Sources */,
 				9A623B922021AF1600A674F2 /* Services.swift in Sources */,
@@ -896,6 +914,7 @@
 				9AA3AB782011D7420065D4BD /* NSDecimalNumberTransform.swift in Sources */,
 				CB150A5F2029788700626CA1 /* PSWMessageTypeResult.swift in Sources */,
 				CB9BC8022037126900625179 /* DIYExampleViewController.swift in Sources */,
+				3D72DBEE203ADDA000B913F7 /* ChurchDetailsViewController.swift in Sources */,
 				9A058AFB2021F395005A611C /* LoginVo.swift in Sources */,
 				9AA3AB7C2011D7420065D4BD /* ISO8601DateTransform.swift in Sources */,
 				3D65D4B32004D9A200CAB226 /* CCKFNavDrawer.m in Sources */,
@@ -939,6 +958,7 @@
 				9A88D6182019EB2C0021F862 /* LaunchScreenViewController.swift in Sources */,
 				9A623B8520219CB500A674F2 /* RegisterVo.swift in Sources */,
 				9A5D26361FFF8A4900316988 /* AllOffersCell.swift in Sources */,
+				3D72DBF0203AE37A00B913F7 /* ChurchDetailsJsonVO.swift in Sources */,
 				9A5D263A1FFF8A5100316988 /* PageControllCell.swift in Sources */,
 				CBE68D3B202EF9A600B994D4 /* LoginJsonVO.swift in Sources */,
 				CB0256C1202473420017E240 /* ProfileViewController.swift in Sources */,
@@ -1085,7 +1105,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/praveendole/Desktop/Telugu Churchues/SamplePageMenu-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/owner/Desktop/Telugu Churches/SamplePageMenu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1102,7 +1122,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/praveendole/Desktop/Telugu Churchues/SamplePageMenu-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/owner/Desktop/Telugu Churches/SamplePageMenu-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

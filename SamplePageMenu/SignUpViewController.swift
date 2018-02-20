@@ -675,7 +675,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
 
         
         
-        serviceController.signUpRequestPOSTURL(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
+        serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
             DispatchQueue.main.async()
                 {
                     

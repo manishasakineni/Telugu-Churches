@@ -4,25 +4,43 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>FSCalendar.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>IQKeyboardManagerSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Localize.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>Pods-Telugu Churches.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>TextFieldEffects.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>youtube-ios-player-helper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -42,7 +60,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>7494DC8281C2561888C2DCAC9EDE4B3D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA00C4B4DB4DDE9D75DCA68C8ADE1FC0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B1CCBBDB68906BFE4933D58D3B6BDA1C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C235F77E101E742652CCF98FFDFA5182</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C5A2DB7A84B7B78E359870D2E1B24AA7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F09CE227DAF6C882933D4DDED02EDEB6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

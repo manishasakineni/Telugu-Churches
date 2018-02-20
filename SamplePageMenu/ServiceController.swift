@@ -19,7 +19,7 @@ class ServiceController: NSObject {
     
     
     
-    func signUpRequestPOSTURL(strURL:NSString,postParams:NSDictionary,postHeaders:NSDictionary,successHandler:@escaping(_ _result:Any)->Void,failureHandler:@escaping (_ error:String)->Void) -> Void {
+    func postRequest(strURL:NSString,postParams:NSDictionary,postHeaders:NSDictionary,successHandler:@escaping(_ _result:Any)->Void,failureHandler:@escaping (_ error:String)->Void) -> Void {
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -181,7 +181,7 @@ class ServiceController: NSObject {
     
     
     
-    func requestGETURL(strURL:String,success:@escaping(_ _result:AnyObject)->Void,failure:@escaping(_ error:String) -> Void) {
+    func getRequest(strURL:String,success:@escaping(_ _result:AnyObject)->Void,failure:@escaping(_ error:String) -> Void) {
         
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         

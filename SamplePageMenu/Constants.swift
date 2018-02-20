@@ -13,7 +13,7 @@ import Foundation
 
 let videosURL = "http://192.168.1.123/TeluguChurchesApi/api/GetEmbedLinks/"
 
-
+//http://192.168.1.121/TeluguChurches/api/Church/GetAllChurches
 
 
 
@@ -25,7 +25,8 @@ let LOGINURL : String = BASEURL.appending("api/UserInfo/LoginUser/")
 
 let CHANGEPASSWORDURL:String = BASEURL.appending("api/Account/ChangePassword")
 let EDITPROFILEURL : String = BASEURL.appending("api/UserInfo/UpdateUserInfo")
-let PROFILEGETINFO : String = BASEURL.appending("api/UserInfo/GetUserInfo/") 
+let PROFILEGETINFO : String = BASEURL.appending("api/UserInfo/GetUserInfo/")
+let GETALLCHURCHES : String = BASEURL.appending("api/Church/GetAllChurches")
 
 
 // MARK: -  Navigation String

@@ -309,10 +309,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
             //    let strUrl = LOGINURL + "" + email! + "/" + password!
                 
-                serviceController.signUpRequestPOSTURL(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
+                serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
                     DispatchQueue.main.async()
                         {
-               // serviceController.requestGETURL(strURL:strUrl, success:{(result) in
+               // serviceController.getRequest(strURL:strUrl, success:{(result) in
                   //  DispatchQueue.main.async()
 //{
                             
