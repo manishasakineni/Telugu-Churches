@@ -13,6 +13,12 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     @IBOutlet weak var datePopUpTableView: UITableView!
 
+    var eventsLisrArray = Array<String>()
+    var febEventsLisrArray = Array<String>()
+
+    var eventsDateString : String = ""
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +32,8 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
         datePopUpTableView.register(UINib.init(nibName: "EventHeaderCell", bundle: nil),
                                           forCellReuseIdentifier: "EventHeaderCell")
 
+        
+        
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
 
@@ -48,7 +56,7 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         if section == 0{
             
-            return 3
+            return eventsLisrArray.count
 
         }
         return 0
@@ -68,6 +76,7 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         let eventHeaderCell = tableView.dequeueReusableCell(withIdentifier: "EventHeaderCell") as! EventHeaderCell
         
+        eventHeaderCell.eventDate.text = "Date:-" + self.eventsDateString
        
         
         return eventHeaderCell
@@ -84,15 +93,46 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
         
        // if indexPath.section == 0 {
             
-            let allOffersCell = tableView.dequeueReusableCell(withIdentifier: "EventInformationCell", for: indexPath) as! EventInformationCell
-            
-            return allOffersCell
+            let eventInformationCell = tableView.dequeueReusableCell(withIdentifier: "EventInformationCell", for: indexPath) as! EventInformationCell
+        
+             eventInformationCell.eventType.text = self.eventsLisrArray[indexPath.row]
+            return eventInformationCell
        // }
        
     }
     
     
+    @IBAction func okButtonAction(_ sender: UIButton) {
+        
+        removeAnimate()
+        
+    }
     
+    @IBAction func cancelButtonAction(_ sender: UIButton) {
+        
+        removeAnimate()
+        
+    }
+    
+    
+    
+    
+    func removeAnimate()
+    {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.view.alpha = 0.0;
+        }, completion:{(finished : Bool)  in
+            if (finished)
+            {
+                self.view.removeFromSuperview()
+            }
+        });
+    }
+    
+    
+    
+
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        
 //        

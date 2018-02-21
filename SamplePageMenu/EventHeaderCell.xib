@@ -24,27 +24,52 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sad-ag-gof">
-                        <rect key="frame" x="3" y="3" width="314" height="37.5"/>
-                        <color key="backgroundColor" red="0.79616970490000005" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Events" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDA-fs-1eu">
+                                <rect key="frame" x="115" y="11" width="91" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="91" id="4cN-QI-mps"/>
+                                    <constraint firstAttribute="height" constant="21" id="sGT-2H-yI7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" red="0.4039215686" green="0.6705882353" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMx-rA-KOQ">
+                                <rect key="frame" x="8" y="15.5" width="54" height="13"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                <color key="textColor" red="0.4039215686" green="0.6705882353" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Events" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jej-fE-UhC">
+                                <rect key="frame" x="269.5" y="13" width="42.5" height="16.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pMx-rA-KOQ" firstAttribute="centerY" secondItem="sad-ag-gof" secondAttribute="centerY" id="6UB-TV-TDz"/>
+                            <constraint firstItem="jej-fE-UhC" firstAttribute="centerY" secondItem="sad-ag-gof" secondAttribute="centerY" id="B7R-cT-2CX"/>
+                            <constraint firstItem="pMx-rA-KOQ" firstAttribute="leading" secondItem="sad-ag-gof" secondAttribute="leading" constant="8" id="MML-kX-ys4"/>
+                            <constraint firstAttribute="bottom" secondItem="yDA-fs-1eu" secondAttribute="bottom" constant="11.5" id="TnT-2K-GrA"/>
+                            <constraint firstItem="yDA-fs-1eu" firstAttribute="top" secondItem="sad-ag-gof" secondAttribute="top" constant="11" id="cGM-X1-Gkp"/>
+                            <constraint firstItem="yDA-fs-1eu" firstAttribute="centerX" secondItem="sad-ag-gof" secondAttribute="centerX" id="oYg-gy-941"/>
+                            <constraint firstAttribute="trailing" secondItem="jej-fE-UhC" secondAttribute="trailing" constant="8" id="rmj-Vl-4kO"/>
+                        </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Events" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDA-fs-1eu">
-                        <rect key="frame" x="14" y="11" width="292" height="21"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="sad-ag-gof" secondAttribute="trailing" constant="3" id="8Sf-j9-2dk"/>
-                    <constraint firstAttribute="trailing" secondItem="yDA-fs-1eu" secondAttribute="trailing" constant="14" id="DuN-bh-eZt"/>
-                    <constraint firstItem="yDA-fs-1eu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="Fj4-u2-sdz"/>
-                    <constraint firstItem="sad-ag-gof" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="HYh-ih-Yb4"/>
-                    <constraint firstAttribute="bottom" secondItem="sad-ag-gof" secondAttribute="bottom" constant="3" id="d91-QV-RVd"/>
-                    <constraint firstItem="yDA-fs-1eu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="dgJ-XJ-IWW"/>
-                    <constraint firstAttribute="bottom" secondItem="yDA-fs-1eu" secondAttribute="bottom" constant="11.5" id="lK4-Hk-ZYX"/>
-                    <constraint firstItem="sad-ag-gof" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="pag-Ka-yDW"/>
+                    <constraint firstAttribute="trailing" secondItem="sad-ag-gof" secondAttribute="trailing" id="8Sf-j9-2dk"/>
+                    <constraint firstItem="sad-ag-gof" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HYh-ih-Yb4"/>
+                    <constraint firstAttribute="bottom" secondItem="sad-ag-gof" secondAttribute="bottom" id="d91-QV-RVd"/>
+                    <constraint firstItem="sad-ag-gof" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pag-Ka-yDW"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="eventDate" destination="pMx-rA-KOQ" id="X04-Ln-LfB"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

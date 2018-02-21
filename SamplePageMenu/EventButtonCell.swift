@@ -1,16 +1,15 @@
 //
-//  EventHeaderCell.swift
+//  EventButtonCell.swift
 //  Telugu Churches
 //
-//  Created by praveen dole on 2/20/18.
+//  Created by praveen dole on 2/21/18.
 //  Copyright © 2018 Mac OS. All rights reserved.
 //
 
 import UIKit
 
-class EventHeaderCell: UITableViewCell {
+class EventButtonCell: UITableViewCell {
 
-    @IBOutlet weak var eventDate: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

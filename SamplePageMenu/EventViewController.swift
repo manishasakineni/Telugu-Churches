@@ -14,11 +14,15 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
 
     @IBOutlet weak var calendar: FSCalendar!
     
-    var datesWithEvent = ["2018-01-03", "2018-01-06", "2018-01-12", "2018-01-25"]
+    var febDatesWithEvent = ["2018-02-03", "2018-02-06", "2018-02-12", "2018-02-25"]
     var datesWithMultipleEvents = ["2018-01-08", "2018-01-16", "2018-01-20", "2018-01-28"]
 
     var event = ""
+    var feb = ""
+
     var numberEvent = ["AAA", "BBB", "CCC", "DDD"]
+    var febEvent = ["Steve", "Jobs", "Pall", "Iphone"]
+
   //  let day: Int! = self.gregorian.component(.day, from: date)
 
     var holidays:  [Date] = []
@@ -170,6 +174,8 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     let selectedDateString = self.dateFormatter2.string(from: date)
         if(datesWithMultipleEvents.contains(selectedDateString)){
                             let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
+               reOrderPopOverVC.eventsLisrArray = self.numberEvent
+               reOrderPopOverVC.eventsDateString = selectedDateString
                            // reOrderPopOverVC.delegate = self
             
                                 //    reOrderPopOverVC. singleSelection =
@@ -207,6 +213,8 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         }
     }
     
+    
+     
     
 //    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
 //      //  if monthPosition == .next {
