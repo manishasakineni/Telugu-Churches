@@ -24,12 +24,14 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
     
     var appVersion          : String = ""
 
-   
+    var churchID:Int = 0
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
+    print("churchID:\(churchID)")
         
        createPageMenu()
 
@@ -75,6 +77,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         allOffersVC = InfoChurchViewControllers(nibName: "InfoChurchViewControllers", bundle: nil)
         allOffersVC?.title = "Info"
         allOffersVC?.delegate  = self
+        allOffersVC?.churchID = churchID
         
         
         eventInfoVC = EventInfoViewController(nibName: "EventInfoViewController",
@@ -109,15 +112,28 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
                                                  CAPSPageMenuOption.addBottomMenuHairline(true),
                                                  CAPSPageMenuOption.menuItemWidthBasedOnTitleTextWidth(false),CAPSPageMenuOption.hideSubTitle(false)]
         
-   // revealViewController().addChildViewController(pageMenu!)
-     //   pageMenu?.delegate = self
-  //  self.view.addSubview((pageMenu?.view)!)
-        pageMenu = CAPSPageMenu(viewControllers: controllersArray, frame: CGRect(x:0.0, y:64.0, width:self.view.frame.width, height:self.view.frame.height), pageMenuOptions: parameters)
         
-        // Lastly add page menu as subview of base view controller view
-        // or use pageMenu controller in you view hierachy as desired
-        self.view.addSubview(pageMenu!.view)
-    //pageMenu?.didMove(toParentViewController: self)
+        
+        
+        pageMenu = CAPSPageMenu(viewControllers: controllersArray,
+                                frame: CGRect.init(x: 0.0, y: 64.0, width: self.view.frame.size.width, height: self.view.frame.size.height),
+                                pageMenuOptions: parameters)
+        pageMenu?.delegate = self
+        self.addChildViewController(pageMenu!)
+        
+        view.addSubview((pageMenu?.view)!)
+        pageMenu?.didMove(toParentViewController: self)
+        
+        
+//   // revealViewController().addChildViewController(pageMenu!)
+//     //   pageMenu?.delegate = self
+//  //  self.view.addSubview((pageMenu?.view)!)
+//        pageMenu = CAPSPageMenu(viewControllers: controllersArray, frame: CGRect(x:0.0, y:64.0, width:self.view.frame.width, height:self.view.frame.height), pageMenuOptions: parameters)
+//        
+//        // Lastly add page menu as subview of base view controller view
+//        // or use pageMenu controller in you view hierachy as desired
+//        self.view.addSubview(pageMenu!.view)
+//    //pageMenu?.didMove(toParentViewController: self)
         
     }
     

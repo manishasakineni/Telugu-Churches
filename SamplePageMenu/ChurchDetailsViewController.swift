@@ -16,6 +16,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     var listResultArray = Array<Any>()
     var churchNamesArray = Array<String>()
+    var churchIDArray = Array<Int>()
     var villageNamesArray = Array<String>()
     var phoneNoArray = Array<String>()
     
@@ -29,7 +30,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
 
 
-    
     
     var PageIndex = 1
     var totalPages : Int? = 0
@@ -92,14 +92,25 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
        let respVO:ChurchDetailsJsonVO = Mapper().map(JSONObject: result)!
         
+//        let churchID = respVO.listResult?[0].Id
+//        print("churchID" ,churchID!)
+//        
+//        let defaults = UserDefaults.standard
+//        defaults.set(churchID, forKey: kchurchID)
+//        UserDefaults.standard.synchronize()
         
+    
         let isSuccess = respVO.isSuccess
         print("StatusCode:\(String(describing: isSuccess))")
         
         if isSuccess == true {
             
             
+            
         self.listResultArray = respVO.listResult!
+            
+           
+            
             
         let pageCout  = (respVO.totalRecords)! / 10
             
@@ -119,6 +130,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 self.churchNamesArray.append(church.name!)
                 self.villageNamesArray.append(church.villageName!)
                 self.phoneNoArray.append(church.contactNumber!)
+                self.churchIDArray.append(church.Id!)
                 
             }
     
@@ -216,6 +228,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         cell.churchNameLbl.text = churchNamesArray[indexPath.row]
         cell.areaNameLabel.text = villageNamesArray[indexPath.row]
+    
         cell.phNoLabel.text     = phoneNoArray[indexPath.row]
 //        cell.churchImage.sd_setImage(with: URL(string: "http://www.pravoslavie.ru/sas/image/102063/206387.b.jpg?mtime=1434361516"), placeholderImage: UIImage(named: "5"))
         
@@ -237,7 +250,15 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
+       
         let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
+        
+        
+        holyBibleViewController.churchID = churchIDArray[indexPath.row]
+        
+        
+        
         self.navigationController?.pushViewController(holyBibleViewController, animated: true)
         
     }

@@ -27,6 +27,7 @@ let CHANGEPASSWORDURL:String = BASEURL.appending("api/Account/ChangePassword")
 let EDITPROFILEURL : String = BASEURL.appending("api/UserInfo/UpdateUserInfo")
 let PROFILEGETINFO : String = BASEURL.appending("api/UserInfo/GetUserInfo/")
 let GETALLCHURCHES : String = BASEURL.appending("api/Church/GetAllChurches")
+let GETCHURCHEBYID : String = BASEURL.appending("api/Church/GetChurchbyId/")
 
 
 // MARK: -  Navigation String
@@ -44,6 +45,7 @@ let kpassword:String  = "kpassword"
 let kemail:String  = "kemail"
 let kLoginSucessStatus:String = "kLoginSucessStatus"
 let kRegisterSucessStatus:String = "kRegisterSucessStatus"
+//let kchurchID:String = "kchurchID"
 
 
 let kTokenType = "tokenType"
