@@ -104,6 +104,14 @@
 		9AF5649E2020972900AEA0EF /* ForgotPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AF5649C2020972900AEA0EF /* ForgotPasswordCell.xib */; };
 		9AF564A120209C4F00AEA0EF /* ConformButtonPassWordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF5649F20209C4F00AEA0EF /* ConformButtonPassWordCell.swift */; };
 		9AF564A220209C4F00AEA0EF /* ConformButtonPassWordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AF564A020209C4F00AEA0EF /* ConformButtonPassWordCell.xib */; };
+		AF08F1A6203D57D400498256 /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF08F1A4203D57D400498256 /* InformationTableViewCell.swift */; };
+		AF08F1A7203D57D400498256 /* InformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF08F1A5203D57D400498256 /* InformationTableViewCell.xib */; };
+		AF08F1AA203D57F300498256 /* InfoMapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF08F1A8203D57F300498256 /* InfoMapTableViewCell.swift */; };
+		AF08F1AB203D57F300498256 /* InfoMapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF08F1A9203D57F300498256 /* InfoMapTableViewCell.xib */; };
+		AF08F1AE203D581100498256 /* AboutInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF08F1AC203D581100498256 /* AboutInfoTableViewCell.swift */; };
+		AF08F1AF203D581100498256 /* AboutInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF08F1AD203D581100498256 /* AboutInfoTableViewCell.xib */; };
+		AF08F1B2203D763800498256 /* HeadImgTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF08F1B0203D763800498256 /* HeadImgTableViewCell.swift */; };
+		AF08F1B3203D763800498256 /* HeadImgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF08F1B1203D763800498256 /* HeadImgTableViewCell.xib */; };
 		AF102852203C25B10012411A /* InfoChurchViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF102851203C25B10012411A /* InfoChurchViewControllers.swift */; };
 		AF102855203C25C10012411A /* ChurchesInformaationViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF102853203C25C10012411A /* ChurchesInformaationViewControllers.swift */; };
 		AF102856203C25C10012411A /* InfoChurchViewControllers.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF102854203C25C10012411A /* InfoChurchViewControllers.xib */; };
@@ -262,6 +270,14 @@
 		9AF5649F20209C4F00AEA0EF /* ConformButtonPassWordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConformButtonPassWordCell.swift; sourceTree = "<group>"; };
 		9AF564A020209C4F00AEA0EF /* ConformButtonPassWordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConformButtonPassWordCell.xib; sourceTree = "<group>"; };
 		9C2110E70A197746D811F760 /* Pods-Telugu Churches.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telugu Churches.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Telugu Churches/Pods-Telugu Churches.debug.xcconfig"; sourceTree = "<group>"; };
+		AF08F1A4203D57D400498256 /* InformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
+		AF08F1A5203D57D400498256 /* InformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InformationTableViewCell.xib; sourceTree = "<group>"; };
+		AF08F1A8203D57F300498256 /* InfoMapTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoMapTableViewCell.swift; sourceTree = "<group>"; };
+		AF08F1A9203D57F300498256 /* InfoMapTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoMapTableViewCell.xib; sourceTree = "<group>"; };
+		AF08F1AC203D581100498256 /* AboutInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutInfoTableViewCell.swift; sourceTree = "<group>"; };
+		AF08F1AD203D581100498256 /* AboutInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutInfoTableViewCell.xib; sourceTree = "<group>"; };
+		AF08F1B0203D763800498256 /* HeadImgTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadImgTableViewCell.swift; sourceTree = "<group>"; };
+		AF08F1B1203D763800498256 /* HeadImgTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeadImgTableViewCell.xib; sourceTree = "<group>"; };
 		AF102851203C25B10012411A /* InfoChurchViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoChurchViewControllers.swift; sourceTree = "<group>"; };
 		AF102853203C25C10012411A /* ChurchesInformaationViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchesInformaationViewControllers.swift; sourceTree = "<group>"; };
 		AF102854203C25C10012411A /* InfoChurchViewControllers.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoChurchViewControllers.xib; sourceTree = "<group>"; };
@@ -625,12 +641,20 @@
 			isa = PBXGroup;
 			children = (
 				AF102853203C25C10012411A /* ChurchesInformaationViewControllers.swift */,
+				CB21CE5E203D505100B3294B /* EventInfoViewController.swift */,
+				CB21CE5F203D505100B3294B /* EventInfoViewController.xib */,
 				AF102851203C25B10012411A /* InfoChurchViewControllers.swift */,
 				AF102854203C25C10012411A /* InfoChurchViewControllers.xib */,
 				AF102857203C28700012411A /* InfoTableViewCell.swift */,
 				AF102858203C28700012411A /* InfoTableViewCell.xib */,
-				CB21CE5E203D505100B3294B /* EventInfoViewController.swift */,
-				CB21CE5F203D505100B3294B /* EventInfoViewController.xib */,
+				AF08F1B0203D763800498256 /* HeadImgTableViewCell.swift */,
+				AF08F1B1203D763800498256 /* HeadImgTableViewCell.xib */,
+				AF08F1A4203D57D400498256 /* InformationTableViewCell.swift */,
+				AF08F1A5203D57D400498256 /* InformationTableViewCell.xib */,
+				AF08F1A8203D57F300498256 /* InfoMapTableViewCell.swift */,
+				AF08F1A9203D57F300498256 /* InfoMapTableViewCell.xib */,
+				AF08F1AC203D581100498256 /* AboutInfoTableViewCell.swift */,
+				AF08F1AD203D581100498256 /* AboutInfoTableViewCell.xib */,
 			);
 			name = ChurchInformationViewController;
 			sourceTree = "<group>";
@@ -828,6 +852,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D65D4B52004D9A200CAB226 /* DrawerCell.xib in Resources */,
+				AF08F1AF203D581100498256 /* AboutInfoTableViewCell.xib in Resources */,
 				3D72DBFA203B058000B913F7 /* ChurchDetailsTableViewCell.xib in Resources */,
 				9A5D262B1FFF8A2F00316988 /* PriceSortCell.xib in Resources */,
 				9A5D26331FFF8A3F00316988 /* SendMoneyToWalletCell.xib in Resources */,
@@ -841,6 +866,8 @@
 				CB834738202837020034AD4E /* HeaderProfileCell.xib in Resources */,
 				9A5D26131FFF89C300316988 /* RechargesViewController.xib in Resources */,
 				3D65D4A82004CE4A00CAB226 /* VideoTableViewCell.xib in Resources */,
+				AF08F1A7203D57D400498256 /* InformationTableViewCell.xib in Resources */,
+				AF08F1B3203D763800498256 /* HeadImgTableViewCell.xib in Resources */,
 				9A5D261F1FFF89EA00316988 /* TransactionCell.xib in Resources */,
 				9A5D261B1FFF89D900316988 /* MearchantViewController.xib in Resources */,
 				CB259FD0203C63C00052C384 /* EventHeaderCell.xib in Resources */,
@@ -859,6 +886,7 @@
 				AF102856203C25C10012411A /* InfoChurchViewControllers.xib in Resources */,
 				9A5D260F1FFF89B700316988 /* AllOffersViewController.xib in Resources */,
 				3DDD891620186E5E00918711 /* SignUpButtonsCell.xib in Resources */,
+				AF08F1AB203D57F300498256 /* InfoMapTableViewCell.xib in Resources */,
 				9A5D26171FFF89D100316988 /* DetAndBillsViewController.xib in Resources */,
 				3D65D4B72004D9A200CAB226 /* DrawerView.xib in Resources */,
 				9A5D25F81FFF76A300316988 /* Assets.xcassets in Resources */,
@@ -960,16 +988,19 @@
 				CB9BC8012037126900625179 /* DIYCalendarCell.swift in Sources */,
 				CB21CE5C203D32E200B3294B /* EventButtonCell.swift in Sources */,
 				CB834737202837020034AD4E /* HeaderProfileCell.swift in Sources */,
+				AF08F1B2203D763800498256 /* HeadImgTableViewCell.swift in Sources */,
 				9AA3AB6F2011D7420065D4BD /* FromJSON.swift in Sources */,
 				9AEAE824201F491800DB9D8E /* GlobalSupportingClass.swift in Sources */,
 				3D551C632011F6BE005DB3B2 /* ServiceController.swift in Sources */,
 				CB345E1A202339B6006CC378 /* homeCollectionViewCell.swift in Sources */,
 				3D72DBF2203AE60A00B913F7 /* ChurchDetailsListResultVO.swift in Sources */,
+				AF08F1AE203D581100498256 /* AboutInfoTableViewCell.swift in Sources */,
 				3D551C652011FE59005DB3B2 /* VideosResultVO.swift in Sources */,
 				9AA3AB752011D7420065D4BD /* MapError.swift in Sources */,
 				9A623B922021AF1600A674F2 /* Services.swift in Sources */,
 				9A5D26261FFF8A2000316988 /* AddMoneyToWalletCell.swift in Sources */,
 				9A5D261A1FFF89D900316988 /* MearchantViewController.swift in Sources */,
+				AF08F1A6203D57D400498256 /* InformationTableViewCell.swift in Sources */,
 				9AA3AB7A2011D7420065D4BD /* DateTransform.swift in Sources */,
 				9AA3AB7E2011D7420065D4BD /* EnumTransform.swift in Sources */,
 				9A5D262A1FFF8A2F00316988 /* PriceSortCell.swift in Sources */,
@@ -994,6 +1025,7 @@
 				9A5D26321FFF8A3F00316988 /* SendMoneyToWalletCell.swift in Sources */,
 				AF102855203C25C10012411A /* ChurchesInformaationViewControllers.swift in Sources */,
 				3DDD8910201865F600918711 /* SignUPTableViewCell.swift in Sources */,
+				AF08F1AA203D57F300498256 /* InfoMapTableViewCell.swift in Sources */,
 				9A5D25F11FFF76A300316988 /* AppDelegate.swift in Sources */,
 				CB3226D7202C96660050D06B /* GetProfileResultInfoVO.swift in Sources */,
 				9A623B8E2021A75000A674F2 /* MBProgressHUD.m in Sources */,
@@ -1173,7 +1205,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/praveendole/Desktop/Telugu Churchues/SamplePageMenu-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/manoj/Desktop/TC NewChurch/SamplePageMenu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1190,7 +1222,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/praveendole/Desktop/Telugu Churchues/SamplePageMenu-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/manoj/Desktop/TC NewChurch/SamplePageMenu-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
