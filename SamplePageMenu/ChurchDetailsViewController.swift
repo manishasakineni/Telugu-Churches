@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
@@ -15,13 +16,15 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     var listResultArray = Array<Any>()
     var churchNamesArray = Array<String>()
+    var villageNamesArray = Array<String>()
+    var phoneNoArray = Array<String>()
     
     
     var imageArray = [UIImage(named:"7"),UIImage(named:"5"),UIImage(named:"4"),UIImage(named:"7"),UIImage(named:"5"),UIImage(named:"4"),UIImage(named:"7"),UIImage(named:"4")]
     
-      var AreanamesArray = ["Kukatpally","Uppal","Ameerpet","JNTU","MGPS","PUNG","KPHP","MYP"]
+    var AreanamesArray = ["Kukatpally","Uppal","Ameerpet","JNTU","MGPS","PUNG","KPHP","MYP"]
     
-    var PhNumberArray = ["9999999999","22222222222","2444444444","2323232323","3434343434","4545454545","6767676767","5858585858"]
+   
     var TimingsArray = ["OPEN5AM Close5PM ","OPEN6AM Close5PM","OPEN7AM Close8PM","OPEN8AM Close5PM","OPEN9AM Close4PM","OPEN5AM Close5PM","OPEN7AM Close5PM","OPEN6AM Close5PM"]
     
 
@@ -33,7 +36,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     var totalRecords : Int? = 0
     
     
-         override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         self.churchDetailsTableView.delegate = self
@@ -54,9 +57,19 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
       
        getChurchDetailsAPICall()
         
+       churchDetailsTableView.isHidden = true
+        
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        churchDetailsTableView.isHidden = false
+        
+    }
+    
+    
+//MARK: -  Church Details API Call
     
    func getChurchDetailsAPICall(){
     
@@ -64,7 +77,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
       let paramsDict = [ "pasterUserId": 0,
                        "pageIndex": PageIndex,
-                       "pageSize": 3,
+                       "pageSize": 10,
                        "sortbyColumnName": "UpdatedDate",
                        "sortDirection": "desc",
                        "searchName": ""
@@ -88,9 +101,9 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             
         self.listResultArray = respVO.listResult!
             
-        let pageCout  = (respVO.totalRecords)! / 3
+        let pageCout  = (respVO.totalRecords)! / 10
             
-            let remander = (respVO.totalRecords)! % 3
+            let remander = (respVO.totalRecords)! % 10
             
            self.totalPages = pageCout
             
@@ -101,9 +114,11 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             }
             
            
-            for churchName in respVO.listResult!{
+            for church in respVO.listResult!{
                 
-                self.churchNamesArray.append(churchName.name!)
+                self.churchNamesArray.append(church.name!)
+                self.villageNamesArray.append(church.villageName!)
+                self.phoneNoArray.append(church.contactNumber!)
                 
             }
     
@@ -138,7 +153,9 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
 
 }
+ 
     
+//MARK: -  churchDetailsTableView delegate methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -181,8 +198,12 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 
                 getChurchDetailsAPICall()
                 
+                
+                
             }
         }
+        
+        
     
         
         
@@ -194,12 +215,21 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChurchDetailsTableViewCell", for: indexPath) as! ChurchDetailsTableViewCell
         
         cell.churchNameLbl.text = churchNamesArray[indexPath.row]
+        cell.areaNameLabel.text = villageNamesArray[indexPath.row]
+        cell.phNoLabel.text     = phoneNoArray[indexPath.row]
+//        cell.churchImage.sd_setImage(with: URL(string: "http://www.pravoslavie.ru/sas/image/102063/206387.b.jpg?mtime=1434361516"), placeholderImage: UIImage(named: "5"))
+        
+        
+        
 //        cell.churchImage.image = imageArray[ indexPath.row]
 //
 //        cell.areaNameLabel.text = AreanamesArray[indexPath.row]
 //        cell.phNoLabel.text = PhNumberArray[indexPath.row]
 //        cell.timeLabel.text = TimingsArray[indexPath.row]
 //x
+        
+        print(churchNamesArray.count)
+        
         return cell
         
     }
