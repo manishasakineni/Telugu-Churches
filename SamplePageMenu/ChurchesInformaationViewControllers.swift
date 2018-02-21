@@ -18,7 +18,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
     var pageMenu : CAPSPageMenu?
 
     var allOffersVC : InfoChurchViewControllers?
-    var rechargesVC : RechargesViewController?
+    var eventInfoVC : EventInfoViewController?
     var detAndBillsVC : DetAndBillsViewController?
     private var controllersArray: [UIViewController] = []
     
@@ -77,10 +77,10 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         allOffersVC?.delegate  = self
         
         
-        rechargesVC = RechargesViewController(nibName: "RechargesViewController",
+        eventInfoVC = EventInfoViewController(nibName: "EventInfoViewController",
                                               bundle: nil)
-        rechargesVC?.title = "Event"
-        rechargesVC?.delegate  = self
+        eventInfoVC?.title = "Event"
+        eventInfoVC?.delegate  = self
         
         
         detAndBillsVC = DetAndBillsViewController(nibName: "DetAndBillsViewController",
@@ -89,7 +89,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         detAndBillsVC?.delegate  = self
         
         controllersArray.append(allOffersVC!)
-         controllersArray.append(rechargesVC!)
+         controllersArray.append(eventInfoVC!)
          controllersArray.append(detAndBillsVC!)
         
         let parameters : [CAPSPageMenuOption] = [CAPSPageMenuOption.scrollMenuBackgroundColor(UIColor.clear),

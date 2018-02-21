@@ -128,6 +128,8 @@
 		CB1E30C62034416D009FB001 /* lang-en.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E30C52034416D009FB001 /* lang-en.json */; };
 		CB21CE5C203D32E200B3294B /* EventButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB21CE5A203D32E200B3294B /* EventButtonCell.swift */; };
 		CB21CE5D203D32E200B3294B /* EventButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB21CE5B203D32E200B3294B /* EventButtonCell.xib */; };
+		CB21CE60203D505100B3294B /* EventInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB21CE5E203D505100B3294B /* EventInfoViewController.swift */; };
+		CB21CE61203D505100B3294B /* EventInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB21CE5F203D505100B3294B /* EventInfoViewController.xib */; };
 		CB259FCB203C5A430052C384 /* EventInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB259FC9203C5A430052C384 /* EventInformationCell.swift */; };
 		CB259FCC203C5A430052C384 /* EventInformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB259FCA203C5A430052C384 /* EventInformationCell.xib */; };
 		CB259FCF203C63C00052C384 /* EventHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB259FCD203C63C00052C384 /* EventHeaderCell.swift */; };
@@ -284,6 +286,8 @@
 		CB1E30C52034416D009FB001 /* lang-en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lang-en.json"; sourceTree = "<group>"; };
 		CB21CE5A203D32E200B3294B /* EventButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventButtonCell.swift; sourceTree = "<group>"; };
 		CB21CE5B203D32E200B3294B /* EventButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventButtonCell.xib; sourceTree = "<group>"; };
+		CB21CE5E203D505100B3294B /* EventInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInfoViewController.swift; sourceTree = "<group>"; };
+		CB21CE5F203D505100B3294B /* EventInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventInfoViewController.xib; sourceTree = "<group>"; };
 		CB259FC9203C5A430052C384 /* EventInformationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInformationCell.swift; sourceTree = "<group>"; };
 		CB259FCA203C5A430052C384 /* EventInformationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventInformationCell.xib; sourceTree = "<group>"; };
 		CB259FCD203C63C00052C384 /* EventHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHeaderCell.swift; sourceTree = "<group>"; };
@@ -444,11 +448,6 @@
 			isa = PBXGroup;
 			children = (
 				AF102850203C251C0012411A /* ChurchInformationViewController */,
-				AF102853203C25C10012411A /* ChurchesInformaationViewControllers.swift */,
-				AF102851203C25B10012411A /* InfoChurchViewControllers.swift */,
-				AF102854203C25C10012411A /* InfoChurchViewControllers.xib */,
-				AF102857203C28700012411A /* InfoTableViewCell.swift */,
-				AF102858203C28700012411A /* InfoTableViewCell.xib */,
 				CB9BC7F92037104D00625179 /* EventViewController */,
 				CBFA12742032AA3400CADED6 /* ForgotPassWordViewController */,
 				CB0256BF2024731F0017E240 /* ProfileViewController */,
@@ -625,6 +624,13 @@
 		AF102850203C251C0012411A /* ChurchInformationViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AF102853203C25C10012411A /* ChurchesInformaationViewControllers.swift */,
+				AF102851203C25B10012411A /* InfoChurchViewControllers.swift */,
+				AF102854203C25C10012411A /* InfoChurchViewControllers.xib */,
+				AF102857203C28700012411A /* InfoTableViewCell.swift */,
+				AF102858203C28700012411A /* InfoTableViewCell.xib */,
+				CB21CE5E203D505100B3294B /* EventInfoViewController.swift */,
+				CB21CE5F203D505100B3294B /* EventInfoViewController.xib */,
 			);
 			name = ChurchInformationViewController;
 			sourceTree = "<group>";
@@ -846,6 +852,7 @@
 				CB345E19202339B6006CC378 /* homeTableViewCell.xib in Resources */,
 				CB259FCC203C5A430052C384 /* EventInformationCell.xib in Resources */,
 				9A5D26231FFF89F200316988 /* TermsAndConditionCell.xib in Resources */,
+				CB21CE61203D505100B3294B /* EventInfoViewController.xib in Resources */,
 				3DDD8911201865F600918711 /* SignUPTableViewCell.xib in Resources */,
 				CB1E30C420344131009FB001 /* lang-en-DE.json in Resources */,
 				AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */,
@@ -1015,6 +1022,7 @@
 				9A5D26091FFF7D2500316988 /* HomeViewController.swift in Sources */,
 				9A5CE89620205252005F4ACD /* TextFieldMaxLengths.swift in Sources */,
 				9A88D6182019EB2C0021F862 /* LaunchScreenViewController.swift in Sources */,
+				CB21CE60203D505100B3294B /* EventInfoViewController.swift in Sources */,
 				9A623B8520219CB500A674F2 /* RegisterVo.swift in Sources */,
 				9A5D26361FFF8A4900316988 /* AllOffersCell.swift in Sources */,
 				3D72DBF0203AE37A00B913F7 /* ChurchDetailsJsonVO.swift in Sources */,
