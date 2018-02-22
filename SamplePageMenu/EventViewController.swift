@@ -176,6 +176,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
     print("did select date \(self.dateFormatter2.string(from: date))")
     let selectedDateString = self.dateFormatter2.string(from: date)
+       
     //    if(datesWithMultipleEvents.contains(selectedDateString)){
 
         if(eventDateArray.contains(selectedDateString)){
@@ -243,7 +244,8 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                         
                         for eventsList in respVO.listResult!{
                             
-                            self.eventDateArray.append(eventsList.eventDate!)
+                            let dateString = self.returnDateWithoutTime(selectedDateString: eventsList.eventDate!)
+                            self.eventDateArray.append(dateString)
                             print("self.eventDateArray", self.eventDateArray)
                             print("self.eventDateArray,Count", self.eventDateArray.count)
                         }
@@ -277,6 +279,25 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
             return
         }
         
+    }
+    
+    func returnDateWithoutTime(selectedDateString : String) -> String{
+        var newDateStr = ""
+        if(selectedDateString != ""){
+            let invDtArray = selectedDateString.components(separatedBy: "T")
+            let dateString = invDtArray[0]
+            if(dateString != ""){
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let dateFromString = dateFormatter.date(from: dateString)
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr = newDateString
+                print(newDateStr)
+            }
+            
+        }
+        return newDateStr
     }
     
     
