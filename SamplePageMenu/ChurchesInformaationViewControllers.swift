@@ -51,7 +51,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Churchu Details".localize(), backTitle: "Churchu Details".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Churche Details".localize(), backTitle: "Churche Details".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
         
         //navigationItem.leftBarButtonItems = []

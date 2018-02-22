@@ -14,6 +14,10 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
 
     @IBOutlet weak var calendar: FSCalendar!
     
+    
+    var eventDateArray = Array<String>()
+
+    
     var febDatesWithEvent = ["2018-02-03", "2018-02-06", "2018-02-12", "2018-02-25"]
     var datesWithMultipleEvents = ["2018-01-08", "2018-01-16", "2018-01-20", "2018-01-28"]
 
@@ -45,6 +49,8 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     fileprivate lazy var dateFormatter1: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
+        formatter.timeZone = TimeZone(abbreviation: "GMT+0:00") //Current time zone
+
         return formatter
     }()
     
@@ -52,6 +58,8 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     fileprivate lazy var dateFormatter2: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
+        formatter.timeZone = TimeZone(abbreviation: "GMT+0:00") //Current time zone
+
         return formatter
     }()
     let codedLabel:UILabel = UILabel()
@@ -106,7 +114,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
 //            return 1
 //        }
 //        
-//        if self.datesWithMultipleEvents.contains(dateString) {
+//        if self.eventDateArray.contains(dateString) {
 //            
 //            return 3
 //        }
@@ -126,7 +134,11 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
 //            return "Event"
 //        }
         
-        if self.datesWithMultipleEvents.contains(dateString) {
+//        if self.datesWithMultipleEvents.contains(dateString) {
+//            
+//            return self.event
+//        }
+        if self.eventDateArray.contains(dateString) {
             
             return self.event
         }
@@ -164,7 +176,9 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
     print("did select date \(self.dateFormatter2.string(from: date))")
     let selectedDateString = self.dateFormatter2.string(from: date)
-        if(datesWithMultipleEvents.contains(selectedDateString)){
+    //    if(datesWithMultipleEvents.contains(selectedDateString)){
+
+        if(eventDateArray.contains(selectedDateString)){
                             let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
                reOrderPopOverVC.eventsLisrArray = self.numberEvent
                reOrderPopOverVC.eventsDateString = selectedDateString
@@ -225,8 +239,14 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                         
                         print("result:\(result)")
                         
-                        let respVO:GetChurchByIDVo = Mapper().map(JSONObject: result)!
+                        let respVO:GetEventByUserIdMonthYearVo = Mapper().map(JSONObject: result)!
                         
+                        for eventsList in respVO.listResult!{
+                            
+                            self.eventDateArray.append(eventsList.eventDate!)
+                            print("self.eventDateArray", self.eventDateArray)
+                            print("self.eventDateArray,Count", self.eventDateArray.count)
+                        }
                         
                         
                         

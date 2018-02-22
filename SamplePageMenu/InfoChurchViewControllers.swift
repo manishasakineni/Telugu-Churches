@@ -131,7 +131,7 @@ func getChurchuByIDAPIService(){
                         self.listResultArray = respVO.listResult!
                         
                         self.churchNamesString = (respVO.listResult?[0].name)!
-                      //  self.phoneNoArray = (respVO.listResult?[0].email)!
+                        self.phoneNoString = (respVO.listResult?[0].userContactNumbar)!
                         self.regNoString = (respVO.listResult?[0].registrationNumber)!
                         self.emailString = (respVO.listResult?[0].email)!
                         self.nameString = (respVO.listResult?[0].pasterUser)!
@@ -244,7 +244,7 @@ func getChurchuByIDAPIService(){
             cell1.REGLabelOutLet.text = regNoString
             cell1.authorNameLabel.text = nameString
             cell1.emailLabel.text = emailString
-           // cell1.phoneNumberLabel.text = phoneNoArray
+            cell1.phoneNumberLabel.text = phoneNoString
            cell1.timeLabel.text = timeString
 
             

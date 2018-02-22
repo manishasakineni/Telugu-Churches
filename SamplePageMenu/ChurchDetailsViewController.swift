@@ -58,7 +58,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
       
         
-        Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Churchus List".localize(), backTitle: "Churchus List".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Churches List".localize(), backTitle: "Churches List".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
         //navigationItem.leftBarButtonItems = []
 

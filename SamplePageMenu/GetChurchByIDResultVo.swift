@@ -48,6 +48,8 @@ class GetChurchByIDResultVo: Mappable {
 //    villageName = Cherukupalli;
 //    vision = "sample string 26";
 //    websiteAddress = "sample string 29";
+//    userContactNumbar = 567686897868;
+
 //}
 
 
@@ -96,7 +98,7 @@ class GetChurchByIDResultVo: Mappable {
     var fileExtention : String?
     var createdDate : String?
     var createdByUserId : Int?
-
+    var userContactNumbar : String?
     
 
     
@@ -104,7 +106,7 @@ class GetChurchByIDResultVo: Mappable {
     //MARK:-  initialization of VideosVO
     
     
-    init(Id : Int?,name : String?,registrationNumber : String?,address1 : String?,address2 : String?,landMark : String?,countryId : Int?,countryName : String?,stateId : Int?,stateName : String?,districtId : Int?,districtName : String?,mandalId : Int?,mandalName : String?,villageId : Int?,villageName : String?,description : String?,mission : String?,vision : String?,contactNumber : String?,email : String?,websiteAddress : String?,openingTime : String?,closingTime : String?,churchImage : String?,userImage : String?,pasterUserId : Int?,isActive : Bool?,pasterUser : String?,createdByUser : String?,updatedByUser : String?,updatedDate : String?,updatedByUserId : Int?,fileName : String?,fileLocation : String?,fileExtention : String?,createdDate : String?,createdByUserId : Int?)
+    init(Id : Int?,name : String?,registrationNumber : String?,address1 : String?,address2 : String?,landMark : String?,countryId : Int?,countryName : String?,stateId : Int?,stateName : String?,districtId : Int?,districtName : String?,mandalId : Int?,mandalName : String?,villageId : Int?,villageName : String?,description : String?,mission : String?,vision : String?,contactNumber : String?,email : String?,websiteAddress : String?,openingTime : String?,closingTime : String?,churchImage : String?,userImage : String?,pasterUserId : Int?,isActive : Bool?,pasterUser : String?,createdByUser : String?,updatedByUser : String?,updatedDate : String?,updatedByUserId : Int?,fileName : String?,fileLocation : String?,fileExtention : String?,createdDate : String?,createdByUserId : Int?,userContactNumbar : String?)
         
         
     {
@@ -142,14 +144,13 @@ class GetChurchByIDResultVo: Mappable {
         self.createdByUser = createdByUser
         self.updatedByUser = updatedByUser
         self.updatedDate = updatedDate
-        
-    self.updatedByUserId = updatedByUserId
+        self.updatedByUserId = updatedByUserId
         self.fileName = fileName
         self.fileLocation = fileLocation
-      self.fileExtention = fileExtention
+        self.fileExtention = fileExtention
         self.createdDate = createdDate
         self.createdByUserId = createdByUserId
-
+        self.userContactNumbar = userContactNumbar
     
     
     
@@ -199,7 +200,9 @@ class GetChurchByIDResultVo: Mappable {
         fileExtention <- map["fileExtention"]
         createdDate <- map["createdDate"]
         createdByUserId <- map["createdByUserId"]
+        userContactNumbar <- map["userContactNumbar"]
 
+        
         
     }
     
