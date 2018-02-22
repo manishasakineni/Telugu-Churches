@@ -873,6 +873,43 @@
             </objects>
             <point key="canvasLocation" x="6599" y="332"/>
         </scene>
+        <!--Church Admin View Controller-->
+        <scene sceneID="Mb8-Gx-und">
+            <objects>
+                <viewController storyboardIdentifier="ChurchAdminViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Di7-N2-up5" customClass="ChurchAdminViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bEl-O9-Kqp"/>
+                        <viewControllerLayoutGuide type="bottom" id="ed7-aD-HLo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JZi-vs-ciI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8YR-xf-47E">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Di7-N2-up5" id="RH8-ZF-94C"/>
+                                    <outlet property="delegate" destination="Di7-N2-up5" id="QgS-WO-9eV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ed7-aD-HLo" firstAttribute="top" secondItem="8YR-xf-47E" secondAttribute="bottom" id="3Nm-QM-WAj"/>
+                            <constraint firstItem="8YR-xf-47E" firstAttribute="leading" secondItem="JZi-vs-ciI" secondAttribute="leading" id="9hv-Yo-EGu"/>
+                            <constraint firstAttribute="trailing" secondItem="8YR-xf-47E" secondAttribute="trailing" id="gKF-eJ-K73"/>
+                            <constraint firstItem="8YR-xf-47E" firstAttribute="top" secondItem="JZi-vs-ciI" secondAttribute="top" id="uzN-YE-7RM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="churchAdminTableView" destination="8YR-xf-47E" id="vzg-el-LGD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ak6-IM-PEq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7218.3999999999996" y="330.58470764617692"/>
+        </scene>
         <!--Reveal View Controller-->
         <scene sceneID="QXq-vG-SPc">
             <objects>

@@ -17,6 +17,8 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     
     var delegate: churchChangeSubtitleOfIndexDelegate?
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     var appVersion          : String = ""
 
     
@@ -123,7 +125,8 @@ func getChurchuAPIService(){
                     if isSuccess == true {
                         
                         
-                        
+                        let successMsg = respVO.endUserMessage
+
                         self.listResultArray = respVO.listResult!
                         self.churchNamesString = (respVO.listResult?[0].name)!
                       //  self.phoneNoArray = (respVO.listResult?[0].email)!
@@ -137,9 +140,10 @@ func getChurchuAPIService(){
 
                      print(self.timeString)
                     print(self.churchNamesString)
+                        self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                     self.infoChurchTableView.reloadData()
                         
-                        
+
                         
                         
                     }

@@ -14,7 +14,6 @@ protocol churchChangeSubtitleOfIndexDelegate {
 
 class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate,churchChangeSubtitleOfIndexDelegate {
     
-    
     var pageMenu : CAPSPageMenu?
 
     var allOffersVC : InfoChurchViewControllers?
@@ -34,6 +33,10 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
     print("churchID:\(churchID)")
         
        createPageMenu()
+        
+        
+        
+       
 
         // Do any additional setup after loading the view.
     }
@@ -79,8 +82,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
                                               bundle: nil)
         eventInfoVC?.title = "Event"
         eventInfoVC?.delegate  = self
-        
-        
+    
         detAndBillsVC = DetAndBillsViewController(nibName: "DetAndBillsViewController",
                                                   bundle: nil)
         detAndBillsVC?.title = "Posts"

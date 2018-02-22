@@ -16,6 +16,7 @@ class EventInfoViewController: UIViewController,FSCalendarDelegate,FSCalendarDat
     
     var delegate: churchChangeSubtitleOfIndexDelegate?
 
+
     
     var febDatesWithEvent = ["2018-02-03", "2018-02-06", "2018-02-12", "2018-02-25"]
     var datesWithMultipleEvents = ["2018-01-08", "2018-01-16", "2018-01-20", "2018-01-28","2018-02-07", "2018-02-08", "2018-02-14", "2018-02-01", "2018-02-12", "2018-02-25"]
@@ -66,29 +67,30 @@ class EventInfoViewController: UIViewController,FSCalendarDelegate,FSCalendarDat
         
         event = "\(numberEvent.count)"
         
-        // In loadView or viewDidLoad
-        //        let calendar = FSCalendar(frame: CGRect(x: 0, y: 0, width: 320, height: 300))
+       
         calendar.dataSource = self
         calendar.delegate = self
-        //    view.addSubview(calendar)
-        //  self.calendar = calendar
-        //
-        //        codedLabel.frame = CGRect(x: 100, y: 100, width: 200, height: 200)
-        //        codedLabel.textAlignment = .center
-        //       // codedLabel.text = alertText
-        //        codedLabel.numberOfLines=1
-        //        codedLabel.textColor=UIColor.red
-        //        self.codedLabel.text = "event"
-        //        codedLabel.font=UIFont.systemFont(ofSize: 22)
-        //        codedLabel.backgroundColor=UIColor.lightGray
-        //        self.view.addSubview(codedLabel)
-        //
+        
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
         
         color()
         
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+    }
     func color(){
         
         

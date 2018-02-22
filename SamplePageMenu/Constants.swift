@@ -28,6 +28,7 @@ let EDITPROFILEURL : String = BASEURL.appending("api/UserInfo/UpdateUserInfo")
 let PROFILEGETINFO : String = BASEURL.appending("api/UserInfo/GetUserInfo/")
 let GETALLCHURCHES : String = BASEURL.appending("api/Church/GetAllChurches")
 let GETCHURCHEBYID : String = BASEURL.appending("api/Church/GetChurchbyId/")
+let GETALLCHURCHEADMINS : String = BASEURL.appending("api/Church/GetAllChurchAdmins")
 
 
 // MARK: -  Navigation String
