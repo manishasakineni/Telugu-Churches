@@ -29,6 +29,7 @@ let PROFILEGETINFO : String = BASEURL.appending("api/UserInfo/GetUserInfo/")
 let GETALLCHURCHES : String = BASEURL.appending("api/Church/GetAllChurches")
 let GETCHURCHEBYID : String = BASEURL.appending("api/Church/GetChurchbyId/")
 let GETALLCHURCHEADMINS : String = BASEURL.appending("api/Church/GetAllChurchAdmins")
+let GETEVENTBYUSERIDMONTHYEAR : String = BASEURL.appending("api/Events/GetEventByUserIdMonthYear/")
 
 
 // MARK: -  Navigation String

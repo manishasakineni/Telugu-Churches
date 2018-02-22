@@ -71,7 +71,8 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         let nibName4  = UINib(nibName: "AboutInfoTableViewCell" , bundle: nil)
         infoChurchTableView.register(nibName4, forCellReuseIdentifier: "AboutInfoTableViewCell")
         
- 
+        getChurchuByIDAPIService()
+
         // Do any additional setup after loading the view.
     }
 
@@ -87,7 +88,6 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
       //  Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Churchu Details".localize(), backTitle: "Churchu Details".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
 
-        getChurchuAPIService()
 
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -97,7 +97,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     }
     
 
-func getChurchuAPIService(){
+func getChurchuByIDAPIService(){
     
     if(appDelegate.checkInternetConnectivity()){
         
@@ -124,10 +124,12 @@ func getChurchuAPIService(){
                     
                     if isSuccess == true {
                         
-                        
+                        if !(respVO.listResult!.isEmpty){
+                            
                         let successMsg = respVO.endUserMessage
 
                         self.listResultArray = respVO.listResult!
+                        
                         self.churchNamesString = (respVO.listResult?[0].name)!
                       //  self.phoneNoArray = (respVO.listResult?[0].email)!
                         self.regNoString = (respVO.listResult?[0].registrationNumber)!
@@ -142,7 +144,10 @@ func getChurchuAPIService(){
                     print(self.churchNamesString)
                         self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                     self.infoChurchTableView.reloadData()
-                        
+                        }else{
+                            
+                            print("Nil Value")
+                        }
 
                         
                         

@@ -64,26 +64,18 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         event = "\(numberEvent.count)"
      
         // In loadView or viewDidLoad
-//        let calendar = FSCalendar(frame: CGRect(x: 0, y: 0, width: 320, height: 300))
         calendar.dataSource = self
         calendar.delegate = self
-    //    view.addSubview(calendar)
-      //  self.calendar = calendar
-//        
-//        codedLabel.frame = CGRect(x: 100, y: 100, width: 200, height: 200)
-//        codedLabel.textAlignment = .center
-//       // codedLabel.text = alertText
-//        codedLabel.numberOfLines=1
-//        codedLabel.textColor=UIColor.red
-//        self.codedLabel.text = "event"
-//        codedLabel.font=UIFont.systemFont(ofSize: 22)
-//        codedLabel.backgroundColor=UIColor.lightGray
-//        self.view.addSubview(codedLabel)
-//        
         
         color()
         
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        getChurchuAPIService()
     }
 
     func color(){
@@ -214,55 +206,59 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     }
     
     
-     
+    func getChurchuAPIService(){
+        
+        if(appDelegate.checkInternetConnectivity()){
+            
+            var userid      : Int = 3
+            var month      : Int = 02
+            var year       : Int = 2018
+            
+            let strUrl = GETEVENTBYUSERIDMONTHYEAR + "" + "\(userid)" + "/" + "\(month)" + "/" + "\(year)"
+            
+            print(strUrl)
+            serviceController.getRequest(strURL:strUrl, success:{(result) in
+                DispatchQueue.main.async()
+                    {
+                        
+                        //  let respVO:LoginVo = Mapper().map(JSONObject: result)!
+                        
+                        print("result:\(result)")
+                        
+                        let respVO:GetChurchByIDVo = Mapper().map(JSONObject: result)!
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                }
+            }, failure:  {(error) in
+                
+                print(error)
+                
+                if(error == "unAuthorized"){
+                    
+                    
+                  //  self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
+                    
+                    
+                }
+                
+                
+                
+            })
+            
+        }
+        else {
+            
+            appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+            return
+        }
+        
+    }
     
-//    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-//      //  if monthPosition == .next {
-//            calendar.setCurrentPage(date, animated: true)
-//        
-//    
-//            
-//            print("title date",date)
-//      //  }
-//    }
-    // MARK: - Private functions
-    
-  
-    
-   
-//    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleSelectionColorFor date: Date) -> UIColor? {
-//    
-//        let dateString = self.dateFormatter2.string(from: date)
-//        
-//        if self.datesWithEvent.contains(dateString) {
-//            return UIColor.yellow
-//        }
-//        
-//        if self.datesWithMultipleEvents.contains(dateString) {
-//            
-//            return UIColor.purple
-//        }
-//        return nil
-//    }
-    // FSCalendarDataSource
-//    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
-//        
-//        return UIImage(named: "\(image)")
-//    }
-    
- 
-//     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
-//
-//        if holidays.contains(date) {
-//            return [01-01-2018].contains(01-01-2018) ? UIImage(named: "camera") : nil
-//        } else if events.contains(date) {
-//            return events.contains(date) ? UIImage(named: "ChangePassWord") : nil
-//        } else if birthdays.contains(date) {
-//            return birthdays.contains(date) ? UIImage(named: "jesues") : nil
-//        } 
-//        
-//        return nil
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -23,8 +23,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="136.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h23-H5-gEm">
+                        <rect key="frame" x="2" y="2" width="316" height="132.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="1XV-Dr-c3L">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="137"/>
+                        <rect key="frame" x="3" y="3" width="314" height="130.5"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1i-Ys-Rqt">
                         <rect key="frame" x="20" y="26" width="281" height="21"/>
@@ -37,16 +41,21 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="1XV-Dr-c3L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0vz-GD-e4B"/>
-                    <constraint firstAttribute="trailing" secondItem="1XV-Dr-c3L" secondAttribute="trailing" id="54h-qq-7W7"/>
+                    <constraint firstItem="1XV-Dr-c3L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="0vz-GD-e4B"/>
+                    <constraint firstAttribute="trailing" secondItem="1XV-Dr-c3L" secondAttribute="trailing" constant="3" id="54h-qq-7W7"/>
+                    <constraint firstAttribute="bottom" secondItem="h23-H5-gEm" secondAttribute="bottom" constant="2" id="IeE-gn-XFP"/>
+                    <constraint firstItem="h23-H5-gEm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="S5B-O8-PX0"/>
+                    <constraint firstItem="h23-H5-gEm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="U7c-dI-SLx"/>
                     <constraint firstItem="m1i-Ys-Rqt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="26" id="bXe-f9-fsI"/>
+                    <constraint firstAttribute="trailing" secondItem="h23-H5-gEm" secondAttribute="trailing" constant="2" id="dNN-gG-Pp0"/>
                     <constraint firstAttribute="trailing" secondItem="m1i-Ys-Rqt" secondAttribute="trailing" constant="19" id="ebQ-Bg-Q4R"/>
-                    <constraint firstAttribute="bottom" secondItem="1XV-Dr-c3L" secondAttribute="bottom" id="iRr-Rh-JT5"/>
+                    <constraint firstAttribute="bottom" secondItem="1XV-Dr-c3L" secondAttribute="bottom" constant="3" id="iRr-Rh-JT5"/>
                     <constraint firstItem="m1i-Ys-Rqt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ker-WT-zH7"/>
-                    <constraint firstItem="1XV-Dr-c3L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="u1J-nd-2mI"/>
+                    <constraint firstItem="1XV-Dr-c3L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="u1J-nd-2mI"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="backGroundView" destination="h23-H5-gEm" id="dRg-bX-M16"/>
                 <outlet property="churchImage" destination="1XV-Dr-c3L" id="fnG-dG-RDt"/>
                 <outlet property="churchNameLabel" destination="m1i-Ys-Rqt" id="ohE-90-vdc"/>
             </connections>

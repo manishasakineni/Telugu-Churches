@@ -18,6 +18,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="123.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzd-pD-yPn">
+                        <rect key="frame" x="2" y="2" width="316" height="119.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gvQ-f0-gyf">
                         <rect key="frame" x="3" y="3" width="314" height="117.5"/>
                     </mapView>
@@ -25,11 +29,16 @@
                 <constraints>
                     <constraint firstItem="gvQ-f0-gyf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="2F9-GZ-YWf"/>
                     <constraint firstAttribute="bottom" secondItem="gvQ-f0-gyf" secondAttribute="bottom" constant="3" id="JSB-V5-DOD"/>
+                    <constraint firstAttribute="trailing" secondItem="lzd-pD-yPn" secondAttribute="trailing" constant="2" id="Pzz-28-zyF"/>
                     <constraint firstAttribute="trailing" secondItem="gvQ-f0-gyf" secondAttribute="trailing" constant="3" id="Uzn-kx-mgR"/>
+                    <constraint firstItem="lzd-pD-yPn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="a35-rm-K2C"/>
+                    <constraint firstItem="lzd-pD-yPn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="cia-kD-ybN"/>
+                    <constraint firstAttribute="bottom" secondItem="lzd-pD-yPn" secondAttribute="bottom" constant="2" id="hJk-f5-r4G"/>
                     <constraint firstItem="gvQ-f0-gyf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="mbs-a4-gQP"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="backGroundView" destination="lzd-pD-yPn" id="Nra-xf-Prk"/>
                 <outlet property="mapViewOutLet" destination="gvQ-f0-gyf" id="3Vh-J0-HEt"/>
             </connections>
             <point key="canvasLocation" x="37" y="-54"/>

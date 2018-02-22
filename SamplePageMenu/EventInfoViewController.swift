@@ -220,55 +220,7 @@ class EventInfoViewController: UIViewController,FSCalendarDelegate,FSCalendarDat
     
     
     
-    
-    //    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-    //      //  if monthPosition == .next {
-    //            calendar.setCurrentPage(date, animated: true)
-    //
-    //
-    //
-    //            print("title date",date)
-    //      //  }
-    //    }
-    // MARK: - Private functions
-    
-    
-    
-    
-    //    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleSelectionColorFor date: Date) -> UIColor? {
-    //
-    //        let dateString = self.dateFormatter2.string(from: date)
-    //
-    //        if self.datesWithEvent.contains(dateString) {
-    //            return UIColor.yellow
-    //        }
-    //
-    //        if self.datesWithMultipleEvents.contains(dateString) {
-    //
-    //            return UIColor.purple
-    //        }
-    //        return nil
-    //    }
-    // FSCalendarDataSource
-    //    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
-    //
-    //        return UIImage(named: "\(image)")
-    //    }
-    
-    
-    //     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
-    //
-    //        if holidays.contains(date) {
-    //            return [01-01-2018].contains(01-01-2018) ? UIImage(named: "camera") : nil
-    //        } else if events.contains(date) {
-    //            return events.contains(date) ? UIImage(named: "ChangePassWord") : nil
-    //        } else if birthdays.contains(date) {
-    //            return birthdays.contains(date) ? UIImage(named: "jesues") : nil
-    //        } 
-    //        
-    //        return nil
-    //    }
-    
+       
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

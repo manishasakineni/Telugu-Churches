@@ -23,6 +23,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="130.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUh-N5-2cd">
+                        <rect key="frame" x="2" y="2" width="316" height="126"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7O-Zw-VLF">
                         <rect key="frame" x="8" y="8" width="304" height="16.5"/>
                         <constraints>
@@ -59,11 +63,14 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="EVy-Fb-zGX" secondAttribute="trailing" constant="8" id="1WG-sP-Syi"/>
+                    <constraint firstItem="aUh-N5-2cd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="AVv-eY-48f"/>
                     <constraint firstItem="u7S-cQ-fY6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="CNg-7v-jyA"/>
                     <constraint firstAttribute="trailing" secondItem="GMN-bS-wuQ" secondAttribute="trailing" constant="8" id="CRU-x8-Jxr"/>
+                    <constraint firstAttribute="bottom" secondItem="aUh-N5-2cd" secondAttribute="bottom" constant="2" id="HAJ-5Q-5QU"/>
                     <constraint firstAttribute="trailing" secondItem="u7S-cQ-fY6" secondAttribute="trailing" constant="8" id="HqY-uz-jXW"/>
                     <constraint firstItem="EVy-Fb-zGX" firstAttribute="top" secondItem="aHu-e1-378" secondAttribute="bottom" constant="8" id="Lmr-KP-tfU"/>
                     <constraint firstItem="EVy-Fb-zGX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="P2g-Fh-LOr"/>
+                    <constraint firstItem="aUh-N5-2cd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="ROy-qL-dFj"/>
                     <constraint firstItem="b7O-Zw-VLF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="TYP-JE-QGU"/>
                     <constraint firstItem="aHu-e1-378" firstAttribute="top" secondItem="GMN-bS-wuQ" secondAttribute="bottom" constant="8" id="Tzk-bw-AsY"/>
                     <constraint firstItem="u7S-cQ-fY6" firstAttribute="top" secondItem="b7O-Zw-VLF" secondAttribute="bottom" constant="8" id="Y4I-hl-POJ"/>
@@ -72,12 +79,14 @@
                     <constraint firstItem="b7O-Zw-VLF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="l4u-gb-3bv"/>
                     <constraint firstAttribute="trailing" secondItem="aHu-e1-378" secondAttribute="trailing" constant="8" id="mLM-tb-uz9"/>
                     <constraint firstItem="GMN-bS-wuQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="oHW-td-k81"/>
+                    <constraint firstAttribute="trailing" secondItem="aUh-N5-2cd" secondAttribute="trailing" constant="2" id="qZB-Np-xrv"/>
                     <constraint firstItem="GMN-bS-wuQ" firstAttribute="top" secondItem="u7S-cQ-fY6" secondAttribute="bottom" constant="8" id="ysp-iY-hPA"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="REGLabelOutLet" destination="b7O-Zw-VLF" id="CwD-t7-bGP"/>
                 <outlet property="authorNameLabel" destination="u7S-cQ-fY6" id="2sJ-T9-NKC"/>
+                <outlet property="backGroundView" destination="aUh-N5-2cd" id="8uu-IJ-yG4"/>
                 <outlet property="emailLabel" destination="GMN-bS-wuQ" id="QUM-lK-GjP"/>
                 <outlet property="phoneNumberLabel" destination="aHu-e1-378" id="aJj-RQ-hyj"/>
                 <outlet property="timeLabel" destination="EVy-Fb-zGX" id="HBb-4B-KT9"/>
