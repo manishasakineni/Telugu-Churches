@@ -348,6 +348,12 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
         
         }
+        
+//        if indexPath.item == 2 {
+//            let  failedViewController = InfoChurchViewControllers(nibName: "InfoChurchViewControllers", bundle: nil)
+//           
+//            self.navigationController?.pushViewController(failedViewController, animated: true)
+//        }
     }
  
 }

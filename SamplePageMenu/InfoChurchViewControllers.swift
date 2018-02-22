@@ -17,16 +17,19 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     
     var delegate: churchChangeSubtitleOfIndexDelegate?
     
+    var appVersion          : String = ""
+
     
-    var listResultArray = Array<Any>()
-    var churchNamesArray = Array<String>()
+    var listResultArray:[GetChurchByIDResultVo]?
+    var churchNamesString = ""
    // var churchIDArray = Array<Int>()
-    var villageNamesArray = Array<String>()
-    var phoneNoArray = Array<String>()
-    var regNoArray = Array<String>()
-    var emailArray = Array<String>()
-    var nameArray = Array<String>()
-    var timeArray = Array<String>()
+    var villageNamesString = ""
+    var phoneNoString = ""
+    var regNoString = ""
+    var emailString = ""
+    var nameString = ""
+    var timeString = ""
+    var descriptionString = ""
 
 
     let utillites =  Utilities()
@@ -57,30 +60,31 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         
      //   print(self.churchID)
         
+        let nibName1  = UINib(nibName: "HeadImgTableViewCell" , bundle: nil)
+        infoChurchTableView.register(nibName1, forCellReuseIdentifier: "HeadImgTableViewCell")
+        let nibName2  = UINib(nibName: "InformationTableViewCell" , bundle: nil)
+        infoChurchTableView.register(nibName2, forCellReuseIdentifier: "InformationTableViewCell")
+        let nibName3  = UINib(nibName: "InfoMapTableViewCell" , bundle: nil)
+        infoChurchTableView.register(nibName3, forCellReuseIdentifier: "InfoMapTableViewCell")
+        let nibName4  = UINib(nibName: "AboutInfoTableViewCell" , bundle: nil)
+        infoChurchTableView.register(nibName4, forCellReuseIdentifier: "AboutInfoTableViewCell")
         
-        infoChurchTableView.register(UINib.init(nibName: "HeadImgTableViewCell", bundle: nil),
-                                     forCellReuseIdentifier: "HeadImgTableViewCell")
-        
-
-        
-        
-        infoChurchTableView.register(UINib.init(nibName: "InformationTableViewCell", bundle: nil),
-                                        forCellReuseIdentifier: "InformationTableViewCell")
-        
-        infoChurchTableView.register(UINib.init(nibName: "InfoMapTableViewCell", bundle: nil),
-                                     forCellReuseIdentifier: "InfoMapTableViewCell")
-        
-        infoChurchTableView.register(UINib.init(nibName: "AboutInfoTableViewCell", bundle: nil),
-                                     forCellReuseIdentifier: "AboutInfoTableViewCell")
-        
-    
-
+ 
         // Do any additional setup after loading the view.
     }
+
+    
+   
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+     //  self.navigationController?.navigationBar.isHidden = true
+
+        
+      //  Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Churchu Details".localize(), backTitle: "Churchu Details".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+
         getChurchuAPIService()
 
     }
@@ -121,51 +125,19 @@ func getChurchuAPIService(){
                         
                         
                         self.listResultArray = respVO.listResult!
-                        
-                        
-                        
-//                        
-//                        let pageCout  = (respVO.totalRecords)! / 10
-//                        
-//                        let remander = (respVO.totalRecords)! % 10
-//                        
-//                        self.totalPages = pageCout
-//                        
-//                        if remander != 0 {
-//                            
-//                            self.totalPages = self.totalPages! + 1
-//                            
-//                        }
-                        
-                        
-                        for church in respVO.listResult!{
-                            
-                            self.churchNamesArray.append(church.name!)
-                            self.villageNamesArray.append(church.villageName!)
-                            self.phoneNoArray.append(church.contactNumber!)
-                         //   self.churchIDArray.append(church.Id!)
-                            self.regNoArray.append(church.registrationNumber!)
-                            self.nameArray.append(church.pasterUser!)
-                            self.emailArray.append(church.email!)
-                            self.timeArray.append("\(church.openingTime!)" + "-" + "\(church.closingTime!)" )
-                            print("churchNamesArray" ,self.churchNamesArray)
-                            print("villageNamesArray" ,self.villageNamesArray)
-                            print("phoneNoArray" ,self.phoneNoArray)
-                           // print("churchIDArray" ,self.churchIDArray)
-                            print("regNoArray" ,self.regNoArray)
-                            print("nameArray" ,self.nameArray)
-                            print("emailArray" ,self.emailArray)
-                            print("timeArray" ,self.timeArray)
+                        self.churchNamesString = (respVO.listResult?[0].name)!
+                      //  self.phoneNoArray = (respVO.listResult?[0].email)!
+                        self.regNoString = (respVO.listResult?[0].registrationNumber)!
+                        self.emailString = (respVO.listResult?[0].email)!
+                        self.nameString = (respVO.listResult?[0].pasterUser)!
+                        self.timeString = ( (respVO.listResult?[0].openingTime)! + "-" + (respVO.listResult?[0].closingTime)!)
+                        self.descriptionString = (respVO.listResult?[0].description)!
 
-                            
-                        }
-                        
-                        
-                        print(self.churchNamesArray)
-                        
-                        
-                        
-                        self.infoChurchTableView.reloadData()
+                       //  self.timeArray = ("\(respVO.listResult?[0].openingTime)" + "-" + "\(respVO.listResult?[0].openingTime)")
+
+                     print(self.timeString)
+                    print(self.churchNamesString)
+                    self.infoChurchTableView.reloadData()
                         
                         
                         
@@ -226,7 +198,20 @@ func getChurchuAPIService(){
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 140
+        
+        
+        if indexPath.row == 0 {
+            
+            return 137
+        }else if indexPath.row == 1{
+            
+            return 131
+        }else if indexPath.row == 2{
+            
+            return 124
+        }
+        
+        return 218
     }
 
 
@@ -235,8 +220,9 @@ func getChurchuAPIService(){
         if (indexPath.row == 0) {
             
         let cell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
+            
         
-      //  cell.nameLabel.text = ChurchDetailsAry[indexPath.row]
+        cell.churchNameLabel.text = churchNamesString
 
             return cell
 
@@ -246,31 +232,36 @@ func getChurchuAPIService(){
             
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
             
+            cell1.REGLabelOutLet.text = regNoString
+            cell1.authorNameLabel.text = nameString
+            cell1.emailLabel.text = emailString
+           // cell1.phoneNumberLabel.text = phoneNoArray
+           cell1.timeLabel.text = timeString
+
+            
          //   cell.nameLabel.text = ChurchDetailsAry[indexPath.row]
             
 
             return cell1
-
-            
-        } else if (indexPath.row == 2){
-            
+//
+        }
+        else if (indexPath.row == 2){
             
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "InfoMapTableViewCell", for: indexPath) as! InfoMapTableViewCell
             
-            //   cell.nameLabel.text = ChurchDetailsAry[indexPath.row]
-            
+           //   cell.nameLabel.text = ChurchDetailsAry[indexPath.row]
             
         return cell2
-
+            
         }
         
         let cell3 = tableView.dequeueReusableCell(withIdentifier: "AboutInfoTableViewCell", for: indexPath) as! AboutInfoTableViewCell
         
-        //   cell.nameLabel.text = ChurchDetailsAry[indexPath.row]
+           cell3.aboutTextView.text = descriptionString
         
         
         return cell3
-
+//
 
         
     }

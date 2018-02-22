@@ -2,7 +2,7 @@
 //  HeadImgTableViewCell.swift
 //  Telugu Churches
 //
-//  Created by Manoj on 21/02/18.
+//  Created by praveen dole on 2/22/18.
 //  Copyright © 2018 Mac OS. All rights reserved.
 //
 
@@ -10,6 +10,8 @@ import UIKit
 
 class HeadImgTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var churchNameLabel: UILabel!
+    @IBOutlet weak var churchImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

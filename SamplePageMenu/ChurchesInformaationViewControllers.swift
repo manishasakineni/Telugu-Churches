@@ -43,32 +43,27 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    
+
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        
-    //    Utilities.setSignUpViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Registration".localize(), backTitle: " Registration".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Churchu Details".localize(), backTitle: "Churchu Details".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+
         
         //navigationItem.leftBarButtonItems = []
         
     }
     
 
-    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
-        
-        //   navigationItem.leftBarButtonItems = []
-        //   let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        
-        
-        UserDefaults.standard.set("1", forKey: "1")
-        UserDefaults.standard.synchronize()
-        
-        self.navigationController?.popViewController(animated: true)
-        
-        
-        print("Back Button Clicked......")
-        
-    }
+//    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+//        
+//        //   navigationItem.leftBarButtonItems = []
+//        //   let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+////        
+//        print("Back Button Clicked......")
+//        
+//    }
 
     
     private func createPageMenu() {
@@ -116,7 +111,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
         
         pageMenu = CAPSPageMenu(viewControllers: controllersArray,
-                                frame: CGRect.init(x: 0.0, y: 64.0, width: self.view.frame.size.width, height: self.view.frame.size.height),
+                                frame: CGRect.init(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height),
                                 pageMenuOptions: parameters)
         pageMenu?.delegate = self
         self.addChildViewController(pageMenu!)
@@ -148,7 +143,35 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
     }
     
 
-    
+    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+        
+//        UserDefaults.standard.removeObject(forKey: "1")
+//        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+//        UserDefaults.standard.synchronize()
+//        
+        
+        
+        
+        UserDefaults.standard.set("1", forKey: "1")
+        UserDefaults.standard.synchronize()
+        
+      //  self.navigationController?.popViewController(animated: true)
+        
+
+        
+           let churchDetailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
+        
+        //
+        //        UserDefaults.standard.set("1", forKey: "1")
+        //        UserDefaults.standard.synchronize()
+        //
+                self.navigationController?.popViewController(animated: true)
+        //
+        //
+        print("Back Button Clicked......")
+        
+    }
+
     
     
     

@@ -13,7 +13,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
 
     @IBOutlet weak var churchDetailsTableView: UITableView!
     
-    
+    var appVersion          : String = ""
+
     var listResultArray = Array<Any>()
     var churchNamesArray = Array<String>()
     var churchIDArray = Array<Int>()
@@ -45,6 +46,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         churchDetailsTableView.register(UINib.init(nibName: "ChurchDetailsTableViewCell", bundle: nil),
                               forCellReuseIdentifier: "ChurchDetailsTableViewCell")
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -55,10 +57,18 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     override func viewWillAppear(_ animated: Bool) {
         
       
+        
+        Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Churchus List".localize(), backTitle: "Churchus List".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+        //navigationItem.leftBarButtonItems = []
+
+        
        getChurchDetailsAPICall()
         
        churchDetailsTableView.isHidden = true
+    
         
+
         
     }
     
@@ -128,7 +138,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             for church in respVO.listResult!{
                 
                 self.churchNamesArray.append(church.name!)
-                self.villageNamesArray.append(church.villageName!)
+             //   self.villageNamesArray.append(church.villageName!)
                 self.phoneNoArray.append(church.contactNumber!)
                 self.churchIDArray.append(church.Id!)
                 
@@ -227,7 +237,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChurchDetailsTableViewCell", for: indexPath) as! ChurchDetailsTableViewCell
         
         cell.churchNameLbl.text = churchNamesArray[indexPath.row]
-        cell.areaNameLabel.text = villageNamesArray[indexPath.row]
+      //  cell.areaNameLabel.text = villageNamesArray[indexPath.row]
     
         cell.phNoLabel.text     = phoneNoArray[indexPath.row]
 //        cell.churchImage.sd_setImage(with: URL(string: "http://www.pravoslavie.ru/sas/image/102063/206387.b.jpg?mtime=1434361516"), placeholderImage: UIImage(named: "5"))
@@ -262,4 +272,34 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         self.navigationController?.pushViewController(holyBibleViewController, animated: true)
         
     }
+    
+    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+        
+        
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        UserDefaults.standard.synchronize()
+        
+        
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+
+        
+        //   navigationItem.leftBarButtonItems = []
+        //   let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        
+//        
+//        UserDefaults.standard.set("1", forKey: "1")
+//        UserDefaults.standard.synchronize()
+//        
+//        self.navigationController?.popViewController(animated: true)
+//        
+//        
+        print("Back Button Clicked......")
+        
+    }
+
 }

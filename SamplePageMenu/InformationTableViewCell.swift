@@ -2,17 +2,25 @@
 //  InformationTableViewCell.swift
 //  Telugu Churches
 //
-//  Created by Manoj on 21/02/18.
+//  Created by praveen dole on 2/22/18.
 //  Copyright © 2018 Mac OS. All rights reserved.
 //
 
 import UIKit
 
 class InformationTableViewCell: UITableViewCell {
-    
-    
-    @IBOutlet weak var nameLabel: UILabel!
 
+    @IBOutlet weak var REGLabelOutLet: UILabel!
+    
+    @IBOutlet weak var authorNameLabel: UILabel!
+    
+    @IBOutlet weak var emailLabel: UILabel!
+    
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
