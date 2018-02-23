@@ -157,6 +157,8 @@
 		CB345E19202339B6006CC378 /* homeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB345E15202339B6006CC378 /* homeTableViewCell.xib */; };
 		CB345E1A202339B6006CC378 /* homeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB345E16202339B6006CC378 /* homeCollectionViewCell.swift */; };
 		CB345E1B202339B6006CC378 /* homeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB345E17202339B6006CC378 /* homeCollectionViewCell.xib */; };
+		CB611146204024470057A030 /* GetEventByDateAndUserIdVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB611145204024470057A030 /* GetEventByDateAndUserIdVo.swift */; };
+		CB611148204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB611147204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift */; };
 		CB834733202825980034AD4E /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB834731202825980034AD4E /* EditProfileTableViewCell.swift */; };
 		CB834734202825980034AD4E /* EditProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB834732202825980034AD4E /* EditProfileTableViewCell.xib */; };
 		CB834737202837020034AD4E /* HeaderProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB834735202837020034AD4E /* HeaderProfileCell.swift */; };
@@ -332,6 +334,8 @@
 		CB345E15202339B6006CC378 /* homeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homeTableViewCell.xib; sourceTree = "<group>"; };
 		CB345E16202339B6006CC378 /* homeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB345E17202339B6006CC378 /* homeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homeCollectionViewCell.xib; sourceTree = "<group>"; };
+		CB611145204024470057A030 /* GetEventByDateAndUserIdVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEventByDateAndUserIdVo.swift; sourceTree = "<group>"; };
+		CB611147204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEventByDateAndUserIdResultVo.swift; sourceTree = "<group>"; };
 		CB834731202825980034AD4E /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
 		CB834732202825980034AD4E /* EditProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileTableViewCell.xib; sourceTree = "<group>"; };
 		CB834735202837020034AD4E /* HeaderProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderProfileCell.swift; sourceTree = "<group>"; };
@@ -552,6 +556,7 @@
 		9A623B8120219B8700A674F2 /* MapperVO */ = {
 			isa = PBXGroup;
 			children = (
+				CB6111442040240D0057A030 /* GetEventByDateAndUserId */,
 				CB03C8DD203EFF15000B96A4 /* GetEventByUserIdMonthYear */,
 				CB03C8D8203ED1C1000B96A4 /* GetAlllChurchAdmins */,
 				CB21CE63203DA5D100B3294B /* GetChurchByID */,
@@ -821,6 +826,15 @@
 			name = GetProfileInfo;
 			sourceTree = "<group>";
 		};
+		CB6111442040240D0057A030 /* GetEventByDateAndUserId */ = {
+			isa = PBXGroup;
+			children = (
+				CB611145204024470057A030 /* GetEventByDateAndUserIdVo.swift */,
+				CB611147204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift */,
+			);
+			name = GetEventByDateAndUserId;
+			sourceTree = "<group>";
+		};
 		CB8347302028257A0034AD4E /* EditProfileCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1069,6 +1083,7 @@
 				9AA3AB6F2011D7420065D4BD /* FromJSON.swift in Sources */,
 				9AEAE824201F491800DB9D8E /* GlobalSupportingClass.swift in Sources */,
 				3D551C632011F6BE005DB3B2 /* ServiceController.swift in Sources */,
+				CB611148204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift in Sources */,
 				CB345E1A202339B6006CC378 /* homeCollectionViewCell.swift in Sources */,
 				3D72DBF2203AE60A00B913F7 /* ChurchDetailsListResultVO.swift in Sources */,
 				AF08F1AE203D581100498256 /* AboutInfoTableViewCell.swift in Sources */,
@@ -1083,6 +1098,7 @@
 				CB03C8DF203EFF54000B96A4 /* GetEventByUserIdMonthYearVo.swift in Sources */,
 				9A5D262A1FFF8A2F00316988 /* PriceSortCell.swift in Sources */,
 				9AA3AB782011D7420065D4BD /* NSDecimalNumberTransform.swift in Sources */,
+				CB611146204024470057A030 /* GetEventByDateAndUserIdVo.swift in Sources */,
 				AF102859203C28700012411A /* InfoTableViewCell.swift in Sources */,
 				CB150A5F2029788700626CA1 /* PSWMessageTypeResult.swift in Sources */,
 				CB08BC5D203E87E000E232F2 /* HeadImgTableViewCell.swift in Sources */,

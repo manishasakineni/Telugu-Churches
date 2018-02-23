@@ -16,17 +16,17 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     
     
     var eventDateArray = Array<String>()
+    var eventsCountsArray = Array<Int>()
 
     
-    var febDatesWithEvent = ["2018-02-03", "2018-02-06", "2018-02-12", "2018-02-25"]
+   // var febDatesWithEvent = ["2018-02-03", "2018-02-06", "2018-02-12", "2018-02-25"]
     var datesWithMultipleEvents = ["2018-01-08", "2018-01-16", "2018-01-20", "2018-01-28"]
 
-    var event = ""
     var feb = ""
 
     var numberEvent = ["AAA", "BBB", "CCC", "DDD"]
     var febEvent = ["Steve", "Jobs", "Pall", "Iphone"]
-
+ var selectedDateString = ""
   //  let day: Int! = self.gregorian.component(.day, from: date)
 
     var holidays:  [Date] = []
@@ -69,7 +69,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        event = "\(numberEvent.count)"
+       // event = "\(eventsCountsArray.count)"
      
         // In loadView or viewDidLoad
         calendar.dataSource = self
@@ -83,7 +83,9 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        getChurchuAPIService()
+        getEventByUserIdMonthYearAPIService()
+        
+       // getEventByDateAndUserIdAPIService()
     }
 
     func color(){
@@ -121,26 +123,39 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
 //        
 //        return 0
 //    }
-    
+//    
  
+    
+    
+    
     
     
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
         
         let dateString = self.dateFormatter2.string(from: date)
-       
-
-//        if self.datesWithEvent.contains(dateString) {
-//            return "Event"
-//        }
         
-//        if self.datesWithMultipleEvents.contains(dateString) {
-//            
-//            return self.event
-//        }
+        
         if self.eventDateArray.contains(dateString) {
             
-            return self.event
+            var event = ""
+            //event = "\(eventsCountsArray.count)"
+            
+            if let i = self.eventDateArray.index(of: dateString) {
+                                                        print("Jason is at index \(i)")
+                                                        let prevEventCount = self.eventsCountsArray[i]
+                                                         event = "\(prevEventCount)"
+                                                      //  self.eventsCountsArray[i] = event
+                
+                                                    }
+            
+            
+//            for eventcount in eventsCountsArray{
+//            
+//                event = "\(eventcount)"
+//                print(event)
+//                
+//            }
+            return event
         }
         return nil
     }
@@ -175,7 +190,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
     print("did select date \(self.dateFormatter2.string(from: date))")
-    let selectedDateString = self.dateFormatter2.string(from: date)
+     let selectedDateString = self.dateFormatter2.string(from: date)
        
     //    if(datesWithMultipleEvents.contains(selectedDateString)){
 
@@ -221,7 +236,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     }
     
     
-    func getChurchuAPIService(){
+    func getEventByUserIdMonthYearAPIService(){
         
         if(appDelegate.checkInternetConnectivity()){
             
@@ -242,15 +257,42 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                         
                         let respVO:GetEventByUserIdMonthYearVo = Mapper().map(JSONObject: result)!
                         
+                     //   var prevDateString = ""
+                        
                         for eventsList in respVO.listResult!{
                             
                             let dateString = self.returnDateWithoutTime(selectedDateString: eventsList.eventDate!)
                             self.eventDateArray.append(dateString)
-                            print("self.eventDateArray", self.eventDateArray)
-                            print("self.eventDateArray,Count", self.eventDateArray.count)
+                            let eventsCountsString = eventsList.eventsCount
+                            self.eventsCountsArray.append(eventsCountsString!)
+//                            if(prevDateString != dateString){
+//                         
+//                            }else{
+//                                if(self.eventDateArray.contains(dateString)){
+//                                    if let i = self.eventDateArray.index(of: dateString) {
+//                                        print("Jason is at index \(i)")
+//                                        let prevEventCount = self.eventsCountsArray[i]
+//                                        let newEventCount = prevEventCount + eventsList.eventsCount!
+//                                        self.eventsCountsArray[i] = newEventCount
+//                                        
+//                                    }
+//                                }
+//                            }
+//                            
+//                            
+//                            
+//                            prevDateString = dateString
+                            
+                       
+                        
+
                         }
+
+                        print("self.eventDateArray,Count", self.eventDateArray.count)
+                        print("self.eventsCountsArray", self.eventsCountsArray)
                         
-                        
+                     
+                        self.calendar.reloadData()
                         
                         
                         
@@ -280,6 +322,71 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         }
         
     }
+    
+    
+    
+    func getEventByDateAndUserIdAPIService(){
+        
+        if(appDelegate.checkInternetConnectivity()){
+            
+            var userid      : Int = 3
+           // var month      : Int = 02
+           // var year       : Int = 2018
+            
+            let strUrl = GETEVENTBYDATEANDUSERID + "" + "\(self.eventDateArray)" + "/" + "\(userid)"
+            
+            print(strUrl)
+            serviceController.getRequest(strURL:strUrl, success:{(result) in
+                DispatchQueue.main.async()
+                    {
+                        
+                        //  let respVO:LoginVo = Mapper().map(JSONObject: result)!
+                        
+                        print("result:\(result)")
+                        
+                        let respVO:GetEventByUserIdMonthYearVo = Mapper().map(JSONObject: result)!
+                        
+                        for eventsList in respVO.listResult!{
+                            
+                            let dateString = self.returnDateWithoutTime(selectedDateString: eventsList.eventDate!)
+                            self.eventDateArray.append(dateString)
+                            print("self.eventDateArray", self.eventDateArray)
+                            print("self.eventDateArray,Count", self.eventDateArray.count)
+                        }
+                        self.calendar.reloadData()
+                        
+                        
+                        
+                        
+                }
+            }, failure:  {(error) in
+                
+                print(error)
+                
+                if(error == "unAuthorized"){
+                    
+                    
+                    //  self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
+                    
+                    
+                }
+                
+                
+                
+            })
+            
+        }
+        else {
+            
+            appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+            return
+        }
+        
+    }
+    
+
+    
+    
     
     func returnDateWithoutTime(selectedDateString : String) -> String{
         var newDateStr = ""

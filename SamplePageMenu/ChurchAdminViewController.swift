@@ -19,8 +19,10 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     var listResultArray = Array<Any>()
     var churchNamesArray = Array<String>()
-    var churchIDArray = Array<Int>()
-    var villageNamesArray = Array<String>()
+    var churchAdminNameArray = Array<String>()
+    var mobileNumberArray = Array<String>()
+    var emailArray = Array<String>()
+
     var churchAdmin = Array<String>()
     
     var PageIndex = 1
@@ -38,21 +40,19 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         let nibName1  = UINib(nibName: "ChurchAdminDetailCell" , bundle: nil)
         churchAdminTableView.register(nibName1, forCellReuseIdentifier: "ChurchAdminDetailCell")
         
-        
+        getChurchAdminDetailsAPICall()
+
         // Do any additional setup after loading the view.
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         
+            super.viewWillAppear(animated)
+            Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Admin List".localize(), backTitle: "Admin List".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+            
+            
         
-        
-     //   Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Churchus List".localize(), backTitle: "Churchus List".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-        
-        //navigationItem.leftBarButtonItems = []
-        
-        
-        getChurchAdminDetailsAPICall()
         
      //   churchAdminTableView.isHidden = true
         
@@ -113,8 +113,12 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
                 
                 for church in respVO.listResult!{
                     
-                    self.churchNamesArray.append(church.churchAdmin!)
-                    //   self.villageNamesArray.append(church.villageName!)
+                    self.churchNamesArray.append(church.churchName!)
+                       self.churchAdminNameArray.append(church.churchAdmin!)
+                    self.mobileNumberArray.append(church.mobileNumber!)
+                    self.emailArray.append(church.email!)
+
+
                   //  self.churchAdmin.append(church.contactNumber!)
 //                    self.churchIDArray.append(church.Id!)
                     
@@ -125,7 +129,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
                 print("churchNamesArray.Count", self.churchNamesArray.count)
 
                 
-                self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+              //  self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
 
                 self.churchAdminTableView.reloadData()
                 
@@ -174,19 +178,25 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return UITableViewAutomaticDimension
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
-            
-            return 180
-            
-        }
-            
-        else {
-            
-            return 140
-            
-        }
+//        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
+//            
+//            return 180
+//            
+//        }
+//            
+//        else {
+//            
+//            return 140
+//            
+//        }
+        
+        return UITableViewAutomaticDimension
     }
     
     
@@ -216,8 +226,13 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChurchAdminDetailCell", for: indexPath) as! ChurchAdminDetailCell
-       cell.adminNameLabel.text = churchNamesArray[indexPath.row]
-        
+        cell.adminNameLabel.text = churchAdminNameArray[indexPath.row]
+        cell.churchName.text = churchNamesArray[indexPath.row]
+        cell.mobileNumber.text = mobileNumberArray[indexPath.row]
+        cell.email.text = emailArray[indexPath.row]
+
+      //  cell.adminNameLabel.text = churchNamesArray[indexPath.row]
+
         return cell
         
     }
@@ -237,34 +252,34 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
     }
     
-//    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
-//        
-//        
-//        
-//        UserDefaults.standard.removeObject(forKey: "1")
-//        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
-//        UserDefaults.standard.synchronize()
-//        
-//        
-//        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-//        
-//        appDelegate.window?.rootViewController = rootController
-//        
-//        
-//        
-//        //   navigationItem.leftBarButtonItems = []
-//        //   let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-//        
-//        //
-//        //        UserDefaults.standard.set("1", forKey: "1")
-//        //        UserDefaults.standard.synchronize()
-//        //
-//        //        self.navigationController?.popViewController(animated: true)
-//        //        
-//        //        
-//        print("Back Button Clicked......")
-//        
-//    }
+    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+        
+        
+        
+        UserDefaults.standard.removeObject(forKey: "1")
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        UserDefaults.standard.synchronize()
+        
+        
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+        
+        
+        //   navigationItem.leftBarButtonItems = []
+        //   let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        
+        //
+        //        UserDefaults.standard.set("1", forKey: "1")
+        //        UserDefaults.standard.synchronize()
+        //
+        //        self.navigationController?.popViewController(animated: true)
+        //
+        //
+        print("Back Button Clicked......")
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
