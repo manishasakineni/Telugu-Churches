@@ -17,6 +17,8 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     
     var eventDateArray = Array<String>()
     var eventsCountsArray = Array<Int>()
+    var eventTitleArray = Array<String>()
+    var allEventTitleArray = Array<String>()
 
     
    // var febDatesWithEvent = ["2018-02-03", "2018-02-06", "2018-02-12", "2018-02-25"]
@@ -195,17 +197,119 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     //    if(datesWithMultipleEvents.contains(selectedDateString)){
 
         if(eventDateArray.contains(selectedDateString)){
-                            let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
-               reOrderPopOverVC.eventsLisrArray = self.numberEvent
-               reOrderPopOverVC.eventsDateString = selectedDateString
-                           // reOrderPopOverVC.delegate = self
             
-                                //    reOrderPopOverVC. singleSelection =
-                                //   var imagesArray : Array<UIImage> = Array()
-                                    self.addChildViewController(reOrderPopOverVC)
-                                    reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-                                    self.view.addSubview(reOrderPopOverVC.view)
-                                    reOrderPopOverVC.didMove(toParentViewController: self)
+            if(appDelegate.checkInternetConnectivity()){
+                
+                var userid      : Int = 3
+                // var month      : Int = 02
+                // var year       : Int = 2018
+                
+                let strUrl = GETEVENTBYDATEANDUSERID + "" + "\(selectedDateString)" + "/" + "\(userid)"
+                
+                print(strUrl)
+                serviceController.getRequest(strURL:strUrl, success:{(result) in
+                    DispatchQueue.main.async()
+                        {
+                            
+                            //  let respVO:LoginVo = Mapper().map(JSONObject: result)!
+                            
+                            print("result:\(result)")
+                            
+                            
+                           let respVO:GetEventByDateAndUserIdVo = Mapper().map(JSONObject: result)!
+                            
+                            
+                            let isSuccess = respVO.isSuccess
+                            print("StatusCode:\(String(describing: isSuccess))")
+                            
+                            self.eventTitleArray.removeAll()
+                            
+                            if isSuccess == true {
+                                
+                                let successMsg = respVO.endUserMessage
+                                
+
+                                
+                                for eventsTitleList in respVO.listResult!{
+                                    
+                                    let eventTitle = eventsTitleList.eventTitle
+                                    self.eventTitleArray.append(eventTitle!)
+                                    print( self.eventTitleArray)
+
+                                    }
+                                
+                                print(self.eventTitleArray)
+                           
+
+                            
+                    let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
+                                
+//                                var event = ""
+//                                //event = "\(eventsCountsArray.count)"
+//                                
+//                                if let i = self.eventTitleArray.index(of: selectedDateString) {
+//                                    print("Jason is at index \(i)")
+//                                    let prevEventCount = self.eventTitleArray[i]
+//                                    event = "\(prevEventCount)"
+//                                    //  self.eventsCountsArray[i] = event
+//                                    
+//                                }
+                                
+                               
+                                
+                                var params : Dictionary = Dictionary<String,Any>()
+                               // var emptyDictionary = Dictionary<String, String>()
+                               // var params = [String: Any]()
+                                params.updateValue(self.eventTitleArray, forKey: selectedDateString)
+                                print(params)
+                                
+                        reOrderPopOverVC.eventsLisrArray = self.eventTitleArray
+                        reOrderPopOverVC.eventsDateString = selectedDateString
+                        // reOrderPopOverVC.delegate = self
+                            
+                        //    reOrderPopOverVC. singleSelection =
+                        //   var imagesArray : Array<UIImage> = Array()
+                        self.addChildViewController(reOrderPopOverVC)
+                        reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+                        self.view.addSubview(reOrderPopOverVC.view)
+                        reOrderPopOverVC.didMove(toParentViewController: self)
+                            
+//                            for eventsList in respVO.listResult!{
+//                                
+////                                let dateString = self.returnDateWithoutTime(selectedDateString: eventsList.eventDate!)
+////                                self.eventDateArray.append(dateString)
+////                                print("self.eventDateArray", self.eventDateArray)
+////                                print("self.eventDateArray,Count", self.eventDateArray.count)
+//                            }
+                            self.calendar.reloadData()
+                            
+                            }
+                            
+                    }
+                }, failure:  {(error) in
+                    
+                    print(error)
+                    
+                    if(error == "unAuthorized"){
+                        
+                        
+                        //  self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
+                        
+                        
+                    }
+                    
+                    
+                    
+                })
+                
+            }
+            else {
+                
+                appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+                return
+            }
+
+
             
             print(numberEvent)
         }
@@ -257,35 +361,20 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                         
                         let respVO:GetEventByUserIdMonthYearVo = Mapper().map(JSONObject: result)!
                         
-                     //   var prevDateString = ""
+                        let isSuccess = respVO.isSuccess
+                        print("StatusCode:\(String(describing: isSuccess))")
                         
+                        if isSuccess == true {
+                            
+                            let successMsg = respVO.endUserMessage
+                            
+
                         for eventsList in respVO.listResult!{
                             
                             let dateString = self.returnDateWithoutTime(selectedDateString: eventsList.eventDate!)
                             self.eventDateArray.append(dateString)
                             let eventsCountsString = eventsList.eventsCount
                             self.eventsCountsArray.append(eventsCountsString!)
-//                            if(prevDateString != dateString){
-//                         
-//                            }else{
-//                                if(self.eventDateArray.contains(dateString)){
-//                                    if let i = self.eventDateArray.index(of: dateString) {
-//                                        print("Jason is at index \(i)")
-//                                        let prevEventCount = self.eventsCountsArray[i]
-//                                        let newEventCount = prevEventCount + eventsList.eventsCount!
-//                                        self.eventsCountsArray[i] = newEventCount
-//                                        
-//                                    }
-//                                }
-//                            }
-//                            
-//                            
-//                            
-//                            prevDateString = dateString
-                            
-                       
-                        
-
                         }
 
                         print("self.eventDateArray,Count", self.eventDateArray.count)
@@ -294,7 +383,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                      
                         self.calendar.reloadData()
                         
-                        
+                        }
                         
                         
                 }
@@ -322,71 +411,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         }
         
     }
-    
-    
-    
-    func getEventByDateAndUserIdAPIService(){
-        
-        if(appDelegate.checkInternetConnectivity()){
-            
-            var userid      : Int = 3
-           // var month      : Int = 02
-           // var year       : Int = 2018
-            
-            let strUrl = GETEVENTBYDATEANDUSERID + "" + "\(self.eventDateArray)" + "/" + "\(userid)"
-            
-            print(strUrl)
-            serviceController.getRequest(strURL:strUrl, success:{(result) in
-                DispatchQueue.main.async()
-                    {
-                        
-                        //  let respVO:LoginVo = Mapper().map(JSONObject: result)!
-                        
-                        print("result:\(result)")
-                        
-                        let respVO:GetEventByUserIdMonthYearVo = Mapper().map(JSONObject: result)!
-                        
-                        for eventsList in respVO.listResult!{
-                            
-                            let dateString = self.returnDateWithoutTime(selectedDateString: eventsList.eventDate!)
-                            self.eventDateArray.append(dateString)
-                            print("self.eventDateArray", self.eventDateArray)
-                            print("self.eventDateArray,Count", self.eventDateArray.count)
-                        }
-                        self.calendar.reloadData()
-                        
-                        
-                        
-                        
-                }
-            }, failure:  {(error) in
-                
-                print(error)
-                
-                if(error == "unAuthorized"){
-                    
-                    
-                    //  self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
-                    
-                    
-                }
-                
-                
-                
-            })
-            
-        }
-        else {
-            
-            appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
-            return
-        }
-        
-    }
-    
-
-    
-    
+   
     
     func returnDateWithoutTime(selectedDateString : String) -> String{
         var newDateStr = ""

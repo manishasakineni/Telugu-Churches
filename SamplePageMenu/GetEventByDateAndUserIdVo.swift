@@ -8,7 +8,9 @@
 
 import Foundation
 class GetEventByDateAndUserIdVo: Mappable {
-       var listResult : [GetEventByDateAndUserIdResultVo]?
+    
+    
+    var listResult : [GetEventByDateAndUserIdResultVo]?
     var isSuccess    : Bool?
     var totalRecords : Int?
     var affectedRecords : Int?

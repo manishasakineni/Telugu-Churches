@@ -27,10 +27,9 @@
                         <rect key="frame" x="3" y="2" width="314" height="36"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOk-Rg-1Wc">
-                                <rect key="frame" x="8" y="7" width="84" height="21"/>
+                                <rect key="frame" x="8" y="7" width="32" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="fhF-eI-MJs"/>
-                                    <constraint firstAttribute="width" constant="84" id="wCF-4L-qCc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <nil key="textColor"/>
