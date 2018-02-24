@@ -12,6 +12,13 @@ class EventInformationCell: UITableViewCell {
 
     @IBOutlet weak var backGroundView: UIView!
     @IBOutlet weak var eventType: UILabel!
+    
+    @IBOutlet weak var eventStartDateLabel: UILabel!
+    
+    
+    @IBOutlet weak var eventEndDateLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

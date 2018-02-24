@@ -14,11 +14,15 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
 
     @IBOutlet weak var calendar: FSCalendar!
     
+    var appVersion          : String = ""
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     
     var eventDateArray = Array<String>()
     var eventsCountsArray = Array<Int>()
     var eventTitleArray = Array<String>()
-    var allEventTitleArray = Array<String>()
+    var eventStartDateArray = Array<String>()
+    var eventEndDateArray = Array<String>()
 
     
    // var febDatesWithEvent = ["2018-02-03", "2018-02-06", "2018-02-12", "2018-02-25"]
@@ -29,7 +33,6 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     var numberEvent = ["AAA", "BBB", "CCC", "DDD"]
     var febEvent = ["Steve", "Jobs", "Pall", "Iphone"]
  var selectedDateString = ""
-  //  let day: Int! = self.gregorian.component(.day, from: date)
 
     var holidays:  [Date] = []
     let events:    [Date] = []
@@ -38,15 +41,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     var somedays : Array = [String]()
     var calendarEvents : [FSCalendar] = []
 
-    
-//    fileprivate lazy var dateFormatter2: DateFormatter = {
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "yyyy-MM-dd"
-//        return formatter
-//    }()
-//    
-    
-    
+
     fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
     fileprivate lazy var dateFormatter1: DateFormatter = {
         let formatter = DateFormatter()
@@ -67,7 +62,6 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     let codedLabel:UILabel = UILabel()
 
     
-//    let listArray = "aaaaa"
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -82,12 +76,15 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+ 
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
+        Utilities.setEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Events".localize(), backTitle: "Events".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+        
         getEventByUserIdMonthYearAPIService()
         
-       // getEventByDateAndUserIdAPIService()
     }
 
     func color(){
@@ -140,13 +137,11 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         if self.eventDateArray.contains(dateString) {
             
             var event = ""
-            //event = "\(eventsCountsArray.count)"
             
             if let i = self.eventDateArray.index(of: dateString) {
                                                         print("Jason is at index \(i)")
                                                         let prevEventCount = self.eventsCountsArray[i]
                                                          event = "\(prevEventCount)"
-                                                      //  self.eventsCountsArray[i] = event
                 
                                                     }
             
@@ -162,25 +157,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         return nil
     }
 
-   
-    
-//    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-//        let dateString = self.dateFormatter2.string(from: date)
-//
-//        if monthPosition == .previous || monthPosition == .next {
-//            calendar.setCurrentPage(date, animated: true)
-//            
-//            print("title date",date)
-//        }
-//
-//        
-//        
-//        
-//        
-//    }
-
-    
-    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+   func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
        // calendar.snp.updateConstraints { (make) in
         //    make.height.equalTo(bounds.height)
             // Do other updates
@@ -223,7 +200,9 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                             print("StatusCode:\(String(describing: isSuccess))")
                             
                             self.eventTitleArray.removeAll()
-                            
+                            self.eventStartDateArray.removeAll()
+                            self.eventEndDateArray.removeAll()
+
                             if isSuccess == true {
                                 
                                 let successMsg = respVO.endUserMessage
@@ -234,56 +213,54 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                                     
                                     let eventTitle = eventsTitleList.eventTitle
                                     self.eventTitleArray.append(eventTitle!)
-                                    print( self.eventTitleArray)
+                                    
+                                    let eventStartDate = eventsTitleList.startDate
+                                    self.eventStartDateArray.append(eventStartDate!)
+                                    
+                                    let eventEndDate = eventsTitleList.endDate
+                                    self.eventEndDateArray.append(eventEndDate!)
+
+                                    print( self.eventEndDateArray)
 
                                     }
                                 
                                 print(self.eventTitleArray)
-                           
+                                print(self.eventStartDateArray)
+                                print( self.eventEndDateArray)
+
 
                             
                     let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
                                 
-//                                var event = ""
-//                                //event = "\(eventsCountsArray.count)"
-//                                
-//                                if let i = self.eventTitleArray.index(of: selectedDateString) {
-//                                    print("Jason is at index \(i)")
-//                                    let prevEventCount = self.eventTitleArray[i]
-//                                    event = "\(prevEventCount)"
-//                                    //  self.eventsCountsArray[i] = event
-//                                    
-//                                }
-                                
-                               
-                                
                                 var params : Dictionary = Dictionary<String,Any>()
-                               // var emptyDictionary = Dictionary<String, String>()
-                               // var params = [String: Any]()
                                 params.updateValue(self.eventTitleArray, forKey: selectedDateString)
+                                params.updateValue(self.eventStartDateArray, forKey: selectedDateString)
+                                params.updateValue(self.eventEndDateArray, forKey: selectedDateString)
+
                                 print(params)
                                 
                         reOrderPopOverVC.eventsLisrArray = self.eventTitleArray
+                        reOrderPopOverVC.eventStartDateLisrArray = self.eventStartDateArray
+                        reOrderPopOverVC.eventEndDateLisrArray = self.eventEndDateArray
+
+                                
+                                
                         reOrderPopOverVC.eventsDateString = selectedDateString
                         // reOrderPopOverVC.delegate = self
-                            
-                        //    reOrderPopOverVC. singleSelection =
-                        //   var imagesArray : Array<UIImage> = Array()
                         self.addChildViewController(reOrderPopOverVC)
                         reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
                         self.view.addSubview(reOrderPopOverVC.view)
                         reOrderPopOverVC.didMove(toParentViewController: self)
-                            
-//                            for eventsList in respVO.listResult!{
-//                                
-////                                let dateString = self.returnDateWithoutTime(selectedDateString: eventsList.eventDate!)
-////                                self.eventDateArray.append(dateString)
-////                                print("self.eventDateArray", self.eventDateArray)
-////                                print("self.eventDateArray,Count", self.eventDateArray.count)
-//                            }
-                            self.calendar.reloadData()
+                                
+                        self.calendar.reloadData()
+                                
+                            //    self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+
                             
                             }
+                            
+                            
+
                             
                     }
                 }, failure:  {(error) in
@@ -293,7 +270,6 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                     if(error == "unAuthorized"){
                         
                         
-                        //  self.showAlertViewWithTitle("Alert".localize(), message: error, buttonTitle: "Ok".localize())
                         
                         
                     }
@@ -383,6 +359,10 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                      
                         self.calendar.reloadData()
                         
+                            
+                            self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+
+                            
                         }
                         
                         
@@ -432,6 +412,15 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         return newDateStr
     }
     
+    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+        UserDefaults.standard.removeObject(forKey: "1")
+        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        UserDefaults.standard.synchronize()
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        appDelegate.window?.rootViewController = rootController
+        print("Back Button Clicked......")
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -20,7 +20,9 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     var churchIDArray = Array<Int>()
     var villageNamesArray = Array<String>()
     var phoneNoArray = Array<String>()
-    
+    var updatedDateArray = Array<String>()
+    var addressArray = Array<String>()
+
     
     var imageArray = [UIImage(named:"7"),UIImage(named:"5"),UIImage(named:"4"),UIImage(named:"7"),UIImage(named:"5"),UIImage(named:"4"),UIImage(named:"7"),UIImage(named:"4")]
     
@@ -141,6 +143,10 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
              //   self.villageNamesArray.append(church.villageName!)
                 self.phoneNoArray.append(church.contactNumber!)
                 self.churchIDArray.append(church.Id!)
+                self.updatedDateArray.append(church.updatedDate!)
+                self.addressArray.append(church.districtName!)
+
+                
                 
             }
     
@@ -193,6 +199,9 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
     }
     
+    
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
@@ -240,16 +249,12 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
       //  cell.areaNameLabel.text = villageNamesArray[indexPath.row]
     
         cell.phNoLabel.text     = phoneNoArray[indexPath.row]
-//        cell.churchImage.sd_setImage(with: URL(string: "http://www.pravoslavie.ru/sas/image/102063/206387.b.jpg?mtime=1434361516"), placeholderImage: UIImage(named: "5"))
+        cell.timeLabel.text     = updatedDateArray[indexPath.row]
+        cell.addressLabel.text  = addressArray[indexPath.row]
+
         
         
-        
-//        cell.churchImage.image = imageArray[ indexPath.row]
-//
-//        cell.areaNameLabel.text = AreanamesArray[indexPath.row]
-//        cell.phNoLabel.text = PhNumberArray[indexPath.row]
-//        cell.timeLabel.text = TimingsArray[indexPath.row]
-//x
+
         
         print(churchNamesArray.count)
         

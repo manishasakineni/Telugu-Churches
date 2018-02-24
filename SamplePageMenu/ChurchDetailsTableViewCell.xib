@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A405" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="148"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="148"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="147.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y8v-vc-qB2">
@@ -58,10 +58,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24:24:24 - 24/12/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19A-NE-weG">
-                                <rect key="frame" x="163" y="104" width="143" height="21"/>
+                                <rect key="frame" x="163" y="104" width="139.5" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="143" id="8oz-Qa-suz"/>
-                                    <constraint firstAttribute="height" constant="21" id="S3U-NX-FgW"/>
+                                    <constraint firstAttribute="height" constant="21" id="8Bj-nq-Pnp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -72,13 +71,13 @@
                             <constraint firstItem="SpZ-NR-shn" firstAttribute="leading" secondItem="fWu-Sg-5nV" secondAttribute="leading" id="0AK-nR-CWr"/>
                             <constraint firstAttribute="trailing" secondItem="Uov-51-6W6" secondAttribute="trailing" id="456-MI-ZoM"/>
                             <constraint firstItem="fWu-Sg-5nV" firstAttribute="top" secondItem="zhC-XC-cef" secondAttribute="bottom" constant="9" id="C4j-K0-eOO"/>
-                            <constraint firstAttribute="bottom" secondItem="19A-NE-weG" secondAttribute="bottom" constant="16.5" id="Dpm-cg-hVr"/>
                             <constraint firstItem="SpZ-NR-shn" firstAttribute="top" secondItem="fWu-Sg-5nV" secondAttribute="bottom" constant="1" id="GjV-uA-IV9"/>
-                            <constraint firstItem="19A-NE-weG" firstAttribute="leading" secondItem="Uov-51-6W6" secondAttribute="trailing" constant="-151" id="JRH-e0-3Uz"/>
                             <constraint firstItem="fWu-Sg-5nV" firstAttribute="leading" secondItem="zhC-XC-cef" secondAttribute="leading" id="MdK-QU-DrL"/>
+                            <constraint firstAttribute="bottom" secondItem="19A-NE-weG" secondAttribute="bottom" constant="16.5" id="Nfu-7u-cJJ"/>
                             <constraint firstItem="Uov-51-6W6" firstAttribute="leading" secondItem="y8v-vc-qB2" secondAttribute="leading" id="Rei-WS-JNT"/>
                             <constraint firstItem="Uov-51-6W6" firstAttribute="top" secondItem="y8v-vc-qB2" secondAttribute="top" id="TZG-oP-OBb"/>
                             <constraint firstItem="zhC-XC-cef" firstAttribute="leading" secondItem="y8v-vc-qB2" secondAttribute="leading" constant="9" id="bHL-6c-UPZ"/>
+                            <constraint firstAttribute="trailing" secondItem="19A-NE-weG" secondAttribute="trailing" constant="11.5" id="bqe-Ty-ZJK"/>
                             <constraint firstItem="zhC-XC-cef" firstAttribute="top" secondItem="y8v-vc-qB2" secondAttribute="top" constant="9" id="mqd-Pg-QIV"/>
                             <constraint firstAttribute="bottom" secondItem="Uov-51-6W6" secondAttribute="bottom" id="sN6-RR-Ai2"/>
                         </constraints>
@@ -92,7 +91,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="areaNameLabel" destination="fWu-Sg-5nV" id="AYn-7L-sCv"/>
+                <outlet property="addressLabel" destination="fWu-Sg-5nV" id="oef-It-fbL"/>
                 <outlet property="churchImage" destination="Uov-51-6W6" id="68X-ud-UCm"/>
                 <outlet property="churchNameLbl" destination="zhC-XC-cef" id="VU3-P5-cIw"/>
                 <outlet property="phNoLabel" destination="SpZ-NR-shn" id="xjd-8y-EME"/>

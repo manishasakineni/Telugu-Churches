@@ -129,7 +129,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
                 print("churchNamesArray.Count", self.churchNamesArray.count)
 
                 
-              //  self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+                self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
 
                 self.churchAdminTableView.reloadData()
                 

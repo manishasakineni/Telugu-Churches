@@ -14,6 +14,9 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var datePopUpTableView: UITableView!
 
     var eventsLisrArray = Array<String>()
+    var eventStartDateLisrArray = Array<String>()
+    var eventEndDateLisrArray = Array<String>()
+
     var febEventsLisrArray = Array<String>()
 
     var eventsDateString : String = ""
@@ -85,7 +88,7 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return 44.0
+        return 81
         
     }
 
@@ -96,6 +99,9 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
             let eventInformationCell = tableView.dequeueReusableCell(withIdentifier: "EventInformationCell", for: indexPath) as! EventInformationCell
         
              eventInformationCell.eventType.text = self.eventsLisrArray[indexPath.row]
+             eventInformationCell.eventStartDateLabel.text = self.eventStartDateLisrArray[indexPath.row]
+             eventInformationCell.eventEndDateLabel.text = self.eventEndDateLisrArray[indexPath.row]
+ 
             return eventInformationCell
        // }
        

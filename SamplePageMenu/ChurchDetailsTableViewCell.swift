@@ -15,8 +15,8 @@ class ChurchDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var churchNameLbl: UILabel!
     
     
-    @IBOutlet weak var areaNameLabel: UILabel!
     
+    @IBOutlet weak var addressLabel: UILabel!
     
     @IBOutlet weak var phNoLabel: UILabel!
     
