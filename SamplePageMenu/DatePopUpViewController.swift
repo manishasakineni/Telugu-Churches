@@ -79,7 +79,12 @@ class DatePopUpViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         let eventHeaderCell = tableView.dequeueReusableCell(withIdentifier: "EventHeaderCell") as! EventHeaderCell
         
-        eventHeaderCell.eventDate.text = "Date:-" + self.eventsDateString
+        eventHeaderCell.eventDate.text = "Date".localize() + ":-"  + self.eventsDateString
+        eventHeaderCell.eventName.text = "EventName".localize()
+        eventHeaderCell.eventStartDate.text = "EventStartDate".localize()
+        eventHeaderCell.eventEndDate.text = "EventEndDate".localize()
+
+        
        
         
         return eventHeaderCell

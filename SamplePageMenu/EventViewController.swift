@@ -406,6 +406,9 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         if(selectedDateString != ""){
             let invDtArray = selectedDateString.components(separatedBy: "T")
             let dateString = invDtArray[0]
+         //   let timeString = invDtArray[1]
+          //  print(timeString)
+
             if(dateString != ""){
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -415,7 +418,16 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                 newDateStr = newDateString
                 print(newDateStr)
             }
-            
+//            if(timeString != ""){
+//                let dateFormatter = DateFormatter()
+//                dateFormatter.dateStyle = .medium
+//                dateFormatter.dateFormat = "HH:mm:ss"
+//                let dateFromString = dateFormatter.date(from: timeString)
+//                dateFormatter.dateFormat = "hh:mm aa"
+//                let newDateString = dateFormatter.string(from: dateFromString!)
+//                newDateStr = newDateString
+//                print(newDateStr)
+//            }
         }
         return newDateStr
     }

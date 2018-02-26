@@ -48,29 +48,29 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EventStartDate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0G-XO-fBi">
-                                <rect key="frame" x="112" y="54" width="81.5" height="17"/>
+                                <rect key="frame" x="110.5" y="54" width="74.5" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="VmK-9y-hHo"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                 <color key="textColor" red="0.79616970490000005" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EventEndDate" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XP-6c-gdX">
-                                <rect key="frame" x="229" y="54.5" width="76.5" height="17"/>
+                                <rect key="frame" x="235" y="54.5" width="70.5" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="gjM-wB-2nF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                 <color key="textColor" red="0.79616970490000005" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EventType" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRu-1b-bvC">
-                                <rect key="frame" x="8" y="54" width="55.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EventName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRu-1b-bvC">
+                                <rect key="frame" x="8" y="54" width="57" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="K6K-0A-z0o"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                 <color key="textColor" red="0.85115724800000003" green="0.1628027306" blue="0.23619760740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -89,7 +89,7 @@
                             <constraint firstItem="jej-fE-UhC" firstAttribute="top" secondItem="sad-ag-gof" secondAttribute="top" constant="13" id="61H-V2-iDu"/>
                             <constraint firstItem="yDA-fs-1eu" firstAttribute="top" secondItem="sad-ag-gof" secondAttribute="top" constant="13" id="GuA-ZB-TKQ"/>
                             <constraint firstItem="zRu-1b-bvC" firstAttribute="top" secondItem="pMx-rA-KOQ" secondAttribute="bottom" constant="33" id="KQL-1a-mjN"/>
-                            <constraint firstItem="P0G-XO-fBi" firstAttribute="centerX" secondItem="yDA-fs-1eu" secondAttribute="centerX" constant="-5" id="Mkk-Js-M6R"/>
+                            <constraint firstItem="P0G-XO-fBi" firstAttribute="centerX" secondItem="yDA-fs-1eu" secondAttribute="centerX" constant="-10" id="Mkk-Js-M6R"/>
                             <constraint firstItem="P0G-XO-fBi" firstAttribute="top" secondItem="yDA-fs-1eu" secondAttribute="bottom" constant="20" id="QPF-R3-JPS"/>
                             <constraint firstItem="zRu-1b-bvC" firstAttribute="leading" secondItem="pMx-rA-KOQ" secondAttribute="leading" id="UYl-fm-uN0"/>
                             <constraint firstItem="pMx-rA-KOQ" firstAttribute="leading" secondItem="sad-ag-gof" secondAttribute="leading" constant="8" id="ZFa-Lx-Ttj"/>
@@ -115,6 +115,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="eventDate" destination="pMx-rA-KOQ" id="X04-Ln-LfB"/>
+                <outlet property="eventEndDate" destination="9XP-6c-gdX" id="JSS-oG-BsV"/>
+                <outlet property="eventName" destination="zRu-1b-bvC" id="ede-29-19R"/>
+                <outlet property="eventStartDate" destination="P0G-XO-fBi" id="Me6-4a-7Wb"/>
             </connections>
             <point key="canvasLocation" x="25" y="70.5"/>
         </tableViewCell>

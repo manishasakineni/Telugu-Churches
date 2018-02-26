@@ -143,7 +143,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
              //   self.villageNamesArray.append(church.villageName!)
                 self.phoneNoArray.append(church.contactNumber!)
                 self.churchIDArray.append(church.Id!)
-                self.updatedDateArray.append(church.updatedDate!)
+                self.updatedDateArray.append(self.returnDateWithoutTime(selectedDateString:church.updatedDate!))
+        //        self.updatedDateArray.append(church.updatedDate!)
                 self.addressArray.append(church.districtName!)
 
                 
@@ -306,5 +307,45 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         print("Back Button Clicked......")
         
     }
+    
+    func returnDateWithoutTime(selectedDateString : String) -> String{
+        var newDateStr = ""
+        var newDateStr1 = ""
+
+        if(selectedDateString != ""){
+            let invDtArray = selectedDateString.components(separatedBy: "T")
+            let dateString = invDtArray[0]
+            let dateString1 = invDtArray[1]
+            let invDtArray2 = dateString1.components(separatedBy: ".")
+            let dateString3 = invDtArray2[0]
+
+                 print(dateString3)
+            //   let timeString = invDtArray[1]
+            //  print(timeString)
+            
+            if(dateString != ""){
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let dateFromString = dateFormatter.date(from: dateString)
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr = newDateString
+                print(newDateStr)
+            }
+            if(dateString3 != ""){
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .medium
+                dateFormatter.dateFormat = "HH:mm:ss"
+                let dateFromString = dateFormatter.date(from: dateString3)
+                dateFormatter.dateFormat = "hh:mm aa"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr1 = newDateString
+                print(newDateStr1)
+            }
+        }
+        return newDateStr + "," + newDateStr1
+    }
+
 
 }

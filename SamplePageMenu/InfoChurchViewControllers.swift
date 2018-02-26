@@ -135,7 +135,9 @@ func getChurchuByIDAPIService(){
                         self.regNoString = (respVO.listResult?[0].registrationNumber)!
                         self.emailString = (respVO.listResult?[0].email)!
                         self.nameString = (respVO.listResult?[0].pasterUser)!
-                        self.timeString = ( (respVO.listResult?[0].openingTime)! + "-" + (respVO.listResult?[0].closingTime)!)
+                        self.timeString = self.amAppend(str: ( (respVO.listResult?[0].openingTime)! + "-" + (respVO.listResult?[0].closingTime)!))
+
+                     //   self.timeString = ( (respVO.listResult?[0].openingTime)! + "-" + (respVO.listResult?[0].closingTime)!)
                         self.descriptionString = (respVO.listResult?[0].description)!
 
                        //  self.timeArray = ("\(respVO.listResult?[0].openingTime)" + "-" + "\(respVO.listResult?[0].openingTime)")
@@ -283,6 +285,40 @@ func getChurchuByIDAPIService(){
         alertView.show()
     }
 
+    func amAppend(str:String) -> String{
+        
+        var newDateStr = ""
+        var newDateStr1 = ""
+
+                    if(str != ""){
+                        let invDtArray = str.components(separatedBy: "-")
+                        let dateString1 = invDtArray[0]
+                        let dateString2 = invDtArray[1]
+                        if(dateString1 != ""){
+
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateStyle = .medium
+                        dateFormatter.dateFormat = "HH:mm:ss"
+                        let dateFromString = dateFormatter.date(from: dateString1)
+                        dateFormatter.dateFormat = "hh:mm aa"
+                        let newDateString = dateFormatter.string(from: dateFromString!)
+                        newDateStr = newDateString
+                        print(newDateStr)
+                        }
+                         if(dateString2 != ""){
+                            
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateStyle = .medium
+                            dateFormatter.dateFormat = "HH:mm:ss"
+                            let dateFromString = dateFormatter.date(from: dateString2)
+                            dateFormatter.dateFormat = "hh:mm aa"
+                            let newDateString = dateFormatter.string(from: dateFromString!)
+                            newDateStr1 = newDateString
+                            print(newDateStr1)
+                        }
+                    }
+        return newDateStr + "-" + newDateStr1
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

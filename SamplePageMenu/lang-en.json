@@ -65,10 +65,13 @@
     "Events" : "Events",
     "Admin List" : "Admin List",
     "Churches List" : "Churches List",
-    "Churche Details" : "Churche Details"
+    "Churche Details" : "Churche Details",
 
-    
-      
+    "EventStartDate" : "Event Start Date",
+    "EventEndDate" : "Event End Date",
+    "EventName" : "Event Name",
+    "Date" : "Date"
+
     
 
 

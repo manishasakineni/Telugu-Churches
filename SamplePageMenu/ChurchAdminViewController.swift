@@ -241,14 +241,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
-//        
-//        let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
-//        
-//        
-//        
-//        
-//        
-//        self.navigationController?.pushViewController(holyBibleViewController, animated: true)
+
         
     }
     

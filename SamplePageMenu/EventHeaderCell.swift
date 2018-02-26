@@ -11,6 +11,16 @@ import UIKit
 class EventHeaderCell: UITableViewCell {
 
     @IBOutlet weak var eventDate: UILabel!
+    
+    
+    @IBOutlet weak var eventName: UILabel!
+    
+    
+    @IBOutlet weak var eventStartDate: UILabel!
+    
+    
+    @IBOutlet weak var eventEndDate: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

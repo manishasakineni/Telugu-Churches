@@ -66,7 +66,11 @@
     "Admin List" : "అడ్మిన్ జాబితా",
 
     "Churches List" : "చర్చిల జాబితా",
-    "Churche Details" : "చర్చి వివరాలు"
+    "Churche Details" : "చర్చి వివరాలు",
+    "EventStartDate" : "ఈవెంట్ ప్రారంభ తేదీ",
+    "EventEndDate" : "ఈవెంట్ ముగింపు తేదీ",
+    "EventName" : "ఈవెంట్ పేరు",
+    "Date" : "తేదీ"
 
 
 
