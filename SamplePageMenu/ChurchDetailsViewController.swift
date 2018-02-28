@@ -344,7 +344,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 print(newDateStr1)
             }
         }
-        return newDateStr + "," + newDateStr1
+        return newDateStr + ", " + newDateStr1
     }
 
 

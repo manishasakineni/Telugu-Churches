@@ -42,7 +42,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         menuTableView.dataSource = self
         
         
-        self.menuArray = ["EditProfile".localize(),"ChangepassWord".localize(),"LogOut".localize()]
+        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize(),"LogOut".localize()]
 
         borderColor()
         // Do any additional setup after loading the view.
@@ -54,7 +54,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        self.menuArray = ["EditProfile".localize(),"ChangepassWord".localize(),"LogOut".localize()]
+        self.menuArray = ["EditProfile".localize(),"ChangePassword".localize(),"LogOut".localize()]
 
         
       //  menuTableView.reloadData()
@@ -201,7 +201,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 print("Cancel")
             }
         }
-        else if cell.menuNameLabel.text == "ChangepassWord".localize(){
+        else if cell.menuNameLabel.text == "ChangePassword".localize(){
             
        
             
@@ -324,7 +324,7 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 (alert: UIAlertAction!) -> Void in
                 Localize.update(language: language)
                 self.chooseLanguageBtn.setTitle("ChooseLanguage".localize(), for: .normal)
-                self.menuArray = ["EditProfile".localize(),"ChangepassWord".localize(),"LogOut".localize()]
+                self.menuArray = ["EditProfile".localize(),"ChangePassword".localize(),"LogOut".localize()]
                 self.menuTableView.reloadData()
             })
             actionSheet.addAction(languageAction)

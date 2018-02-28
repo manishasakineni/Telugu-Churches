@@ -223,10 +223,13 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                                     self.eventTitleArray.append(eventTitle!)
                                     
                                     let eventStartDate = eventsTitleList.startDate
-                                    self.eventStartDateArray.append(eventStartDate!)
-                                    
+                                    // self.eventStartDateArray.append(eventStartDate!)
+                                    self.eventStartDateArray.append(self.returnEventDateWithoutTime(selectedDateString:eventStartDate!))
+
                                     let eventEndDate = eventsTitleList.endDate
-                                    self.eventEndDateArray.append(eventEndDate!)
+                                  //  self.eventEndDateArray.append(eventEndDate!)
+                                    self.eventEndDateArray.append(self.returnEventDateWithoutTime(selectedDateString:eventEndDate!))
+
 
                                     print( self.eventEndDateArray)
 
@@ -431,6 +434,46 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         }
         return newDateStr
     }
+    
+    func returnEventDateWithoutTime(selectedDateString : String) -> String{
+        var newDateStr = ""
+        var newDateStr1 = ""
+        
+        if(selectedDateString != ""){
+            let invDtArray = selectedDateString.components(separatedBy: "T")
+            let dateString = invDtArray[0]
+            let dateString1 = invDtArray[1]
+//            let invDtArray2 = dateString1.components(separatedBy: ".")
+//            let dateString3 = invDtArray2[0]
+//            
+            print(dateString1)
+            //   let timeString = invDtArray[1]
+            //  print(timeString)
+            
+            if(dateString != ""){
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let dateFromString = dateFormatter.date(from: dateString)
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr = newDateString
+                print(newDateStr)
+            }
+            if(dateString1 != ""){
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .medium
+                dateFormatter.dateFormat = "HH:mm:ss"
+                let dateFromString = dateFormatter.date(from: dateString1)
+                dateFormatter.dateFormat = "hh:mm aa"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr1 = newDateString
+                print(newDateStr1)
+            }
+        }
+        return newDateStr + "," + newDateStr1
+    }
+
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         UserDefaults.standard.removeObject(forKey: "1")
