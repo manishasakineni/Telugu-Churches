@@ -47,6 +47,10 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
 
         churchDetailsTableView.register(UINib.init(nibName: "ChurchDetailsTableViewCell", bundle: nil),
                               forCellReuseIdentifier: "ChurchDetailsTableViewCell")
+        
+        
+        Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Churches List".localize(), backTitle: "Churches List".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
     }
     
 
@@ -59,9 +63,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     override func viewWillAppear(_ animated: Bool) {
         
       
-        
-        Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Churches List".localize(), backTitle: "Churches List".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-        
+       
         //navigationItem.leftBarButtonItems = []
 
         
@@ -115,6 +117,11 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         let isSuccess = respVO.isSuccess
         print("StatusCode:\(String(describing: isSuccess))")
         
+        self.churchNamesArray.removeAll()
+        self.phoneNoArray.removeAll()
+        self.churchIDArray.removeAll()
+        self.updatedDateArray.removeAll()
+
         if isSuccess == true {
             
             

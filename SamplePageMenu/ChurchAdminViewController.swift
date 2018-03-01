@@ -41,6 +41,9 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         churchAdminTableView.register(nibName1, forCellReuseIdentifier: "ChurchAdminDetailCell")
         
         getChurchAdminDetailsAPICall()
+        
+        Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Admin List".localize(), backTitle: "Admin List".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+
 
         // Do any additional setup after loading the view.
     }
@@ -49,9 +52,6 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     override func viewWillAppear(_ animated: Bool) {
         
             super.viewWillAppear(animated)
-            Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Admin List".localize(), backTitle: "Admin List".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-            
-            
         
         
      //   churchAdminTableView.isHidden = true
@@ -247,29 +247,31 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
+//        
+//        UserDefaults.standard.set("1", forKey: "1")
+//      //  UserDefaults.standard.removeObject(forKey: "1")
+//        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+//        UserDefaults.standard.synchronize()
         
         
-        UserDefaults.standard.removeObject(forKey: "1")
-        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+        UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
+
+        self.navigationController?.popViewController(animated: true)
+
+        
+        //let categoriesHomeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
+       // self.navigationController?.popViewController(animated: true)
+
         
         
-        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
-        appDelegate.window?.rootViewController = rootController
-        
-        
-        
-        //   navigationItem.leftBarButtonItems = []
-        //   let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        
+        //        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         //
-        //        UserDefaults.standard.set("1", forKey: "1")
-        //        UserDefaults.standard.synchronize()
-        //
-        //        self.navigationController?.popViewController(animated: true)
-        //
-        //
+        //        appDelegate.window?.rootViewController = rootController
+        //        
+
+        
         print("Back Button Clicked......")
         
     }

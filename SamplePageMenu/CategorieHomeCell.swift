@@ -14,6 +14,12 @@ class CategorieHomeCell: UITableViewCell {
     @IBOutlet weak var homeCollectionView: UICollectionView!
     
     @IBOutlet weak var backGroundView: UIView!
+    
+    
+    @IBOutlet weak var categoriesNameLabel: UILabel!
+    
+    
+    @IBOutlet weak var moreButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -8,207 +8,189 @@
 
 import UIKit
 
-class CategoriesHomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
 
     
-    @IBOutlet weak var categorieTableView: UITableView!
-    
-    
-    var imageArray = [UIImage(named:"holybible"),UIImage(named:"Audio"),UIImage(named:"Seminor"),UIImage(named:"Songs"),UIImage(named:"books"),UIImage(named:"Churches"),UIImage(named:"live"),UIImage(named:"Seminor-1"),UIImage(named:"rootmap"),UIImage(named:"Science"),UIImage(named:"movies"),UIImage(named:"language"),UIImage(named:"jobs")]
-    var imageArray2 = [UIImage(named:"donation"),UIImage(named:"bookshop"),UIImage(named:"Vedio"),UIImage(named:"holybible"),UIImage(named:"Audio"),UIImage(named:"Seminor"),UIImage(named:"Songs"),UIImage(named:"books"),UIImage(named:"Churches"),UIImage(named:"live"),UIImage(named:"Seminor-1"),UIImage(named:"rootmap"),UIImage(named:"Science"),UIImage(named:"movies"),UIImage(named:"language"),UIImage(named:"jobs"),UIImage(named:"donation")]
-    
-    //   var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific Proofs","Gospel Messages","Short Messages","Images","Login id Creation","Help to develop the small churches","Book Shop","Movies","Daily Quotations","Video Songs","Testimonials","Quotations","Sunday School","Cell numbers for daily messages(Bulk sms)","Bible Apps","Short Films","Jobs","Route maps buds numbers","Events","Donation","Live","Doubts","Suggetions","Pamplets","languages(Tel/Eng)","Admin can add multiple menu pages"]
+
+// this Importent
+
+ @IBOutlet weak var collectionView: UICollectionView!
     
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
-        categorieTableView.register(nibName, forCellReuseIdentifier: "CategorieHomeCell")
-        
-        
-        
-        
-        
-        categorieTableView.dataSource = self
-        categorieTableView.delegate = self
-        
-        
-        //  self.navigationController?.isNavigationBarHidden = true
-        
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     
-    public func numberOfSections(in tableView: UITableView) -> Int {
-        
-        
-        return 2
-        
-    }
+    var pageMenu : CAPSPageMenu?
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        
-        if section == 0 {
-            
-            return 1
-            
+    
+    var appVersion          : String = ""
+    
+    var loginStatusString    =   String()
+    
+
+        var imageArray = [UIImage(named:"Bible apps"),UIImage(named:"Bible study"),UIImage(named:"Book shop"),UIImage(named:"Donation"),UIImage(named:"Doubts"),UIImage(named:"Events"),UIImage(named:"film"),UIImage(named:"Gospel messages"),UIImage(named:"Gospel"),UIImage(named:"help"),UIImage(named:"Holy bible"),UIImage(named:"Images"),UIImage(named:"Live"),UIImage(named:"Map"),UIImage(named:"Messages"),UIImage(named:"Movies"),UIImage(named:"pamphlet"),UIImage(named:"Quatation"),UIImage(named:"Scientific"),UIImage(named:"Songs"),UIImage(named:"Suggestion"),UIImage(named:"Sunday school"),UIImage(named:"Testimonial"),UIImage(named:"Videos"),UIImage(named:"ic_admin"),UIImage(named:"Languages"),UIImage(named:"Login"),UIImage(named:"pamphlet")]
+    
+    
+    
+        var namesarra1 = ["Bible apps","Bible study","Book shop","Donation","Doubts","Events","film","Gospel messages","Gospel","help","Holy bible","Images","live","Map","Messages","Movies","pamphlet","Quatation","Scientific","Songs","Suggestion","Sunday school","Testimonial","Videos","Admin","Languages","Login","pamphlet"]
+    
+      //  var namesarra1 = ["Bible apps".localize(),"Bible study".localize(),"Book shop".localize(),"Donation".localize(),"Doubts".localize(),"Events".localize(),"film".localize(),"Gospel messages".localize(),"Gospel".localize(),"help".localize(),"Holy bible".localize(),"Images".localize(),"Languages".localize(),"Live".localize(),"Login".localize(),"Map".localize(),"Messages".localize(),"Movies".localize(),"pamphlet".localize(),"Quatation".localize(),"Scientific".localize(),"Songs".localize(),"Suggestion".localize(),"Sunday school".localize(),"Testimonial".localize(),"Videos".localize()]
+    
+    
+    
+    
+    
+    
+        override func viewDidLoad() {
+            super.viewDidLoad()
+    
+            print(kLoginSucessStatus)
+    
+    
+            let defaults = UserDefaults.standard
+    
+            if let loginSucess = defaults.string(forKey: kLoginSucessStatus) {
+                print(loginSucess)
+                self.appDelegate.window?.makeToast(loginSucess, duration:kToastDuration, position:CSToastPositionCenter)
+    
+                print("defaults savedString: \(loginSucess)")
+    
+            }
+            let cellColl = UINib(nibName: "homeCollectionViewCell", bundle: nil)
+            collectionView.register(cellColl, forCellWithReuseIdentifier: "homeCollectionViewCell")
+            collectionView.dataSource = self
+            collectionView.delegate = self
+            self.navigationController?.isNavigationBarHidden = false
+    
         }
-        return 1
+
+    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Categories", backTitle: " Categories", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+
         
     }
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return  UITableViewAutomaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        
-        
-        return 150.0
-        
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        
-        
-        if indexPath.section == 0 {
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CategorieHomeCell", for: indexPath) as! CategorieHomeCell
-            
-            cell.homeCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),
-                                             forCellWithReuseIdentifier: "CategorieCollectionViewCell")
-            cell.homeCollectionView.tag = indexPath.row
-            
-            
-            cell.homeCollectionView.collectionViewLayout.invalidateLayout()
-            
-            
-            cell.homeCollectionView.delegate = self
-            cell.homeCollectionView.dataSource = self
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategorieHomeCell", for: indexPath) as! CategorieHomeCell
-        
-        cell.homeCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),
-                                         forCellWithReuseIdentifier: "CategorieCollectionViewCell")
-        cell.homeCollectionView.tag = indexPath.row
-        
-        
-        cell.homeCollectionView.collectionViewLayout.invalidateLayout()
-        
-        
-        cell.homeCollectionView.delegate = self
-        cell.homeCollectionView.dataSource = self
-        
-        
-        
-        return cell
-    }
-    
-    
-    
-}
 
 
-extension CategoriesHomeViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
-    
-    
-    
+
+
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
-        return 2
+
+        return 1
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        
-        if section == 0 {
-            
-            return imageArray.count
-            
-        }
-        
-        return imageArray2.count
-        
-        
-        
+
+        return imageArray.count
+
+
+
     }
-    
-    
-    
-    
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
-        if indexPath.section == 0 {
-            
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
-            
-            cell.collectionImgView.image = imageArray[ indexPath.row]
-            //   cell.nameLabel.text = namesarra1[indexPath.row]
-            
-            let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
-            
-            return cell
-            
-            
-        }
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
-        
-        cell.collectionImgView.image = imageArray2[ indexPath.row]
-        // cell.nameLabel.text = namesarra1[indexPath.row]
-        
-        let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
-        
-        
+
+
+
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeCollectionViewCell", for: indexPath) as! homeCollectionViewCell
+
+        cell.collectionImgView.image = imageArray[ indexPath.row]
+        cell.nameLabel.text = namesarra1[indexPath.row]
+
+        let nibName  = UINib(nibName: "homeTableViewCell" , bundle: nil)
         return cell
-        
-        
-        
-        
-        
-        
-        
-        
+
     }
-    
-    
-    
+
+
+
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
+
+            let cellsPerRow = 5
+
+            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
+            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
+            return CGSize(width: itemWidth, height: itemWidth)
+        }
+        else {
+
+
+            let cellsPerRow = 3
+
+            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
+            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
+            return CGSize(width: itemWidth, height: itemWidth)
+        }
+
+
+    }
+
+
+
+
+  /*  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+
+
         let cellsPerRow = 3
-        
         let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
         let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
         return CGSize(width: itemWidth, height: itemWidth)
+    } */
+
+
+
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // handle tap events
+        print("You selected cell #\(indexPath.item)!")
+
+
+
+
+        if indexPath.item == 1{
+
+
+            let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
+            self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+
+        }
+        if indexPath.item == 5 {
+
+            let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+            self.navigationController?.pushViewController(holyBibleViewController, animated: true)
+
+        }
+
+
+        if indexPath.item == 24 {
+            let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchAdminViewController") as! ChurchAdminViewController
+            self.navigationController?.pushViewController(churchDetailsViewController, animated: true)        }
     }
+
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func backLeftButtonTapped(_ sender:UIButton) {
+        
+        
+        UserDefaults.standard.removeObject(forKey: kuserId)
+        UserDefaults.standard.synchronize()
+        
+        //   navigationItem.leftBarButtonItems = []
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+        
+        print("Back Button Clicked......")
+        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

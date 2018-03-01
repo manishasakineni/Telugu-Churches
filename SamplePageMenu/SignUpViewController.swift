@@ -27,25 +27,6 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     var activeTextField = UITextField()
     
     
-//    var userName    : String = ""
-//    var emailID    : String = ""
-//    var mobileNumber    : String = ""
-//    var passWord    : String = ""
-//    var confirmpassWord    : String = ""
-//    var firstNameEmpty:String = ""
-//    var middleNameEmpty:String = ""
-//    var lastnameEmpty    : String = ""
-//    var userNameEmpty : String = ""
-//    var emailIDEmpty  : String = ""
-//    var mobileNumberEmpty : String = ""
-//    var passWordEmpty     : String = ""
-//    var confirmpassWordEmpty  : String = ""
-//    
-    
-    
-    
-    
-    
     
     var id:Int = 0
     var userId:String = ""

@@ -479,8 +479,11 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         UserDefaults.standard.removeObject(forKey: "1")
         UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
         UserDefaults.standard.synchronize()
-        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        appDelegate.window?.rootViewController = rootController
+        let categoriesHomeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
+        self.navigationController?.popViewController(animated: true)
+
+//        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+//        appDelegate.window?.rootViewController = rootController
         print("Back Button Clicked......")
     }
 
