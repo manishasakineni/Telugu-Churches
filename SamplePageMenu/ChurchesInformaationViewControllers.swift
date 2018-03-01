@@ -14,6 +14,9 @@ protocol churchChangeSubtitleOfIndexDelegate {
 
 class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate,churchChangeSubtitleOfIndexDelegate {
     
+    var churchImageArrayString = ""
+
+    
     var pageMenu : CAPSPageMenu?
 
     var allOffersVC : InfoChurchViewControllers?

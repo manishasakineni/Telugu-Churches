@@ -24,7 +24,15 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     
     var listResultArray:[GetChurchByIDResultVo]?
     var churchNamesString = ""
-   // var churchIDArray = Array<Int>()
+    var churchCountryArray = Array<String>()
+    var churchStateArray = Array<String>()
+    var churchDistrictNameArray = Array<String>()
+    var churchVillageNameArray = Array<String>()
+    var churchImageLogoArray = Array<String>()
+    var churchImageLogoString = ""
+
+   // var churchCountryArray = Array<String>()
+
     var villageNamesString = ""
     var phoneNoString = ""
     var regNoString = ""
@@ -42,7 +50,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     
     var churchID      : Int = 0
 
-    
+    let array = ["","ssss","ddddd","gggg"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +78,11 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         infoChurchTableView.register(nibName3, forCellReuseIdentifier: "InfoMapTableViewCell")
         let nibName4  = UINib(nibName: "AboutInfoTableViewCell" , bundle: nil)
         infoChurchTableView.register(nibName4, forCellReuseIdentifier: "AboutInfoTableViewCell")
+        
+        let nibName5  = UINib(nibName: "InfoHeaderCell" , bundle: nil)
+        infoChurchTableView.register(nibName5, forCellReuseIdentifier: "InfoHeaderCell")
+        
+        
         
         getChurchuByIDAPIService()
 
@@ -122,6 +135,11 @@ func getChurchuByIDAPIService(){
                     let isSuccess = respVO.isSuccess
                     print("StatusCode:\(String(describing: isSuccess))")
                     
+                    self.churchCountryArray.removeAll()
+                    self.churchStateArray.removeAll()
+                    self.churchDistrictNameArray.removeAll()
+                    self.churchVillageNameArray.removeAll()
+
                     if isSuccess == true {
                         
                         if !(respVO.listResult!.isEmpty){
@@ -130,17 +148,40 @@ func getChurchuByIDAPIService(){
 
                         self.listResultArray = respVO.listResult!
                         
-                        self.churchNamesString = (respVO.listResult?[0].name)!
-                        self.phoneNoString = (respVO.listResult?[0].userContactNumbar)!
-                        self.regNoString = (respVO.listResult?[0].registrationNumber)!
-                        self.emailString = (respVO.listResult?[0].email)!
-                        self.nameString = (respVO.listResult?[0].pasterUser)!
-                        self.timeString = self.amAppend(str: ( (respVO.listResult?[0].openingTime)! + "-" + (respVO.listResult?[0].closingTime)!))
-
+                        self.churchNamesString = (respVO.listResult?[0].name == nil ? "" : respVO.listResult?[0].name)!
+                        self.phoneNoString = (respVO.listResult?[0].userContactNumbar == nil ? "" : respVO.listResult?[0].userContactNumbar)!
+                        self.regNoString = (respVO.listResult?[0].registrationNumber == nil ? "" : respVO.listResult?[0].registrationNumber)!
+                        self.emailString = (respVO.listResult?[0].email == nil ? "" : respVO.listResult?[0].email)!
+                        self.nameString = (respVO.listResult?[0].pasterUser == nil ? "" : respVO.listResult?[0].pasterUser)!
+                        self.timeString = self.amAppend(str: ( (respVO.listResult?[0].openingTime == nil ? "" : respVO.listResult?[0].openingTime)! + "-" + (respVO.listResult?[0].closingTime == nil ? "" : respVO.listResult?[0].closingTime)!))
                      //   self.timeString = ( (respVO.listResult?[0].openingTime)! + "-" + (respVO.listResult?[0].closingTime)!)
-                        self.descriptionString = (respVO.listResult?[0].description)!
+                        self.descriptionString = (respVO.listResult?[0].description == nil ? "" : respVO.listResult?[0].description)!
+                         //  self.churchImageLogoString = (respVO.listResult?[0].churchImage)!
+                            self.churchImageLogoString = (respVO.listResult?[0].churchImage == nil ? "" : respVO.listResult?[0].churchImage!.replacingOccurrences(of: "\\", with: "//"))!
 
                        //  self.timeArray = ("\(respVO.listResult?[0].openingTime)" + "-" + "\(respVO.listResult?[0].openingTime)")
+                            
+                            
+                            
+                            for countryName in (respVO.listResult)!{
+                                
+                                let countryNameString = countryName.countryName
+                                self.churchCountryArray.append(countryNameString!)
+                                let stateNameString = countryName.stateName
+                                self.churchStateArray.append(stateNameString!)
+                                let districNameString = countryName.districtName
+                                self.churchDistrictNameArray.append(districNameString!)
+                                let VillageNameString = countryName.villageName
+                                self.churchVillageNameArray.append(VillageNameString!)
+                                
+                               // self.churchImageLogoArray.append(countryName.churchImage == nil ? "" : countryName.churchImage!.replacingOccurrences(of: "\\", with: "//"))
+
+                                
+                            }
+
+                            
+                            print(self.churchCountryArray)
+                            
 
                      print(self.timeString)
                     print(self.churchNamesString)
@@ -197,66 +238,128 @@ func getChurchuByIDAPIService(){
     func numberOfSections(in tableView: UITableView) -> Int {
         
         
-        return 1
+        return 4
     }
 
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 4
+        if section == 0 {
+            
+            return 1
+        }else if section == 1 {
+            
+     
+                return 4
+            
+          
+
+        }else if section == 1 {
+            
+            return 1
+            
+        }
+        return 1
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         
         
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
             
             return 137
-        }else if indexPath.row == 1{
+        }else if indexPath.section == 1{
             
-            return 131
-        }else if indexPath.row == 2{
+            return 45
+        }else if indexPath.section == 2{
             
             return 124
         }
         
-        return 218
+        return UITableViewAutomaticDimension
     }
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if (indexPath.row == 0) {
+        if (indexPath.section == 0) {
             
         let cell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
             
+            if indexPath.row == 0 {
+
         
-        cell.churchNameLabel.text = churchNamesString
+            cell.churchNameLabel.text = churchNamesString
+            
+            //cell.churchImage.image  = UIImage(named: churchImageArray[indexPath.row])
+            if(churchImageLogoArray.count >= indexPath.section){
+                if let url = URL(string:churchImageLogoString) {
+                    cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "jobs"))
+                }else{
+                    cell.churchImage.image = #imageLiteral(resourceName: "jobs")
+                }
+            }
+            
+                return cell
+
+            }
+            
 
             return cell
 
         }
-        else if (indexPath.row == 1) {
-
-            
+        else if (indexPath.section == 1) {
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
+
+            if indexPath.row == 0 {
+                if(churchCountryArray.count >= indexPath.section){
+                    cell1.addressLabel.text = "CountryName" + " : " + "\(churchCountryArray[indexPath.section - 1])"
+                }else{
+                    cell1.addressLabel.text = "CountryName" + " : "
+                }
+                
+            } else if indexPath.row == 1 {
+                if(churchCountryArray.count >= indexPath.section){
+                        cell1.addressLabel.text = "StateName:" + " : " + "\(churchStateArray[indexPath.section - 1])"
+                }else{
+                         cell1.addressLabel.text = "StateName:" + " : "
+                }
+           
+            } else if indexPath.row == 2 {
+                if(churchCountryArray.count >= indexPath.section){
+                    cell1.addressLabel.text = "DistrictName:" + " : " + "\(churchDistrictNameArray[indexPath.section - 1])"
+                }else{
+                     cell1.addressLabel.text = "DistrictName:" + " : "
+                }
+                
+               
+            }else {
+                if(churchCountryArray.count >= indexPath.section){
+                    cell1.addressLabel.text = "VillageName:" + " : " + "\(churchVillageNameArray[indexPath.section - 1])"
+                }else{
+                    cell1.addressLabel.text = "VillageName:" + " : "
+                }
+                
+                
+
+            }
             
-            cell1.REGLabelOutLet.text = regNoString
-            cell1.authorNameLabel.text = nameString
-            cell1.emailLabel.text = emailString
-            cell1.phoneNumberLabel.text = phoneNoString
-           cell1.timeLabel.text = timeString
+            
+//            cell1.REGLabelOutLet.text = regNoString
+//            cell1.authorNameLabel.text = nameString
+//            cell1.emailLabel.text = emailString
+//            cell1.phoneNumberLabel.text = phoneNoString
+//           cell1.timeLabel.text = timeString
 
             
          //   cell.nameLabel.text = ChurchDetailsAry[indexPath.row]
             
 
-            return cell1
-//
+     return cell1
         }
-        else if (indexPath.row == 2){
+        else if (indexPath.section == 2){
             
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "InfoMapTableViewCell", for: indexPath) as! InfoMapTableViewCell
             
@@ -268,7 +371,7 @@ func getChurchuByIDAPIService(){
         
         let cell3 = tableView.dequeueReusableCell(withIdentifier: "AboutInfoTableViewCell", for: indexPath) as! AboutInfoTableViewCell
         
-           cell3.aboutTextView.text = descriptionString
+           cell3.aboutLabel.text = descriptionString
         
         
         return cell3
@@ -276,6 +379,49 @@ func getChurchuByIDAPIService(){
 
         
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        
+        if section == 1 {
+            
+            let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
+            
+            infoHeaderCell.headerLabel.text = "Address Details"
+            return infoHeaderCell
+            
+        }else if section == 2 {
+            
+                let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
+                
+                infoHeaderCell.headerLabel.text = "Map"
+                return infoHeaderCell
+                
+        }
+        else if section == 3 {
+            
+            let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
+            
+            infoHeaderCell.headerLabel.text = "About"
+            return infoHeaderCell
+            
+        }
+        return nil
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        if section == 0 {
+            
+            return 0.0
+        }
+        
+        return 44.0
+        
+    }
+
     func showAlertViewWithTitle(_ title:String,message:String,buttonTitle:String)
     {
         let alertView:UIAlertView = UIAlertView();

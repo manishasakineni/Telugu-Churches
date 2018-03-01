@@ -10,15 +10,8 @@ import UIKit
 
 class InformationTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var REGLabelOutLet: UILabel!
-    
-    @IBOutlet weak var authorNameLabel: UILabel!
-    
-    @IBOutlet weak var emailLabel: UILabel!
-    
-    @IBOutlet weak var phoneNumberLabel: UILabel!
-    
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+   
     @IBOutlet weak var backGroundView: UIView!
     
     
@@ -27,11 +20,11 @@ class InformationTableViewCell: UITableViewCell {
         // Initialization code
         
         
-        backGroundView.layer.cornerRadius = 3.0
-        backGroundView.layer.shadowColor = UIColor.lightGray.cgColor
-        backGroundView.layer.shadowOffset = CGSize(width: 0, height: 3)
-        backGroundView.layer.shadowOpacity = 0.6
-        backGroundView.layer.shadowRadius = 2.0
+//        backGroundView.layer.cornerRadius = 3.0
+//        backGroundView.layer.shadowColor = UIColor.lightGray.cgColor
+//        backGroundView.layer.shadowOffset = CGSize(width: 0, height: 3)
+//        backGroundView.layer.shadowOpacity = 0.6
+//        backGroundView.layer.shadowRadius = 2.0
         
     }
 

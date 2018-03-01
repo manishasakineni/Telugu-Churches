@@ -22,6 +22,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     var phoneNoArray = Array<String>()
     var updatedDateArray = Array<String>()
     var addressArray = Array<String>()
+    var churchImageArray = Array<String>()
 
     
     var imageArray = [UIImage(named:"7"),UIImage(named:"5"),UIImage(named:"4"),UIImage(named:"7"),UIImage(named:"5"),UIImage(named:"4"),UIImage(named:"7"),UIImage(named:"4")]
@@ -121,6 +122,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         self.phoneNoArray.removeAll()
         self.churchIDArray.removeAll()
         self.updatedDateArray.removeAll()
+        self.churchImageArray.removeAll()
 
         if isSuccess == true {
             
@@ -152,7 +154,17 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 self.churchIDArray.append(church.Id!)
                 self.updatedDateArray.append(self.returnDateWithoutTime(selectedDateString:church.updatedDate!))
         //        self.updatedDateArray.append(church.updatedDate!)
-                self.addressArray.append(church.districtName!)
+                self.addressArray.append(church.districtName == nil ? "" : church.districtName!)
+              //  let churchImg = church.churchImage
+                
+              //  if churchImg != nil{
+                self.churchImageArray.append(church.churchImage == nil ? "" : church.churchImage!.replacingOccurrences(of: "\\", with: "//"))
+
+             //   }else {
+                    
+             //       print("Image Not Found")
+             //   }
+                
 
                 
                 
@@ -160,7 +172,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
             
             print(self.churchNamesArray)
-            
+            print(self.churchImageArray)
+
             
             
             self.churchDetailsTableView.reloadData()
@@ -255,10 +268,18 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         cell.churchNameLbl.text = churchNamesArray[indexPath.row]
       //  cell.areaNameLabel.text = villageNamesArray[indexPath.row]
-    
+
         cell.phNoLabel.text     = phoneNoArray[indexPath.row]
         cell.timeLabel.text     = updatedDateArray[indexPath.row]
         cell.addressLabel.text  = addressArray[indexPath.row]
+        
+        //cell.churchImage.image  = UIImage(named: churchImageArray[indexPath.row])
+        if let url = URL(string:churchImageArray[indexPath.row]) {
+       cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "jobs"))
+        }else{
+            cell.churchImage.image = #imageLiteral(resourceName: "jobs")
+        }
+       
 
         
         

@@ -26,7 +26,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y8v-vc-qB2">
                         <rect key="frame" x="3" y="3" width="314" height="141.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="Uov-51-6W6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uov-51-6W6">
                                 <rect key="frame" x="0.0" y="0.0" width="314" height="141.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhC-XC-cef">
@@ -100,7 +100,4 @@
             <point key="canvasLocation" x="-5" y="32"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="5" width="275" height="183"/>
-    </resources>
 </document>

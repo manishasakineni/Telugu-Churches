@@ -1,16 +1,16 @@
 //
-//  AboutInfoTableViewCell.swift
+//  InfoHeaderCell.swift
 //  Telugu Churches
 //
-//  Created by Manoj on 21/02/18.
+//  Created by praveen dole on 3/1/18.
 //  Copyright © 2018 Mac OS. All rights reserved.
 //
 
 import UIKit
 
-class AboutInfoTableViewCell: UITableViewCell {
+class InfoHeaderCell: UITableViewCell {
 
-    @IBOutlet weak var aboutLabel: UILabel!
+    @IBOutlet weak var headerLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
