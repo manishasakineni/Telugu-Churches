@@ -759,6 +759,43 @@
             </objects>
             <point key="canvasLocation" x="4528" y="168"/>
         </scene>
+        <!--Categories Home View Controller-->
+        <scene sceneID="14c-DF-xCw">
+            <objects>
+                <viewController storyboardIdentifier="CategoriesHomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FM0-x1-pFc" customClass="CategoriesHomeViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g7a-Ul-g9n"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZWG-bz-r7m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rfy-2i-Ow6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KcF-Vz-Jk7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="FM0-x1-pFc" id="Xsm-fp-a21"/>
+                                    <outlet property="delegate" destination="FM0-x1-pFc" id="fM8-gr-3m9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZWG-bz-r7m" firstAttribute="top" secondItem="KcF-Vz-Jk7" secondAttribute="bottom" id="T58-y2-Uds"/>
+                            <constraint firstAttribute="trailing" secondItem="KcF-Vz-Jk7" secondAttribute="trailing" id="Wmq-Co-rsh"/>
+                            <constraint firstItem="KcF-Vz-Jk7" firstAttribute="top" secondItem="rfy-2i-Ow6" secondAttribute="top" id="moT-WF-H7t"/>
+                            <constraint firstItem="KcF-Vz-Jk7" firstAttribute="leading" secondItem="rfy-2i-Ow6" secondAttribute="leading" id="qwr-9G-Wdm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="categorieTableView" destination="KcF-Vz-Jk7" id="aHD-Bo-Mu4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qrw-hw-p57" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3839.1999999999998" y="-490.70464767616198"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="Cal-Er-Men">
             <objects>
