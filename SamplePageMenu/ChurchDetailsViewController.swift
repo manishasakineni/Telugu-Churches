@@ -16,7 +16,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     var appVersion          : String = ""
 
     var listResultArray = Array<Any>()
-    var churchNamesArray = Array<String>()
+    var churchNamesArray:[ChurchDetailsListResultVO] = Array<ChurchDetailsListResultVO>()
     var churchIDArray = Array<Int>()
     var villageNamesArray = Array<String>()
     var phoneNoArray = Array<String>()
@@ -43,6 +43,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+         //getChurchDetailsAPICall()
+        
         self.churchDetailsTableView.delegate = self
         self.churchDetailsTableView.dataSource = self
 
@@ -52,7 +54,9 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Churches List".localize(), backTitle: "Churches List".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
-    }
+       
+
+          }
     
 
     override func didReceiveMemoryWarning() {
@@ -68,8 +72,13 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         //navigationItem.leftBarButtonItems = []
 
         
-       getChurchDetailsAPICall()
         
+
+         PageIndex = 1
+        totalPages = 0
+        churchNamesArray.removeAll()
+          getChurchDetailsAPICall()
+
        churchDetailsTableView.isHidden = true
     
         
@@ -118,20 +127,29 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         let isSuccess = respVO.isSuccess
         print("StatusCode:\(String(describing: isSuccess))")
         
-        self.churchNamesArray.removeAll()
-        self.phoneNoArray.removeAll()
-        self.churchIDArray.removeAll()
-        self.updatedDateArray.removeAll()
-        self.churchImageArray.removeAll()
+        
+  //      self.churchNamesArray.removeAll()
+
 
         if isSuccess == true {
             
             
+
+        //self.listResultArray = respVO.listResult!
             
-        self.listResultArray = respVO.listResult!
+            let listArr = respVO.listResult!
             
-           
             
+            for eachArray in listArr{
+              //  print(self.churchNamesArray)
+               // print(eachArray)
+                self.churchNamesArray.append(eachArray)
+              //  print(self.churchNamesArray)
+            }
+
+            print(self.churchNamesArray.count)
+
+          
             
         let pageCout  = (respVO.totalRecords)! / 10
             
@@ -145,35 +163,24 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             
             }
             
+            
            
-            for church in respVO.listResult!{
-                
-                self.churchNamesArray.append(church.name!)
-             //   self.villageNamesArray.append(church.villageName!)
-                self.phoneNoArray.append(church.contactNumber!)
-                self.churchIDArray.append(church.Id!)
-                self.updatedDateArray.append(self.returnDateWithoutTime(selectedDateString:church.updatedDate!))
-        //        self.updatedDateArray.append(church.updatedDate!)
-                self.addressArray.append(church.districtName == nil ? "" : church.districtName!)
-              //  let churchImg = church.churchImage
-                
-              //  if churchImg != nil{
-                self.churchImageArray.append(church.churchImage == nil ? "" : church.churchImage!.replacingOccurrences(of: "\\", with: "//"))
-
-             //   }else {
-                    
-             //       print("Image Not Found")
-             //   }
-                
-
-                
-                
-            }
+//            for church in respVO.listResult!{
+//                
+//                self.churchNamesArray.append(church.name!)
+//                self.phoneNoArray.append(church.contactNumber!)
+//                self.churchIDArray.append(church.Id!)
+//                self.updatedDateArray.append(self.returnDateWithoutTime(selectedDateString:church.updatedDate!))
+//                self.addressArray.append(church.districtName == nil ? "" : church.districtName!)
+//                
+//                self.churchImageArray.append(church.churchImage == nil ? "" : church.churchImage!.replacingOccurrences(of: "\\", with: "//"))
+//                
+//            }
     
             
-            print(self.churchNamesArray)
-            print(self.churchImageArray)
-
+//            print(self.churchNamesArray)
+//            print(self.churchImageArray)
+//
             
             
             self.churchDetailsTableView.reloadData()
@@ -216,7 +223,16 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
+        
+        if churchNamesArray.count > 0 {
+            
         return churchNamesArray.count
+            
+        }
+        else {
+            
+            return 0
+        }
         
     }
     
@@ -241,13 +257,13 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        if indexPath.row == churchNamesArray.count - 1 {
+
+        if indexPath.row == (churchNamesArray.count) - 1 {
             
             if(self.totalPages! > PageIndex){
                 
-                
                 PageIndex = PageIndex + 1
-                
+
                 getChurchDetailsAPICall()
                 
                 
@@ -266,26 +282,59 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChurchDetailsTableViewCell", for: indexPath) as! ChurchDetailsTableViewCell
         
-        cell.churchNameLbl.text = churchNamesArray[indexPath.row]
+        let listStr:ChurchDetailsListResultVO = churchNamesArray[indexPath.row]
+        
+        
+        cell.churchNameLbl.text = listStr.name
       //  cell.areaNameLabel.text = villageNamesArray[indexPath.row]
 
-        cell.phNoLabel.text     = phoneNoArray[indexPath.row]
-        cell.timeLabel.text     = updatedDateArray[indexPath.row]
-        cell.addressLabel.text  = addressArray[indexPath.row]
+        cell.phNoLabel.text     = listStr.contactNumber
+        
+        cell.timeLabel.text     = amAppend(str: "\(listStr.openingTime!)" + "-" + "\(listStr.closingTime!)" )
+
+       // cell.timeLabel.text     = "\(listStr.openingTime!)" + "-" + "\(listStr.closingTime!)"
+      //  cell.timeLabel.text     = String(String(describing: listStr.openingTime!) + "-" + String(describing: listStr.closingTime!))
+        cell.addressLabel.text  = listStr.address1
         
         //cell.churchImage.image  = UIImage(named: churchImageArray[indexPath.row])
-        if let url = URL(string:churchImageArray[indexPath.row]) {
-       cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "jobs"))
-        }else{
-            cell.churchImage.image = #imageLiteral(resourceName: "jobs")
+        
+        let imgUrl = listStr.churchImage
+        
+        let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+        
+        print("filteredUrlString:\(newString)")
+        
+        if newString != nil {
+            
+            let url = URL(string:newString!)
+            
+            
+            let dataImg = try? Data(contentsOf: url!)
+            
+            if dataImg != nil {
+                
+                cell.churchImage.image = UIImage(data: dataImg!)
+            }
+            else {
+                
+                cell.churchImage.image = #imageLiteral(resourceName: "Church-logo")
+            }
         }
+        else {
+            
+            cell.churchImage.image = #imageLiteral(resourceName: "Church-logo")
+        }
+       
+        
+        
+//        if let url = URL(string:listStr.churchImage!) {
+//       cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
+//        }else{
+//            cell.churchImage.image = #imageLiteral(resourceName: "Church-logo")
+//        }
        
 
         
-        
-
-        
-        print(churchNamesArray.count)
         
         return cell
         
@@ -294,12 +343,12 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
+        let listStr:ChurchDetailsListResultVO = churchNamesArray[indexPath.row]
        
         let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
         
         
-        holyBibleViewController.churchID = churchIDArray[indexPath.row]
+        holyBibleViewController.churchID = listStr.Id!
         
         
         
@@ -335,45 +384,39 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         print("Back Button Clicked......")
         
     }
-    
-    func returnDateWithoutTime(selectedDateString : String) -> String{
+    func amAppend(str:String) -> String{
+        
         var newDateStr = ""
         var newDateStr1 = ""
-
-        if(selectedDateString != ""){
-            let invDtArray = selectedDateString.components(separatedBy: "T")
-            let dateString = invDtArray[0]
-            let dateString1 = invDtArray[1]
-            let invDtArray2 = dateString1.components(separatedBy: ".")
-            let dateString3 = invDtArray2[0]
-
-                 print(dateString3)
-            //   let timeString = invDtArray[1]
-            //  print(timeString)
-            
-            if(dateString != ""){
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd"
-                let dateFromString = dateFormatter.date(from: dateString)
-                dateFormatter.dateFormat = "yyyy-MM-dd"
-                let newDateString = dateFormatter.string(from: dateFromString!)
-                newDateStr = newDateString
-                print(newDateStr)
-            }
-            if(dateString3 != ""){
+        
+        if(str != ""){
+            let invDtArray = str.components(separatedBy: "-")
+            let dateString1 = invDtArray[0]
+            let dateString2 = invDtArray[1]
+            if(dateString1 != ""){
                 
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateStyle = .medium
                 dateFormatter.dateFormat = "HH:mm:ss"
-                let dateFromString = dateFormatter.date(from: dateString3)
+                let dateFromString = dateFormatter.date(from: dateString1)
+                dateFormatter.dateFormat = "hh:mm aa"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr = newDateString
+                print(newDateStr)
+            }
+            if(dateString2 != ""){
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .medium
+                dateFormatter.dateFormat = "HH:mm:ss"
+                let dateFromString = dateFormatter.date(from: dateString2)
                 dateFormatter.dateFormat = "hh:mm aa"
                 let newDateString = dateFormatter.string(from: dateFromString!)
                 newDateStr1 = newDateString
                 print(newDateStr1)
             }
         }
-        return newDateStr + ", " + newDateStr1
+        return newDateStr + "-" + newDateStr1
     }
-
 
 }

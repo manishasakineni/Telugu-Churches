@@ -29,7 +29,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bank icon" translatesAutoresizingMaskIntoConstraints="NO" id="oPC-5A-Fdq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Church-logo" translatesAutoresizingMaskIntoConstraints="NO" id="oPC-5A-Fdq">
                                 <rect key="frame" x="12" y="6" width="60" height="58"/>
                             </imageView>
                         </subviews>
@@ -62,6 +62,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="bank icon" width="128" height="81"/>
+        <image name="Church-logo" width="240" height="233"/>
     </resources>
 </document>

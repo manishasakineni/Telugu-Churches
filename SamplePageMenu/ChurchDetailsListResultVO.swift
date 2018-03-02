@@ -33,8 +33,8 @@ class ChurchDetailsListResultVO: Mappable {
     var contactNumber : String?
     var email : String?
     var websiteAddress : String?
-    var openingTime : Int?
-    var closingTime : Int?
+    var openingTime : String?
+    var closingTime : String?
     var churchImage : String?
     var userImage : String?
     var pasterUserId : Int?
@@ -50,7 +50,7 @@ class ChurchDetailsListResultVO: Mappable {
     //MARK:-  initialization of VideosVO
     
     
-    init(Id : Int?,name : String?,registrationNumber : String?,address1 : String?,address2 : String?,landMark : String?,countryId : Int?,countryName : String?,stateId : Int?,stateName : String?,districtId : Int?,districtName : String?,mandalId : Int?,mandalName : String?,villageId : Int?,villageName : String?,description : String?,mission : String?,vision : String?,contactNumber : String?,email : String?,websiteAddress : String?,openingTime : Int?,closingTime : Int?,churchImage : String?,userImage : String?,pasterUserId : Int?,isActive : Bool?,pasterUser : String?,createdByUser : String?,updatedByUser : String?,updatedDate : String?)
+    init(Id : Int?,name : String?,registrationNumber : String?,address1 : String?,address2 : String?,landMark : String?,countryId : Int?,countryName : String?,stateId : Int?,stateName : String?,districtId : Int?,districtName : String?,mandalId : Int?,mandalName : String?,villageId : Int?,villageName : String?,description : String?,mission : String?,vision : String?,contactNumber : String?,email : String?,websiteAddress : String?,openingTime : String?,closingTime : String?,churchImage : String?,userImage : String?,pasterUserId : Int?,isActive : Bool?,pasterUser : String?,createdByUser : String?,updatedByUser : String?,updatedDate : String?)
     
     
     {

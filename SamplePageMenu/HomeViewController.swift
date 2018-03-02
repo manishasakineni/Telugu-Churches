@@ -322,7 +322,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
             
-            cell.collectionImgView.image = imageArray[ indexPath.row]
+           // cell.collectionImgView.image = imageArray[ indexPath.row]
             //   cell.nameLabel.text = namesarra1[indexPath.row]
             
             let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
@@ -334,7 +334,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
         
-        cell.collectionImgView.image = imageArray2[ indexPath.row]
+      //  cell.collectionImgView.image = imageArray2[ indexPath.row]
         // cell.nameLabel.text = namesarra1[indexPath.row]
         
         let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)

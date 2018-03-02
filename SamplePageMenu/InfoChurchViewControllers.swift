@@ -21,8 +21,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
 
     var appVersion          : String = ""
 
-    
-    var listResultArray:[GetChurchByIDResultVo]?
+      var listResultArray:[GetChurchByIDResultVo]?
     var churchNamesString = ""
     var churchCountryArray = Array<String>()
     var churchStateArray = Array<String>()
@@ -30,6 +29,13 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     var churchVillageNameArray = Array<String>()
     var churchImageLogoArray = Array<String>()
     var churchImageLogoString = ""
+    var landMarkString = ""
+    var address1String = ""
+    var address2String = ""
+    var openTimeString = ""
+    var closeTimeString = ""
+    var contactNumberString = ""
+    var mandalNameString = ""
 
    // var churchCountryArray = Array<String>()
 
@@ -153,16 +159,26 @@ func getChurchuByIDAPIService(){
                         self.regNoString = (respVO.listResult?[0].registrationNumber == nil ? "" : respVO.listResult?[0].registrationNumber)!
                         self.emailString = (respVO.listResult?[0].email == nil ? "" : respVO.listResult?[0].email)!
                         self.nameString = (respVO.listResult?[0].pasterUser == nil ? "" : respVO.listResult?[0].pasterUser)!
-                        self.timeString = self.amAppend(str: ( (respVO.listResult?[0].openingTime == nil ? "" : respVO.listResult?[0].openingTime)! + "-" + (respVO.listResult?[0].closingTime == nil ? "" : respVO.listResult?[0].closingTime)!))
                      //   self.timeString = ( (respVO.listResult?[0].openingTime)! + "-" + (respVO.listResult?[0].closingTime)!)
                         self.descriptionString = (respVO.listResult?[0].description == nil ? "" : respVO.listResult?[0].description)!
                          //  self.churchImageLogoString = (respVO.listResult?[0].churchImage)!
                             self.churchImageLogoString = (respVO.listResult?[0].churchImage == nil ? "" : respVO.listResult?[0].churchImage!.replacingOccurrences(of: "\\", with: "//"))!
+                            
+                            self.landMarkString = (respVO.listResult?[0].landMark == nil ? "" : respVO.listResult?[0].landMark)!
+                            self.address1String = (respVO.listResult?[0].address1 == nil ? "" : respVO.listResult?[0].address1)!
+                            self.address2String = (respVO.listResult?[0].address2 == nil ? "" : respVO.listResult?[0].address2)!
+                            self.openTimeString = (respVO.listResult?[0].openingTime == nil ? "" : respVO.listResult?[0].openingTime)!
+                            self.closeTimeString = (respVO.listResult?[0].closingTime == nil ? "" : respVO.listResult?[0].closingTime)!
+                            self.contactNumberString = (respVO.listResult?[0].contactNumber == nil ? "" : respVO.listResult?[0].contactNumber)!
+                            self.mandalNameString = (respVO.listResult?[0].mandalName == nil ? "" : respVO.listResult?[0].mandalName)!
+                            self.timeString = self.amAppend(str: ( (respVO.listResult?[0].openingTime == nil ? "" : respVO.listResult?[0].openingTime)! + "-" + (respVO.listResult?[0].closingTime == nil ? "" : respVO.listResult?[0].closingTime)!))
+
 
                        //  self.timeArray = ("\(respVO.listResult?[0].openingTime)" + "-" + "\(respVO.listResult?[0].openingTime)")
+                        
                             
                             
-                            
+                       
                             for countryName in (respVO.listResult)!{
                                 
                                 let countryNameString = countryName.countryName
@@ -251,7 +267,7 @@ func getChurchuByIDAPIService(){
         }else if section == 1 {
             
      
-                return 4
+                return 10
             
           
 
@@ -296,9 +312,9 @@ func getChurchuByIDAPIService(){
             //cell.churchImage.image  = UIImage(named: churchImageArray[indexPath.row])
             if(churchImageLogoArray.count >= indexPath.section){
                 if let url = URL(string:churchImageLogoString) {
-                    cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "jobs"))
+                    cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
                 }else{
-                    cell.churchImage.image = #imageLiteral(resourceName: "jobs")
+                    cell.churchImage.image = #imageLiteral(resourceName: "Church-logo")
                 }
             }
             
@@ -315,33 +331,82 @@ func getChurchuByIDAPIService(){
 
             if indexPath.row == 0 {
                 if(churchCountryArray.count >= indexPath.section){
-                    cell1.addressLabel.text = "CountryName" + " : " + "\(churchCountryArray[indexPath.section - 1])"
+                    cell1.addressLabel.text = "CountryName :" + " " + "\(churchCountryArray[indexPath.section - 1])"
                 }else{
-                    cell1.addressLabel.text = "CountryName" + " : "
+                    cell1.addressLabel.text = "CountryName :" + " "
                 }
                 
             } else if indexPath.row == 1 {
                 if(churchCountryArray.count >= indexPath.section){
-                        cell1.addressLabel.text = "StateName:" + " : " + "\(churchStateArray[indexPath.section - 1])"
+                        cell1.addressLabel.text = "StateName :" + " " + "\(churchStateArray[indexPath.section - 1])"
                 }else{
-                         cell1.addressLabel.text = "StateName:" + " : "
+                         cell1.addressLabel.text = "StateName :" + " "
                 }
            
             } else if indexPath.row == 2 {
                 if(churchCountryArray.count >= indexPath.section){
-                    cell1.addressLabel.text = "DistrictName:" + " : " + "\(churchDistrictNameArray[indexPath.section - 1])"
+                    cell1.addressLabel.text = "DistrictName :" + " " + "\(churchDistrictNameArray[indexPath.section - 1])"
                 }else{
-                     cell1.addressLabel.text = "DistrictName:" + " : "
+                     cell1.addressLabel.text = "DistrictName :" + " "
                 }
                 
                
-            }else {
+            }else if indexPath.row == 3 {
                 if(churchCountryArray.count >= indexPath.section){
-                    cell1.addressLabel.text = "VillageName:" + " : " + "\(churchVillageNameArray[indexPath.section - 1])"
+                    cell1.addressLabel.text = "MandalName :" + " " + self.mandalNameString
                 }else{
-                    cell1.addressLabel.text = "VillageName:" + " : "
+                    cell1.addressLabel.text = "MandalName :" + " "
                 }
                 
+                
+            }else if indexPath.row == 4 {
+               
+                if(churchCountryArray.count >= indexPath.section){
+                    cell1.addressLabel.text = "VillageName :" + " " + "\(churchVillageNameArray[indexPath.section - 1])"
+                }else{
+                    cell1.addressLabel.text = "VillageName :" + " "
+                }
+                
+            }else if indexPath.row == 5 {
+                
+                if(churchCountryArray.count >= indexPath.section){
+                    cell1.addressLabel.text = "Address1 :" + " " + address1String
+                }else{
+                    cell1.addressLabel.text = "Address1 :" + " "
+                }
+                
+            }else if indexPath.row == 6 {
+                
+                if(churchCountryArray.count >= indexPath.section){
+                    cell1.addressLabel.text = "Address2 :" + " " + address2String
+                }else{
+                    cell1.addressLabel.text = "Address2 :" + " "
+                }
+                
+            }else if indexPath.row == 7 {
+                
+                if(churchCountryArray.count >= indexPath.section){
+                    cell1.addressLabel.text = "LandMark :" + " " + landMarkString
+                }else{
+                    cell1.addressLabel.text = "LandMark :" + " "
+                }
+                
+                
+            }else if indexPath.row == 8 {
+                
+                if(churchCountryArray.count >= indexPath.section){
+                    cell1.addressLabel.text = "ContactNumber :" + " " + contactNumberString
+                }else{
+                    cell1.addressLabel.text = "ContactNumber :" + " "
+                }
+                
+            }else {
+               
+                if(churchCountryArray.count >= indexPath.section){
+                    cell1.addressLabel.text = "OpenTime - CloseTime :" + " " + self.timeString
+                }else{
+                    cell1.addressLabel.text = "OpenTime - CloseTime :" + " "
+                }
                 
 
             }
@@ -465,6 +530,10 @@ func getChurchuByIDAPIService(){
                     }
         return newDateStr + "-" + newDateStr1
     }
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
