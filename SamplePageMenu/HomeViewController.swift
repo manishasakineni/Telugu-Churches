@@ -38,14 +38,16 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     var loginStatusString    =   String()
     
     
-    var sectionTittles = ["Latest Posts","Categories","Event Posts"]
+    var sectionTittles = ["","Latest Posts","Categories","Event Posts"]
     
 
 
     var imageArray = [UIImage(named:"holybible"),UIImage(named:"Audio"),UIImage(named:"Seminor"),UIImage(named:"Songs"),UIImage(named:"books"),UIImage(named:"Churches"),UIImage(named:"live"),UIImage(named:"Seminor-1"),UIImage(named:"rootmap"),UIImage(named:"Science"),UIImage(named:"movies"),UIImage(named:"language"),UIImage(named:"jobs")]
-    var imageArray2 = [UIImage(named:"donation"),UIImage(named:"bookshop"),UIImage(named:"Vedio"),UIImage(named:"holybible"),UIImage(named:"Audio"),UIImage(named:"Seminor"),UIImage(named:"Songs"),UIImage(named:"books"),UIImage(named:"Churches"),UIImage(named:"live"),UIImage(named:"Seminor-1"),UIImage(named:"rootmap"),UIImage(named:"Science"),UIImage(named:"movies"),UIImage(named:"language"),UIImage(named:"jobs"),UIImage(named:"donation")]
+    var imageArray2 = [UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible")]
+    var imageArray3 = [UIImage(named:"Churches"),UIImage(named:"Churches"),UIImage(named:"books"),UIImage(named:"Churches"),UIImage(named:"live"),UIImage(named:"Seminor-1"),UIImage(named:"rootmap"),UIImage(named:"Science")]
+
     
-    //   var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific Proofs","Gospel Messages","Short Messages","Images","Login id Creation","Help to develop the small churches","Book Shop","Movies","Daily Quotations","Video Songs","Testimonials","Quotations","Sunday School","Cell numbers for daily messages(Bulk sms)","Bible Apps","Short Films","Jobs","Route maps buds numbers","Events","Donation","Live","Doubts","Suggetions","Pamplets","languages(Tel/Eng)","Admin can add multiple menu pages"]
+       var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific Proofs","Gospel Messages","Short Messages","Images","Login id Creation","Help to develop the small churches","Book Shop","Movies","Daily Quotations","Video Songs","Testimonials","Quotations","Sunday School","Cell numbers for daily messages(Bulk sms)","Bible Apps","Short Films","Jobs","Route maps buds numbers","Events","Donation","Live","Doubts","Suggetions","Pamplets","languages(Tel/Eng)","Admin can add multiple menu pages"]
     
     
     
@@ -56,7 +58,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
         categorieTableView.register(nibName, forCellReuseIdentifier: "CategorieHomeCell")
         
-        
+        let nibName2  = UINib(nibName: "ScrollImagesCell" , bundle: nil)
+        categorieTableView.register(nibName2, forCellReuseIdentifier: "ScrollImagesCell")
         
         self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.4039215686, green: 0.6705882353, blue: 0.8156862745, alpha: 1)
         self.navigationItem.title = "Telugu Churches".localize()
@@ -198,7 +201,10 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        
+        if indexPath.section == 0 {
+            
+             return 175.0
+        }
         
         return 150.0
         
@@ -207,20 +213,19 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        
         if indexPath.section == 0 {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CategorieHomeCell", for: indexPath) as! CategorieHomeCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ScrollImagesCell", for: indexPath) as! ScrollImagesCell
             
-            cell.homeCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),
-                                             forCellWithReuseIdentifier: "CategorieCollectionViewCell")
-            cell.homeCollectionView.tag = indexPath.row
-            cell.homeCollectionView.collectionViewLayout.invalidateLayout()
-            cell.homeCollectionView.delegate = self
-            cell.homeCollectionView.dataSource = self
-            cell.moreButton.addTarget(self, action: #selector(categorieOneClicked(_:)), for: UIControlEvents.touchUpInside)
-            cell.categoriesNameLabel.text = "Latest Posts"
-
+//            cell.homeCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),
+//                                             forCellWithReuseIdentifier: "CategorieCollectionViewCell")
+//            cell.homeCollectionView.tag = indexPath.row
+//            cell.homeCollectionView.collectionViewLayout.invalidateLayout()
+//            cell.homeCollectionView.delegate = self
+//            cell.homeCollectionView.dataSource = self
+//            cell.moreButton.addTarget(self, action: #selector(categorieOneClicked(_:)), for: UIControlEvents.touchUpInside)
+//            cell.categoriesNameLabel.text = "Latest Posts"
+            
             return cell
         }
         else if indexPath.section == 1 {
@@ -229,11 +234,26 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
             cell.homeCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),
                                              forCellWithReuseIdentifier: "CategorieCollectionViewCell")
-            cell.homeCollectionView.tag = indexPath.row
+            cell.homeCollectionView.tag = indexPath.section
             cell.homeCollectionView.collectionViewLayout.invalidateLayout()
             cell.homeCollectionView.delegate = self
             cell.homeCollectionView.dataSource = self
             cell.moreButton.addTarget(self, action: #selector(categorieOneClicked(_:)), for: UIControlEvents.touchUpInside)
+            cell.categoriesNameLabel.text = "Latest Posts"
+
+            return cell
+        }
+        else if indexPath.section == 2 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CategorieHomeCell", for: indexPath) as! CategorieHomeCell
+            
+            cell.homeCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),
+                                             forCellWithReuseIdentifier: "CategorieCollectionViewCell")
+            cell.homeCollectionView.tag = indexPath.section
+            cell.homeCollectionView.collectionViewLayout.invalidateLayout()
+            cell.homeCollectionView.delegate = self
+            cell.homeCollectionView.dataSource = self
+            cell.moreButton.addTarget(self, action: #selector(categorieTwoClicked(_:)), for: UIControlEvents.touchUpInside)
 
             cell.categoriesNameLabel.text = "Categories"
 
@@ -245,11 +265,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         cell.homeCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),
                                          forCellWithReuseIdentifier: "CategorieCollectionViewCell")
-        cell.homeCollectionView.tag = indexPath.row
+        cell.homeCollectionView.tag = indexPath.section
         cell.homeCollectionView.collectionViewLayout.invalidateLayout()
         cell.homeCollectionView.delegate = self
         cell.homeCollectionView.dataSource = self
-        cell.moreButton.addTarget(self, action: #selector(categorieOneClicked(_:)), for: UIControlEvents.touchUpInside)
+        cell.moreButton.addTarget(self, action: #selector(categorieThreeClicked(_:)), for: UIControlEvents.touchUpInside)
         cell.categoriesNameLabel.text = "Event Posts"
 
 
@@ -283,6 +303,20 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
         
     }
+    func  categorieTwoClicked(_ sendre:UIButton) {
+        
+        
+        
+        
+        
+    }
+    func  categorieThreeClicked(_ sendre:UIButton) {
+        
+        
+        
+        
+        
+    }
 }
 
 
@@ -290,21 +324,23 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
-        return 2
-    }
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         
-        if section == 0 {
+         if  collectionView.tag == 1 {
             
             return imageArray.count
             
-        }
+       }else if collectionView.tag  == 2 {
+        
         
         return imageArray2.count
+
+        }
+        
+        return imageArray3.count
         
         
         
@@ -318,23 +354,23 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
-        if indexPath.section == 0 {
+        if collectionView.tag  == 1 {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
             
-           // cell.collectionImgView.image = imageArray[ indexPath.row]
-            //   cell.nameLabel.text = namesarra1[indexPath.row]
+            cell.collectionImgView.image = imageArray[ indexPath.row]
+              // cell.nameLabel.text = namesarra1[indexPath.row]
             
             let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
             
             return cell
             
             
-        }
+        } else if collectionView.tag  == 2 {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
         
-      //  cell.collectionImgView.image = imageArray2[ indexPath.row]
+        cell.collectionImgView.image = imageArray2[ indexPath.row]
         // cell.nameLabel.text = namesarra1[indexPath.row]
         
         let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
@@ -342,10 +378,16 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         
         return cell
         
+        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
+        
+          cell.collectionImgView.image = imageArray3[ indexPath.row]
+        // cell.nameLabel.text = namesarra1[indexPath.row]
+        
+        let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
         
         
-        
-        
+        return cell
         
         
         

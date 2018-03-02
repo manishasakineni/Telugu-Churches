@@ -561,8 +561,6 @@
 				9A5D26391FFF8A5100316988 /* PageControllCell.xib */,
 				9A5D26341FFF8A4900316988 /* AllOffersCell.swift */,
 				9A5D26351FFF8A4900316988 /* AllOffersCell.xib */,
-				9A5D263C1FFF8A5D00316988 /* ScrollImagesCell.swift */,
-				9A5D263D1FFF8A5D00316988 /* ScrollImagesCell.xib */,
 				3D72DBF7203B058000B913F7 /* ChurchDetailsTableViewCell.swift */,
 				3D72DBF8203B058000B913F7 /* ChurchDetailsTableViewCell.xib */,
 			);
@@ -748,6 +746,8 @@
 				CB345E15202339B6006CC378 /* homeTableViewCell.xib */,
 				CB345E16202339B6006CC378 /* homeCollectionViewCell.swift */,
 				CB345E17202339B6006CC378 /* homeCollectionViewCell.xib */,
+				9A5D263C1FFF8A5D00316988 /* ScrollImagesCell.swift */,
+				9A5D263D1FFF8A5D00316988 /* ScrollImagesCell.xib */,
 			);
 			name = "HomeTableView&CollectionViewCell";
 			sourceTree = "<group>";

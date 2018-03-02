@@ -19,7 +19,7 @@ class ScrollImagesCell: UITableViewCell, UIScrollViewDelegate {
     var timer : Timer!
     var counter = 0
     
-    let arrImages = ["bans.JPG", "bans.JPG", "bans.JPG","bans.JPG", "bans.JPG", "bans.JPG","bans.JPG", "bans.JPG", "bans.JPG","bans.JPG", "bans.JPG"]
+    let arrImages = ["j1", "j2", "jesues","skyJSU", "j3", "j4","j6", "jesues", "j1","j2", "jesues"]
 
 //    struct ScreenSize {
 //        

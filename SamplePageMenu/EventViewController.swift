@@ -185,7 +185,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
             
             if(appDelegate.checkInternetConnectivity()){
                 
-                var userid      : Int = 3
+                var userid      : Int = 7
                 // var month      : Int = 02
                 // var year       : Int = 2018
                 
@@ -331,8 +331,8 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         
         if(appDelegate.checkInternetConnectivity()){
             
-            var userid      : Int = 3
-            var month      : Int = 02
+            var userid      : Int = 7
+            var month      : Int = 03
             var year       : Int = 2018
             
             let strUrl = GETEVENTBYUSERIDMONTHYEAR + "" + "\(userid)" + "/" + "\(month)" + "/" + "\(year)"
@@ -443,14 +443,15 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
             let invDtArray = selectedDateString.components(separatedBy: "T")
             let dateString = invDtArray[0]
             let dateString1 = invDtArray[1]
-//            let invDtArray2 = dateString1.components(separatedBy: ".")
-//            let dateString3 = invDtArray2[0]
-//            
+            print(dateString1)
+            let invDtArray2 = dateString1.components(separatedBy: ".")
+            let dateString3 = invDtArray2[0]
+            
             print(dateString1)
             //   let timeString = invDtArray[1]
             //  print(timeString)
             
-            if(dateString != ""){
+            if(dateString != "" || dateString != "."){
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
                 let dateFromString = dateFormatter.date(from: dateString)
@@ -459,12 +460,12 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                 newDateStr = newDateString
                 print(newDateStr)
             }
-            if(dateString1 != ""){
+            if(dateString3 != "" || dateString != "."){
                 
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateStyle = .medium
                 dateFormatter.dateFormat = "HH:mm:ss"
-                let dateFromString = dateFormatter.date(from: dateString1)
+                let dateFromString = dateFormatter.date(from: dateString3)
                 dateFormatter.dateFormat = "hh:mm aa"
                 let newDateString = dateFormatter.string(from: dateFromString!)
                 newDateStr1 = newDateString
