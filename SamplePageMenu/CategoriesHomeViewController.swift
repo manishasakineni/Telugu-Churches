@@ -20,10 +20,14 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    
+     var categorieImageArray = Array<UIImage>()
+    var categorieNamesArray = Array<String>()
+
     var pageMenu : CAPSPageMenu?
     
-    
+    var bibleString = Bool()
+    var bibleInt = Int()
+
     var appVersion          : String = ""
     
     var loginStatusString    =   String()
@@ -33,7 +37,7 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     
     
     
-        var namesarra1 = ["Bible apps","Bible study","Book shop","Donation","Doubts","Events","film","Gospel messages","Gospel","help","Holy bible","Images","live","Map","Messages","Movies","pamphlet","Quatation","Scientific","Songs","Suggestion","Sunday school","Testimonial","Videos","Admin","Languages","Login","pamphlet"]
+       // var namesarra1 = ["Bible apps","Bible study","Book shop","Donation","Doubts","Events","film","Gospel messages","Gospel","help","Holy bible","Images","live","Map","Messages","Movies","pamphlet","Quatation","Scientific","Songs","Suggestion","Sunday school","Testimonial","Videos","Admin","Languages","Login","pamphlet"]
     
       //  var namesarra1 = ["Bible apps".localize(),"Bible study".localize(),"Book shop".localize(),"Donation".localize(),"Doubts".localize(),"Events".localize(),"film".localize(),"Gospel messages".localize(),"Gospel".localize(),"help".localize(),"Holy bible".localize(),"Images".localize(),"Languages".localize(),"Live".localize(),"Login".localize(),"Map".localize(),"Messages".localize(),"Movies".localize(),"pamphlet".localize(),"Quatation".localize(),"Scientific".localize(),"Songs".localize(),"Suggestion".localize(),"Sunday school".localize(),"Testimonial".localize(),"Videos".localize()]
     
@@ -70,9 +74,23 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Categories", backTitle: " Categories", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-
         
+       
+        if bibleInt == 10 {
+            
+            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Bible Posts", backTitle: " Bible Posts", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+
+        }
+        if bibleInt == 11 {
+            
+            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Categories", backTitle: " Categories", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+            
+        }
+        if bibleInt == 12 {
+            
+            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Events", backTitle: " Events", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+            
+        }
     }
 
 
@@ -86,7 +104,7 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        return imageArray.count
+        return categorieImageArray.count
 
 
 
@@ -98,8 +116,8 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeCollectionViewCell", for: indexPath) as! homeCollectionViewCell
 
-        cell.collectionImgView.image = imageArray[ indexPath.row]
-        cell.nameLabel.text = namesarra1[indexPath.row]
+        cell.collectionImgView.image = categorieImageArray[ indexPath.row]
+        cell.nameLabel.text = categorieNamesArray[indexPath.row]
 
         let nibName  = UINib(nibName: "homeTableViewCell" , bundle: nil)
         return cell
@@ -154,27 +172,28 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
 
-
-
-
-        if indexPath.item == 1{
-
-
-            let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
-            self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
-
+        if indexPath.item == 0{
+            
+            if bibleInt == 10 {
+                
+                let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
+                self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+                
+            }
+            if bibleInt == 11 {
+                let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchAdminViewController") as! ChurchAdminViewController
+                self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+                
+            }
+            if bibleInt == 12 {
+                
+                let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+                self.navigationController?.pushViewController(holyBibleViewController, animated: true)
+                
+            }
+            
         }
-        if indexPath.item == 5 {
-
-            let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
-            self.navigationController?.pushViewController(holyBibleViewController, animated: true)
-
-        }
-
-
-        if indexPath.item == 24 {
-            let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchAdminViewController") as! ChurchAdminViewController
-            self.navigationController?.pushViewController(churchDetailsViewController, animated: true)        }
+   
     }
 
     

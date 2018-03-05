@@ -32,7 +32,24 @@ class CategorieHomeCell: UITableViewCell {
         backGroundView.layer.shadowOpacity = 0.6
         backGroundView.layer.shadowRadius = 2.0
         
+
         
+
+        
+        moreButton.layer.cornerRadius = 1.0
+        moreButton.layer.borderWidth = 1
+        moreButton.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
+        
+        
+        
+        
+        moreButton.layer.cornerRadius = 3.0
+        moreButton.layer.shadowColor = UIColor(red: 113.0/255.0, green: 173.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
+        moreButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        moreButton.layer.shadowOpacity = 0.6
+        moreButton.layer.shadowRadius = 2.0
+        
+
         
         // Initialization code
     }

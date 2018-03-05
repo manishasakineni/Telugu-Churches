@@ -26,6 +26,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     @IBOutlet weak var settingsBarButton: UIBarButtonItem!
     
+
+    
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -37,14 +39,23 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
 
     var loginStatusString    =   String()
     
-    
+    var bibleNav = false
+
     var sectionTittles = ["","Latest Posts","Categories","Event Posts"]
     
+  //  var imageArray4 = [UIImage(named:"Bible apps"),UIImage(named:"Bible study"),UIImage(named:"Book shop"),UIImage(named:"Donation"),UIImage(named:"Doubts"),UIImage(named:"Events"),UIImage(named:"film"),UIImage(named:"Gospel messages"),UIImage(named:"Gospel"),UIImage(named:"help"),UIImage(named:"Holy bible"),UIImage(named:"Images"),UIImage(named:"Live"),UIImage(named:"Map"),UIImage(named:"Messages"),UIImage(named:"Movies"),UIImage(named:"pamphlet"),UIImage(named:"Quatation"),UIImage(named:"Scientific"),UIImage(named:"Songs"),UIImage(named:"Suggestion"),UIImage(named:"Sunday school"),UIImage(named:"Testimonial"),UIImage(named:"Videos"),UIImage(named:"ic_admin"),UIImage(named:"Languages"),UIImage(named:"Login"),UIImage(named:"pamphlet")]
 
+    //  var namesarra1 = ["Bible apps","Bible study","Book shop","Donation","Doubts","Events","film","Gospel messages","Gospel","help","Holy bible","Images","live","Map","Messages","Movies","pamphlet","Quatation","Scientific","Songs","Suggestion","Sunday school","Testimonial","Videos","Admin","Languages","Login","pamphlet"]
 
-    var imageArray = [UIImage(named:"holybible"),UIImage(named:"Audio"),UIImage(named:"Seminor"),UIImage(named:"Songs"),UIImage(named:"books"),UIImage(named:"Churches"),UIImage(named:"live"),UIImage(named:"Seminor-1"),UIImage(named:"rootmap"),UIImage(named:"Science"),UIImage(named:"movies"),UIImage(named:"language"),UIImage(named:"jobs")]
-    var imageArray2 = [UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible"),UIImage(named:"holybible")]
-    var imageArray3 = [UIImage(named:"Churches"),UIImage(named:"Churches"),UIImage(named:"books"),UIImage(named:"Churches"),UIImage(named:"live"),UIImage(named:"Seminor-1"),UIImage(named:"rootmap"),UIImage(named:"Science")]
+    var imageArray = [UIImage(named:"Holy bible"),UIImage(named:"Bible apps"),UIImage(named:"Bible study"),UIImage(named:"Book shop"),UIImage(named:"Images"),UIImage(named:"Testimonial"),UIImage(named:"Holy bible"),UIImage(named:"Bible apps"),UIImage(named:"Bible study")]
+    var imageNameArray = ["Holy bible","Bible apps","Bible study","Book shop","Images","Testimonial","Holy bible","Bible apps","Bible study"]
+    
+    var imageArray2 = [UIImage(named:"ic_admin"),UIImage(named:"Doubts"),UIImage(named:"Gospel messages"),UIImage(named:"Quatation"),UIImage(named:"Scientific"),UIImage(named:"Suggestion"),UIImage(named:"Sunday school"),UIImage(named:"Testimonial"),UIImage(named:"Languages"),UIImage(named:"Login")]
+    var imageNameArray2 = ["Admin","Doubts","Gospel messages","Quatation","Scientific","Suggestion","Sunday school","Testimonial","Languages","Login"]
+
+    
+    var imageArray3 = [UIImage(named:"Events"),UIImage(named:"film"),UIImage(named:"help"),UIImage(named:"Map"),UIImage(named:"Donation"),UIImage(named:"Movies"),UIImage(named:"Songs"),UIImage(named:"Videos"),UIImage(named:"Donation"),UIImage(named:"pamphlet")]
+    var imageNameArray3 = ["Events","film","help","Map","Donation","Movies","Songs","Videos","Donation","pamphlet"]
 
     
        var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific Proofs","Gospel Messages","Short Messages","Images","Login id Creation","Help to develop the small churches","Book Shop","Movies","Daily Quotations","Video Songs","Testimonials","Quotations","Sunday School","Cell numbers for daily messages(Bulk sms)","Bible Apps","Short Films","Jobs","Route maps buds numbers","Events","Donation","Live","Doubts","Suggetions","Pamplets","languages(Tel/Eng)","Admin can add multiple menu pages"]
@@ -201,12 +212,23 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.section == 0 {
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
+            if indexPath.section == 0 {
+                
+                return 175.0
+            }
             
-             return 175.0
+            return 200.0
+        }else{
+            
+            if indexPath.section == 0 {
+                
+                return 175.0
+            }
+            
+            return 150.0
         }
         
-        return 150.0
         
     }
     
@@ -239,7 +261,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             cell.homeCollectionView.delegate = self
             cell.homeCollectionView.dataSource = self
             cell.moreButton.addTarget(self, action: #selector(categorieOneClicked(_:)), for: UIControlEvents.touchUpInside)
-            cell.categoriesNameLabel.text = "Latest Posts"
+            cell.categoriesNameLabel.text = "Bible Posts"
 
             return cell
         }
@@ -296,6 +318,10 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         
                     let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
+        churchDetailsViewController.categorieImageArray = self.imageArray as! Array<UIImage>
+        churchDetailsViewController.categorieNamesArray = self.imageNameArray
+        //churchDetailsViewController.bibleString = bibleNav
+        churchDetailsViewController.bibleInt = 10
                     self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
         
         print("Eye Button Clicked......")
@@ -308,6 +334,15 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         
         
+        let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
+        churchDetailsViewController.categorieImageArray = self.imageArray2 as! Array<UIImage>
+        churchDetailsViewController.categorieNamesArray = self.imageNameArray2
+        churchDetailsViewController.bibleInt = 11
+
+        self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+        
+
+        
         
     }
     func  categorieThreeClicked(_ sendre:UIButton) {
@@ -315,6 +350,15 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         
         
+        let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
+        churchDetailsViewController.categorieImageArray = self.imageArray3 as! Array<UIImage>
+        churchDetailsViewController.categorieNamesArray = self.imageNameArray3
+        churchDetailsViewController.bibleInt = 12
+
+        self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+        
+        
+
         
     }
 }
@@ -359,7 +403,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
             
             cell.collectionImgView.image = imageArray[ indexPath.row]
-              // cell.nameLabel.text = namesarra1[indexPath.row]
+            cell.nameLabel.text = imageNameArray[indexPath.row]
             
             let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
             
@@ -371,7 +415,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
         
         cell.collectionImgView.image = imageArray2[ indexPath.row]
-        // cell.nameLabel.text = namesarra1[indexPath.row]
+         cell.nameLabel.text = imageNameArray2[indexPath.row]
         
         let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
         
@@ -382,7 +426,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
         
           cell.collectionImgView.image = imageArray3[ indexPath.row]
-        // cell.nameLabel.text = namesarra1[indexPath.row]
+         cell.nameLabel.text = imageNameArray3[indexPath.row]
         
         let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
         
@@ -397,17 +441,61 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        
-        let cellsPerRow = 3
-        
-        let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
-        let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-        return CGSize(width: itemWidth, height: itemWidth)
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
+            
+            let cellsPerRow = 5
+            
+            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
+            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
+            return CGSize(width: itemWidth, height: itemWidth)
+        }
+        else {
+            
+            
+            let cellsPerRow = 3
+            
+            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
+            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
+            return CGSize(width: itemWidth, height: itemWidth)
+        }
     }
     
     
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // handle tap events
+        print("You selected cell #\(indexPath.item)!")
+        
+        if collectionView.tag  == 1 {
+            
+            if indexPath.item == 0 {
+                
+                let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
+                self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+                
+           }
+        }
+        else if collectionView.tag == 2{
+            
+            if indexPath.item == 0 {
+
+            let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchAdminViewController") as! ChurchAdminViewController
+            self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+            }
+        }
+        else if collectionView.tag == 3{
+            if indexPath.item == 0 {
+
+                let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+                self.navigationController?.pushViewController(holyBibleViewController, animated: true)
+                
+
+            }
+        }
+
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

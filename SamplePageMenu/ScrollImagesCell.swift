@@ -242,7 +242,7 @@ loadScrollView()
         }
         let currentPage:CGFloat = slideToX / pageWidth
         
-        print(currentPage)
+       // print(currentPage)
         // Change the indicator
         self.pageController.currentPage = Int(currentPage)
         self.scrollView.scrollRectToVisible(CGRect(x:slideToX, y:0, width:pageWidth, height:self.scrollView.frame.height), animated: true)
