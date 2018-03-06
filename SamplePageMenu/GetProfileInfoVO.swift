@@ -52,13 +52,14 @@ class GetProfileInfoVO: Mappable {
     var dob : String?
     var gender : String?
     var genderTypeId : Int?
+    var userImage : String?
     
     
     
     //MARK:-  initialization of VideosVO
     
     
-    init(Id:Int?, UserId : String?,FirstName : String?, Lastname : String?,MiddleName : String?,ContactNumber : String?,MobileNumber : String?,UserName : String?,Password : String?,RoleId : Int?,Email : String?,IsActive : Bool?,CreatedByUserId : Int?,UpdatedByUserId : Int?,UpdatedDate : String?,dob : String?,gender : String?,CreatedDate : String?,genderTypeId : Int?) {
+    init(Id:Int?, UserId : String?,FirstName : String?, Lastname : String?,MiddleName : String?,ContactNumber : String?,MobileNumber : String?,UserName : String?,Password : String?,RoleId : Int?,Email : String?,IsActive : Bool?,CreatedByUserId : Int?,UpdatedByUserId : Int?,UpdatedDate : String?,dob : String?,gender : String?,CreatedDate : String?,genderTypeId : Int?, userImage : String?) {
         
         self.Id = Id
         self.FirstName = FirstName
@@ -79,6 +80,7 @@ class GetProfileInfoVO: Mappable {
         self.dob = dob
         self.gender = gender
         self.genderTypeId = genderTypeId
+        self.userImage = userImage
         
         
     }
@@ -108,7 +110,7 @@ class GetProfileInfoVO: Mappable {
         dob <- map["dob"]
         gender <- map["gender"]
         genderTypeId <- map["genderTypeId"]
-        
+        userImage <- map["userImage"]
     }
     
     

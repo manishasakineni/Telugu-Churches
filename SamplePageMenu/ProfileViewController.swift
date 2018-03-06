@@ -14,8 +14,16 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     var appVersion          : String = ""
     
+    var selectedDate : String = ""
+    
+    var base64String : String = ""
+    
+    
     var showNav = false
     let isActive : Bool = true
+    
+    let dateFormatter = DateFormatter()
+    
     
     
     @IBOutlet weak var editProfileTableView: UITableView!
@@ -66,6 +74,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
         
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
@@ -132,9 +143,61 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         self.lastName = (respVO.listResult?[0].Lastname)!
                         self.mobileNumber = (respVO.listResult?[0].MobileNumber)!
                         self.email = (respVO.listResult?[0].Email)!
+                        let userImgURL : String = (respVO.listResult?[0].userImage)!
+                        
+                    let newString = userImgURL.replacingOccurrences(of: "\\", with: "/", options: .backwards, range: nil)
+                        
+                        if newString != "" {
+                            
+                            
+                            let url = URL(string:newString)
+                            
+                            if let data = try? Data(contentsOf: url!)
+                            {
+                                let image: UIImage = UIImage(data: data)!
+                            }
+                            
+                            let dataImg = try? Data(contentsOf: url!)
+                            
+                            if dataImg != nil {
+                                
+                                self.profileimage = UIImage(data: dataImg!)!
+                            }
+                            else {
+                                
+                                self.profileimage = #imageLiteral(resourceName: "churchLogoo")
+                            }
+                        }
+                        else {
+                            
+                            self.profileimage = #imageLiteral(resourceName: "churchLogoo")
+                        }
+                        
+
+
+                        
+                        
                         self.dateofBirth = (respVO.listResult?[0].dob == nil ? "" : respVO.listResult?[0].dob)!
-                        self.genderTypeID = (respVO.listResult?[0].genderTypeId)!
-                        //  self.gender = (respVO.listResult?[0].gender)!
+                        
+                        self.selectedDate = self.formattedDateFromString(dateString: self.dateofBirth, withFormat: "MMM dd, yyyy")!
+                      
+//                        let fff = (IDInfo?.DOB)!
+//                        
+//                        let stringB = self.formattedDateFromString(dateString: fff, withFormat: "MMM dd, yyyy")
+//                        
+//                        if stringB != nil {
+//                            
+//                            self.selectedDOBStr = stringB!
+//                            
+//                        }
+                        
+                        
+                        if let gender = respVO.listResult?[0].genderTypeId {
+                            self.genderTypeID = (gender)
+                        }
+                        else{
+                            self.genderTypeID = 0
+                        }
                         
                         
                         self.editProfileTableView.reloadData()
@@ -189,6 +252,25 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
+    func formattedDateFromString(dateString: String, withFormat format: String) -> String? {
+        
+      //  let inputFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        
+        if let date = dateFormatter.date(from: dateString) {
+            
+            let outputFormatter = DateFormatter()
+            outputFormatter.dateFormat = format
+            
+            return outputFormatter.string(from: date)
+        }
+        
+        return nil
+    }
+
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -280,7 +362,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
             textField.inputAccessoryView = toolBar
             
-            activeTextField.text = dateofBirth
+            activeTextField.text = selectedDate
             
         }
         
@@ -550,7 +632,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             else if indexPath.row == 5{
                 
                 signUPCell.editProfileTF.placeholder = "DOB".localize()
-                signUPCell.editProfileTF.text = self.dateofBirth
+                signUPCell.editProfileTF.text = selectedDate
                 
                 
             }
@@ -642,7 +724,18 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         print(profileimage)
         
-        //     imageString =
+        let resizeImg = resizeImage(image: profileimage, newWidth: 150)
+        
+       var imageData = UIImagePNGRepresentation(resizeImg)
+        var imageUIImage: UIImage = UIImage(data: imageData!)!
+        
+        print(imageUIImage)
+   // let base64String = imageData.base64EncodedStringWithOptions(NSData.Base64EncodingOptions.fromRaw(0)!)
+        
+        base64String = (imageData?.base64EncodedString())!
+        
+        print(base64String)
+        
         
         editProfileTableView.reloadData()
     }
@@ -688,7 +781,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         let updateProfiledictParams = [
             
-            "imageString": null,
+            "imageString": base64String,
             "id": self.loginid,
             "userId":null,
             "firstName": self.firstName,
@@ -703,7 +796,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             "email": self.email,
             "fileLocation": null,
             "fileName": null,
-            "fileExtention": null,
+            "fileExtention": ".jpg",
             "isActive": true,
             "createdByUserId": 1,
             "createdDate": "2018-03-05",
@@ -877,9 +970,19 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func donePressed(){
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "MMM dd, yyyy"
         dateofBirth = dateFormatter.string(from: datepicker.date)
+        
+      
+        
+        
+        //  dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        selectedDate = dateFormatter.string(from: datepicker.date)
+        print(selectedDate)
         
         print(dateofBirth)
         
@@ -1053,8 +1156,21 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     
-    
-    
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        
+        
+        image.draw(in: CGRect(x: 0, y: 0,width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
     
     
 }
+
