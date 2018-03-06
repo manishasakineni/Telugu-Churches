@@ -54,8 +54,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     var imageNameArray2 = ["Admin","Doubts","Gospel messages","Quatation","Scientific","Suggestion","Sunday school","Testimonial","Languages","Login"]
 
     
-    var imageArray3 = [UIImage(named:"Events"),UIImage(named:"film"),UIImage(named:"help"),UIImage(named:"Map"),UIImage(named:"Donation"),UIImage(named:"Movies"),UIImage(named:"Songs"),UIImage(named:"Videos"),UIImage(named:"Donation"),UIImage(named:"pamphlet")]
-    var imageNameArray3 = ["Events","film","help","Map","Donation","Movies","Songs","Videos","Donation","pamphlet"]
+    var imageArray3 = [UIImage(named:"Events"),UIImage(named:"UpComelogo"),UIImage(named:"film"),UIImage(named:"help"),UIImage(named:"Map"),UIImage(named:"Donation"),UIImage(named:"Movies"),UIImage(named:"Songs"),UIImage(named:"Videos"),UIImage(named:"Donation"),UIImage(named:"pamphlet")]
+    var imageNameArray3 = ["Events","UpComingEvents","film","help","Map","Donation","Movies","Songs","Videos","Donation","pamphlet"]
 
     
        var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific Proofs","Gospel Messages","Short Messages","Images","Login id Creation","Help to develop the small churches","Book Shop","Movies","Daily Quotations","Video Songs","Testimonials","Quotations","Sunday School","Cell numbers for daily messages(Bulk sms)","Bible Apps","Short Films","Jobs","Route maps buds numbers","Events","Donation","Live","Doubts","Suggetions","Pamplets","languages(Tel/Eng)","Admin can add multiple menu pages"]
@@ -470,29 +470,41 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         
         if collectionView.tag  == 1 {
             
-            if indexPath.item == 0 {
+            //if indexPath.item == 0 {
                 
                 let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
+            churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
                 self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
                 
-           }
+          // }
         }
         else if collectionView.tag == 2{
             
-            if indexPath.item == 0 {
+         //   if indexPath.item == 0 {
 
-            let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchAdminViewController") as! ChurchAdminViewController
-            self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
-            }
+            let churchAdminViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchAdminViewController") as! ChurchAdminViewController
+            churchAdminViewController.appVersion = imageNameArray2[indexPath.item]
+            self.navigationController?.pushViewController(churchAdminViewController, animated: true)
+          //  }
         }
         else if collectionView.tag == 3{
             if indexPath.item == 0 {
 
-                let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
-                self.navigationController?.pushViewController(holyBibleViewController, animated: true)
+                let eventViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+            eventViewController.appVersion = imageNameArray3[indexPath.item]
+                self.navigationController?.pushViewController(eventViewController, animated: true)
                 
 
             }
+            if indexPath.item == 1 {
+                
+                let upConingEventInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: "UpConingEventInfoViewController") as! UpConingEventInfoViewController
+                upConingEventInfoViewController.appVersion = imageNameArray3[indexPath.item]
+                self.navigationController?.pushViewController(upConingEventInfoViewController, animated: true)
+                
+                
+            }
+
         }
 
     }

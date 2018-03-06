@@ -692,6 +692,51 @@
             </objects>
             <point key="canvasLocation" x="3893.5999999999999" y="1008.8455772113944"/>
         </scene>
+        <!--Up Coning Event Info View Controller-->
+        <scene sceneID="PNi-Yt-ZBQ">
+            <objects>
+                <viewController storyboardIdentifier="UpConingEventInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="d58-74-bX1" customClass="UpConingEventInfoViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zhK-wl-0Ch"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cfa-q3-gx3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SFZ-nx-lRD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAP-u3-I2M" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.53721788194444442" green="0.34488932291666669" blue="0.47979058159722221" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="subtitleDefaultColor">
+                                        <color key="value" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="SFZ-nx-lRD" id="6SH-gs-kjF"/>
+                                    <outlet property="delegate" destination="SFZ-nx-lRD" id="Sgp-r1-sZ6"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zAP-u3-I2M" firstAttribute="leading" secondItem="SFZ-nx-lRD" secondAttribute="leading" id="0mO-z0-Apd"/>
+                            <constraint firstItem="Cfa-q3-gx3" firstAttribute="top" secondItem="zAP-u3-I2M" secondAttribute="bottom" id="205-Zs-9g0"/>
+                            <constraint firstItem="zAP-u3-I2M" firstAttribute="top" secondItem="SFZ-nx-lRD" secondAttribute="top" id="3V3-3A-C5h"/>
+                            <constraint firstAttribute="trailing" secondItem="zAP-u3-I2M" secondAttribute="trailing" id="mvX-W3-EfY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="upComingCalender" destination="zAP-u3-I2M" id="1Xr-eL-2VB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0a1-9s-iyC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4607.1999999999998" y="1008.8455772113944"/>
+        </scene>
         <!--Setting View Controller-->
         <scene sceneID="zh0-0i-pYZ">
             <objects>

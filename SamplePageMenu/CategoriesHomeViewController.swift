@@ -75,7 +75,8 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
         super.viewWillAppear(true)
         
         
-       
+        Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Bible Posts", backTitle: " Bible Posts", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+
         if bibleInt == 10 {
             
             Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Bible Posts", backTitle: " Bible Posts", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
@@ -177,17 +178,23 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
             if bibleInt == 10 {
                 
                 let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
+                churchDetailsViewController.appVersion = categorieNamesArray[indexPath.item]
                 self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+                
                 
             }
             if bibleInt == 11 {
                 let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchAdminViewController") as! ChurchAdminViewController
+                churchDetailsViewController.appVersion = categorieNamesArray[indexPath.item]
+
                 self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
                 
             }
             if bibleInt == 12 {
                 
                 let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+                holyBibleViewController.appVersion = categorieNamesArray[indexPath.item]
+
                 self.navigationController?.pushViewController(holyBibleViewController, animated: true)
                 
             }

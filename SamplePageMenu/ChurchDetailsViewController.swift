@@ -23,7 +23,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     var updatedDateArray = Array<String>()
     var addressArray = Array<String>()
     var churchImageArray = Array<String>()
-
+    var churchArray = Array<String>()
     
     var imageArray = [UIImage(named:"7"),UIImage(named:"5"),UIImage(named:"4"),UIImage(named:"7"),UIImage(named:"5"),UIImage(named:"4"),UIImage(named:"7"),UIImage(named:"4")]
     
@@ -52,7 +52,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                               forCellReuseIdentifier: "ChurchDetailsTableViewCell")
         
         
-        Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Churches List".localize(), backTitle: "Churches List".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
        
 
@@ -67,7 +66,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         
-      
+        Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: appVersion.localize(), backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+
        
         //navigationItem.leftBarButtonItems = []
 

@@ -157,6 +157,9 @@
 		CB345E19202339B6006CC378 /* homeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB345E15202339B6006CC378 /* homeTableViewCell.xib */; };
 		CB345E1A202339B6006CC378 /* homeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB345E16202339B6006CC378 /* homeCollectionViewCell.swift */; };
 		CB345E1B202339B6006CC378 /* homeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB345E17202339B6006CC378 /* homeCollectionViewCell.xib */; };
+		CB356E0D204E64AB0002CFBB /* UpConingEventInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB356E0C204E64AB0002CFBB /* UpConingEventInfoViewController.swift */; };
+		CB356E10204E797F0002CFBB /* GetUpComingEventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB356E0F204E797F0002CFBB /* GetUpComingEventInfo.swift */; };
+		CB356E12204E79CA0002CFBB /* GetUpComingEventInfoResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB356E11204E79CA0002CFBB /* GetUpComingEventInfoResultVo.swift */; };
 		CB4B20F42047D11500402E59 /* CategoriesHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4B20F32047D11500402E59 /* CategoriesHomeViewController.swift */; };
 		CB4B20FA2047D2F000402E59 /* CategorieHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4B20F62047D2F000402E59 /* CategorieHomeCell.swift */; };
 		CB4B20FB2047D2F000402E59 /* CategorieHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB4B20F72047D2F000402E59 /* CategorieHomeCell.xib */; };
@@ -341,6 +344,9 @@
 		CB345E15202339B6006CC378 /* homeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homeTableViewCell.xib; sourceTree = "<group>"; };
 		CB345E16202339B6006CC378 /* homeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB345E17202339B6006CC378 /* homeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homeCollectionViewCell.xib; sourceTree = "<group>"; };
+		CB356E0C204E64AB0002CFBB /* UpConingEventInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpConingEventInfoViewController.swift; sourceTree = "<group>"; };
+		CB356E0F204E797F0002CFBB /* GetUpComingEventInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUpComingEventInfo.swift; sourceTree = "<group>"; };
+		CB356E11204E79CA0002CFBB /* GetUpComingEventInfoResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUpComingEventInfoResultVo.swift; sourceTree = "<group>"; };
 		CB4B20F32047D11500402E59 /* CategoriesHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesHomeViewController.swift; sourceTree = "<group>"; };
 		CB4B20F62047D2F000402E59 /* CategorieHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorieHomeCell.swift; sourceTree = "<group>"; };
 		CB4B20F72047D2F000402E59 /* CategorieHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategorieHomeCell.xib; sourceTree = "<group>"; };
@@ -499,6 +505,7 @@
 		9A5D26401FFF95EF00316988 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CB356E0B204E64790002CFBB /* UpComimgEentsViewController */,
 				CB4B20F22047D08B00402E59 /* CategoriesHomeViewController */,
 				CB03C8D0203EC72A000B96A4 /* ChurchAdminDetailViewController */,
 				AF102850203C251C0012411A /* ChurchInformationViewController */,
@@ -570,6 +577,7 @@
 		9A623B8120219B8700A674F2 /* MapperVO */ = {
 			isa = PBXGroup;
 			children = (
+				CB356E0E204E793C0002CFBB /* GetUpComingEventInfo */,
 				CB6111442040240D0057A030 /* GetEventByDateAndUserId */,
 				CB03C8DD203EFF15000B96A4 /* GetEventByUserIdMonthYear */,
 				CB03C8D8203ED1C1000B96A4 /* GetAlllChurchAdmins */,
@@ -844,6 +852,23 @@
 			name = GetProfileInfo;
 			sourceTree = "<group>";
 		};
+		CB356E0B204E64790002CFBB /* UpComimgEentsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB356E0C204E64AB0002CFBB /* UpConingEventInfoViewController.swift */,
+			);
+			name = UpComimgEentsViewController;
+			sourceTree = "<group>";
+		};
+		CB356E0E204E793C0002CFBB /* GetUpComingEventInfo */ = {
+			isa = PBXGroup;
+			children = (
+				CB356E0F204E797F0002CFBB /* GetUpComingEventInfo.swift */,
+				CB356E11204E79CA0002CFBB /* GetUpComingEventInfoResultVo.swift */,
+			);
+			name = GetUpComingEventInfo;
+			sourceTree = "<group>";
+		};
 		CB4B20F22047D08B00402E59 /* CategoriesHomeViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1101,6 +1126,7 @@
 				9A5D25F31FFF76A300316988 /* LoginViewController.swift in Sources */,
 				9AA3AB6D2011D7420065D4BD /* ImmutableMappable.swift in Sources */,
 				CB0256BE202463030017E240 /* LoginResultVo.swift in Sources */,
+				CB356E12204E79CA0002CFBB /* GetUpComingEventInfoResultVo.swift in Sources */,
 				CB0256B2202430750017E240 /* SettingViewController.swift in Sources */,
 				9AA3AB702011D7420065D4BD /* Map.swift in Sources */,
 				9AA3AB792011D7420065D4BD /* DateFormatterTransform.swift in Sources */,
@@ -1122,6 +1148,7 @@
 				CB834737202837020034AD4E /* HeaderProfileCell.swift in Sources */,
 				9AA3AB6F2011D7420065D4BD /* FromJSON.swift in Sources */,
 				9AEAE824201F491800DB9D8E /* GlobalSupportingClass.swift in Sources */,
+				CB356E0D204E64AB0002CFBB /* UpConingEventInfoViewController.swift in Sources */,
 				3D551C632011F6BE005DB3B2 /* ServiceController.swift in Sources */,
 				CB611148204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift in Sources */,
 				CB345E1A202339B6006CC378 /* homeCollectionViewCell.swift in Sources */,
@@ -1157,6 +1184,7 @@
 				CB03C8DA203ED202000B96A4 /* GetAllChurchAdminsVo.swift in Sources */,
 				3D551C5F2011F462005DB3B2 /* Constants.swift in Sources */,
 				9A5D262E1FFF8A3700316988 /* AddMoneyCell.swift in Sources */,
+				CB356E10204E797F0002CFBB /* GetUpComingEventInfo.swift in Sources */,
 				3D65D4B62004D9A200CAB226 /* DrawerView.m in Sources */,
 				CB4B20FC2047D2F000402E59 /* CategorieCollectionViewCell.swift in Sources */,
 				9A5D26321FFF8A3F00316988 /* SendMoneyToWalletCell.swift in Sources */,

@@ -80,7 +80,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        Utilities.setEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Events".localize(), backTitle: "Events".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: appVersion.localize(), backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
         
         getEventByUserIdMonthYearAPIService()
@@ -477,14 +477,23 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
 
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
-        UserDefaults.standard.removeObject(forKey: "1")
-        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+        
+        UserDefaults.standard.removeObject(forKey: kuserId)
         UserDefaults.standard.synchronize()
-        let categoriesHomeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
-        self.navigationController?.popViewController(animated: true)
-
-//        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-//        appDelegate.window?.rootViewController = rootController
+        
+        //   navigationItem.leftBarButtonItems = []
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        appDelegate.window?.rootViewController = rootController
+        
+//        UserDefaults.standard.removeObject(forKey: "1")
+//        UserDefaults.standard.removeObject(forKey: kLoginSucessStatus)
+//        UserDefaults.standard.synchronize()
+//        let categoriesHomeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
+//        self.navigationController?.popViewController(animated: true)
+//
+////        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+////        appDelegate.window?.rootViewController = rootController
         print("Back Button Clicked......")
     }
 

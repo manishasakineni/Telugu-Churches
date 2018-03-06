@@ -1,19 +1,16 @@
 //
-//  GetEventByUserIdMonthYearVo.swift
+//  GetUpComingEventInfo.swift
 //  Telugu Churches
 //
-//  Created by praveen dole on 2/22/18.
+//  Created by praveen dole on 3/6/18.
 //  Copyright © 2018 Mac OS. All rights reserved.
 //
 
 import Foundation
 
-class GetEventByUserIdMonthYearVo: Mappable {
+class GetUpComingEventInfo: Mappable {
     
-  
-    
-    
-    var listResult : [GetEventByUserIdMonthYearResultVo]?
+    var listResult : [GetUpComingEventInfoResultVo]?
     var isSuccess    : Bool?
     var totalRecords : Int?
     var affectedRecords : Int?
@@ -25,7 +22,7 @@ class GetEventByUserIdMonthYearVo: Mappable {
     //MARK:-  initialization of VideosVO
     
     
-    init(listResult : [GetEventByUserIdMonthYearResultVo]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {
+    init(listResult : [GetUpComingEventInfoResultVo]?, isSuccess : Bool?, totalRecords:Int?, affectedRecords:Int?,endUserMessage:String?, validationErrors:String?,exception:Any?) {
         
         self.listResult = listResult
         self.isSuccess = isSuccess

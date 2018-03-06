@@ -34,12 +34,19 @@ class ChurchAdminDetailCell: UITableViewCell {
         backGroundView.layer.shadowRadius = 2.0
 
         
-        adminImageView.layer.cornerRadius = 3.0
+      //  adminImageView.layer.borderWidth = 1
+//        // menuImgView.layer.borderColor = UIColor.black.cgColor
+//        adminImageView.layer.cornerRadius = adminImageView.frame.height/2
+//        adminImageView.clipsToBounds = true
+//        
+        adminImageView.layer.masksToBounds = false
+        adminImageView.layer.cornerRadius = adminImageView.frame.height/2
+        adminImageView.clipsToBounds = true
         adminImageView.layer.shadowColor = UIColor.lightGray.cgColor
         adminImageView.layer.shadowOffset = CGSize(width: 0, height: 3)
         adminImageView.layer.shadowOpacity = 0.6
         adminImageView.layer.shadowRadius = 0.5
-
+      //  imageView.layer.cornerRadius = image.frame.size.width/2
         
         subscribeButtton.layer.cornerRadius = 1.0
         subscribeButtton.layer.borderWidth = 1

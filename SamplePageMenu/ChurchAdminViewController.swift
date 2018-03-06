@@ -12,6 +12,9 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
 
     @IBOutlet weak var churchAdminTableView: UITableView!
     
+    
+    var churchAdminArray:[GetAllChurchAdminsResultVo] = Array<GetAllChurchAdminsResultVo>()
+
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     
@@ -40,9 +43,8 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         let nibName1  = UINib(nibName: "ChurchAdminDetailCell" , bundle: nil)
         churchAdminTableView.register(nibName1, forCellReuseIdentifier: "ChurchAdminDetailCell")
         
-        getChurchAdminDetailsAPICall()
         
-        Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Admin List".localize(), backTitle: "Admin List".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: appVersion.localize(), backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
 
         // Do any additional setup after loading the view.
@@ -52,8 +54,10 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     override func viewWillAppear(_ animated: Bool) {
         
             super.viewWillAppear(animated)
-        
-        
+
+        churchAdminArray.removeAll()
+        getChurchAdminDetailsAPICall()
+
      //   churchAdminTableView.isHidden = true
         
         
@@ -113,11 +117,31 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
                 
                 for church in respVO.listResult!{
                     
-                    self.churchNamesArray.append(church.churchName!)
-                       self.churchAdminNameArray.append(church.churchAdmin!)
-                    self.mobileNumberArray.append(church.mobileNumber!)
-                    self.emailArray.append(church.email!)
+                    self.churchAdminArray.append(church)
+                    
+//                    let churchName = church.churchName!
+//                    if churchName != "" {
+//                         self.churchNamesArray.append(churchName)
+//                    }
+//                    let churchAdmin = church.churchAdmin!
+//                    if churchAdmin != "" {
+//                        self.churchAdminNameArray.append(churchAdmin)
+//                    }
+//                    let mobileNumber = church.mobileNumber!
+//                    if mobileNumber != "" {
+//                       self.mobileNumberArray.append(mobileNumber)
+//                    }
+//                    
+//                    if let email = church.email {
+//                        self.emailArray.append(email)
+//                    }else{
+//                        self.emailArray.append("")
+//                    }
+//                    
+//                   
+//                    
 
+                  //  respVO.listResult?[0].landMark == nil ? "" : respVO.listResult?[0].landMark
 
                   //  self.churchAdmin.append(church.contactNumber!)
 //                    self.churchIDArray.append(church.Id!)
@@ -125,8 +149,8 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
                 }
                 
                 
-                print("churchNamesArray", self.churchNamesArray)
-                print("churchNamesArray.Count", self.churchNamesArray.count)
+                print("churchAdminArray", self.churchAdminArray)
+               // print("churchNamesArray.Count", self.churchNamesArray.count)
 
                 
 
@@ -174,7 +198,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
-        return churchNamesArray.count
+        return churchAdminArray.count
         
     }
     
@@ -202,7 +226,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        if indexPath.row == churchNamesArray.count - 1 {
+        if indexPath.row == churchAdminArray.count - 1 {
             
             if(self.totalPages! > PageIndex){
                 
@@ -225,11 +249,64 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let listStr:GetAllChurchAdminsResultVo = churchAdminArray[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChurchAdminDetailCell", for: indexPath) as! ChurchAdminDetailCell
-        cell.adminNameLabel.text = churchAdminNameArray[indexPath.row]
-        cell.churchName.text = churchNamesArray[indexPath.row]
-        cell.mobileNumber.text = mobileNumberArray[indexPath.row]
-        cell.email.text = emailArray[indexPath.row]
+      
+        
+        if let churchAdmin =  listStr.churchAdmin {
+            cell.adminNameLabel.text = "Name:" + " " + churchAdmin
+        }else{
+            cell.adminNameLabel.text = "Name:"
+        }
+        
+        if let churchName =  listStr.churchName {
+            cell.churchName.text = "ChurchName:" + " " + churchName
+        }else{
+            cell.churchName.text = "ChurchName:"
+        }
+       
+        if let mobileNumber =  listStr.mobileNumber {
+            cell.mobileNumber.text = "MobileNumber:" + " " + mobileNumber
+        }else{
+            cell.mobileNumber.text = "MobileNumber:"
+        }
+        
+        if let email = listStr.email {
+            cell.email.text = "Email:" + " " + email
+        }else{
+            cell.email.text = "Email:"
+        }
+        
+        
+        
+        let imgUrl = listStr.churchImage
+        
+        let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+        
+        print("filteredUrlString:\(newString)")
+        
+        if newString != nil {
+            
+            let url = URL(string:newString!)
+            
+            
+            let dataImg = try? Data(contentsOf: url!)
+            
+            if dataImg != nil {
+                
+                cell.adminImageView.image = UIImage(data: dataImg!)
+            }
+            else {
+                
+                cell.adminImageView.image = #imageLiteral(resourceName: "churchLogoo")
+            }
+        }
+        else {
+            
+            cell.adminImageView.image = #imageLiteral(resourceName: "churchLogoo")
+        }
+        
+        
 
       //  cell.adminNameLabel.text = churchNamesArray[indexPath.row]
 
@@ -266,10 +343,10 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
 
         
         
-        //        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        //
-        //        appDelegate.window?.rootViewController = rootController
-        //        
+                let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+                appDelegate.window?.rootViewController = rootController
+                
 
         
         print("Back Button Clicked......")

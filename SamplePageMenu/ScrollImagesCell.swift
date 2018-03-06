@@ -15,6 +15,13 @@ class ScrollImagesCell: UITableViewCell, UIScrollViewDelegate {
     @IBOutlet weak var backGroundView: UIView!
     
     @IBOutlet weak var pageController: UIPageControl!
+    
+    @IBOutlet weak var scrollViewHeightLayoutConstraint: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var scrollViewWidthLayoutConstraint: NSLayoutConstraint!
+    
+    
     var offSet: CGFloat = 0
     var timer : Timer!
     var counter = 0

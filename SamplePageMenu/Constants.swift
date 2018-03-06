@@ -18,7 +18,7 @@ let videosURL = "http://192.168.1.123/TeluguChurchesApi/api/GetEmbedLinks/"
 
 
 
-var BASEURL:String = "http://192.168.1.121/TeluguChurches/"
+var BASEURL:String = "http://192.168.1.101/TeluguChurches/"
 
 let SIGNEUPURL:String = BASEURL.appending("api/Account/Register")
 let LOGINURL : String = BASEURL.appending("api/UserInfo/LoginUser/")
@@ -32,6 +32,7 @@ let GETCHURCHEBYID : String = BASEURL.appending("api/Church/GetChurchbyId/")
 let GETALLCHURCHEADMINS : String = BASEURL.appending("api/Church/GetAllChurchAdmins")
 let GETEVENTBYUSERIDMONTHYEAR : String = BASEURL.appending("api/Events/GetEventByUserIdMonthYear/")
 let GETEVENTBYDATEANDUSERID : String = BASEURL.appending("api/Events/GetEventByDateAndUserId/")
+let GETUPCOMIMGEVENTSINFO : String = BASEURL.appending("api/Events/GetUpcomingEventsInfo")
 
 
 // MARK: -  Navigation String
