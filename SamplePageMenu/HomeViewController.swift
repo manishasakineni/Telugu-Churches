@@ -226,7 +226,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 return 175.0
             }
             
-            return 150.0
+            return 180.0
         }
         
         
