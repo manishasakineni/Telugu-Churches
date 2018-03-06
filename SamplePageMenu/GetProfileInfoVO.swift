@@ -12,6 +12,26 @@ class GetProfileInfoVO: Mappable {
     //MARK:-  Declaration of VideosVO
     
     
+    //    "UserName" : "",
+    //    "UserId" : "",
+    //    "Email" : "king@gmail.com",
+    //    "UpdatedByUserId" : 1,
+    //    "LastName" : "dewfefe",
+    //    "ContactNumber" : "2457561545",
+    //    "IsActive" : true,
+    //    "gender" : 21,
+    //    "MiddleName" : "dwddwd",
+    //    "CreatedDate" : "2018-01-31T10:43:28.8319786+05:30",
+    //    "Id" : 36,
+    //    "FirstName" : "efewdw",
+    //    "CreatedByUserId" : 1,
+    //    "UpdatedDate" : "2018-01-31T10:43:28.8329795+05:30",
+    //    "MobileNumber" : "",
+    //    "RoleId" : 1,
+    //    "Password" : "",
+    //    "dob" : "Feb 06, 2018"
+    //
+    
     var Id : Int?
     var UserId : String?
     var FirstName : String?
@@ -29,11 +49,16 @@ class GetProfileInfoVO: Mappable {
     var UpdatedByUserId : Int?
     var UpdatedDate : String?
     
+    var dob : String?
+    var gender : String?
+    var genderTypeId : Int?
+    
+    
     
     //MARK:-  initialization of VideosVO
     
     
-    init(Id:Int?, UserId : String?,FirstName : String?, Lastname : String?,MiddleName : String?,ContactNumber : String?,MobileNumber : String?,UserName : String?,Password : String?,RoleId : Int?,Email : String?,IsActive : Bool?,CreatedByUserId : Int?,UpdatedByUserId : Int?,UpdatedDate : String?) {
+    init(Id:Int?, UserId : String?,FirstName : String?, Lastname : String?,MiddleName : String?,ContactNumber : String?,MobileNumber : String?,UserName : String?,Password : String?,RoleId : Int?,Email : String?,IsActive : Bool?,CreatedByUserId : Int?,UpdatedByUserId : Int?,UpdatedDate : String?,dob : String?,gender : String?,CreatedDate : String?,genderTypeId : Int?) {
         
         self.Id = Id
         self.FirstName = FirstName
@@ -48,7 +73,13 @@ class GetProfileInfoVO: Mappable {
         self.IsActive = IsActive
         self.CreatedByUserId = CreatedByUserId
         self.UpdatedByUserId = UpdatedByUserId
+        self.CreatedDate = CreatedDate
         self.UpdatedDate = UpdatedDate
+        
+        self.dob = dob
+        self.gender = gender
+        self.genderTypeId = genderTypeId
+        
         
     }
     
@@ -71,7 +102,12 @@ class GetProfileInfoVO: Mappable {
         IsActive <- map["isActive"]
         CreatedByUserId <- map["createdByUserId"]
         UpdatedByUserId <- map["updatedByUserId"]
+        CreatedDate <- map["CreatedDate"]
         UpdatedDate <- map["updatedDate"]
+        
+        dob <- map["dob"]
+        gender <- map["gender"]
+        genderTypeId <- map["genderTypeId"]
         
     }
     

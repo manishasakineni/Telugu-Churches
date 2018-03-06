@@ -113,6 +113,8 @@
 		AF102856203C25C10012411A /* InfoChurchViewControllers.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF102854203C25C10012411A /* InfoChurchViewControllers.xib */; };
 		AF102859203C28700012411A /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF102857203C28700012411A /* InfoTableViewCell.swift */; };
 		AF10285A203C28700012411A /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF102858203C28700012411A /* InfoTableViewCell.xib */; };
+		AF10601D204EAA8100711938 /* GenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10601B204EAA8100711938 /* GenderTableViewCell.swift */; };
+		AF10601E204EAA8100711938 /* GenderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF10601C204EAA8100711938 /* GenderTableViewCell.xib */; };
 		AF1956E520048BE3007AC82A /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956E420048BE3007AC82A /* SideMenuViewController.swift */; };
 		AF1956EA200492F4007AC82A /* menuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1956E8200492F4007AC82A /* menuTableViewCell.swift */; };
 		AF1956EB200492F4007AC82A /* menuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1956E9200492F4007AC82A /* menuTableViewCell.xib */; };
@@ -300,6 +302,8 @@
 		AF102854203C25C10012411A /* InfoChurchViewControllers.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoChurchViewControllers.xib; sourceTree = "<group>"; };
 		AF102857203C28700012411A /* InfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		AF102858203C28700012411A /* InfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
+		AF10601B204EAA8100711938 /* GenderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderTableViewCell.swift; sourceTree = "<group>"; };
+		AF10601C204EAA8100711938 /* GenderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenderTableViewCell.xib; sourceTree = "<group>"; };
 		AF1956E420048BE3007AC82A /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		AF1956E8200492F4007AC82A /* menuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuTableViewCell.swift; sourceTree = "<group>"; };
 		AF1956E9200492F4007AC82A /* menuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuTableViewCell.xib; sourceTree = "<group>"; };
@@ -570,6 +574,8 @@
 				9A5D26351FFF8A4900316988 /* AllOffersCell.xib */,
 				3D72DBF7203B058000B913F7 /* ChurchDetailsTableViewCell.swift */,
 				3D72DBF8203B058000B913F7 /* ChurchDetailsTableViewCell.xib */,
+				AF10601B204EAA8100711938 /* GenderTableViewCell.swift */,
+				AF10601C204EAA8100711938 /* GenderTableViewCell.xib */,
 			);
 			name = ViewCells;
 			sourceTree = "<group>";
@@ -1002,6 +1008,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF10601E204EAA8100711938 /* GenderTableViewCell.xib in Resources */,
 				3D65D4B52004D9A200CAB226 /* DrawerCell.xib in Resources */,
 				AF08F1AF203D581100498256 /* AboutInfoTableViewCell.xib in Resources */,
 				3D72DBFA203B058000B913F7 /* ChurchDetailsTableViewCell.xib in Resources */,
@@ -1196,6 +1203,7 @@
 				9A623B8E2021A75000A674F2 /* MBProgressHUD.m in Sources */,
 				3DDD890D2018567300918711 /* SignUpViewController.swift in Sources */,
 				CB834733202825980034AD4E /* EditProfileTableViewCell.swift in Sources */,
+				AF10601D204EAA8100711938 /* GenderTableViewCell.swift in Sources */,
 				9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */,
 				CB03C8CE203E8D15000B96A4 /* InformationTableViewCell.swift in Sources */,
 				CB259FCB203C5A430052C384 /* EventInformationCell.swift in Sources */,
@@ -1377,7 +1385,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/praveendole/Desktop/Telugu Churchues/SamplePageMenu-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/manoj/Desktop/TC NewChurch/SamplePageMenu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1394,7 +1402,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/praveendole/Desktop/Telugu Churchues/SamplePageMenu-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/manoj/Desktop/TC NewChurch/SamplePageMenu-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
