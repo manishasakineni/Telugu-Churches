@@ -143,7 +143,10 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         self.lastName = (respVO.listResult?[0].Lastname)!
                         self.mobileNumber = (respVO.listResult?[0].MobileNumber)!
                         self.email = (respVO.listResult?[0].Email)!
-                        let userImgURL : String = (respVO.listResult?[0].userImage)!
+                        
+                        var userImgURL : String = ""
+                        userImgURL = (respVO.listResult?[0].userImage == nil ? "" : respVO.listResult?[0].userImage)!
+                        
                         
                     let newString = userImgURL.replacingOccurrences(of: "\\", with: "/", options: .backwards, range: nil)
                         
