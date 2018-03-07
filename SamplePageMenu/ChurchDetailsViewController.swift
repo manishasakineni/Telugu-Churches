@@ -347,6 +347,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
        
         let holyBibleViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchesInformaationViewControllers") as! ChurchesInformaationViewControllers
         
+        holyBibleViewController.pasterUserId = listStr.pasterUserId!
         
         holyBibleViewController.churchID = listStr.Id!
         

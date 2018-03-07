@@ -61,11 +61,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wf-NC-GfT">
-                                <rect key="frame" x="276.5" y="8" width="29.5" height="21"/>
+                                <rect key="frame" x="281.5" y="8" width="24.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="8XS-YG-oEP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                 <color key="textColor" red="0.79616970490000005" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

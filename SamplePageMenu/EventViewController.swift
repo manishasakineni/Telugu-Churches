@@ -14,6 +14,10 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
 
     @IBOutlet weak var calendar: FSCalendar!
     
+    var pasterUserId      : Int = 0
+
+    var delegate: churchChangeSubtitleOfIndexDelegate?
+
     var appVersion          : String = ""
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -185,11 +189,11 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
             
             if(appDelegate.checkInternetConnectivity()){
                 
-                var userid      : Int = 7
+              //  var userid      : Int = 7
                 // var month      : Int = 02
                 // var year       : Int = 2018
                 
-                let strUrl = GETEVENTBYDATEANDUSERID + "" + "\(selectedDateString)" + "/" + "\(userid)"
+                let strUrl = GETEVENTBYDATEANDUSERID + "" + "\(selectedDateString)" + "/" + "\(pasterUserId)"
                 
                 print(strUrl)
                 serviceController.getRequest(strURL:strUrl, success:{(result) in
@@ -331,11 +335,11 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         
         if(appDelegate.checkInternetConnectivity()){
             
-            var userid      : Int = 7
+           // var userid      : Int = 7
             var month      : Int = 03
             var year       : Int = 2018
             
-            let strUrl = GETEVENTBYUSERIDMONTHYEAR + "" + "\(userid)" + "/" + "\(month)" + "/" + "\(year)"
+            let strUrl = GETEVENTBYUSERIDMONTHYEAR + "" + "\(pasterUserId)" + "/" + "\(month)" + "/" + "\(year)"
             
             print(strUrl)
             serviceController.getRequest(strURL:strUrl, success:{(result) in

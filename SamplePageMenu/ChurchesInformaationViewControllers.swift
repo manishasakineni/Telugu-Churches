@@ -16,15 +16,16 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
     
     var churchImageArrayString = ""
 
-    
+    var appVersion          : String = ""
+
     var pageMenu : CAPSPageMenu?
 
     var allOffersVC : InfoChurchViewControllers?
-    var eventInfoVC : EventInfoViewController?
+    var eventInfoVC : EventViewController?
     var detAndBillsVC : DetAndBillsViewController?
     private var controllersArray: [UIViewController] = []
     
-    var appVersion          : String = ""
+    var pasterUserId          : Int = 0
 
     var churchID:Int = 0
     
@@ -79,13 +80,15 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         allOffersVC?.title = "Info"
         allOffersVC?.delegate  = self
         allOffersVC?.churchID = churchID
+
         
-        
-        eventInfoVC = EventInfoViewController(nibName: "EventInfoViewController",
-                                              bundle: nil)
+//        eventInfoVC = EventInfoViewController(nibName: "EventViewController",
+//                                              bundle: nil)
+        eventInfoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
         eventInfoVC?.title = "Event"
         eventInfoVC?.delegate  = self
-    
+        eventInfoVC?.pasterUserId = pasterUserId
+
         detAndBillsVC = DetAndBillsViewController(nibName: "DetAndBillsViewController",
                                                   bundle: nil)
         detAndBillsVC?.title = "Posts"
