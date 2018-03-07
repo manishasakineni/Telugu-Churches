@@ -7,21 +7,15 @@
 //
 
 import UIKit
-import FSCalendar
-class UpConingEventInfoViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSource,FSCalendarDelegateAppearance {
+class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
+    @IBOutlet weak var upComingTableView: UITableView!
     
-    @IBOutlet weak var upComingCalender: FSCalendar!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-    var calendarEvents : [FSCalendar] = []
-    var febDatesWithEvent = ["2018-03-03", "2018-03-06", "2018-03-12", "2018-03-25"]
-    var datesWithMultipleEvents = ["2018-03-08", "2018-03-16", "2018-03-20", "2018-03-28","2018-04-07", "2018-04-08", "2018-04-14", "2018-024-01", "2018-04-12", "2018-04-25"]
-    
-    var event = ""
-    var feb = ""
     var appVersion          : String = ""
+    var upComingEventinfoArray:[GetUpComingEventInfoResultVo] = Array<GetUpComingEventInfoResultVo>()
 
     var eventDateArray = Array<String>()
     var eventTitleArray = Array<String>()
@@ -30,56 +24,24 @@ class UpConingEventInfoViewController: UIViewController,FSCalendarDelegate,FSCal
     var eventChurchNameArray = Array<String>()
     var contactNumberArray = Array<String>()
     var registrationNumberArray = Array<String>()
-    var numberEvent = ["AAA", "BBB", "CCC", "DDD"]
-    var febEvent = ["Steve", "Jobs", "Pall", "Iphone"]
+    
     
     //  let day: Int! = self.gregorian.component(.day, from: date)
+  
     
-    var holidays:  [Date] = []
-    let events:    [Date] = []
-    let birthdays: [Date] = []
-    
-    var somedays : Array = [String]()
-   // var upComingCalender : [FSCalendar] = []
-    
-    
-    //    fileprivate lazy var dateFormatter2: DateFormatter = {
-    //        let formatter = DateFormatter()
-    //        formatter.dateFormat = "yyyy-MM-dd"
-    //        return formatter
-    //    }()
-    //
-    
-    
-    fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
-    fileprivate lazy var dateFormatter1: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter
-    }()
-    
-    
-    fileprivate lazy var dateFormatter2: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter
-    }()
-    let codedLabel:UILabel = UILabel()
-    
-    
-    //    let listArray = "aaaaa"
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        event = "\(numberEvent.count)"
         
         
-        upComingCalender.dataSource = self
-        upComingCalender.delegate = self
+        upComingTableView.dataSource = self
+        upComingTableView.delegate = self
+        
+        let nibName1  = UINib(nibName: "UpComingEventCell" , bundle: nil)
+        upComingTableView.register(nibName1, forCellReuseIdentifier: "UpComingEventCell")
         
         
         
-        color()
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -89,40 +51,157 @@ class UpConingEventInfoViewController: UIViewController,FSCalendarDelegate,FSCal
 //        UserDefaults.standard.set("1", forKey: "1")
 //        UserDefaults.standard.synchronize()
         Utilities.setUpComingEentInfoEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: appVersion.localize(), backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
-
+        upComingEventinfoArray.removeAll()
         getUpComingEventInfo()
 
     }
-  
-    func color(){
+    func numberOfSections(in tableView: UITableView) -> Int {
         
-        
-        //  upComingCalender.scope = .week
-        upComingCalender.scope = .month
-        upComingCalender.appearance.weekdayTextColor = UIColor.red
-        upComingCalender.appearance.headerTitleColor = UIColor.red
-        // upComingCalender.appearance.eventColor = UIColor.green
-        upComingCalender.appearance.selectionColor = UIColor.lightGray
-        upComingCalender.appearance.todayColor = UIColor.orange
-        upComingCalender.appearance.todaySelectionColor = UIColor.black
-        
-        upComingCalender.allowsMultipleSelection = true
-        upComingCalender.firstWeekday = 2
-        
-        // calendar.appearance.borderRadius = 0
-        
+        return 1
     }
     
     
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
+        return upComingEventinfoArray.count
+        
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return UITableViewAutomaticDimension
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        //        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
+        //
+        //            return 180
+        //
+        //        }
+        //
+        //        else {
+        //
+        //            return 140
+        //
+        //        }
+        
+        return UITableViewAutomaticDimension
+    }
+    
+//    
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        
+//        if indexPath.row == churchAdminArray.count - 1 {
+//            
+//            if(self.totalPages! > PageIndex){
+//                
+//                
+//                PageIndex = PageIndex + 1
+//                
+//                getChurchAdminDetailsAPICall()
+//                
+//                
+//                
+//            }
+//        }
+//        
+    
+        
+        
+        
+  //  }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let listStr:GetUpComingEventInfoResultVo = upComingEventinfoArray[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UpComingEventCell", for: indexPath) as! UpComingEventCell
+        
+        
+        if let chuechName =  listStr.churchName {
+            cell.chuechName.text = "ChurchName:" + " " + chuechName
+        }else{
+            cell.chuechName.text = "ChurchName:"
+        }
+        
+        if let eventTitle =  listStr.title {
+            cell.eventTitle.text = "EventTitle:" + " " + eventTitle
+        }else{
+            cell.eventTitle.text = "EventTitle:"
+        }
+        
+        if let eventStart =  listStr.startDate {
+            
+            cell.eventStart.text = "EventStartDate:" + " " + returnEventDateWithoutTime(selectedDateString : eventStart)
+        }else{
+            cell.eventStart.text = "EventStartDate:"
+        }
+        
+        if let eventEndDate =  listStr.endDate {
+            
+            //amAppend(str: "\(listStr.openingTime!)" + "-" + "\(listStr.closingTime!)" )
+            cell.eventEndDate.text = "EventEndDate:" + " " + returnEventDateWithoutTime(selectedDateString : eventEndDate)
+        }else{
+            cell.eventEndDate.text = "EventEndDate:"
+        }
+        if let registrationNumber = listStr.registrationNumber {
+            cell.registrationNumber.text = "RegNumber:" + " " + registrationNumber
+        }else{
+            cell.registrationNumber.text = "RegNumber:"
+        }
+        
+        
+               
+        
+        //  cell.adminNameLabel.text = churchNamesArray[indexPath.row]
+        
+        return cell
+        
+    }
+    
+
+    
     func getUpComingEventInfo(){
+        
+        
+        
+        let fromDate      : Int = 10
+         let fromMonth      : Int = 03
+        let fromYear      : Int = 2018
+        let toDate      : Int = 18
+        let toMonth      : Int = 03
+        let toYear      : Int = 2018
+
+        // var year       : Int = 2018
+//        var userid      : Int = 7
+//        var month      : Int = 03
+//        var year       : Int = 2018
+//
+
         if(appDelegate.checkInternetConnectivity()){
         let strUrl = GETUPCOMIMGEVENTSINFO
             
             print(strUrl)
-            serviceController.getRequest(strURL:strUrl, success:{(result) in
+            let dictParams = [
+                "fromDate": "\(fromYear)" + "-" + "\(fromMonth)" + "-" + "\(fromDate)",
+                "toDate": "\(toYear)" + "-" + "\(toMonth)" + "-" + "\(toDate)",
+                ] as [String : Any]
+            
+            print("dic params \(dictParams)")
+            let dictHeaders = ["":"","":""] as NSDictionary
+            
+            print("dictHeader:\(dictHeaders)")
+            
+            
+            
+            
+            
+            
+            serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler:{(result) in
                 DispatchQueue.main.async()
                     {
-                        
                           let respVO:GetUpComingEventInfo = Mapper().map(JSONObject: result)!
                         let isSuccess = respVO.isSuccess
                         print("StatusCode:\(String(describing: isSuccess))")
@@ -134,26 +213,24 @@ class UpConingEventInfoViewController: UIViewController,FSCalendarDelegate,FSCal
                             
                             for eventsList in respVO.listResult!{
                                 
-                                self.eventTitleArray.append(eventsList.title!)
-                                self.eventStartDateArray.append(eventsList.startDate!)
-                                self.eventEndDateArray.append(eventsList.endDate!)
-                                self.eventChurchNameArray.append(eventsList.churchName!)
-                                self.registrationNumberArray.append(eventsList.registrationNumber!)
-                                self.contactNumberArray.append(eventsList.contactNumber!)
+                               self.upComingEventinfoArray.append(eventsList)
+//                                self.eventStartDateArray.append(eventsList.startDate!)
+//                                self.eventEndDateArray.append(eventsList.endDate!)
+//                                self.eventChurchNameArray.append(eventsList.churchName!)
+//                                self.registrationNumberArray.append(eventsList.registrationNumber!)
+//                                self.contactNumberArray.append(eventsList.contactNumber!)
+//
 
-//                                let dateString = self.returnDateWithoutTime(selectedDateString: eventsList.eventDate!)
-//                                self.eventDateArray.append(dateString)
-//                                let eventsCountsString = eventsList.eventsCount
-//                                self.eventsCountsArray.append(eventsCountsString!)
                             }
                             
 //                            print("self.eventDateArray,Count", self.eventDateArray.count)
 //                            print("self.eventsCountsArray", self.eventsCountsArray)
 //                            
                             
-                            self.upComingCalender.reloadData()
-                            
-                            
+                            self.upComingTableView.reloadData()
+                            print("upComingEventinfoArray And Count:",self.upComingEventinfoArray , self.upComingEventinfoArray.count)
+                           
+
                             self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                             
                             
@@ -161,7 +238,7 @@ class UpConingEventInfoViewController: UIViewController,FSCalendarDelegate,FSCal
 
                         
                 }
-            }, failure:  {(error) in
+            }, failureHandler:  {(error) in
                 
                 print(error)
                 
@@ -183,79 +260,12 @@ class UpConingEventInfoViewController: UIViewController,FSCalendarDelegate,FSCal
             return
         }
     }
-    func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
-        
-        let dateString = self.dateFormatter2.string(from: date)
-        
-        
-        //        if self.datesWithEvent.contains(dateString) {
-        //            return "Event"
-        //        }
-        
-        if self.datesWithMultipleEvents.contains(dateString) {
-            
-            return self.event
-        }
-        return nil
-    }
     
     
     
-    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-        // calendar.snp.updateConstraints { (make) in
-        //    make.height.equalTo(bounds.height)
-        // Do other updates
-        
-        //  }
-        self.view.layoutIfNeeded()
-    }
     
     
-//    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-//        print("did select date \(self.dateFormatter2.string(from: date))")
-//        let selectedDateString = self.dateFormatter2.string(from: date)
-//        if(datesWithMultipleEvents.contains(selectedDateString)){
-//            let reOrderPopOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUpViewController") as! DatePopUpViewController
-//            reOrderPopOverVC.eventsLisrArray = self.numberEvent
-//            reOrderPopOverVC.eventsDateString = selectedDateString
-//            // reOrderPopOverVC.delegate = self
-//            
-//            //    reOrderPopOverVC. singleSelection =
-//            //   var imagesArray : Array<UIImage> = Array()
-//            self.addChildViewController(reOrderPopOverVC)
-//            reOrderPopOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-//            self.view.addSubview(reOrderPopOverVC.view)
-//            reOrderPopOverVC.didMove(toParentViewController: self)
-//            
-//            print(numberEvent)
-//        }
-//        
-//        
-//        
-//    }
-    
-    func calendar(_ calendar: FSCalendar, didDeselect date: Date) {
-        print("did deselect date \(self.dateFormatter2.string(from: date))")
-        self.configureVisibleCells()
-    }
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
-        if self.gregorian.isDateInToday(date) {
-            return [UIColor.orange]
-        }
-        return [appearance.eventDefaultColor]
-    }
-    
-    // MARK: - Private functions
-    
-    private func configureVisibleCells() {
-        upComingCalender.visibleCells().forEach { (cell) in
-            let date = upComingCalender.date(for: cell)
-            let position = upComingCalender.monthPosition(for: cell)
-            // self.configure(cell: cell, for: date!, at: position)
-        }
-    }
-    
-    
+      
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         Utilities.setUpComingEentInfoEventViewControllerNavBarColorInCntrWithColor(backImage: "", cntr:self, titleView: nil, withText: "", backTitle: "", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
@@ -275,5 +285,44 @@ class UpConingEventInfoViewController: UIViewController,FSCalendarDelegate,FSCal
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func returnEventDateWithoutTime(selectedDateString : String) -> String{
+        var newDateStr = ""
+        var newDateStr1 = ""
+        
+        if(selectedDateString != ""){
+            let invDtArray = selectedDateString.components(separatedBy: "T")
+            let dateString = invDtArray[0]
+            let dateString1 = invDtArray[1]
+            print(dateString1)
+            let invDtArray2 = dateString1.components(separatedBy: ".")
+            let dateString3 = invDtArray2[0]
+            
+            print(dateString1)
+            //   let timeString = invDtArray[1]
+            //  print(timeString)
+            
+            if(dateString != "" || dateString != "."){
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let dateFromString = dateFormatter.date(from: dateString)
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr = newDateString
+                print(newDateStr)
+            }
+            if(dateString3 != "" || dateString != "."){
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .medium
+                dateFormatter.dateFormat = "HH:mm:ss"
+                let dateFromString = dateFormatter.date(from: dateString3)
+                dateFormatter.dateFormat = "hh:mm aa"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr1 = newDateString
+                print(newDateStr1)
+            }
+        }
+        return newDateStr + "," + newDateStr1
+    }
+
 }

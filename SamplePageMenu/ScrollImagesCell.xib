@@ -35,8 +35,8 @@
                             <constraint firstAttribute="height" constant="37" id="8RX-Gd-d8W"/>
                             <constraint firstAttribute="width" constant="271" id="c9P-mG-LWL"/>
                         </constraints>
-                        <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="currentPageIndicatorTintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="currentPageIndicatorTintColor" red="0.4039215686" green="0.6705882353" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
                             <action selector="pageControllerButtonTapped:" destination="KGk-i7-Jjw" eventType="valueChanged" id="MXA-Rn-C31"/>
                         </connections>
