@@ -180,7 +180,8 @@ loadScrollView()
         pageController.numberOfPages = arrImages.count
         scrollView.isPagingEnabled = true
         scrollView.contentSize.height = 200
-        scrollView.contentSize.width = self.bounds.width * CGFloat(arrImages.count)
+        scrollView.backgroundColor = UIColor.black
+        scrollView.contentSize.width = UIScreen.main.bounds.size.width * CGFloat(arrImages.count)
         scrollView.showsHorizontalScrollIndicator = false
         
         scrollView.delegate = self
@@ -188,12 +189,18 @@ loadScrollView()
         for (index, image) in arrImages.enumerated() {
             let image = image
             let imageView = UIImageView(image: UIImage(named: image)!)
-            imageView.contentMode = .scaleAspectFill
-            imageView.frame.size.width = self.bounds.size.width
+            imageView.contentMode = .scaleToFill
+            imageView.frame.size.width = UIScreen.main.bounds.size.width
+            imageView.backgroundColor = UIColor.red
             imageView.frame.size.height = 200
-            imageView.frame.origin.x = CGFloat(index) * self.bounds.size.width
+            imageView.frame.origin.x = CGFloat(index) * UIScreen.main.bounds.size.width
+            print(UIScreen.main.bounds.size.width)
             scrollView.addSubview(imageView)
         }
+        
+//        scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, sizeOfContent);
+
+        
         
 //        let pageCount : CGFloat = CGFloat(arrImages.count)
 //

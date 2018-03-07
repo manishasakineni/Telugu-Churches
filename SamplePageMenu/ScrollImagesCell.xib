@@ -22,7 +22,6 @@
                         <rect key="frame" x="0.0" y="173" width="320" height="2"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="320" id="KcX-EL-Iov"/>
-                            <constraint firstAttribute="height" constant="2" id="lQB-Vm-xFe"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -49,25 +48,23 @@
                         </constraints>
                     </view>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXt-ub-dTW">
-                        <rect key="frame" x="0.0" y="5" width="320" height="112"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="112" id="67R-Kz-G5V"/>
-                            <constraint firstAttribute="width" constant="320" id="KQH-ay-ZaZ"/>
-                        </constraints>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
                     </scrollView>
                 </subviews>
                 <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="sEf-eB-zRx" secondAttribute="bottom" constant="-0.5" id="03w-ej-Hjv"/>
-                    <constraint firstItem="LXt-ub-dTW" firstAttribute="centerX" secondItem="IrC-iD-Mg9" secondAttribute="centerX" id="0eG-QV-GM4"/>
+                    <constraint firstItem="LXt-ub-dTW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0ht-gf-5mF"/>
+                    <constraint firstItem="LXt-ub-dTW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1lh-3S-0d6"/>
                     <constraint firstItem="IrC-iD-Mg9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5IC-lj-gC9"/>
-                    <constraint firstItem="ALp-8I-1od" firstAttribute="centerX" secondItem="LXt-ub-dTW" secondAttribute="centerX" id="8Ma-1E-oA9"/>
+                    <constraint firstItem="ALp-8I-1od" firstAttribute="centerX" secondItem="LXt-ub-dTW" secondAttribute="centerX" id="7cr-og-wg0"/>
                     <constraint firstItem="ALp-8I-1od" firstAttribute="top" secondItem="IrC-iD-Mg9" secondAttribute="bottom" constant="8" id="BbL-R3-Cp9"/>
                     <constraint firstItem="sEf-eB-zRx" firstAttribute="top" secondItem="ALp-8I-1od" secondAttribute="bottom" constant="9" id="EYh-2e-q1C"/>
-                    <constraint firstItem="LXt-ub-dTW" firstAttribute="top" secondItem="IrC-iD-Mg9" secondAttribute="bottom" constant="-114" id="QM9-Cd-x8T"/>
+                    <constraint firstAttribute="trailing" secondItem="LXt-ub-dTW" secondAttribute="trailing" id="Roe-KF-4wy"/>
                     <constraint firstItem="sEf-eB-zRx" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="akF-Ge-aOv"/>
                     <constraint firstItem="IrC-iD-Mg9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="arR-Oa-jEO"/>
                     <constraint firstAttribute="trailing" secondItem="IrC-iD-Mg9" secondAttribute="trailing" id="gUa-by-SDd"/>
+                    <constraint firstItem="ALp-8I-1od" firstAttribute="top" secondItem="LXt-ub-dTW" secondAttribute="bottom" constant="3" id="kC1-ce-Oa8"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
