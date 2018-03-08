@@ -106,7 +106,7 @@
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/calibragemac02/Documents/TeluguChurchesApp/SamplePageMenu/HomeViewController.swift"
-                  timestampString = "542194558.837007"
+                  timestampString = "542198346.6728899"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "190"
@@ -121,7 +121,7 @@
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/calibragemac02/Documents/TeluguChurchesApp/SamplePageMenu/HomeViewController.swift"
-                  timestampString = "542194558.83846"
+                  timestampString = "542198346.674567"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "191"
@@ -218,12 +218,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SamplePageMenu/HomeViewController.swift"
-            timestampString = "542194471.696875"
+            timestampString = "542197769.6933481"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "450"
-            endingLineNumber = "450"
+            startingLineNumber = "477"
+            endingLineNumber = "477"
             landmarkName = "doSomeAnimation()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SamplePageMenu/HomeViewController.swift"
+            timestampString = "542198285.716146"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "414"
+            endingLineNumber = "414"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

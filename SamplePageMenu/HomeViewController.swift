@@ -376,13 +376,13 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
             
             cell.offSet = 0
-            cell.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(doSomeAnimation), userInfo: nil, repeats: true)
+            cell.timer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(doSomeAnimation), userInfo: nil, repeats: true)
             
             
             cell.pageController.numberOfPages = bannerImageArr.count
             cell.scrollView.isPagingEnabled = true
-            cell.scrollView.contentSize.height = 200
-            cell.scrollView.backgroundColor = UIColor.black
+            cell.scrollView.contentSize.height = 100
+            cell.scrollView.backgroundColor = UIColor.white
             cell.scrollView.contentSize.width = UIScreen.main.bounds.size.width * CGFloat(bannerImageArr.count)
             cell.scrollView.showsHorizontalScrollIndicator = false
             
@@ -391,9 +391,9 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             for (index, image) in bannerImageArr.enumerated() {
                 let image = image
                 let imageView = UIImageView(image: image)
-                imageView.contentMode = .scaleToFill
+                imageView.contentMode = .scaleAspectFill
                 imageView.frame.size.width = UIScreen.main.bounds.size.width
-                imageView.backgroundColor = UIColor.red
+                imageView.backgroundColor = UIColor.white
                 imageView.frame.size.height = 200
                 imageView.frame.origin.x = CGFloat(index) * UIScreen.main.bounds.size.width
                 print(UIScreen.main.bounds.size.width)
@@ -410,11 +410,38 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
             cell.homeCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),
                                              forCellWithReuseIdentifier: "CategorieCollectionViewCell")
-            cell.homeCollectionView.tag = indexPath.section
-            cell.homeCollectionView.collectionViewLayout.invalidateLayout()
-            cell.homeCollectionView.delegate = self
-            cell.homeCollectionView.dataSource = self
-            cell.moreButton.addTarget(self, action: #selector(categorieThreeClicked(_:)), for: UIControlEvents.touchUpInside)
+            
+            if indexPath.row == 0 {
+                
+                cell.homeCollectionView.tag = indexPath.row
+                cell.homeCollectionView.collectionViewLayout.invalidateLayout()
+                cell.homeCollectionView.delegate = self
+                cell.homeCollectionView.dataSource = self
+                cell.moreButton.addTarget(self, action: #selector(categorieOneClicked(_:)), for: UIControlEvents.touchUpInside)
+                
+            }
+            else if indexPath.row == 1 {
+                
+                cell.homeCollectionView.tag = indexPath.row
+                cell.homeCollectionView.collectionViewLayout.invalidateLayout()
+                cell.homeCollectionView.delegate = self
+                cell.homeCollectionView.dataSource = self
+                cell.moreButton.addTarget(self, action: #selector(categorieTwoClicked(_:)), for: UIControlEvents.touchUpInside)
+            }
+            else if indexPath.row == 2 {
+                
+                cell.homeCollectionView.tag = indexPath.row
+                cell.homeCollectionView.collectionViewLayout.invalidateLayout()
+                cell.homeCollectionView.delegate = self
+                cell.homeCollectionView.dataSource = self
+                cell.moreButton.addTarget(self, action: #selector(categorieThreeClicked(_:)), for: UIControlEvents.touchUpInside)
+            }
+            
+//            cell.homeCollectionView.tag = indexPath.section
+//            cell.homeCollectionView.collectionViewLayout.invalidateLayout()
+//            cell.homeCollectionView.delegate = self
+//            cell.homeCollectionView.dataSource = self
+//            cell.moreButton.addTarget(self, action: #selector(categorieThreeClicked(_:)), for: UIControlEvents.touchUpInside)
             //        cell.categoriesNameLabel.text = "Event Posts"
             
             
@@ -645,18 +672,22 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         
-         if  collectionView.tag == 1 {
+         if  collectionView.tag == 0 {
             
             return imageArray.count
             
-       }else if collectionView.tag  == 2 {
+       }else if collectionView.tag  == 1 {
         
         
         return imageArray2.count
 
         }
+         else {
+            
+            return imageArray3.count
+        }
         
-        return imageArray3.count
+        
         
         
         
@@ -670,7 +701,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
-        if collectionView.tag  == 1 {
+        if collectionView.tag  == 0 {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
             
@@ -682,7 +713,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             return cell
             
             
-        } else if collectionView.tag  == 2 {
+        } else if collectionView.tag  == 1 {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
         
@@ -695,6 +726,8 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         return cell
         
         }
+        else {
+            
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
         
           cell.collectionImgView.image = imageArray3[ indexPath.row]
@@ -704,7 +737,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         
         
         return cell
-        
+        }
         
         
     }
@@ -740,7 +773,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
         
-        if collectionView.tag  == 1 {
+        if collectionView.tag  == 0 {
             
             //if indexPath.item == 0 {
                 
@@ -750,7 +783,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 
           // }
         }
-        else if collectionView.tag == 2{
+        else if collectionView.tag == 1{
             
          //   if indexPath.item == 0 {
 
@@ -759,7 +792,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             self.navigationController?.pushViewController(churchAdminViewController, animated: true)
           //  }
         }
-        else if collectionView.tag == 3{
+        else if collectionView.tag == 2{
             if indexPath.item == 0 {
 
                 let eventViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
