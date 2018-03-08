@@ -63,6 +63,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     var imageArray2 = [UIImage(named:"ic_admin"),UIImage(named:"Doubts"),UIImage(named:"Gospel messages"),UIImage(named:"Quatation"),UIImage(named:"Scientific"),UIImage(named:"Suggestion"),UIImage(named:"Sunday school"),UIImage(named:"Testimonial"),UIImage(named:"Languages"),UIImage(named:"Login")]
     var imageNameArray2 = ["Admin","Doubts","Gospel messages","Quatation","Scientific","Suggestion","Sunday school","Testimonial","Languages","Login"]
+    
+    var arrImages = Array<UIImage>()
 
     
     var imageArray3 = [UIImage(named:"Events"),UIImage(named:"UpComelogo"),UIImage(named:"film"),UIImage(named:"help"),UIImage(named:"Map"),UIImage(named:"Donation"),UIImage(named:"Movies"),UIImage(named:"Songs"),UIImage(named:"Videos"),UIImage(named:"Donation"),UIImage(named:"pamphlet")]
@@ -376,31 +378,43 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             
             
             cell.offSet = 0
-            cell.timer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(doSomeAnimation), userInfo: nil, repeats: true)
+            cell.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(doSomeAnimation), userInfo: nil, repeats: true)
             
-            
-            cell.pageController.numberOfPages = bannerImageArr.count
-            cell.scrollView.isPagingEnabled = true
-            cell.scrollView.contentSize.height = 100
-            cell.scrollView.backgroundColor = UIColor.white
-            cell.scrollView.contentSize.width = UIScreen.main.bounds.size.width * CGFloat(bannerImageArr.count)
-            cell.scrollView.showsHorizontalScrollIndicator = false
-            
-            cell.scrollView.delegate = self
-            
-            for (index, image) in bannerImageArr.enumerated() {
-                let image = image
-                let imageView = UIImageView(image: image)
-                imageView.contentMode = .scaleAspectFill
-                imageView.frame.size.width = UIScreen.main.bounds.size.width
-                imageView.backgroundColor = UIColor.white
-                imageView.frame.size.height = 200
-                imageView.frame.origin.x = CGFloat(index) * UIScreen.main.bounds.size.width
-                print(UIScreen.main.bounds.size.width)
+            if bannerImageArr.count > 0 {
                 
-                cell.scrollView.addSubview(imageView)
+                cell.pageController.numberOfPages = bannerImageArr.count
+                cell.scrollView.isPagingEnabled = true
+                cell.scrollView.contentSize.height = 100
+                cell.scrollView.backgroundColor = UIColor.white
+                cell.scrollView.contentSize.width = UIScreen.main.bounds.size.width * CGFloat(bannerImageArr.count)
+                cell.scrollView.showsHorizontalScrollIndicator = false
+                
+                cell.scrollView.delegate = self
+                
+                
+                
+                for (index, image) in bannerImageArr.enumerated() {
+                    let image = image
+                    let imageView = UIImageView(image: image)
+                    imageView.contentMode = .scaleAspectFill
+                    imageView.frame.size.width = UIScreen.main.bounds.size.width
+                    imageView.backgroundColor = UIColor.white
+                    imageView.frame.size.height = 80
+                    imageView.frame.origin.x = CGFloat(index) * UIScreen.main.bounds.size.width
+                    print(UIScreen.main.bounds.size.width)
+                    
+                    cell.scrollView.addSubview(imageView)
+                }
+                
             }
-           
+            else {
+                
+               self.arrImages += [UIImage(named:"j1")!,UIImage(named: "j2")!, UIImage(named: "jesues")!, UIImage(named: "skyJSU")!, UIImage(named: "j3")!, UIImage(named: "j4")!, UIImage(named: "j6")!, UIImage(named: "jesues")!]
+                
+                self.bannerImageArr = self.arrImages
+                
+                self.categorieTableView.reloadData()
+            }
             
             return cell
         }
@@ -631,6 +645,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                             
                             self.bannerImageArr.append(UIImage(data: dataImg!)!)
                         }
+                    
                         
                     
 //                    self.bannerImageArr.append(eachArray.bannerImage!)
