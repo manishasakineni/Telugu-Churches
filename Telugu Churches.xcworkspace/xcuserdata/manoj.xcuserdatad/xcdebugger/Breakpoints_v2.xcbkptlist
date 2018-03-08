@@ -213,78 +213,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/ProfileViewController.swift"
-            timestampString = "542035693.114598"
+            filePath = "SamplePageMenu/InfoChurchViewControllers.swift"
+            timestampString = "542193546.7964031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "getProfileInfoAPIService()"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "getChurchuByIDAPIService()"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.ProfileViewController.(getProfileInfoAPIService () -&gt; ()).(closure #1).(closure #1)"
+                  symbolName = "Telugu_Churches.InfoChurchViewControllers.(getChurchuByIDAPIService () -&gt; ()).(closure #1).(closure #1)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manoj/Desktop/TC%20NewChurch/SamplePageMenu/ProfileViewController.swift"
-                  timestampString = "542034531.803936"
+                  urlString = "file:///Users/manoj/Desktop/TC%20NewChurch/SamplePageMenu/InfoChurchViewControllers.swift"
+                  timestampString = "542183406.081702"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
-                  offsetFromSymbolStart = "4280">
+                  startingLineNumber = "185"
+                  endingLineNumber = "185"
+                  offsetFromSymbolStart = "28487">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Telugu_Churches.ProfileViewController.(getProfileInfoAPIService () -&gt; ()).(closure #1).(closure #1)"
+                  symbolName = "Telugu_Churches.InfoChurchViewControllers.(getChurchuByIDAPIService () -&gt; ()).(closure #1).(closure #1)"
                   moduleName = "Telugu Churches"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/manoj/Desktop/TC%20NewChurch/SamplePageMenu/ProfileViewController.swift"
-                  timestampString = "542034531.80612"
+                  urlString = "file:///Users/manoj/Desktop/TC%20NewChurch/SamplePageMenu/InfoChurchViewControllers.swift"
+                  timestampString = "542183406.084946"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
-                  offsetFromSymbolStart = "11910">
+                  startingLineNumber = "185"
+                  endingLineNumber = "185"
+                  offsetFromSymbolStart = "37604">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/ProfileViewController.swift"
-            timestampString = "542035693.114598"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "getProfileInfoAPIService()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SamplePageMenu/ProfileViewController.swift"
-            timestampString = "542035693.114598"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "getProfileInfoAPIService()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

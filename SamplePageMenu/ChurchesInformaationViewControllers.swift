@@ -58,7 +58,6 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Churche Details".localize(), backTitle: "Churche Details".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
         
-        //navigationItem.leftBarButtonItems = []
         
     }
     
@@ -84,6 +83,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
 //        eventInfoVC = EventInfoViewController(nibName: "EventViewController",
 //                                              bundle: nil)
+        
         eventInfoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
         eventInfoVC?.title = "Event"
         eventInfoVC?.delegate  = self
@@ -94,7 +94,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         detAndBillsVC?.title = "Posts"
         detAndBillsVC?.delegate  = self
         
-        controllersArray.append(allOffersVC!)
+         controllersArray.append(allOffersVC!)
          controllersArray.append(eventInfoVC!)
          controllersArray.append(detAndBillsVC!)
         
@@ -113,7 +113,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
                                                  CAPSPageMenuOption.menuItemSeparatorColor(UIColor.white),
                                                  CAPSPageMenuOption.enableHorizontalBounce(false),
                                                  CAPSPageMenuOption.addBottomMenuHairline(true),
-                                                 CAPSPageMenuOption.menuItemWidthBasedOnTitleTextWidth(false),CAPSPageMenuOption.hideSubTitle(false)]
+                                                CAPSPageMenuOption.menuItemWidthBasedOnTitleTextWidth(false),CAPSPageMenuOption.hideSubTitle(false)]
         
         
         

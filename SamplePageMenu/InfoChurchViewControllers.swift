@@ -46,6 +46,9 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     var nameString = ""
     var timeString = ""
     var descriptionString = ""
+    
+    var MissionString = ""
+    var VissionString = ""
 
 
     let utillites =  Utilities()
@@ -64,17 +67,11 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         infoChurchTableView.delegate = self
         infoChurchTableView.dataSource = self
         
-//        infoChurchView.layer.cornerRadius = 6.0
-//        
-//        infoChurchView.layer.borderWidth = 1
-//        infoChurchView.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
+        infoChurchTableView.rowHeight = UITableViewAutomaticDimension
+        infoChurchTableView.estimatedRowHeight = 44
+        infoChurchTableView.reloadData()
         
-        
-//        self.churchID = UserDefaults.standard.value(forKey: kchurchID) as! Int
-//        UserDefaults.standard.synchronize()
-//        
-        
-     //   print(self.churchID)
+
         
         let nibName1  = UINib(nibName: "HeadImgTableViewCell" , bundle: nil)
         infoChurchTableView.register(nibName1, forCellReuseIdentifier: "HeadImgTableViewCell")
@@ -88,7 +85,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         let nibName5  = UINib(nibName: "InfoHeaderCell" , bundle: nil)
         infoChurchTableView.register(nibName5, forCellReuseIdentifier: "InfoHeaderCell")
         
-        
+
         
         getChurchuByIDAPIService()
 
@@ -104,7 +101,6 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
      //  self.navigationController?.navigationBar.isHidden = true
 
         
-      //  Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Churchu Details".localize(), backTitle: "Churchu Details".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
 
 
@@ -172,6 +168,10 @@ func getChurchuByIDAPIService(){
                             self.contactNumberString = (respVO.listResult?[0].contactNumber == nil ? "" : respVO.listResult?[0].contactNumber)!
                             self.mandalNameString = (respVO.listResult?[0].mandalName == nil ? "" : respVO.listResult?[0].mandalName)!
                             self.timeString = self.amAppend(str: ( (respVO.listResult?[0].openingTime == nil ? "" : respVO.listResult?[0].openingTime)! + "-" + (respVO.listResult?[0].closingTime == nil ? "" : respVO.listResult?[0].closingTime)!))
+                            
+                            self.MissionString = (respVO.listResult?[0].mission == nil ? "" : (respVO.listResult?[0].mission)!)
+                            
+                            self.VissionString = (respVO.listResult?[0].vision == nil ? "" : (respVO.listResult?[0].vision)!)
 
 
                        //  self.timeArray = ("\(respVO.listResult?[0].openingTime)" + "-" + "\(respVO.listResult?[0].openingTime)")
@@ -254,7 +254,7 @@ func getChurchuByIDAPIService(){
     func numberOfSections(in tableView: UITableView) -> Int {
         
         
-        return 4
+        return 6
     }
 
 
@@ -279,6 +279,7 @@ func getChurchuByIDAPIService(){
         return 1
         
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         
@@ -292,8 +293,24 @@ func getChurchuByIDAPIService(){
         }else if indexPath.section == 2{
             
             return 124
-        }
+            
+       }
         
+        
+//            else if indexPath.section == 3{
+//            
+//            return 124
+//        }
+//        else if indexPath.section == 4{
+//            
+//            return 124
+//        }
+//        else if indexPath.section == 5{
+//            
+//            return 124
+//
+//        }
+
         return UITableViewAutomaticDimension
     }
 
@@ -309,7 +326,6 @@ func getChurchuByIDAPIService(){
         
             cell.churchNameLabel.text = churchNamesString
             
-            //cell.churchImage.image  = UIImage(named: churchImageArray[indexPath.row])
             if(churchImageLogoArray.count >= indexPath.section){
                 if let url = URL(string:churchImageLogoString) {
                     cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
@@ -327,117 +343,160 @@ func getChurchuByIDAPIService(){
 
         }
         else if (indexPath.section == 1) {
+            
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
 
             if indexPath.row == 0 {
+                
+                cell1.infoLabel.text = "Country Name"
                 if(churchCountryArray.count >= indexPath.section){
-                    cell1.addressLabel.text = "CountryName :" + " " + "\(churchCountryArray[indexPath.section - 1])"
+                    cell1.addressLabel.text = "\(churchCountryArray[indexPath.section - 1])"
                 }else{
-                    cell1.addressLabel.text = "CountryName :" + " "
+                    cell1.addressLabel.text =  " "
                 }
                 
             } else if indexPath.row == 1 {
+                
+                cell1.infoLabel.text = "State Name"
+                
                 if(churchCountryArray.count >= indexPath.section){
-                        cell1.addressLabel.text = "StateName :" + " " + "\(churchStateArray[indexPath.section - 1])"
+                        cell1.addressLabel.text =  "\(churchStateArray[indexPath.section - 1])"
                 }else{
-                         cell1.addressLabel.text = "StateName :" + " "
+                         cell1.addressLabel.text =  " "
                 }
            
             } else if indexPath.row == 2 {
+                
+                cell1.infoLabel.text = "District Name"
                 if(churchCountryArray.count >= indexPath.section){
-                    cell1.addressLabel.text = "DistrictName :" + " " + "\(churchDistrictNameArray[indexPath.section - 1])"
+                    cell1.addressLabel.text =  "\(churchDistrictNameArray[indexPath.section - 1])"
                 }else{
-                     cell1.addressLabel.text = "DistrictName :" + " "
+                     cell1.addressLabel.text =  " "
                 }
                 
                
             }else if indexPath.row == 3 {
+                
+                cell1.infoLabel.text = "Mandal Name"
+                
                 if(churchCountryArray.count >= indexPath.section){
-                    cell1.addressLabel.text = "MandalName :" + " " + self.mandalNameString
+                    cell1.addressLabel.text = self.mandalNameString
                 }else{
-                    cell1.addressLabel.text = "MandalName :" + " "
+                    cell1.addressLabel.text =   " "
                 }
                 
                 
             }else if indexPath.row == 4 {
+                
+                cell1.infoLabel.text = "Village Name"
                
                 if(churchCountryArray.count >= indexPath.section){
-                    cell1.addressLabel.text = "VillageName :" + " " + "\(churchVillageNameArray[indexPath.section - 1])"
+                    cell1.addressLabel.text = "\(churchVillageNameArray[indexPath.section - 1])"
                 }else{
-                    cell1.addressLabel.text = "VillageName :" + " "
+                    cell1.addressLabel.text =  " "
                 }
                 
             }else if indexPath.row == 5 {
                 
+                cell1.infoLabel.text = "Address 1"
+                
                 if(churchCountryArray.count >= indexPath.section){
-                    cell1.addressLabel.text = "Address1 :" + " " + address1String
+                    cell1.addressLabel.text =   address1String
                 }else{
-                    cell1.addressLabel.text = "Address1 :" + " "
+                    cell1.addressLabel.text =  " "
                 }
                 
             }else if indexPath.row == 6 {
                 
+                cell1.infoLabel.text = "Address 2"
+                
                 if(churchCountryArray.count >= indexPath.section){
-                    cell1.addressLabel.text = "Address2 :" + " " + address2String
+                    cell1.addressLabel.text =  address2String
                 }else{
-                    cell1.addressLabel.text = "Address2 :" + " "
+                    cell1.addressLabel.text =  " "
                 }
                 
             }else if indexPath.row == 7 {
                 
+                cell1.infoLabel.text = "Land Mark"
+                
                 if(churchCountryArray.count >= indexPath.section){
-                    cell1.addressLabel.text = "LandMark :" + " " + landMarkString
+                    cell1.addressLabel.text =  landMarkString
                 }else{
-                    cell1.addressLabel.text = "LandMark :" + " "
+                    cell1.addressLabel.text =  " "
                 }
                 
                 
             }else if indexPath.row == 8 {
                 
+                cell1.infoLabel.text = "Contact Number"
+                
                 if(churchCountryArray.count >= indexPath.section){
-                    cell1.addressLabel.text = "ContactNumber :" + " " + contactNumberString
+                    cell1.addressLabel.text =  contactNumberString
                 }else{
-                    cell1.addressLabel.text = "ContactNumber :" + " "
+                    cell1.addressLabel.text = " "
                 }
                 
             }else {
                
+                cell1.infoLabel.text = "Open Time - Close Time"
+                
                 if(churchCountryArray.count >= indexPath.section){
-                    cell1.addressLabel.text = "OpenTime - CloseTime :" + " " + self.timeString
+                    
+                    cell1.addressLabel.text =  self.timeString
                 }else{
-                    cell1.addressLabel.text = "OpenTime - CloseTime :" + " "
+                    cell1.addressLabel.text =  " "
                 }
                 
 
             }
             
             
-//            cell1.REGLabelOutLet.text = regNoString
-//            cell1.authorNameLabel.text = nameString
-//            cell1.emailLabel.text = emailString
-//            cell1.phoneNumberLabel.text = phoneNoString
-//           cell1.timeLabel.text = timeString
-
-            
-         //   cell.nameLabel.text = ChurchDetailsAry[indexPath.row]
-            
 
      return cell1
         }
+            
         else if (indexPath.section == 2){
             
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "InfoMapTableViewCell", for: indexPath) as! InfoMapTableViewCell
             
-           //   cell.nameLabel.text = ChurchDetailsAry[indexPath.row]
             
         return cell2
             
         }
         
+         else if (indexPath.section == 3){
+            
         let cell3 = tableView.dequeueReusableCell(withIdentifier: "AboutInfoTableViewCell", for: indexPath) as! AboutInfoTableViewCell
+            
+            
         
-           cell3.aboutLabel.text = descriptionString
+           cell3.aboutLabel.text = MissionString
+            
+            return cell3
+            
         
+        }
+        
+        else if (indexPath.section == 4){
+        
+        
+            let cell3 = tableView.dequeueReusableCell(withIdentifier: "AboutInfoTableViewCell", for: indexPath) as! AboutInfoTableViewCell
+         
+            cell3.aboutLabel.text = VissionString
+            
+            
+            return cell3
+        
+        }
+        
+        let cell3 = tableView.dequeueReusableCell(withIdentifier: "AboutInfoTableViewCell", for: indexPath) as! AboutInfoTableViewCell
+     
+        cell3.aboutLabel.text = descriptionString
+        
+        
+            
+
         
         return cell3
 //
@@ -464,6 +523,23 @@ func getChurchuByIDAPIService(){
                 
         }
         else if section == 3 {
+            
+            let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
+            
+            infoHeaderCell.headerLabel.text = "Mission"
+            return infoHeaderCell
+            
+        }
+        
+        else if section == 4 {
+            
+            let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
+            
+            infoHeaderCell.headerLabel.text = "Vission"
+            return infoHeaderCell
+            
+        }
+        else if section == 5 {
             
             let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
             

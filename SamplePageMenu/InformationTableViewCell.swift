@@ -15,6 +15,9 @@ class InformationTableViewCell: UITableViewCell {
     @IBOutlet weak var backGroundView: UIView!
     
     
+    @IBOutlet weak var infoLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
