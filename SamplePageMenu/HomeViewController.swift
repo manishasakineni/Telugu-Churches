@@ -18,7 +18,7 @@ protocol SttingPopOverHomeDelegate {
     func notificationClicked()
 }
 
-class HomeViewController: UIViewController ,UIPopoverPresentationControllerDelegate,SttingPopOverHomeDelegate,UITableViewDelegate,UITableViewDataSource  {
+class HomeViewController: UIViewController ,UIPopoverPresentationControllerDelegate,SttingPopOverHomeDelegate,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating  {
     
     @IBOutlet weak var categorieTableView: UITableView!
     
@@ -27,7 +27,18 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     @IBOutlet weak var settingsBarButton: UIBarButtonItem!
     
 
+//    lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
     
+    lazy var searchBar = UISearchBar(frame: CGRect.zero)
+    
+    
+    var filteredData: [String]!
+    
+    var searchController: UISearchController!
+    
+    var searchActive : Bool = false
+    var data = ["Latest Posts","Categories","Event Posts"]
+    var filtered:[String] = []
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -41,7 +52,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     var bibleNav = false
 
-    var sectionTittles = ["","Latest Posts","Categories","Event Posts"]
+    var sectionTittles = ["Church","Latest Posts","Categories","Event Posts"]
     
   //  var imageArray4 = [UIImage(named:"Bible apps"),UIImage(named:"Bible study"),UIImage(named:"Book shop"),UIImage(named:"Donation"),UIImage(named:"Doubts"),UIImage(named:"Events"),UIImage(named:"film"),UIImage(named:"Gospel messages"),UIImage(named:"Gospel"),UIImage(named:"help"),UIImage(named:"Holy bible"),UIImage(named:"Images"),UIImage(named:"Live"),UIImage(named:"Map"),UIImage(named:"Messages"),UIImage(named:"Movies"),UIImage(named:"pamphlet"),UIImage(named:"Quatation"),UIImage(named:"Scientific"),UIImage(named:"Songs"),UIImage(named:"Suggestion"),UIImage(named:"Sunday school"),UIImage(named:"Testimonial"),UIImage(named:"Videos"),UIImage(named:"ic_admin"),UIImage(named:"Languages"),UIImage(named:"Login"),UIImage(named:"pamphlet")]
 
@@ -60,11 +71,32 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
        var namesarra1 = ["Holy Bible","Audio Bible","Bible Study","Songs","Scientific Proofs","Gospel Messages","Short Messages","Images","Login id Creation","Help to develop the small churches","Book Shop","Movies","Daily Quotations","Video Songs","Testimonials","Quotations","Sunday School","Cell numbers for daily messages(Bulk sms)","Bible Apps","Short Films","Jobs","Route maps buds numbers","Events","Donation","Live","Doubts","Suggetions","Pamplets","languages(Tel/Eng)","Admin can add multiple menu pages"]
     
+    var PageIndex = 1
+    var totalPages : Int? = 0
+    var totalRecords : Int? = 0
+    
+    var bannerImageScrollArray:[BannerImageScrollResultVo] = Array<BannerImageScrollResultVo>()
+    
+    var bannerImageArr = Array<UIImage>()
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.bannerImageScrollAPICall()
+        
+        searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        
+        searchBar.delegate = self as? UISearchBarDelegate
+        
+        filteredData = sectionTittles
+        
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        
+        searchController.dimsBackgroundDuringPresentation = false
         
         let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
         categorieTableView.register(nibName, forCellReuseIdentifier: "CategorieHomeCell")
@@ -76,6 +108,15 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         self.navigationItem.title = "Telugu Churches".localize()
         
         
+        searchBar.placeholder = "Telugu Churches"
+        
+        self.searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        // definesPresentationContext = true
+//        navigationItem.titleView  = searchController.searchBar
+        
+         navigationItem.titleView = searchBar
         
         
         print(kLoginSucessStatus)
@@ -99,9 +140,93 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         //  self.navigationController?.isNavigationBarHidden = true
         
-        
+         definesPresentationContext = true
         
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        searchController.searchBar.resignFirstResponder()
+        
+        self.searchController.isActive = false
+        
+        
+    }
+    
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+        
+//        if let searchText = searchController.searchBar.text {
+//            
+//            filteredData = searchText.isEmpty ? sectionTittles : sectionTittles.filter({(dataString: String) -> Bool in
+//                
+//                return (dataString.range(of: searchText) != nil)
+//            })
+//            
+//                        categorieTableView.reloadData()
+//        }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    private func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    @objc(searchBarBookmarkButtonClicked:) func searchBarBookmarkButtonClicked(_ rchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filtered = data.filter({ (text) -> Bool in
+            let tmp: NSString = text as NSString
+            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+            return range.location != NSNotFound
+        })
+        if(filtered.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.categorieTableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+//        if(filtered.count == 0){
+            searchActive = false
+//        } else {
+//            searchActive = true;
+//        }
+        self.categorieTableView.reloadData()
+        searchBar.resignFirstResponder()
+        
+        
+    }
+    
+     func updateSearchResults(for searchController: UISearchController) {
+    
+//    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
+        if let searchText = searchController.searchBar.text {
+            
+            filteredData = searchText.isEmpty ? sectionTittles : sectionTittles.filter({(dataString: String) -> Bool in
+                
+                return (dataString.range(of: searchText) != nil)
+            })
+            
+//            categorieTableView.reloadData()
+        }
     }
     
         func sideMenu(){
@@ -188,21 +313,30 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
 
     
-    public func numberOfSections(in tableView: UITableView) -> Int {
+     func numberOfSections(in tableView: UITableView) -> Int {
         
-        
-        return sectionTittles.count
+        return 2
         
     }
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         if section == 0 {
             
             return 1
             
         }
-        return 1
+        else {
+            
+            if(searchActive) {
+                return filtered.count
+            }
+            else {
+                
+                return data.count;
+            }
+        }
+        
         
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -234,23 +368,43 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        
+       // let listStr:BannerImageScrollResultVo = bannerImageScrollArray[indexPath.row]
+
         if indexPath.section == 0 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "ScrollImagesCell", for: indexPath) as! ScrollImagesCell
             
-//            cell.homeCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),
-//                                             forCellWithReuseIdentifier: "CategorieCollectionViewCell")
-//            cell.homeCollectionView.tag = indexPath.row
-//            cell.homeCollectionView.collectionViewLayout.invalidateLayout()
-//            cell.homeCollectionView.delegate = self
-//            cell.homeCollectionView.dataSource = self
-//            cell.moreButton.addTarget(self, action: #selector(categorieOneClicked(_:)), for: UIControlEvents.touchUpInside)
-//            cell.categoriesNameLabel.text = "Latest Posts"
+            
+            cell.offSet = 0
+            cell.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(doSomeAnimation), userInfo: nil, repeats: true)
+            
+            
+            cell.pageController.numberOfPages = bannerImageArr.count
+            cell.scrollView.isPagingEnabled = true
+            cell.scrollView.contentSize.height = 200
+            cell.scrollView.backgroundColor = UIColor.black
+            cell.scrollView.contentSize.width = UIScreen.main.bounds.size.width * CGFloat(bannerImageArr.count)
+            cell.scrollView.showsHorizontalScrollIndicator = false
+            
+            cell.scrollView.delegate = self
+            
+            for (index, image) in bannerImageArr.enumerated() {
+                let image = image
+                let imageView = UIImageView(image: image)
+                imageView.contentMode = .scaleToFill
+                imageView.frame.size.width = UIScreen.main.bounds.size.width
+                imageView.backgroundColor = UIColor.red
+                imageView.frame.size.height = 200
+                imageView.frame.origin.x = CGFloat(index) * UIScreen.main.bounds.size.width
+                print(UIScreen.main.bounds.size.width)
+                
+                cell.scrollView.addSubview(imageView)
+            }
+           
             
             return cell
         }
-        else if indexPath.section == 1 {
+        else {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "CategorieHomeCell", for: indexPath) as! CategorieHomeCell
             
@@ -260,45 +414,91 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
             cell.homeCollectionView.collectionViewLayout.invalidateLayout()
             cell.homeCollectionView.delegate = self
             cell.homeCollectionView.dataSource = self
-            cell.moreButton.addTarget(self, action: #selector(categorieOneClicked(_:)), for: UIControlEvents.touchUpInside)
-            cell.categoriesNameLabel.text = "Bible Posts"
-
-            return cell
-        }
-        else if indexPath.section == 2 {
+            cell.moreButton.addTarget(self, action: #selector(categorieThreeClicked(_:)), for: UIControlEvents.touchUpInside)
+            //        cell.categoriesNameLabel.text = "Event Posts"
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CategorieHomeCell", for: indexPath) as! CategorieHomeCell
             
-            cell.homeCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),
-                                             forCellWithReuseIdentifier: "CategorieCollectionViewCell")
-            cell.homeCollectionView.tag = indexPath.section
-            cell.homeCollectionView.collectionViewLayout.invalidateLayout()
-            cell.homeCollectionView.delegate = self
-            cell.homeCollectionView.dataSource = self
-            cell.moreButton.addTarget(self, action: #selector(categorieTwoClicked(_:)), for: UIControlEvents.touchUpInside)
-
-            cell.categoriesNameLabel.text = "Categories"
-
+            if(searchActive){
+                cell.categoriesNameLabel?.text = filtered[indexPath.row]
+            } else {
+                cell.categoriesNameLabel?.text = data[indexPath.row];
+            }
             
-            return cell
-
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategorieHomeCell", for: indexPath) as! CategorieHomeCell
-        
-        cell.homeCollectionView.register(UINib.init(nibName: "CategorieCollectionViewCell", bundle: nil),
-                                         forCellWithReuseIdentifier: "CategorieCollectionViewCell")
-        cell.homeCollectionView.tag = indexPath.section
-        cell.homeCollectionView.collectionViewLayout.invalidateLayout()
-        cell.homeCollectionView.delegate = self
-        cell.homeCollectionView.dataSource = self
-        cell.moreButton.addTarget(self, action: #selector(categorieThreeClicked(_:)), for: UIControlEvents.touchUpInside)
-        cell.categoriesNameLabel.text = "Event Posts"
-
-
-        
-        return cell
+            
+             return cell
+        }        
+       
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        
+//        if indexPath.row == (bannerImageScrollArray.count) - 1 {
+//            
+//            if(self.totalPages! > PageIndex){
+//                
+//                PageIndex = PageIndex + 1
+//                
+//                bannerImageScrollAPICall()
+//                
+//                
+//                
+//            }
+//        }
+    }
+    
+    func doSomeAnimation() {
+        
+        let indexPath = IndexPath.init(row: 0, section: 0)
+
+        if let cell = categorieTableView.cellForRow(at: indexPath) as? ScrollImagesCell {
+        
+        let imgsCount:CGFloat = CGFloat(bannerImageArr.count)
+        let pageWidth:CGFloat = cell.scrollView.frame.width
+        let maxWidth:CGFloat = pageWidth * imgsCount
+        let contentOffset:CGFloat = cell.scrollView.contentOffset.x
+        
+        var slideToX = contentOffset + pageWidth
+        
+        if  contentOffset + pageWidth == maxWidth{
+            slideToX = 0
+        }
+        let currentPage:CGFloat = slideToX / pageWidth
+        
+        // print(currentPage)
+        // Change the indicator
+        cell.pageController.currentPage = Int(currentPage)
+        cell.scrollView.scrollRectToVisible(CGRect(x:slideToX, y:0, width:pageWidth, height:cell.scrollView.frame.height), animated: true)
+    }
+    }
+    //MARK: UIScrollView Delegate
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let indexPath = IndexPath.init(row: 1, section: 0)
+        
+        if let cell = categorieTableView.cellForRow(at: indexPath) as? ScrollImagesCell {
+        
+        let viewWidth: CGFloat = cell.scrollView.frame.size.width
+        // content offset - tells by how much the scroll view has scrolled.
+        let pageNumber = floor((cell.scrollView.contentOffset.x - viewWidth / 50) / viewWidth) + 1
+        cell.pageController.currentPage = Int(pageNumber)
+    }
+        
+        searchController.searchBar.resignFirstResponder()
+    }
+    //MARK: Page tap action
+    func pageChanged() {
+        let indexPath = IndexPath.init(row: 1, section: 0)
+        
+        if let cell = categorieTableView.cellForRow(at: indexPath) as? ScrollImagesCell {
+        
+        let pageNumber = cell.pageController.currentPage
+        var frame = cell.scrollView.frame
+        frame.origin.x = frame.size.width * CGFloat(pageNumber)
+        frame.origin.y = 0
+        cell.scrollView.scrollRectToVisible(frame, animated: true)
+    }
+    }
         func helpClicked(){
             print("editProfileClicked")
         }
@@ -347,20 +547,92 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     }
     func  categorieThreeClicked(_ sendre:UIButton) {
         
-        
-        
-        
         let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoriesHomeViewController") as! CategoriesHomeViewController
         churchDetailsViewController.categorieImageArray = self.imageArray3 as! Array<UIImage>
         churchDetailsViewController.categorieNamesArray = self.imageNameArray3
         churchDetailsViewController.bibleInt = 12
 
         self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+      
+    }
+    
+    //MARK: -  BannerImageScroll API Call
+    
+    func bannerImageScrollAPICall(){
         
         
-
+            let strUrl = BANNERIMAGESURL + "" + "null"
+        
+            serviceController.getRequest(strURL:strUrl, success:{(result) in
+                DispatchQueue.main.async()
+                    {
+            print(result)
+            
+            let respVO:BannerImageScrollVo = Mapper().map(JSONObject: result)!
+            
+            let isSuccess = respVO.isSuccess
+            print("StatusCode:\(String(describing: isSuccess))")
+            
+            
+            //      self.churchNamesArray.removeAll()
+            
+            
+            if isSuccess == true {
+                
+                //self.listResultArray = respVO.listResult!
+                
+                let listArr = respVO.listResult!
+                
+                
+                for eachArray in listArr{
+                    //  print(self.churchNamesArray)
+                    // print(eachArray)
+                    
+                    let imgUrl = eachArray.bannerImage!
+                    
+                    let newString = imgUrl.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+                    
+                    print("filteredUrlString:\(newString)")
+                    
+                    
+                        let url = URL(string:newString)
+                    
+                        
+                        let dataImg = try? Data(contentsOf: url!)
+                        
+                        if dataImg != nil {
+                            
+                            self.bannerImageArr.append(UIImage(data: dataImg!)!)
+                        }
+                        
+                    
+//                    self.bannerImageArr.append(eachArray.bannerImage!)
+                    //  print(self.churchNamesArray)
+                }
+                
+//                print(self.bannerImageScrollArray.count)
+                
+                
+            }
+                
+                
+                self.categorieTableView.reloadData()
+               
+            }
+                
+            
+        }) { (failureMessage) in
+            
+            
+            print(failureMessage)
+            
+        }
+        
+        
         
     }
+    
+
 }
 
 

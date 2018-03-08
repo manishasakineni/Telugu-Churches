@@ -34,6 +34,8 @@ let GETEVENTBYUSERIDMONTHYEAR : String = BASEURL.appending("api/Events/GetEventB
 let GETEVENTBYDATEANDUSERID : String = BASEURL.appending("api/Events/GetEventByDateAndUserId/")
 let GETUPCOMIMGEVENTSINFO : String = BASEURL.appending("api/Events/GetUpcomingEventsInfo/")
 
+let BANNERIMAGESURL : String = BASEURL.appending("api/Banners/GetAllBannersById/")
+
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 

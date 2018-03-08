@@ -27,33 +27,12 @@ class ScrollImagesCell: UITableViewCell, UIScrollViewDelegate {
     var counter = 0
     
     let arrImages = ["j1", "j2", "jesues","skyJSU", "j3", "j4","j6", "jesues", "j1","j2", "jesues"]
-
-//    struct ScreenSize {
-//        
-//        static let SCREEN_WIDTH         = UIScreen.main.bounds.size.width
-//        static let SCREEN_HEIGHT        = UIScreen.main.bounds.size.height
-//        static let SCREEN_MAX_LENGTH    = max(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
-//        static let SCREEN_MIN_LENGTH    = min(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
-//    }
-//    
-//    struct DeviceType {
-//        
-//        static let IS_IPHONE_4_OR_LESS  = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.SCREEN_MAX_LENGTH < 568.0
-//        static let IS_IPHONE_5          = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.SCREEN_MAX_LENGTH == 568.0
-//        static let IS_IPHONE_6          = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.SCREEN_MAX_LENGTH == 667.0
-//        static let IS_IPHONE_6P         = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.SCREEN_MAX_LENGTH == 736.0
-//        static let IS_IPAD              = UIDevice.current.userInterfaceIdiom == .pad && ScreenSize.SCREEN_MAX_LENGTH >= 1024.0
-//    }
-//    
-//    struct Version {
-//        
-//        static let SYS_VERSION_FLOAT = (UIDevice.current.systemVersion as NSString).floatValue
-//        static let iOS7 = (Version.SYS_VERSION_FLOAT < 8.0 && Version.SYS_VERSION_FLOAT >= 7.0)
-//        static let iOS8 = (Version.SYS_VERSION_FLOAT >= 8.0 && Version.SYS_VERSION_FLOAT < 9.0)
-//        static let iOS9 = (Version.SYS_VERSION_FLOAT >= 9.0 && Version.SYS_VERSION_FLOAT < 10.0)
-//        static let iOS10 = (Version.SYS_VERSION_FLOAT >= 10.0 && Version.SYS_VERSION_FLOAT < 11.0)
-//    }
-//    
+    
+    var PageIndex = 1
+    var totalPages : Int? = 0
+    var totalRecords : Int? = 0
+    
+    var bannerImageScrollArray:[BannerImageScrollResultVo] = Array<BannerImageScrollResultVo>()
 
     
     override func awakeFromNib() {
@@ -69,108 +48,94 @@ class ScrollImagesCell: UITableViewCell, UIScrollViewDelegate {
         backGroundView.layer.shadowOpacity = 0.6
         backGroundView.layer.shadowRadius = 2.0
         
-//
-//        
-//
-//        self.scrollView.frame = CGRect(x:0, y:0, width:self.frame.width, height:self.frame.height)
-//        let scrollViewWidth:CGFloat = self.scrollView.frame.width
-//        let scrollViewHeight:CGFloat = self.scrollView.frame.height
-//        //self.skipButton.layer.cornerRadius = 4.0
-//        
-//        let imgOne = UIImageView(frame: CGRect(x:0, y:0,width:scrollViewWidth, height:scrollViewHeight))
-//        imgOne.contentMode = .scaleAspectFit
-//        
-//        if DeviceType.IS_IPAD{
-//            imgOne.image = UIImage(named: "sync.png")
-//        }else{
-//            imgOne.image = UIImage(named: "bans.JPG")
-//        }
-//        
-//        
-//        
-//        let imgTwo = UIImageView(frame: CGRect(x:scrollViewWidth, y:0,width:scrollViewWidth, height:scrollViewHeight))
-//        imgTwo.contentMode = .scaleAspectFit
-//        
-//        if DeviceType.IS_IPAD{
-//            imgTwo.image = UIImage(named: "unlike.png")
-//        }else{
-//            imgTwo.image = UIImage(named: "bans.JPG-1")
-//        }
-//        
-//        
-//        
-//        let imgThree = UIImageView(frame: CGRect(x:scrollViewWidth*2, y:0,width:scrollViewWidth, height:scrollViewHeight))
-//        imgThree.contentMode = .scaleAspectFit
-//        
-//        if DeviceType.IS_IPAD{
-//            imgThree.image = UIImage(named: "unlike.png")
-//        }else{
-//            imgThree.image = UIImage(named: "ban.JPG")
-//        }
-//        
-//        
-//        
-//        
-//        let imgFour = UIImageView(frame: CGRect(x:scrollViewWidth*3, y:0,width:scrollViewWidth, height:scrollViewHeight))
-//        imgFour.contentMode = .scaleAspectFit
-//        
-//        if DeviceType.IS_IPAD{
-//            imgFour.image = UIImage(named: "unlike.png")
-//        }else{
-//            imgFour.image = UIImage(named: "ban.JPG")
-//        }
-//        
-//        
-//        
-//        
-//        
-//        let imgFive = UIImageView(frame: CGRect(x:scrollViewWidth*4, y:0,width:scrollViewWidth, height:scrollViewHeight))
-//        imgFive.contentMode = .scaleAspectFit
-//        
-//        if DeviceType.IS_IPAD{
-//            imgFive.image = UIImage(named: "unlike.png")
-//        }else{
-//            imgFive.image = UIImage(named: "bans.JPG-1")
-//        }
-//        
-//        
-//        
-//        
-//        
-//        let imgSix = UIImageView(frame: CGRect(x:scrollViewWidth*5, y:0,width:scrollViewWidth, height:scrollViewHeight))
-//        imgSix.contentMode = .scaleAspectFit
-//        
-//        if DeviceType.IS_IPAD{
-//            imgSix.image = UIImage(named: "unlike.png")
-//        }else{
-//            imgSix.image = UIImage(named: "bans.JPG")
-//        }
-//        
-//        
-//        
-//        
-//        
-//        
-//        self.scrollView.addSubview(imgOne)
-//        self.scrollView.addSubview(imgTwo)
-//        self.scrollView.addSubview(imgThree)
-//        self.scrollView.addSubview(imgFour)
-//        self.scrollView.addSubview(imgFive)
-//        self.scrollView.addSubview(imgSix)
-//        
-//        
-//        self.scrollView.contentSize = CGSize(width:self.scrollView.frame.width * 6, height:self.scrollView.frame.height)
-//        self.scrollView.delegate = self
-//        self.pageController.currentPage = 0
-//        
-//          timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(ScrollImagesCell.doSomeAnimation), userInfo: nil, repeats: true)
-//
    
-loadScrollView()
+//loadScrollView()
         
     }
     
- 
+    //MARK: -  BannerImageScroll API Call
+    
+    func bannerImageScrollAPICall(){
+        
+        
+        
+        let paramsDict = [ "pageIndex": PageIndex,
+                           "pageSize": 10,
+                           "sortbyColumnName": "UpdatedDate",
+                           "sortDirection": "desc",
+                           ] as [String : Any]
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        
+        serviceController.postRequest(strURL: BANNERIMAGESURL as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            let respVO:BannerImageScrollVo = Mapper().map(JSONObject: result)!
+            
+            let isSuccess = respVO.isSuccess
+            print("StatusCode:\(String(describing: isSuccess))")
+            
+            
+            //      self.churchNamesArray.removeAll()
+            
+            
+            if isSuccess == true {
+                
+                
+                
+                //self.listResultArray = respVO.listResult!
+                
+                let listArr = respVO.listResult!
+                
+                
+                for eachArray in listArr{
+                    //  print(self.churchNamesArray)
+                    // print(eachArray)
+                    self.bannerImageScrollArray.append(eachArray)
+                    //  print(self.churchNamesArray)
+                }
+                
+                print(self.bannerImageScrollArray.count)
+                
+                
+                
+                let pageCout  = (respVO.totalRecords)! / 10
+                
+                let remander = (respVO.totalRecords)! % 10
+                
+                self.totalPages = pageCout
+                
+                if remander != 0 {
+                    
+                    self.totalPages = self.totalPages! + 1
+                    
+                }
+                
+                
+                
+            }
+                
+            else {
+                
+                
+                
+            }
+            
+            
+            
+            
+        }) { (failureMessage) in
+            
+            
+            print(failureMessage)
+            
+        }
+        
+        
+        
+    }
 
     func loadScrollView() {
         

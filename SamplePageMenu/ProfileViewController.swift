@@ -176,13 +176,14 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                             self.profileimage = #imageLiteral(resourceName: "churchLogoo")
                         }
                         
-
-
-                        
-                        
                         self.dateofBirth = (respVO.listResult?[0].dob == nil ? "" : respVO.listResult?[0].dob)!
                         
-                        self.selectedDate = self.formattedDateFromString(dateString: self.dateofBirth, withFormat: "MMM dd, yyyy")!
+                        if self.dateofBirth != "" {
+                            
+                            self.selectedDate = self.formattedDateFromString(dateString: self.dateofBirth, withFormat: "MMM dd, yyyy")!
+                        }
+                        
+                        
                       
 //                        let fff = (IDInfo?.DOB)!
 //                        
