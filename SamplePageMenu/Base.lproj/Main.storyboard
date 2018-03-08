@@ -573,10 +573,10 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVB-Zz-rX4" customClass="FSCalendar">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" red="0.36130776198102965" green="0.36357488739122434" blue="0.70161802030456855" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.4039215686" green="0.6705882353" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="subtitleDefaultColor">
                                         <color key="value" red="0.79616970490000005" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

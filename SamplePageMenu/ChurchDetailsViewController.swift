@@ -317,12 +317,12 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             }
             else {
                 
-                cell.churchImage.image = #imageLiteral(resourceName: "churchLogoo")
+                cell.churchImage.image = #imageLiteral(resourceName: "j4")
             }
         }
         else {
             
-            cell.churchImage.image = #imageLiteral(resourceName: "churchLogoo")
+            cell.churchImage.image = #imageLiteral(resourceName: "j4")
         }
        
         

@@ -50,7 +50,7 @@ class ChurchAdminDetailCell: UITableViewCell {
         
         subscribeButtton.layer.cornerRadius = 1.0
         subscribeButtton.layer.borderWidth = 1
-        subscribeButtton.layer.borderColor = UIColor(red: 122.0/255.0, green: 186.0/255.0, blue: 208.0/255.0, alpha: 1.0).cgColor
+        subscribeButtton.layer.borderColor = UIColor.white.cgColor
 
         
         
