@@ -20,8 +20,10 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     var appVersion          : String = ""
+    
+    
 
-      var listResultArray:[GetChurchByIDResultVo]?
+    var listResultArray:[GetChurchByIDResultVo]?
     var churchNamesString = ""
     var churchCountryArray = Array<String>()
     var churchStateArray = Array<String>()
@@ -61,7 +63,9 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
 
     let array = ["","ssss","ddddd","gggg"]
     
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         infoChurchTableView.delegate = self
@@ -71,7 +75,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         infoChurchTableView.estimatedRowHeight = 44
         infoChurchTableView.reloadData()
         
-
+     
         
         let nibName1  = UINib(nibName: "HeadImgTableViewCell" , bundle: nil)
         infoChurchTableView.register(nibName1, forCellReuseIdentifier: "HeadImgTableViewCell")
@@ -84,6 +88,8 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
         
         let nibName5  = UINib(nibName: "InfoHeaderCell" , bundle: nil)
         infoChurchTableView.register(nibName5, forCellReuseIdentifier: "InfoHeaderCell")
+        
+        
         
 
         
@@ -201,7 +207,7 @@ func getChurchuByIDAPIService(){
 
                      print(self.timeString)
                     print(self.churchNamesString)
-                        self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+//self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                     self.infoChurchTableView.reloadData()
                         }else{
                             

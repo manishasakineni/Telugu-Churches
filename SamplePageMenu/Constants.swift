@@ -36,6 +36,8 @@ let GETUPCOMIMGEVENTSINFO : String = BASEURL.appending("api/Events/GetUpcomingEv
 
 let BANNERIMAGESURL : String = BASEURL.appending("api/Banners/GetAllBannersById/")
 
+let GETACTIVECHURCHES : String = BASEURL.appending("api/Church/GetActiveChurches")
+
 
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 

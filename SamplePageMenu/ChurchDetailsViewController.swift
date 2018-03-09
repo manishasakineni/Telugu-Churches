@@ -9,11 +9,27 @@
 import UIKit
 import SDWebImage
 
-class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+
+class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating {
 
     @IBOutlet weak var churchDetailsTableView: UITableView!
     
+    lazy var searchBar = UISearchBar(frame: CGRect.zero)
+    
+    var searchController: UISearchController!
+    
+    var searchActive : Bool = false
+    
+    var filteredData: [String]!
+    
+    var filtered:[String] = []
+    
     var appVersion          : String = ""
+    
+    var sortbyColumnName : String = ""
+    
+    var data = Array<String>()
+
 
     var listResultArray = Array<Any>()
     var churchNamesArray:[ChurchDetailsListResultVO] = Array<ChurchDetailsListResultVO>()
@@ -45,15 +61,36 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
          //getChurchDetailsAPICall()
         
+       
+        
         self.churchDetailsTableView.delegate = self
         self.churchDetailsTableView.dataSource = self
+        
+        searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        
+        searchBar.delegate = self
+        
+        searchBar.placeholder = "Holy Bible"
+        
+        
+        
+        //  filteredData = sectionTittles
+        
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        navigationItem.titleView = searchBar
+        
 
         churchDetailsTableView.register(UINib.init(nibName: "ChurchDetailsTableViewCell", bundle: nil),
                               forCellReuseIdentifier: "ChurchDetailsTableViewCell")
         
         
         
-       
+       self.searchController.searchBar.delegate = self
 
           }
     
@@ -66,7 +103,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         
-        Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: appVersion.localize(), backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuDetailViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
        
         //navigationItem.leftBarButtonItems = []
@@ -92,6 +129,100 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
     }
     
+    
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+        
+        //        if let searchText = searchController.searchBar.text {
+        //
+        //            filteredData = searchText.isEmpty ? sectionTittles : sectionTittles.filter({(dataString: String) -> Bool in
+        //
+        //                return (dataString.range(of: searchText) != nil)
+        //            })
+        //
+        //                        categorieTableView.reloadData()
+        //        }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false
+        
+        print(sortbyColumnName)
+    }
+    
+    private func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false
+        sortbyColumnName = searchBar.text!
+        print(sortbyColumnName)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+        
+        print(sortbyColumnName)
+        
+        searchBar.resignFirstResponder()
+        self.churchNamesArray.removeAll()
+        getActiveChurchesAPICall()
+    }
+    
+    @objc(searchBarBookmarkButtonClicked:) func searchBarBookmarkButtonClicked(_ rchBar: UISearchBar) {
+        searchActive = false
+        
+        print(sortbyColumnName)
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+ 
+//        filtered = churchNamesArray.filter({ (text) -> Bool in
+//            let tmp: NSString = text as NSString
+//            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+//            return range.location != NSNotFound
+//        })
+//        if(filtered.count == 0){
+//            searchActive = false;
+//        } else {
+//            searchActive = true;
+//        }
+      //  self.churchDetailsTableView.reloadData()
+        
+        sortbyColumnName = searchBar.text!
+        
+         print(sortbyColumnName)
+    }
+    
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        //        if(filtered.count == 0){
+        searchActive = false
+        //        } else {
+        //            searchActive = true;
+        //        }
+        self.churchDetailsTableView.reloadData()
+        searchBar.resignFirstResponder()
+        
+        
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        if searchController.searchBar.text! == "" {
+            
+            sortbyColumnName = ""
+            
+        } else {
+            
+            
+        sortbyColumnName = searchController.searchBar.text!
+            
+        }
+        
+        
+        }
     
 //MARK: -  Church Details API Call
     
@@ -126,16 +257,11 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
         let isSuccess = respVO.isSuccess
         print("StatusCode:\(String(describing: isSuccess))")
-        
-        
-  //      self.churchNamesArray.removeAll()
+
 
 
         if isSuccess == true {
-            
-            
 
-        //self.listResultArray = respVO.listResult!
             
             let listArr = respVO.listResult!
             
@@ -146,6 +272,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 self.churchNamesArray.append(eachArray)
               //  print(self.churchNamesArray)
             }
+            
+            
 
             print(self.churchNamesArray.count)
 
@@ -197,6 +325,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         }
         
         
+        
     
     
       }) { (failureMessage) in
@@ -209,6 +338,83 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
 
 }
+    
+    
+    func getActiveChurchesAPICall() {
+    
+        let paramsDict = [ "pageIndex": 1,
+                           "pageSize": 10,
+                           "sortbyColumnName": sortbyColumnName,
+                           "sortDirection": "Asc"
+            ] as [String : Any]
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+    
+    
+        
+        serviceController.postRequest(strURL: GETACTIVECHURCHES as NSString , postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            
+            let respVO:ChurchDetailsJsonVO = Mapper().map(JSONObject: result)!
+          
+            
+            let isSuccess = respVO.isSuccess
+            
+            print("StatusCode:\(String(describing: isSuccess))")
+  
+            if isSuccess == true {
+  
+                
+                let listArr = respVO.listResult!
+                
+                self.churchNamesArray.removeAll()
+                
+                for eachArray in listArr{
+                   
+                    self.churchNamesArray.append(eachArray)
+                   
+                }
+                
+                print(self.churchNamesArray.count)
+                
+                
+                
+                let pageCout  = (respVO.totalRecords)! / 10
+                
+                let remander = (respVO.totalRecords)! % 10
+                
+                self.totalPages = pageCout
+                
+                if remander != 0 {
+                    
+                    self.totalPages = self.totalPages! + 1
+                    
+                }
+ 
+                
+                self.churchDetailsTableView.reloadData()
+                
+                
+                
+                
+            }
+                
+            else {
+                
+                
+                
+            }
+            
+            
+            
+ 
+            
+            
+        }) { (failureMessage) in
+            
+        }
+    
+    }
  
     
 //MARK: -  churchDetailsTableView delegate methods
@@ -290,7 +496,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
 
         cell.phNoLabel.text     = listStr.contactNumber
         
-        cell.timeLabel.text     = amAppend(str: "\(listStr.openingTime!)" + "-" + "\(listStr.closingTime!)" )
+//        cell.timeLabel.text     = amAppend(str: "\(listStr.openingTime!)" + "-" + "\(listStr.closingTime!)" )
 
        // cell.timeLabel.text     = "\(listStr.openingTime!)" + "-" + "\(listStr.closingTime!)"
       //  cell.timeLabel.text     = String(String(describing: listStr.openingTime!) + "-" + String(describing: listStr.closingTime!))
