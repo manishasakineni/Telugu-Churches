@@ -22,7 +22,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     var filteredData: [String]!
     
-    var filtered:[String] = []
+    var filtered:[ChurchDetailsListResultVO] = []
     
     var appVersion          : String = ""
     
@@ -48,9 +48,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
    
     var TimingsArray = ["OPEN5AM Close5PM ","OPEN6AM Close5PM","OPEN7AM Close8PM","OPEN8AM Close5PM","OPEN9AM Close4PM","OPEN5AM Close5PM","OPEN7AM Close5PM","OPEN6AM Close5PM"]
     
-
-
-    
     var PageIndex = 1
     var totalPages : Int? = 0
     var totalRecords : Int? = 0
@@ -59,23 +56,17 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         //getChurchDetailsAPICall()
-        
-       
-        
         self.churchDetailsTableView.delegate = self
         self.churchDetailsTableView.dataSource = self
         
         searchBar = UISearchBar()
         searchBar.sizeToFit()
         
+        searchBar.tintColor = UIColor.black
+        
         searchBar.delegate = self
         
         searchBar.placeholder = "Holy Bible"
-        
-        
-        
-        //  filteredData = sectionTittles
         
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -89,10 +80,12 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                               forCellReuseIdentifier: "ChurchDetailsTableViewCell")
         
         
-        
        self.searchController.searchBar.delegate = self
+        
+        definesPresentationContext = true
 
-          }
+        
+    }
     
 
     override func didReceiveMemoryWarning() {
@@ -108,19 +101,13 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
        
         //navigationItem.leftBarButtonItems = []
 
-        
-        
-
-         PageIndex = 1
+        PageIndex = 1
         totalPages = 0
         churchNamesArray.removeAll()
           getChurchDetailsAPICall()
 
        churchDetailsTableView.isHidden = true
     
-        
-
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -129,42 +116,36 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
     }
     
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        searchController.searchBar.resignFirstResponder()
+        
+        self.searchController.isActive = false
+        
+        
+    }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true
         
-        //        if let searchText = searchController.searchBar.text {
-        //
-        //            filteredData = searchText.isEmpty ? sectionTittles : sectionTittles.filter({(dataString: String) -> Bool in
-        //
-        //                return (dataString.range(of: searchText) != nil)
-        //            })
-        //
-        //                        categorieTableView.reloadData()
-        //        }
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false
         
-        print(sortbyColumnName)
     }
     
     private func searchBarTextDidEndEditing(searchBar: UISearchBar) {
         searchActive = false
-        sortbyColumnName = searchBar.text!
-        print(sortbyColumnName)
+        
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
         
-        print(sortbyColumnName)
         
         searchBar.resignFirstResponder()
-        self.churchNamesArray.removeAll()
-        getActiveChurchesAPICall()
     }
     
     @objc(searchBarBookmarkButtonClicked:) func searchBarBookmarkButtonClicked(_ rchBar: UISearchBar) {
@@ -175,36 +156,30 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
  
-//        filtered = churchNamesArray.filter({ (text) -> Bool in
-//            let tmp: NSString = text as NSString
-//            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-//            return range.location != NSNotFound
-//        })
-//        if(filtered.count == 0){
-//            searchActive = false;
-//        } else {
-//            searchActive = true;
-//        }
-      //  self.churchDetailsTableView.reloadData()
+        filtered = churchNamesArray.filter({ (text) -> Bool in
+            let tmp = text
+            let range = ((tmp.name?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil) || ((tmp.contactNumber?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil)
+            
+            return range
+        })
+        if(filtered.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.churchDetailsTableView.reloadData()
         
-        sortbyColumnName = searchBar.text!
-        
-         print(sortbyColumnName)
     }
     
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
         searchBar.text = ""
-        //        if(filtered.count == 0){
         searchActive = false
-        //        } else {
-        //            searchActive = true;
-        //        }
-        self.churchDetailsTableView.reloadData()
         searchBar.resignFirstResponder()
-        
+        self.churchDetailsTableView.reloadData()
         
     }
     
@@ -216,7 +191,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             
         } else {
             
-            
         sortbyColumnName = searchController.searchBar.text!
             
         }
@@ -227,8 +201,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
 //MARK: -  Church Details API Call
     
    func getChurchDetailsAPICall(){
-    
-    
     
       let paramsDict = [ "pasterUserId": 0,
                        "pageIndex": PageIndex,
@@ -312,9 +284,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             
             
             self.churchDetailsTableView.reloadData()
-            
-            
-        
         
         }
         
@@ -324,19 +293,12 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         }
         
-        
-        
-    
-    
       }) { (failureMessage) in
     
     
        print(failureMessage)
     
       }
-    
-    
-
 }
     
     
@@ -390,12 +352,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                     self.totalPages = self.totalPages! + 1
                     
                 }
- 
                 
                 self.churchDetailsTableView.reloadData()
-                
-                
-                
                 
             }
                 
@@ -404,11 +362,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
                 
                 
             }
-            
-            
-            
- 
-            
+           
             
         }) { (failureMessage) in
             
@@ -428,22 +382,34 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        
-        
-        if churchNamesArray.count > 0 {
+        if(searchActive) {
             
-        return churchNamesArray.count
-            
+            if filtered.count > 0 {
+                
+                return filtered.count
+                
+            }
+            else {
+                
+                return 0
+            }
         }
         else {
             
-            return 0
+            if churchNamesArray.count > 0 {
+                
+                return churchNamesArray.count
+                
+            }
+            else {
+                
+                return 0
+            }
         }
         
+        
+        
     }
-    
-    
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -477,10 +443,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             }
         }
         
-        
-    
-        
-        
     }
     
     
@@ -488,6 +450,46 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChurchDetailsTableViewCell", for: indexPath) as! ChurchDetailsTableViewCell
         
+        if(searchActive){
+            
+            let listStr:ChurchDetailsListResultVO = filtered[indexPath.row]
+            
+            cell.churchNameLbl.text = listStr.name
+            
+            cell.phNoLabel.text = listStr.contactNumber
+            
+            cell.addressLabel.text = listStr.address1
+            
+            let imgUrl = listStr.churchImage
+            
+            let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+            
+            print("filteredUrlString:\(newString)")
+            
+            if newString != nil {
+                
+                let url = URL(string:newString!)
+                
+                
+                let dataImg = try? Data(contentsOf: url!)
+                
+                if dataImg != nil {
+                    
+                    cell.churchImage.image = UIImage(data: dataImg!)
+                }
+                else {
+                    
+                    cell.churchImage.image = #imageLiteral(resourceName: "j4")
+                }
+            }
+            else {
+                
+                cell.churchImage.image = #imageLiteral(resourceName: "j4")
+            }
+            
+            
+        } else {
+            
         let listStr:ChurchDetailsListResultVO = churchNamesArray[indexPath.row]
         
         
@@ -531,7 +533,7 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
             cell.churchImage.image = #imageLiteral(resourceName: "j4")
         }
        
-        
+        }
         
 //        if let url = URL(string:listStr.churchImage!) {
 //       cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
@@ -586,8 +588,6 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
 //        UserDefaults.standard.synchronize()
 //        
 //        self.navigationController?.popViewController(animated: true)
-//        
-//        
         print("Back Button Clicked......")
         
     }

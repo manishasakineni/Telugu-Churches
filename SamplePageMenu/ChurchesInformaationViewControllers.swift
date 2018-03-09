@@ -76,7 +76,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
         
         allOffersVC = InfoChurchViewControllers(nibName: "InfoChurchViewControllers", bundle: nil)
-        allOffersVC?.title = "Info"
+        allOffersVC?.title = "Information"
         allOffersVC?.delegate  = self
         allOffersVC?.churchID = churchID
 
@@ -85,7 +85,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
 //                                              bundle: nil)
         
         eventInfoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
-        eventInfoVC?.title = "Event"
+        eventInfoVC?.title = "Events"
         eventInfoVC?.delegate  = self
         eventInfoVC?.pasterUserId = pasterUserId
         eventInfoVC?.churchID = churchID

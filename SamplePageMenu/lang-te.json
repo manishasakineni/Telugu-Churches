@@ -7,14 +7,14 @@
     "ChooseLanguage" : "భాషను ఎంచుకోండి",
     "Telugu Churches" : "తెలుగు చర్చిలు",
      
-    "UserName" : "సభ్యనామం",
+    "User Name" : "సభ్యనామం",
     "Password" : "పాస్వర్డ్",
     "forgot Password" : "పాస్వర్డ్ను మర్చిపోయారు",
     "Register" : "నమోదు",
     "Don't have an Account?" : "మీకు ఖాతా ఉందా?",
-    "FirstName" : "మొదటి పేరు",
-    "LastName" : "చివరి పేరు",
-    "MiddleName" : "మధ్య పేరు",
+    "First Name" : "మొదటి పేరు",
+    "Last Name" : "చివరి పేరు",
+    "Middle Name" : "మధ్య పేరు",
     "Mobile Number" : "మొబైల్ సంఖ్య",
     "E-mail" : "ఇ-మెయిల్",
     "Confirm Password" : "పాస్వర్డ్ని నిర్ధారించండి",
@@ -70,7 +70,12 @@
     "EventStartDate" : "ఈవెంట్ ప్రారంభ తేదీ",
     "EventEndDate" : "ఈవెంట్ ముగింపు తేదీ",
     "EventName" : "ఈవెంట్ పేరు",
-    "Date" : "తేదీ"
+    "Date" : "తేదీ",
+    "ChangePhoto" : "ఫోటో మార్చు",
+    "save" : "సేవ్",
+    "Gender" : "జెండర్"
+
+
 
 
 

@@ -29,6 +29,8 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     var newPassWordString : String = ""
     var confirmPassWordString : String = ""
     
+    var PwButton = UIButton(type: .custom)
+
 
    // var passWordTypeString = ["Old PassWord","New PassWord","Confirm PassWord"]
   //  var passWordTypePlaceHolderString = ["Old PassWord","New PassWord","Confirm PassWord"]
@@ -38,6 +40,10 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         super.viewDidLoad()
 
         let defaults = UserDefaults.standard
+        
+     
+
+        
         
         if let uid = defaults.string(forKey: kuserId) {
             
@@ -84,7 +90,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         if activeTextField.tag == 0 {
             
-            textField.maxLengthTextField = 50
+            textField.maxLengthTextField = 25
             textField.clearButtonMode = .never
             textField.keyboardType = .default
            // oldPassWordString = textField.text!
@@ -92,17 +98,22 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         }
         else if activeTextField.tag == 1 {
             
-            textField.maxLengthTextField = 50
+            textField.maxLengthTextField = 25
             textField.clearButtonMode = .never
             textField.keyboardType = .default
             textField.isSecureTextEntry = true
+            
+            textField.rightViewMode = .always
+            textField.rightView = PwButton
+
+            textField.setLeftPaddingPoints(4)
 
            // newPassWordString = textField.text!
 
         }
         else if activeTextField.tag == 2 {
             
-            textField.maxLengthTextField = 50
+            textField.maxLengthTextField = 25
             textField.clearButtonMode = .never
             textField.keyboardType = .default
             textField.isSecureTextEntry = true
@@ -192,7 +203,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         if section == 0 {
             return sectionsTitle[section]
 
-            
+    
         }
         return nil
     }
@@ -206,7 +217,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             // UILabel Creation...........
             
             
-            let section1HeaderLabel2 = UILabel(frame: CGRect(x: 90, y: -3, width:150, height: 35))
+            let section1HeaderLabel2 = UILabel(frame: CGRect(x: 90, y: 2, width:150, height: 35))
             // section1HeaderLabel.text = sectionsTitle[section]
             section1HeaderLabel2.textColor = UIColor.white
             section1HeaderLabel2.text = "Change Password".localize()
@@ -333,6 +344,9 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     
     
     
+ 
+
+    
     func  eyeButtonClicked(_ sendre:UIButton) {
         
         
@@ -341,11 +355,15 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         if sendre.tag == 0
         {
             activeTextField.isSecureTextEntry = false
+       //     PwButton.contentMode = .scaleAspectFit
+
             sendre.tag = 1
         }
         else{
             
             activeTextField.isSecureTextEntry = true
+        //    PwButton.contentMode = .scaleAspectFit
+
             sendre.tag = 0
             
             
@@ -372,6 +390,10 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         else if (newPassWordStr.length<=0) {
             errorMessage=GlobalSupportingClass.blankPasswordErrorMessage() as String as String as NSString?
         }
+//        else if (confirmPassWordStr.length<=0) {
+//            errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?
+//        }
+
         else if(!GlobalSupportingClass.capitalOnly(password: newPassWordStr as String)) {
             
             errorMessage=GlobalSupportingClass.capitalLetterMessage() as String as String as NSString?
@@ -389,17 +411,25 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             errorMessage=GlobalSupportingClass.invalidPassWordErrorMessage() as String as String as NSString?
         }
             
-        else if(confirmPassWordStr.length<8){
+//        else if(confirmPassWordStr.length < 8){
+//            errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
+//        }
+//        
+        else if(confirmPassWordStr.length<=0){
             errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?
         }
-            
-        else if(newPassWordStr.length<5||confirmPassWordStr.length<5)
-        {
-            errorMessage = GlobalSupportingClass.invalidDigitsInPasswordErrorMessage() as String as String as NSString?
-        }
-        else if(!newPassWordStr.isEqual(to: confirmPassWordStr as String)){
+        else if(!confirmPassWordStr.isEqual(to: confirmPassWordStr as String)){
             errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
         }
+
+            
+//        else if(newPassWordStr.length<5||confirmPassWordStr.length<5)
+//        {
+//            errorMessage = GlobalSupportingClass.invalidDigitsInPasswordErrorMessage() as String as String as NSString?
+//        }
+//        else if(!newPassWordStr.isEqual(to: confirmPassWordStr as String)){
+//            errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
+//        }
         
         if let errorMsg = errorMessage{
             
@@ -408,42 +438,6 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         }
             
             
-    /*    else if (newPassWordStr.length<=0) {
-            errorMessage=GlobalSupportingClass.blankPasswordErrorMessage() as String as String as NSString?
-        }
-        else if(!GlobalSupportingClass.capitalOnly(password: newPassWordStr as String)) {
-            
-            errorMessage=GlobalSupportingClass.capitalLetterMessage() as String as String as NSString?
-        }
-        else if(!GlobalSupportingClass.numberOnly(password: newPassWordStr as String)) {
-            
-            errorMessage=GlobalSupportingClass.numberMessage() as String as String as NSString?
-        }
-        else if(!GlobalSupportingClass.specialCharOnly(password: newPassWordStr as String)) {
-            
-            errorMessage=GlobalSupportingClass.specialCharacterMessage() as String as String as NSString?
-        }
-        else if (newPassWordStr.length <= 14) {
-            
-            errorMessage=GlobalSupportingClass.invalidPassWordErrorMessage() as String as String as NSString?
-        }
-            
-        else if(confirmPassWordStr.length<=0){
-            errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?
-        }
-            
-        else if(newPassWordStr.length<5||confirmPassWordStr.length<5)
-        {
-            errorMessage = GlobalSupportingClass.invalidDigitsInPasswordErrorMessage() as String as String as NSString?
-        }
-        else if(!newPassWordStr.isEqual(to: confirmPassWordStr as String)){
-            errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
-        }
-        if let errorMsg = errorMessage{
-            
-            self.showAlertViewWithTitle("Alert", message: errorMsg as String, buttonTitle: "Retry")
-            return false;
-        } */
         
         return true
     }
@@ -534,31 +528,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             }
         }, failureHandler: {(error) in
             
-            //            if(error == "unAuthorized"){
-            //                serviceController.refreshTokenForLogin(successHandler:{(result) in
-            //                    DispatchQueue.main.async()
-            //                        {
-            //
-            //                            self.updateProfileAPIService()
-            //
-            //                    }
-            //                }, failureHandler:  {(error) in
-            //
-            //                    DispatchQueue.main.async()
-            //                        {
-            //
-            //                            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            //
-            //                            let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-            //                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            //                            appDelegate.window?.rootViewController = viewController
-            //                            
-            //                    }
-            //                    
-            //                    
-            //                })
-            //            }
-        })
+                  })
         
         
     }
@@ -608,14 +578,18 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
 
+extension UITextField {
+    func setLeftPaddingPoints(_ amount:CGFloat){
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
+    func setRightPaddingPoints(_ amount:CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.rightView = paddingView
+        self.rightViewMode = .always
+    }
 }
+

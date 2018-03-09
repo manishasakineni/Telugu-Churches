@@ -424,7 +424,7 @@ func getChurchuByIDAPIService(){
                 
             }else if indexPath.row == 7 {
                 
-                cell1.infoLabel.text = "Land Mark"
+                cell1.infoLabel.text = "LandMark"
                 
                 if(churchCountryArray.count >= indexPath.section){
                     cell1.addressLabel.text =  landMarkString
@@ -445,7 +445,7 @@ func getChurchuByIDAPIService(){
                 
             }else {
                
-                cell1.infoLabel.text = "Open Time - Close Time"
+                cell1.infoLabel.text = "Opening Time - Closing Time"
                 
                 if(churchCountryArray.count >= indexPath.section){
                     
@@ -541,7 +541,7 @@ func getChurchuByIDAPIService(){
             
             let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
             
-            infoHeaderCell.headerLabel.text = "Vission"
+            infoHeaderCell.headerLabel.text = "Vision"
             return infoHeaderCell
             
         }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating {
 
     @IBOutlet weak var churchAdminTableView: UITableView!
     
@@ -33,7 +33,15 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     var totalRecords : Int? = 0
     
 
+    lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
+    var searchController: UISearchController!
+    
+    var searchActive : Bool = false
+    
+    var filteredData: [String]!
+    
+    var filtered:[GetAllChurchAdminsResultVo] = []
     
     
     override func viewDidLoad() {
@@ -44,7 +52,31 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         churchAdminTableView.register(nibName1, forCellReuseIdentifier: "ChurchAdminDetailCell")
         
         
-        Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: appVersion.localize(), backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.setChurchuAdminInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        
+        searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        
+        searchBar.tintColor = UIColor.black
+        
+        searchBar.delegate = self
+        
+        searchBar.placeholder = "Admin"
+        
+        
+        
+        //  filteredData = sectionTittles
+        
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        navigationItem.titleView = searchBar
+        self.searchController.searchBar.delegate = self
+        
+        definesPresentationContext = true
+
 
 
         // Do any additional setup after loading the view.
@@ -60,12 +92,86 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
 
      //   churchAdminTableView.isHidden = true
         
+    }
+    override func viewWillDisappear(_ animated: Bool) {
         
+        super.viewWillDisappear(animated)
+        searchController.searchBar.resignFirstResponder()
+        
+        self.searchController.isActive = false
+        
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+        
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false
+        
+    }
+    
+    private func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+        searchBar.resignFirstResponder()
+    }
+    
+    @objc(searchBarBookmarkButtonClicked:) func searchBarBookmarkButtonClicked(_ rchBar: UISearchBar) {
+        searchActive = false
+        
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        
+        filtered = churchAdminArray.filter({ (text) -> Bool in
+            let tmp = text
+            let range = ((tmp.churchName?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil) || ((tmp.mobileNumber?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil) || ((tmp.churchAdmin?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)) != nil)
+            
+            return range
+        })
+        if(filtered.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.churchAdminTableView.reloadData()
+        
+    }
+    
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchActive = false
+        
+        self.churchAdminTableView.reloadData()
+        searchBar.resignFirstResponder()
         
         
     }
 
-    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        if searchController.searchBar.text! == "" {
+            
+            
+        } else {
+            
+            
+            
+        }
+        
+        
+    }
     
     //MARK: -  Church Details API Call
     
@@ -98,9 +204,6 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
 
                 
                 self.listResultArray = respVO.listResult!
-                
-                
-                
                 
                 let pageCout  = (respVO.totalRecords)! / 10
                 
@@ -158,8 +261,6 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
                 
                 self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
 
-                
-                
             }
                 
             else {
@@ -168,24 +269,14 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
                 
             }
             
-            
-            
-            
         }) { (failureMessage) in
             
             
             print(failureMessage)
             
         }
-        
-        
-        
     }
 
-            
-            
-            
-    
     //MARK: -  churchDetailsTableView delegate methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -197,8 +288,16 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+         if(searchActive) {
+            
+            return filtered.count
+        }
+         else {
+            
+            return churchAdminArray.count
+        }
         
-        return churchAdminArray.count
+        
         
     }
     
@@ -240,18 +339,74 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
             }
         }
         
-        
-        
-        
-        
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let listStr:GetAllChurchAdminsResultVo = churchAdminArray[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChurchAdminDetailCell", for: indexPath) as! ChurchAdminDetailCell
-      
+      if(searchActive){
+        
+        let listStr:GetAllChurchAdminsResultVo = filtered[indexPath.row]
+        
+        if let churchAdmin =  listStr.churchAdmin {
+            cell.adminNameLabel.text = "Name:" + " " + churchAdmin
+        }else{
+            cell.adminNameLabel.text = "Name:"
+        }
+        
+        if let churchName =  listStr.churchName {
+            cell.churchName.text = "ChurchName:" + " " + churchName
+        }else{
+            cell.churchName.text = "ChurchName:"
+        }
+        
+        if let mobileNumber =  listStr.mobileNumber {
+            cell.mobileNumber.text = "MobileNumber:" + " " + mobileNumber
+        }else{
+            cell.mobileNumber.text = "MobileNumber:"
+        }
+        
+        if let email = listStr.email {
+            cell.email.text = "Email:" + " " + email
+        }else{
+            cell.email.text = "Email:"
+        }
+        
+        let imgUrl = listStr.churchImage
+        
+        let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+        
+        
+        if newString != nil {
+            
+            let url = URL(string:newString!)
+            
+            
+            let dataImg = try? Data(contentsOf: url!)
+            
+            if dataImg != nil {
+                
+                cell.adminImageView.image = UIImage(data: dataImg!)
+            }
+            else {
+                
+                cell.adminImageView.image = #imageLiteral(resourceName: "j4")
+            }
+        }
+        else {
+            
+            cell.adminImageView.image = #imageLiteral(resourceName: "j4")
+        }
+        
+        return cell
+        
+      }
+      else {
+        
+        let listStr:GetAllChurchAdminsResultVo = churchAdminArray[indexPath.row]
+        
         
         if let churchAdmin =  listStr.churchAdmin {
             cell.adminNameLabel.text = "Name:" + " " + churchAdmin
@@ -306,11 +461,9 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
             cell.adminImageView.image = #imageLiteral(resourceName: "churchLogoo")
         }
         
-        
-
-      //  cell.adminNameLabel.text = churchNamesArray[indexPath.row]
-
         return cell
+        
+        }
         
     }
     

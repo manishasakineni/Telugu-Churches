@@ -250,7 +250,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         else {
             
-            appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+      //      appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
             return
         }
         
@@ -590,7 +590,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
             if indexPath.row == 0{
                 
-                signUPCell.editProfileTF.placeholder = "FirstName".localize()
+                signUPCell.editProfileTF.placeholder = "First Name".localize()
                 signUPCell.editProfileTF.text = self.firstName
                 
                 
@@ -599,7 +599,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             else if indexPath.row == 1{
                 
                 
-                signUPCell.editProfileTF.placeholder = "MiddleName".localize()
+                signUPCell.editProfileTF.placeholder = "Middle Name".localize()
                 signUPCell.editProfileTF.text = self.middleName
                 
                 
@@ -608,7 +608,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             else if indexPath.row == 2{
                 
                 
-                signUPCell.editProfileTF.placeholder = "LastName".localize()
+                signUPCell.editProfileTF.placeholder = "Last Name".localize()
                 signUPCell.editProfileTF.text = self.lastName
                 
                 
@@ -645,6 +645,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
                 let signUPCell = Bundle.main.loadNibNamed("GenderTableViewCell", owner: self, options: nil)?.first as! GenderTableViewCell
                 
+                
+//signUPCell.genderLabel.placeholder = "Gender".localize()
+
                 signUPCell.selectionStyle = .none
                 signUPCell.femaleUnCheck.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
                 signUPCell.maleUnCheckBtn.tintColor = #colorLiteral(red: 0.5568627451, green: 0.1254901961, blue: 0.1647058824, alpha: 1)
@@ -848,6 +851,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                         self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success", messege: successMsg!, clickAction: {
                             
+                            let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                            
+                            self.appDelegate.window?.rootViewController = rootController
                             
                         })
                         

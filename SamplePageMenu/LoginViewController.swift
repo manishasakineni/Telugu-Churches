@@ -41,12 +41,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     let utillites =  Utilities()
 
-    var placeHolderName = ["UserName","Password"]
+    var placeHolderName = ["User Name","Password"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mobileEmailTF.placeholder = "UserName".localize()
+        mobileEmailTF.placeholder = "User Name".localize()
         passwordTF.placeholder = "Password".localize()
         forgotBtn.setTitle("forgot Password".localize(), for: .normal)
         registerBtn.setTitle("Register".localize(), for: .normal)
@@ -76,9 +76,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         mobileEmailTF.delegate = self
         passwordTF.delegate = self
-        mobileEmailTF.maxLengthTextField = 10
+        mobileEmailTF.maxLengthTextField = 25
         mobileEmailTF.keyboardType = .default
-        passwordTF.maxLengthTextField = 15
+        passwordTF.maxLengthTextField = 25
         passwordTF.keyboardType = .emailAddress
 
         loginLabel.text = "Login".localize()
@@ -191,7 +191,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
             if email!.isEmpty{
                 
-                Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize(), messege: "Please Enter UserName".localize(), clickAction: {
+                Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize(), messege: "Please provide UserName".localize(), clickAction: {
                     
                     
                 })
@@ -214,7 +214,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             
         }else{
-            appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+         //   appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
             return
         }
 
@@ -244,7 +244,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } */
          if email!.isEmpty{
             
-            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize().localize(), messege: "Please Enter UserName".localize(), clickAction: {
+            Utilities.sharedInstance.alertWithOkButtonAction(vc: self, alertTitle: "Message".localize().localize(), messege: "Please provide UserName".localize(), clickAction: {
                 
                 
             })
@@ -389,7 +389,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         else {
             
-            appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+     //       appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
             return
         }
         

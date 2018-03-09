@@ -1465,7 +1465,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/praveendole/Desktop/Telugu Churchues/SamplePageMenu-Bridging-Header.h";
+=======
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/calibragemac02/Documents/TeluguChurchesApp/SamplePageMenu-Bridging-Header.h";
+>>>>>>> 95e67639cd11bcc897d22ebec427391c03da3c2d
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1482,7 +1486,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/praveendole/Desktop/Telugu Churchues/SamplePageMenu-Bridging-Header.h";
+=======
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/calibragemac02/Documents/TeluguChurchesApp/SamplePageMenu-Bridging-Header.h";
+>>>>>>> 95e67639cd11bcc897d22ebec427391c03da3c2d
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
