@@ -14,7 +14,11 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
 
     @IBOutlet weak var calendar: FSCalendar!
     
+    @IBOutlet weak var eventTableView: UITableView!
     var pasterUserId      : Int = 0
+    var churchID      : Int = 0
+
+    var currentMonth = 0
 
     var delegate: churchChangeSubtitleOfIndexDelegate?
 
@@ -27,12 +31,13 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     var eventTitleArray = Array<String>()
     var eventStartDateArray = Array<String>()
     var eventEndDateArray = Array<String>()
-
+    var currentMonthDataArray = Array<String>()
     
    // var febDatesWithEvent = ["2018-02-03", "2018-02-06", "2018-02-12", "2018-02-25"]
     var datesWithMultipleEvents = ["2018-01-08", "2018-01-16", "2018-01-20", "2018-01-28"]
 
     var feb = ""
+    var previousMonthString = "0"
 
     var numberEvent = ["AAA", "BBB", "CCC", "DDD"]
     var febEvent = ["Steve", "Jobs", "Pall", "Iphone"]
@@ -45,6 +50,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     var somedays : Array = [String]()
     var calendarEvents : [FSCalendar] = []
 
+         var isDateExists = false
 
     fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
     fileprivate lazy var dateFormatter1: DateFormatter = {
@@ -75,10 +81,29 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         calendar.dataSource = self
         calendar.delegate = self
         
+        eventTableView.dataSource = self
+        eventTableView.delegate = self
+        
+
+        let nibName  = UINib(nibName: "ListOfMonthEventCell" , bundle: nil)
+        eventTableView.register(nibName, forCellReuseIdentifier: "ListOfMonthEventCell")
+        
+       
+        eventTableView.register(UINib.init(nibName: "AllEventHeaderCell", bundle: nil),
+                                    forCellReuseIdentifier: "AllEventHeaderCell")
+        
+        let monthFormatter = DateFormatter()
+        monthFormatter.dateFormat = "M"
+        monthFormatter.timeZone = NSTimeZone.local
+        let monthString = monthFormatter.string(from: Date())
+
+       self.getEventByUserIdMonthYearAPIService(monthString)
+        
         color()
         
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+        
+        
+         }
     
  
     override func viewWillAppear(_ animated: Bool) {
@@ -86,8 +111,8 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         
         Utilities.setEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: appVersion.localize(), backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
+       
         
-        getEventByUserIdMonthYearAPIService()
         
     }
 
@@ -96,15 +121,14 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         
       //  calendar.scope = .week
         calendar.scope = .month
-        calendar.appearance.weekdayTextColor = UIColor.red
-        calendar.appearance.headerTitleColor = UIColor.red
-       // calendar.appearance.eventColor = UIColor.green
-        calendar.appearance.selectionColor = UIColor.lightGray
+        calendar.appearance.weekdayTextColor = UIColor.darkGray
+        calendar.appearance.headerTitleColor = UIColor.black
+        calendar.appearance.eventDefaultColor = UIColor.green
+        calendar.appearance.selectionColor = UIColor(red: 113.0/255.0, green: 173.0/255.0, blue: 208.0/255.0, alpha: 1.0)
         calendar.appearance.todayColor = UIColor.orange
         calendar.appearance.todaySelectionColor = UIColor.black
-
         calendar.allowsMultipleSelection = true
-        calendar.firstWeekday = 2
+       // calendar.firstWeekday = 2
         
        // calendar.appearance.borderRadius = 0
 
@@ -135,33 +159,51 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
         
+        
+     
         let dateString = self.dateFormatter2.string(from: date)
+        
+     
         
         
         if self.eventDateArray.contains(dateString) {
+     
             
             var event = ""
             
             if let i = self.eventDateArray.index(of: dateString) {
-                                                        print("Jason is at index \(i)")
-                                                        let prevEventCount = self.eventsCountsArray[i]
-                                                         event = "\(prevEventCount)"
+          
+         
+             
+                print("Jason is at index \(i)")
+               let prevEventCount = self.eventsCountsArray[i]
+                event = "\(prevEventCount)"
                 
-                                                    }
-            
-            
-//            for eventcount in eventsCountsArray{
-//            
-//                event = "\(eventcount)"
-//                print(event)
-//                
-//            }
+                
+            }
+          
             return event
         }
+        
         return nil
     }
 
-    
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        
+        let currentMonth = calendar.month(of: calendar.currentPage)
+//        if currentMonth != 4 {
+//            eventTableView.isHidden = false
+//
+//        }else{
+//            eventTableView.isHidden = true
+//
+//        }
+        if(previousMonthString != "\(currentMonth)"){
+            
+            self.getEventByUserIdMonthYearAPIService("\(currentMonth)")
+        }
+                print("this is the current Month \(currentMonth)")
+    }
 //    func calendar(_ calendar: FSCalendar!, imageFor date: Date!) -> UIImage! {
 //        
 //        let imageeee = UIImage(named: "5")
@@ -331,14 +373,17 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     }
     
     
-    func getEventByUserIdMonthYearAPIService(){
+    func getEventByUserIdMonthYearAPIService(_ month : String){
         
         if(appDelegate.checkInternetConnectivity()){
+            GetEventInfoByChurchIdMonthYearAPIService()
+            
+            
             
            // var userid      : Int = 7
-            var month      : Int = 03
+          
             var year       : Int = 2018
-            
+            previousMonthString = "\(month)"
             let strUrl = GETEVENTBYUSERIDMONTHYEAR + "" + "\(pasterUserId)" + "/" + "\(month)" + "/" + "\(year)"
             
             print(strUrl)
@@ -359,23 +404,31 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                             
                             let successMsg = respVO.endUserMessage
                             
-
-                        for eventsList in respVO.listResult!{
+                            if((respVO.listResult?.count)! > 0){
+                                for eventsList in respVO.listResult!{
+                                    
+                                    let dateString = self.returnDateWithoutTime(selectedDateString: eventsList.eventDate!)
+                                    self.eventDateArray.append(dateString)
+                                    let eventsCountsString = eventsList.eventsCount
+                                    self.eventsCountsArray.append(eventsCountsString!)
+                                    self.currentMonthDataArray.append(dateString)
+                                }
+                            }else{
+                                self.currentMonthDataArray.removeAll()
+                            }
                             
-                            let dateString = self.returnDateWithoutTime(selectedDateString: eventsList.eventDate!)
-                            self.eventDateArray.append(dateString)
-                            let eventsCountsString = eventsList.eventsCount
-                            self.eventsCountsArray.append(eventsCountsString!)
-                        }
+
+                    
 
                         print("self.eventDateArray,Count", self.eventDateArray.count)
                         print("self.eventsCountsArray", self.eventsCountsArray)
                         
                      
                         self.calendar.reloadData()
+                            self.eventTableView.reloadData()
                         
                             
-                            self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+                        //    self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
 
                             
                         }
@@ -509,4 +562,105 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
 
 
 }
+extension EventViewController : UITableViewDelegate, UITableViewDataSource {
+    
+    
+    func GetEventInfoByChurchIdMonthYearAPIService(){
+        
+        if(appDelegate.checkInternetConnectivity()){
+            
+            //  var userid      : Int = 7
+             var month      : Int = 03
+             var year       : Int = 2018
+            
+            let strUrl1 = GETEVENTINFOBYCHURCHIDMONTHYEAR + "" + "\(churchID)" + "/" + "\(month)" + "/" + "\(year)"
+            
+            print(strUrl1)
+            serviceController.getRequest(strURL:strUrl1, success:{(result) in
+                DispatchQueue.main.async()
+                    {
+                        
+                        //  let respVO:LoginVo = Mapper().map(JSONObject: result)!
+                        
+                        print("result:\(result)")
+                        
+                        
+                        let respVO:GetEventByDateAndUserIdVo = Mapper().map(JSONObject: result)!
+                        
+                        
+                        
+                        
+                }
+            }, failure:  {(error) in
+                
+                print(error)
+                
+                if(error == "unAuthorized"){
+                    
+                    
+                    
+                    
+                }
+                
+                
+                
+            })
+            
+        }
+        else {
+            
+            appDelegate.window?.makeToast(kNetworkStatusMessage, duration:kToastDuration, position:CSToastPositionCenter)
+            return
+        }
+        
+        eventTableView.reloadData()
 
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 1
+        
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        
+        
+            return currentMonthDataArray.count
+        
+    }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return  UITableViewAutomaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return  UITableViewAutomaticDimension
+        
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let allEventHeaderCell = tableView.dequeueReusableCell(withIdentifier: "AllEventHeaderCell") as! AllEventHeaderCell
+        
+        
+        
+        return allEventHeaderCell
+        
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 40.0
+        
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        
+            let listOfMonthEventCell = tableView.dequeueReusableCell(withIdentifier: "ListOfMonthEventCell", for: indexPath) as! ListOfMonthEventCell
+        
+            return listOfMonthEventCell
+        
+    }
+
+}

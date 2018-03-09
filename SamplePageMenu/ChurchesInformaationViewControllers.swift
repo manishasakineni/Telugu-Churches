@@ -88,7 +88,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         eventInfoVC?.title = "Event"
         eventInfoVC?.delegate  = self
         eventInfoVC?.pasterUserId = pasterUserId
-
+        eventInfoVC?.churchID = churchID
         detAndBillsVC = DetAndBillsViewController(nibName: "DetAndBillsViewController",
                                                   bundle: nil)
         detAndBillsVC?.title = "Posts"
