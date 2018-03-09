@@ -375,7 +375,7 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                         self.calendar.reloadData()
                         
                             
-                            self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+                       //     self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
 
                             
                         }

@@ -205,6 +205,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             return false
         }
         activeTextField = textField
+        
         if activeTextField.tag == 0 || activeTextField.tag == 1 || activeTextField.tag == 2{
             
             
@@ -218,7 +219,13 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
                 
                 let allowedCharacters = CharacterSet.letters
                 let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
-                return newLength <= 50 && unwantedStr.characters.count == 0
+                
+                let space = CharacterSet.init(charactersIn: " ")
+                
+                let spacestr = string.trimmingCharacters(in: space)
+                
+                return newLength <= 50 && unwantedStr.characters.count == 0 ||  spacestr.characters.count == 0
+
             }
             
         }else if activeTextField.tag == 5 {
@@ -235,8 +242,27 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
                 let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
                 return newLength <= 50 && unwantedStr.characters.count == 0
             }
+            
+            
 
         }
+        
+       
+        
+        if textField.tag == 5{
+            if string.characters.count > 0 {
+                let allowedCharacters = CharacterSet.decimalDigits
+                
+                let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+                
+                
+                
+                return unwantedStr.characters.count == 0
+            }
+            
+            return true
+        }
+
         return true
         
         
@@ -363,7 +389,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
             //   signUPCell.registrationTextfield.keyboardType = .namePhonePad
             // signUPCell.registrationTextfield?.text = "app.UserName".localize()
-            signUPCell.registrationTextfield.placeholder = "FirstName".localize()
+            signUPCell.registrationTextfield.placeholder = "First Name".localize()
             signUPCell.registrationTextfield.text = firstName
             signUPCell.eyeButtonOutlet.isHidden = true
             
@@ -373,7 +399,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
             //   signUPCell.registrationTextfield.keyboardType = .namePhonePad
             // signUPCell.registrationTextfield?.text = "app.UserName".localize()
-            signUPCell.registrationTextfield.placeholder = "MiddleName".localize()
+            signUPCell.registrationTextfield.placeholder = "Middle Name".localize()
             signUPCell.registrationTextfield.text = middleName
             signUPCell.eyeButtonOutlet.isHidden = true
 
@@ -384,7 +410,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
             //   signUPCell.registrationTextfield.keyboardType = .namePhonePad
             // signUPCell.registrationTextfield?.text = "app.UserName".localize()
-            signUPCell.registrationTextfield.placeholder = "LastName".localize()
+            signUPCell.registrationTextfield.placeholder = "Last Name".localize()
             signUPCell.registrationTextfield.text = lastName
             signUPCell.eyeButtonOutlet.isHidden = true
 
@@ -396,7 +422,7 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
          //   signUPCell.registrationTextfield.keyboardType = .namePhonePad
            // signUPCell.registrationTextfield?.text = "app.UserName".localize()
-            signUPCell.registrationTextfield.placeholder = "UserName".localize()
+            signUPCell.registrationTextfield.placeholder = "User Name".localize()
             signUPCell.registrationTextfield.text = userName
             signUPCell.eyeButtonOutlet.isHidden = true
 
@@ -747,10 +773,13 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         
-        
+
+
         UserDefaults.standard.set("1", forKey: "1")
         UserDefaults.standard.synchronize()
         
+        loginViewController.showNav = true
+
         self.navigationController?.pushViewController(loginViewController, animated: true)
         
         

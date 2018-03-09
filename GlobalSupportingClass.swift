@@ -68,7 +68,7 @@ class GlobalSupportingClass {
         return "Incorrect Confirm Password".localize()
     }
     class func passwordMissMatchErrorMessage() -> String {
-        return "Password Missmatch".localize()
+        return "Password Mismatch".localize()
     }
     
     

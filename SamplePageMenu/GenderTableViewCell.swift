@@ -11,6 +11,7 @@ import UIKit
 class GenderTableViewCell: UITableViewCell {
     
     
+    @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var maleUnCheckBtn: UIImageView!
     
     @IBOutlet weak var femaleUnCheck: UIImageView!

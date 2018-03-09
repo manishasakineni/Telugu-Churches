@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A405" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,13 +26,13 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uND-WF-umg">
                         <rect key="frame" x="5" y="5" width="310" height="129.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steve Jobs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ry-ll-UYZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ry-ll-UYZ">
                                 <rect key="frame" x="117.5" y="104" width="75.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75.5" id="eRW-RW-HLQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8f-hX-ixQ">
@@ -53,22 +53,25 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyV-5j-sL8">
-                                <rect key="frame" x="201" y="88" width="31" height="24"/>
+                                <rect key="frame" x="116" y="104" width="78" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="LIu-pd-CxM"/>
-                                    <constraint firstAttribute="width" constant="31" id="nZy-ZJ-4Pk"/>
+                                    <constraint firstAttribute="height" constant="24" id="RbH-E4-zE0"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="camera-1"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <state key="normal" title="Change Photo">
+                                    <color key="titleColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Q8f-hX-ixQ" firstAttribute="top" secondItem="xyV-5j-sL8" secondAttribute="bottom" constant="-2" id="0qJ-Uz-BX6"/>
                             <constraint firstItem="8Ry-ll-UYZ" firstAttribute="centerX" secondItem="zLH-r3-Cvq" secondAttribute="centerX" id="R0v-P1-0tE"/>
+                            <constraint firstItem="xyV-5j-sL8" firstAttribute="centerX" secondItem="zLH-r3-Cvq" secondAttribute="centerX" id="TY7-0T-Qn2"/>
                             <constraint firstItem="Q8f-hX-ixQ" firstAttribute="top" secondItem="8Ry-ll-UYZ" secondAttribute="bottom" constant="1" id="YiO-py-TCI"/>
                             <constraint firstAttribute="bottom" secondItem="Q8f-hX-ixQ" secondAttribute="bottom" constant="0.5" id="aoM-ZC-nwy"/>
-                            <constraint firstItem="xyV-5j-sL8" firstAttribute="leading" secondItem="8Ry-ll-UYZ" secondAttribute="trailing" constant="8" id="b4d-3y-vJx"/>
-                            <constraint firstItem="Q8f-hX-ixQ" firstAttribute="top" secondItem="xyV-5j-sL8" secondAttribute="bottom" constant="14" id="bL2-xC-wNk"/>
                             <constraint firstItem="zLH-r3-Cvq" firstAttribute="centerX" secondItem="uND-WF-umg" secondAttribute="centerX" id="j5R-SG-ojR"/>
+                            <constraint firstItem="xyV-5j-sL8" firstAttribute="top" secondItem="zLH-r3-Cvq" secondAttribute="bottom" constant="5" id="lxZ-7f-i7A"/>
                             <constraint firstItem="zLH-r3-Cvq" firstAttribute="centerY" secondItem="uND-WF-umg" secondAttribute="centerY" id="mNF-Eg-LfX"/>
                             <constraint firstItem="8Ry-ll-UYZ" firstAttribute="top" secondItem="zLH-r3-Cvq" secondAttribute="bottom" constant="5" id="shs-bi-mkD"/>
                             <constraint firstItem="Q8f-hX-ixQ" firstAttribute="centerX" secondItem="8Ry-ll-UYZ" secondAttribute="centerX" id="ufl-pG-C5z"/>
@@ -93,7 +96,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="camera-1" width="512" height="512"/>
         <image name="jobs" width="225" height="225"/>
     </resources>
 </document>
