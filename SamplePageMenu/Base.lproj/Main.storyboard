@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A405" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
-=======
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
->>>>>>> 95e67639cd11bcc897d22ebec427391c03da3c2d
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -300,11 +296,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q1B-tN-SMs">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="550"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HfL-NQ-1ay">
-                                <rect key="frame" x="0.0" y="552" width="375" height="115"/>
+                                <rect key="frame" x="0.0" y="592" width="375" height="75"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btN-o0-2vA">
                                         <rect key="frame" x="10" y="10" width="355" height="30"/>
@@ -360,7 +356,7 @@
                                     <constraint firstItem="btN-o0-2vA" firstAttribute="top" secondItem="HfL-NQ-1ay" secondAttribute="top" constant="10" id="WmC-N4-F72"/>
                                     <constraint firstItem="0bs-wx-tl0" firstAttribute="top" secondItem="btN-o0-2vA" secondAttribute="bottom" constant="7" id="cJq-Kf-pap"/>
                                     <constraint firstItem="0Bj-V1-tqp" firstAttribute="top" secondItem="rSx-dJ-Wtc" secondAttribute="bottom" constant="-4" id="ciE-iT-cvh"/>
-                                    <constraint firstAttribute="height" constant="115" id="fbC-w3-MlR"/>
+                                    <constraint firstAttribute="height" constant="75" id="fbC-w3-MlR"/>
                                     <constraint firstItem="0Bj-V1-tqp" firstAttribute="centerX" secondItem="rSx-dJ-Wtc" secondAttribute="centerX" id="jQI-BP-dLZ"/>
                                     <constraint firstItem="btN-o0-2vA" firstAttribute="leading" secondItem="HfL-NQ-1ay" secondAttribute="leading" constant="10" id="ptF-eK-nMV"/>
                                 </constraints>
@@ -370,7 +366,7 @@
                         <constraints>
                             <constraint firstItem="Q1B-tN-SMs" firstAttribute="top" secondItem="Yj2-4O-J9X" secondAttribute="top" id="LU4-9j-0MZ"/>
                             <constraint firstItem="HfL-NQ-1ay" firstAttribute="leading" secondItem="Yj2-4O-J9X" secondAttribute="leading" id="RSg-ph-rri"/>
-                            <constraint firstItem="HfL-NQ-1ay" firstAttribute="top" secondItem="Q1B-tN-SMs" secondAttribute="bottom" constant="2" id="Xcd-gj-nvB"/>
+                            <constraint firstItem="HfL-NQ-1ay" firstAttribute="top" secondItem="Q1B-tN-SMs" secondAttribute="bottom" id="Xcd-gj-nvB"/>
                             <constraint firstItem="e0t-Tb-II4" firstAttribute="top" secondItem="HfL-NQ-1ay" secondAttribute="bottom" id="ch2-zc-M0z"/>
                             <constraint firstAttribute="trailing" secondItem="Q1B-tN-SMs" secondAttribute="trailing" id="r7V-aU-B72"/>
                             <constraint firstItem="Q1B-tN-SMs" firstAttribute="leading" secondItem="Yj2-4O-J9X" secondAttribute="leading" id="rI7-4W-K9n"/>
@@ -577,9 +573,9 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVB-Zz-rX4" customClass="FSCalendar">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="280" id="huG-oc-ScK"/>
+                                    <constraint firstAttribute="height" constant="280" id="cNa-gY-4nO"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
@@ -590,30 +586,34 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gDH-ZS-Lry">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qGG-A2-7cu">
                                 <rect key="frame" x="0.0" y="280" width="375" height="387"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vu1-fz-ujK" id="3aw-5M-stm"/>
+                                    <outlet property="delegate" destination="vu1-fz-ujK" id="y7k-Ms-lt3"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vIm-ut-51p" firstAttribute="top" secondItem="gDH-ZS-Lry" secondAttribute="bottom" id="0sI-gH-21t"/>
-                            <constraint firstAttribute="trailing" secondItem="gDH-ZS-Lry" secondAttribute="trailing" id="8rE-Sb-i9a"/>
-                            <constraint firstItem="hVB-Zz-rX4" firstAttribute="top" secondItem="ldm-JT-Srv" secondAttribute="top" id="Azd-w8-rj4"/>
-                            <constraint firstItem="hVB-Zz-rX4" firstAttribute="leading" secondItem="ldm-JT-Srv" secondAttribute="leading" id="L3B-Hm-wTP"/>
-                            <constraint firstItem="gDH-ZS-Lry" firstAttribute="leading" secondItem="ldm-JT-Srv" secondAttribute="leading" id="Ugx-xM-qNl"/>
-                            <constraint firstAttribute="trailing" secondItem="hVB-Zz-rX4" secondAttribute="trailing" id="hmE-O2-bxg"/>
-                            <constraint firstItem="gDH-ZS-Lry" firstAttribute="top" secondItem="hVB-Zz-rX4" secondAttribute="bottom" id="qKb-eW-epg"/>
+                            <constraint firstItem="hVB-Zz-rX4" firstAttribute="top" secondItem="ldm-JT-Srv" secondAttribute="top" id="5Gs-8o-uRU"/>
+                            <constraint firstAttribute="trailing" secondItem="hVB-Zz-rX4" secondAttribute="trailing" id="5LE-fK-8i2"/>
+                            <constraint firstAttribute="trailing" secondItem="qGG-A2-7cu" secondAttribute="trailing" id="BHG-3U-tt6"/>
+                            <constraint firstItem="hVB-Zz-rX4" firstAttribute="leading" secondItem="ldm-JT-Srv" secondAttribute="leading" id="CUQ-Cg-uxx"/>
+                            <constraint firstItem="vIm-ut-51p" firstAttribute="top" secondItem="qGG-A2-7cu" secondAttribute="bottom" id="Drx-pg-DOW"/>
+                            <constraint firstItem="qGG-A2-7cu" firstAttribute="top" secondItem="hVB-Zz-rX4" secondAttribute="bottom" id="Msw-JF-LWs"/>
+                            <constraint firstItem="qGG-A2-7cu" firstAttribute="leading" secondItem="ldm-JT-Srv" secondAttribute="leading" id="jVB-mW-yk8"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="calendar" destination="hVB-Zz-rX4" id="h5V-rK-axh"/>
-                        <outlet property="eventTableView" destination="gDH-ZS-Lry" id="o9c-EN-YJO"/>
+                        <outlet property="eventTableView" destination="qGG-A2-7cu" id="aPR-0R-plS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8b-lR-gyZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3192.8000000000002" y="1008.8455772113944"/>
+            <point key="canvasLocation" x="3229.5999999999999" y="1006.1469265367317"/>
         </scene>
         <!--Date Pop Up View Controller-->
         <scene sceneID="hSx-l7-Bav">
@@ -865,9 +865,6 @@
                                         <state key="normal" title="Save">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Save"/>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="saveBtnAction:" destination="HRu-xn-enm" eventType="touchUpInside" id="mvK-V9-WMm"/>
                                         </connections>
