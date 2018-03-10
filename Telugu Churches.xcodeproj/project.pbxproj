@@ -8,8 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		2D4CC1E3CECC568019D58A4D /* Pods_Telugu_Churches.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE32E04C483467733EE22566 /* Pods_Telugu_Churches.framework */; };
-		35630CD0205117AC002349C9 /* BannerImageScrollResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35630CCE205117AC002349C9 /* BannerImageScrollResultVo.swift */; };
-		35630CD1205117AC002349C9 /* BannerImageScrollVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35630CCF205117AC002349C9 /* BannerImageScrollVo.swift */; };
+		3D2E341C2053A0BF00CF8F16 /* AutoScrollImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E34162053A0BF00CF8F16 /* AutoScrollImagesCell.swift */; };
+		3D2E341D2053A0BF00CF8F16 /* AutoScrollImagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2E34172053A0BF00CF8F16 /* AutoScrollImagesCell.xib */; };
+		3D2E341E2053A0BF00CF8F16 /* AutoScrollCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E34182053A0BF00CF8F16 /* AutoScrollCollectionViewCell.swift */; };
+		3D2E341F2053A0BF00CF8F16 /* AutoScrollCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2E34192053A0BF00CF8F16 /* AutoScrollCollectionViewCell.xib */; };
+		3D2E34202053A0BF00CF8F16 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E341A2053A0BF00CF8F16 /* BannerCollectionViewCell.swift */; };
+		3D2E34212053A0BF00CF8F16 /* BannerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2E341B2053A0BF00CF8F16 /* BannerCollectionViewCell.xib */; };
+		3D2E34252053A35800CF8F16 /* BannerImageScrollResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E34232053A35800CF8F16 /* BannerImageScrollResultVo.swift */; };
+		3D2E34262053A35800CF8F16 /* BannerImageScrollVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E34242053A35800CF8F16 /* BannerImageScrollVo.swift */; };
+		3D2E34292053D9A800CF8F16 /* UpcomingEventsResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E34272053D9A800CF8F16 /* UpcomingEventsResultVO.swift */; };
+		3D2E342A2053D9A800CF8F16 /* UpcomingEventsInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E34282053D9A800CF8F16 /* UpcomingEventsInfoVO.swift */; };
 		3D551C5F2011F462005DB3B2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D551C5E2011F462005DB3B2 /* Constants.swift */; };
 		3D551C612011F617005DB3B2 /* VideosVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D551C602011F617005DB3B2 /* VideosVO.swift */; };
 		3D551C632011F6BE005DB3B2 /* ServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D551C622011F6BE005DB3B2 /* ServiceController.swift */; };
@@ -194,8 +202,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		35630CCE205117AC002349C9 /* BannerImageScrollResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerImageScrollResultVo.swift; sourceTree = "<group>"; };
-		35630CCF205117AC002349C9 /* BannerImageScrollVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerImageScrollVo.swift; sourceTree = "<group>"; };
+		3D2E34162053A0BF00CF8F16 /* AutoScrollImagesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoScrollImagesCell.swift; sourceTree = "<group>"; };
+		3D2E34172053A0BF00CF8F16 /* AutoScrollImagesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutoScrollImagesCell.xib; sourceTree = "<group>"; };
+		3D2E34182053A0BF00CF8F16 /* AutoScrollCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoScrollCollectionViewCell.swift; sourceTree = "<group>"; };
+		3D2E34192053A0BF00CF8F16 /* AutoScrollCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutoScrollCollectionViewCell.xib; sourceTree = "<group>"; };
+		3D2E341A2053A0BF00CF8F16 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		3D2E341B2053A0BF00CF8F16 /* BannerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerCollectionViewCell.xib; sourceTree = "<group>"; };
+		3D2E34232053A35800CF8F16 /* BannerImageScrollResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerImageScrollResultVo.swift; sourceTree = "<group>"; };
+		3D2E34242053A35800CF8F16 /* BannerImageScrollVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerImageScrollVo.swift; sourceTree = "<group>"; };
+		3D2E34272053D9A800CF8F16 /* UpcomingEventsResultVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingEventsResultVO.swift; sourceTree = "<group>"; };
+		3D2E34282053D9A800CF8F16 /* UpcomingEventsInfoVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingEventsInfoVO.swift; sourceTree = "<group>"; };
 		3D551C5E2011F462005DB3B2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3D551C602011F617005DB3B2 /* VideosVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosVO.swift; sourceTree = "<group>"; };
 		3D551C622011F6BE005DB3B2 /* ServiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceController.swift; sourceTree = "<group>"; };
@@ -406,15 +422,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		35630CCD20511779002349C9 /* BannerImgVo */ = {
-			isa = PBXGroup;
-			children = (
-				35630CCE205117AC002349C9 /* BannerImageScrollResultVo.swift */,
-				35630CCF205117AC002349C9 /* BannerImageScrollVo.swift */,
-			);
-			name = BannerImgVo;
-			sourceTree = "<group>";
-		};
 		3D65D4A92004D9A200CAB226 /* CCKFNavDrawer */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,7 +620,10 @@
 		9A623B8120219B8700A674F2 /* MapperVO */ = {
 			isa = PBXGroup;
 			children = (
-				35630CCD20511779002349C9 /* BannerImgVo */,
+				3D2E34232053A35800CF8F16 /* BannerImageScrollResultVo.swift */,
+				3D2E34242053A35800CF8F16 /* BannerImageScrollVo.swift */,
+				3D2E34282053D9A800CF8F16 /* UpcomingEventsInfoVO.swift */,
+				3D2E34272053D9A800CF8F16 /* UpcomingEventsResultVO.swift */,
 				CB356E0E204E793C0002CFBB /* GetUpComingEventInfo */,
 				CB6111442040240D0057A030 /* GetEventByDateAndUserId */,
 				CB03C8DD203EFF15000B96A4 /* GetEventByUserIdMonthYear */,
@@ -793,6 +803,12 @@
 				CB345E17202339B6006CC378 /* homeCollectionViewCell.xib */,
 				9A5D263C1FFF8A5D00316988 /* ScrollImagesCell.swift */,
 				9A5D263D1FFF8A5D00316988 /* ScrollImagesCell.xib */,
+				3D2E34162053A0BF00CF8F16 /* AutoScrollImagesCell.swift */,
+				3D2E34172053A0BF00CF8F16 /* AutoScrollImagesCell.xib */,
+				3D2E34182053A0BF00CF8F16 /* AutoScrollCollectionViewCell.swift */,
+				3D2E34192053A0BF00CF8F16 /* AutoScrollCollectionViewCell.xib */,
+				3D2E341A2053A0BF00CF8F16 /* BannerCollectionViewCell.swift */,
+				3D2E341B2053A0BF00CF8F16 /* BannerCollectionViewCell.xib */,
 			);
 			name = "HomeTableView&CollectionViewCell";
 			sourceTree = "<group>";
@@ -1069,10 +1085,12 @@
 				3D65D4A82004CE4A00CAB226 /* VideoTableViewCell.xib in Resources */,
 				CB08BC5E203E87E000E232F2 /* HeadImgTableViewCell.xib in Resources */,
 				9A5D261F1FFF89EA00316988 /* TransactionCell.xib in Resources */,
+				3D2E341F2053A0BF00CF8F16 /* AutoScrollCollectionViewCell.xib in Resources */,
 				9A5D261B1FFF89D900316988 /* MearchantViewController.xib in Resources */,
 				CB259FD0203C63C00052C384 /* EventHeaderCell.xib in Resources */,
 				AF1956EF2004999F007AC82A /* menuNameTableViewCell.xib in Resources */,
 				CB255D6C204FBAF90080AFAD /* UpComingEventCell.xib in Resources */,
+				3D2E34212053A0BF00CF8F16 /* BannerCollectionViewCell.xib in Resources */,
 				CB03C8CF203E8D15000B96A4 /* InformationTableViewCell.xib in Resources */,
 				9A5D26271FFF8A2000316988 /* AddMoneyToWalletCell.xib in Resources */,
 				CBC1FB852052DBBE000063D4 /* ListOfMonthEventCell.xib in Resources */,
@@ -1101,6 +1119,7 @@
 				9A5D25F61FFF76A300316988 /* Main.storyboard in Resources */,
 				CB0256BC202442EF0017E240 /* SettingTableViewCell.xib in Resources */,
 				9AF5649E2020972900AEA0EF /* ForgotPasswordCell.xib in Resources */,
+				3D2E341D2053A0BF00CF8F16 /* AutoScrollImagesCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1175,6 +1194,7 @@
 			files = (
 				9A5D25F31FFF76A300316988 /* LoginViewController.swift in Sources */,
 				9AA3AB6D2011D7420065D4BD /* ImmutableMappable.swift in Sources */,
+				3D2E34292053D9A800CF8F16 /* UpcomingEventsResultVO.swift in Sources */,
 				CB0256BE202463030017E240 /* LoginResultVo.swift in Sources */,
 				CB356E12204E79CA0002CFBB /* GetUpComingEventInfoResultVo.swift in Sources */,
 				CB0256B2202430750017E240 /* SettingViewController.swift in Sources */,
@@ -1185,6 +1205,7 @@
 				3D72DBF9203B058000B913F7 /* ChurchDetailsTableViewCell.swift in Sources */,
 				CB9BC7FD2037122400625179 /* EventViewController.swift in Sources */,
 				AF1956EA200492F4007AC82A /* menuTableViewCell.swift in Sources */,
+				3D2E34202053A0BF00CF8F16 /* BannerCollectionViewCell.swift in Sources */,
 				9AA3AB742011D7420065D4BD /* HexColorTransform.swift in Sources */,
 				9A623B8A2021A5B700A674F2 /* UIView+Toast.m in Sources */,
 				9AA3AB812011D7420065D4BD /* DictionaryTransform.swift in Sources */,
@@ -1201,6 +1222,7 @@
 				CB356E0D204E64AB0002CFBB /* UpConingEventInfoViewController.swift in Sources */,
 				3D551C632011F6BE005DB3B2 /* ServiceController.swift in Sources */,
 				CB611148204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift in Sources */,
+				3D2E342A2053D9A800CF8F16 /* UpcomingEventsInfoVO.swift in Sources */,
 				CB345E1A202339B6006CC378 /* homeCollectionViewCell.swift in Sources */,
 				3D72DBF2203AE60A00B913F7 /* ChurchDetailsListResultVO.swift in Sources */,
 				AF08F1AE203D581100498256 /* AboutInfoTableViewCell.swift in Sources */,
@@ -1214,13 +1236,12 @@
 				9AA3AB7E2011D7420065D4BD /* EnumTransform.swift in Sources */,
 				CB03C8DF203EFF54000B96A4 /* GetEventByUserIdMonthYearVo.swift in Sources */,
 				9A5D262A1FFF8A2F00316988 /* PriceSortCell.swift in Sources */,
-				35630CD1205117AC002349C9 /* BannerImageScrollVo.swift in Sources */,
 				9AA3AB782011D7420065D4BD /* NSDecimalNumberTransform.swift in Sources */,
-				35630CD0205117AC002349C9 /* BannerImageScrollResultVo.swift in Sources */,
 				CB611146204024470057A030 /* GetEventByDateAndUserIdVo.swift in Sources */,
 				AF102859203C28700012411A /* InfoTableViewCell.swift in Sources */,
 				CB150A5F2029788700626CA1 /* PSWMessageTypeResult.swift in Sources */,
 				CB08BC5D203E87E000E232F2 /* HeadImgTableViewCell.swift in Sources */,
+				3D2E341E2053A0BF00CF8F16 /* AutoScrollCollectionViewCell.swift in Sources */,
 				CB9BC8022037126900625179 /* DIYExampleViewController.swift in Sources */,
 				3D72DBEE203ADDA000B913F7 /* ChurchDetailsViewController.swift in Sources */,
 				9A058AFB2021F395005A611C /* LoginVo.swift in Sources */,
@@ -1249,6 +1270,7 @@
 				9A623B8E2021A75000A674F2 /* MBProgressHUD.m in Sources */,
 				3DDD890D2018567300918711 /* SignUpViewController.swift in Sources */,
 				CB834733202825980034AD4E /* EditProfileTableViewCell.swift in Sources */,
+				3D2E34262053A35800CF8F16 /* BannerImageScrollVo.swift in Sources */,
 				AF10601D204EAA8100711938 /* GenderTableViewCell.swift in Sources */,
 				9AA3AB802011D7420065D4BD /* TransformType.swift in Sources */,
 				CBC1FB842052DBBE000063D4 /* ListOfMonthEventCell.swift in Sources */,
@@ -1265,6 +1287,7 @@
 				9AA3AB6B2011D7420065D4BD /* TransformOperators.swift in Sources */,
 				9AEAE826201F4FC800DB9D8E /* BaseViewController.swift in Sources */,
 				9A5D263E1FFF8A5D00316988 /* ScrollImagesCell.swift in Sources */,
+				3D2E34252053A35800CF8F16 /* BannerImageScrollResultVo.swift in Sources */,
 				CBE68D37202EF61200B994D4 /* UserDetailsVO.swift in Sources */,
 				CB3226D5202C96440050D06B /* GetProfileInfoVO.swift in Sources */,
 				9AA3AB7B2011D7420065D4BD /* TransformOf.swift in Sources */,
@@ -1290,6 +1313,7 @@
 				CB83474020287EA20034AD4E /* ChangePasswordVo.swift in Sources */,
 				CB21CE65203DA62700B3294B /* GetChurchByIDVo.swift in Sources */,
 				9AEAE822201F1D0100DB9D8E /* Utilities.swift in Sources */,
+				3D2E341C2053A0BF00CF8F16 /* AutoScrollImagesCell.swift in Sources */,
 				CB9BC8032037126900625179 /* DatePopUpViewController.swift in Sources */,
 				CB255D6B204FBAF90080AFAD /* UpComingEventCell.swift in Sources */,
 				AF1956E520048BE3007AC82A /* SideMenuViewController.swift in Sources */,
@@ -1433,7 +1457,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/praveendole/Downloads/Chruches/SamplePageMenu-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/owner/Desktop/Telugu Churches/SamplePageMenu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1450,7 +1474,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/praveendole/Downloads/Chruches/SamplePageMenu-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/owner/Desktop/Telugu Churches/SamplePageMenu-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
