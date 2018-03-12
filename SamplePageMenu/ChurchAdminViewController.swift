@@ -89,6 +89,10 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
 
         churchAdminArray.removeAll()
         getChurchAdminDetailsAPICall()
+        
+        let backgroundImage = UIImage(named: "Church-logo")
+        let imageView = UIImageView(image: backgroundImage)
+        self.churchAdminTableView.backgroundView = imageView
 
      //   churchAdminTableView.isHidden = true
         
@@ -325,6 +329,8 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        
         if indexPath.row == churchAdminArray.count - 1 {
             
             if(self.totalPages! > PageIndex){
@@ -347,6 +353,12 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChurchAdminDetailCell", for: indexPath) as! ChurchAdminDetailCell
       if(searchActive){
+        
+        cell.backgroundColor = UIColor.clear
+        
+        cell.layer.borderColor = UIColor.red.cgColor
+        cell.layer.borderWidth = 2
+        cell.layer.cornerRadius = 5
         
         let listStr:GetAllChurchAdminsResultVo = filtered[indexPath.row]
         
