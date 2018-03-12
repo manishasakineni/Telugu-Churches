@@ -11,6 +11,13 @@ import UIKit
 class ListOfMonthEventCell: UITableViewCell {
 
     @IBOutlet weak var backGroundView: UIView!
+    @IBOutlet weak var churchName: UILabel!
+    
+    @IBOutlet weak var eventTitle: UILabel!
+    
+    @IBOutlet weak var contactNumber: UILabel!
+    
+    @IBOutlet weak var eventStartEndDate: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

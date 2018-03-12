@@ -181,6 +181,8 @@
 		CB4B20FD2047D2F000402E59 /* CategorieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB4B20F92047D2F000402E59 /* CategorieCollectionViewCell.xib */; };
 		CB4B2100204834CD00402E59 /* InfoHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4B20FE204834CD00402E59 /* InfoHeaderCell.swift */; };
 		CB4B2101204834CD00402E59 /* InfoHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB4B20FF204834CD00402E59 /* InfoHeaderCell.xib */; };
+		CB514E1920563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB514E1720563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift */; };
+		CB514E1A20563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB514E1820563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift */; };
 		CB611146204024470057A030 /* GetEventByDateAndUserIdVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB611145204024470057A030 /* GetEventByDateAndUserIdVo.swift */; };
 		CB611148204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB611147204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift */; };
 		CB834733202825980034AD4E /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB834731202825980034AD4E /* EditProfileTableViewCell.swift */; };
@@ -386,6 +388,8 @@
 		CB4B20F92047D2F000402E59 /* CategorieCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategorieCollectionViewCell.xib; sourceTree = "<group>"; };
 		CB4B20FE204834CD00402E59 /* InfoHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoHeaderCell.swift; sourceTree = "<group>"; };
 		CB4B20FF204834CD00402E59 /* InfoHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoHeaderCell.xib; sourceTree = "<group>"; };
+		CB514E1720563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEventInfoByChurchIdMonthYearResultVo.swift; sourceTree = "<group>"; };
+		CB514E1820563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEventInfoByChurchIdMonthYearVo.swift; sourceTree = "<group>"; };
 		CB611145204024470057A030 /* GetEventByDateAndUserIdVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEventByDateAndUserIdVo.swift; sourceTree = "<group>"; };
 		CB611147204024B20057A030 /* GetEventByDateAndUserIdResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEventByDateAndUserIdResultVo.swift; sourceTree = "<group>"; };
 		CB834731202825980034AD4E /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -620,6 +624,8 @@
 		9A623B8120219B8700A674F2 /* MapperVO */ = {
 			isa = PBXGroup;
 			children = (
+				CB514E1820563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift */,
+				CB514E1720563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift */,
 				3D2E34232053A35800CF8F16 /* BannerImageScrollResultVo.swift */,
 				3D2E34242053A35800CF8F16 /* BannerImageScrollVo.swift */,
 				3D2E34282053D9A800CF8F16 /* UpcomingEventsInfoVO.swift */,
@@ -1203,6 +1209,7 @@
 				9A5D26121FFF89C300316988 /* RechargesViewController.swift in Sources */,
 				3D551C612011F617005DB3B2 /* VideosVO.swift in Sources */,
 				3D72DBF9203B058000B913F7 /* ChurchDetailsTableViewCell.swift in Sources */,
+				CB514E1A20563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift in Sources */,
 				CB9BC7FD2037122400625179 /* EventViewController.swift in Sources */,
 				AF1956EA200492F4007AC82A /* menuTableViewCell.swift in Sources */,
 				3D2E34202053A0BF00CF8F16 /* BannerCollectionViewCell.swift in Sources */,
@@ -1306,6 +1313,7 @@
 				9A5D26361FFF8A4900316988 /* AllOffersCell.swift in Sources */,
 				3D72DBF0203AE37A00B913F7 /* ChurchDetailsJsonVO.swift in Sources */,
 				9A5D263A1FFF8A5100316988 /* PageControllCell.swift in Sources */,
+				CB514E1920563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift in Sources */,
 				CBE68D3B202EF9A600B994D4 /* LoginJsonVO.swift in Sources */,
 				CB0256C1202473420017E240 /* ProfileViewController.swift in Sources */,
 				9A5D260E1FFF89B700316988 /* AllOffersViewController.swift in Sources */,
@@ -1457,7 +1465,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/owner/Desktop/Telugu Churches/SamplePageMenu-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/praveendole/Documents/Telugu Chruches/SamplePageMenu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1474,7 +1482,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/owner/Desktop/Telugu Churches/SamplePageMenu-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/praveendole/Documents/Telugu Chruches/SamplePageMenu-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

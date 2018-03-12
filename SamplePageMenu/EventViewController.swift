@@ -17,11 +17,12 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     @IBOutlet weak var eventTableView: UITableView!
     var pasterUserId      : Int = 0
        var currentMonth = 0
+    
     var delegate: churchChangeSubtitleOfIndexDelegate?
 
     var appVersion          : String = ""
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
+var listResultArray = Array<Any>()
     
     var eventDateArray = Array<String>()
     var eventsCountsArray = Array<Int>()
@@ -30,11 +31,18 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
     var eventEndDateArray = Array<String>()
 
     
+    
     var previousMonthString = "0"
     var isDateExists = false
     var currentMonthDataArray = Array<String>()
     
-    
+    var churchIdMonthYearArray:[GetEventInfoByChurchIdMonthYearResultVo] = Array<GetEventInfoByChurchIdMonthYearResultVo>()
+
+    var churchID:Int = 0
+
+    var PageIndex = 1
+    var totalPages : Int? = 0
+    var totalRecords : Int? = 0
     
     
     
@@ -102,9 +110,17 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         let monthFormatter = DateFormatter()
         monthFormatter.dateFormat = "M"
         monthFormatter.timeZone = NSTimeZone.local
-        let monthString = monthFormatter.string(from: Date())
+        let monthString = monthFormatter.string(from: calendar.currentPage)
         
-        self.getEventByUserIdMonthYearAPIService(_monthStr: monthString)
+        
+        let yearFormatter = DateFormatter()
+        yearFormatter.dateFormat = "YYYY"
+        yearFormatter.timeZone = NSTimeZone.local
+        let yearString = yearFormatter.string(from: calendar.currentPage)
+        
+        
+        
+        self.getEventByUserIdMonthYearAPIService(_monthStr: monthString, _yearStr: yearString)
 
         color()
         
@@ -117,8 +133,8 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         
         Utilities.setEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: appVersion.localize(), backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         
-        
-       // getEventByUserIdMonthYearAPIService()
+       
+
         
     }
 
@@ -180,30 +196,33 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
                 
                                                     }
             
-            
-//            for eventcount in eventsCountsArray{
-//            
-//                event = "\(eventcount)"
-//                print(event)
-//                
-//            }
             return event
         }
         return nil
     }
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         
-        let currentMonth = calendar.month(of: calendar.currentPage)
-        //        if currentMonth != 4 {
-        //            eventTableView.isHidden = false
-        //
-        //        }else{
-        //            eventTableView.isHidden = true
-        //
-        //        }
-        if(previousMonthString != "\(currentMonth)"){
-            
-            self.getEventByUserIdMonthYearAPIService(_monthStr: "\(currentMonth)")
+      //  let currentMonth = calendar.month(of: calendar.currentPage)
+        
+        print("gdfgdfgdfgdfg",calendar.currentPage)
+        
+        let monthFormatter = DateFormatter()
+        monthFormatter.dateFormat = "M"
+        monthFormatter.timeZone = NSTimeZone.local
+        let monthString = monthFormatter.string(from: calendar.currentPage)
+        
+        
+        let yearFormatter = DateFormatter()
+        yearFormatter.dateFormat = "YYYY"
+        yearFormatter.timeZone = NSTimeZone.local
+        let yearString = yearFormatter.string(from: calendar.currentPage)
+        
+         print(monthString,yearString)
+      
+        if(previousMonthString != "\(monthString)" || previousMonthString != "\(yearString)"){
+             churchIdMonthYearArray.removeAll()
+           // self.getEventByUserIdMonthYearAPIService(_monthStr: "\(currentMonth)")
+            getEventByUserIdMonthYearAPIService(_monthStr: monthString, _yearStr: yearString)
            // self.GetEventInfoByChurchIdMonthYearAPIService("\(currentMonth)")
         }
         print("this is the current Month \(currentMonth)")
@@ -378,17 +397,19 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
         }
     }
     
-    
-    func getEventByUserIdMonthYearAPIService(_monthStr : String){
+    func getEventByUserIdMonthYearAPIService(_monthStr : String, _yearStr: String){
         
         if(appDelegate.checkInternetConnectivity()){
-            GetEventInfoByChurchIdMonthYearAPIService(_monthStr)
+           
+
+            
+            GetEventInfoByChurchIdMonthYearAPIService(_monthStr, _yearStr)
            // var userid      : Int = 7
           //  var month      : Int = 03
             // previousMonthString = "\(month)"
-            var year       : Int = 2018
+          //  var year       : Int = 2018
             
-            let strUrl = GETEVENTBYUSERIDMONTHYEAR + "" + "\(pasterUserId)" + "/" + "\(_monthStr)" + "/" + "\(year)"
+            let strUrl = GETEVENTBYUSERIDMONTHYEAR + "" + "\(pasterUserId)" + "/" + "\(_monthStr)" + "/" + "\(_yearStr)"
             
             print(strUrl)
             serviceController.getRequest(strURL:strUrl, success:{(result) in
@@ -568,108 +589,84 @@ class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSou
 extension EventViewController : UITableViewDelegate, UITableViewDataSource {
     
     
-    func GetEventInfoByChurchIdMonthYearAPIService(_ month : String){
+    func GetEventInfoByChurchIdMonthYearAPIService(_ month : String, _ year : String){
         
         
-            let  strUrl = GETEVENTINFOBYCHURCHIDMONTHYEAR
-            
-            
-            let dictParams = [
-                "churchId": 23,
-                "month": month,
-                "year": 2018,
-                "pageIndex": 1,
-                "pageSize": 2,
-                "sortbyColumnName": "UpdatedDate",
-                "sortDirection": "desc",
-                "searchName": ""
-                ] as [String : Any]
-            
-            print("dic params \(dictParams)")
-            let dictHeaders = ["":"","":""] as NSDictionary
-            
-            print("dictHeader:\(dictHeaders)")
-            
-            
+        let  strUrl = GETEVENTINFOBYCHURCHIDMONTHYEAR
+        
+        
+        let dictParams = [
+            "churchId": churchID,
+            "month": month,
+            "year": year,
+            "pageIndex": PageIndex,
+            "pageSize": 10,
+            "sortbyColumnName": "UpdatedDate",
+            "sortDirection": "desc",
+            "searchName": ""
+            ] as [String : Any]
+        
+        print("dic params \(dictParams)")
+        let dictHeaders = ["":"","":""] as NSDictionary
+        
+        print("dictHeader:\(dictHeaders)")
+        
+        
         serviceController.postRequest(strURL: strUrl as NSString, postParams: dictParams as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
             
             print(result)
             
-            let respVO:ChurchDetailsJsonVO = Mapper().map(JSONObject: result)!
-            
-            //        let churchID = respVO.listResult?[0].Id
-            //        print("churchID" ,churchID!)
-            //
-            //        let defaults = UserDefaults.standard
-            //        defaults.set(churchID, forKey: kchurchID)
-            //        UserDefaults.standard.synchronize()
+            let respVO:GetEventInfoByChurchIdMonthYearVo = Mapper().map(JSONObject: result)!
             
             
-//            let isSuccess = respVO.isSuccess
-//            print("StatusCode:\(String(describing: isSuccess))")
-//            
-//            
-//            
-//            if isSuccess == true {
-//                
-//                
-//                let listArr = respVO.listResult!
-//                
-//                
-//                for eachArray in listArr{
-//                    //  print(self.churchNamesArray)
-//                    // print(eachArray)
-//                    self.churchNamesArray.append(eachArray)
-//                    //  print(self.churchNamesArray)
-//                }
-//                
-//                
-//                
-//                print(self.churchNamesArray.count)
-//                
-//                
-//                
-//                let pageCout  = (respVO.totalRecords)! / 10
-//                
-//                let remander = (respVO.totalRecords)! % 10
-//                
-//                self.totalPages = pageCout
-//                
-//                if remander != 0 {
-//                    
-//                    self.totalPages = self.totalPages! + 1
-//                    
-//                }
-//                
+            let isSuccess = respVO.isSuccess
             
+            if isSuccess == true {
                 
-                //            for church in respVO.listResult!{
-                //
-                //                self.churchNamesArray.append(church.name!)
-                //                self.phoneNoArray.append(church.contactNumber!)
-                //                self.churchIDArray.append(church.Id!)
-                //                self.updatedDateArray.append(self.returnDateWithoutTime(selectedDateString:church.updatedDate!))
-                //                self.addressArray.append(church.districtName == nil ? "" : church.districtName!)
-                //
-                //                self.churchImageArray.append(church.churchImage == nil ? "" : church.churchImage!.replacingOccurrences(of: "\\", with: "//"))
-                //                
-                //            }
+                let successMsg = respVO.endUserMessage
                 
                 
-                //            print(self.churchNamesArray)
-                //            print(self.churchImageArray)
-                //
+                self.listResultArray = respVO.listResult!
+                
+                let pageCout  = (respVO.totalRecords)! / 10
+                
+                let remander = (respVO.totalRecords)! % 10
+                
+                self.totalPages = pageCout
+                
+                if remander != 0 {
+                    
+                    self.totalPages = self.totalPages! + 1
+                    
+                }
+                
+                
+                for church in respVO.listResult!{
+                    
+                    self.churchIdMonthYearArray.append(church)
+                    
+                    
+                    
+                }
+                
+                
+                print("churchAdminArray", self.churchIdMonthYearArray)
+                // print("churchNamesArray.Count", self.churchNamesArray.count)
+                
                 
                 
                 self.eventTableView.reloadData()
                 
-//            }
-//                
-//            else {
-//                
-//                
-//                
-//            }
+                // self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+                
+            }
+                
+            else {
+                
+                
+                
+            }
+            
             
         }) { (failureMessage) in
             
@@ -677,10 +674,11 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             print(failureMessage)
             
         }
-
+        
         
     }
 
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
@@ -690,7 +688,7 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         
-        return currentMonthDataArray.count
+        return self.churchIdMonthYearArray.count
         
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -721,11 +719,115 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        let listOfMonthEventCell = tableView.dequeueReusableCell(withIdentifier: "ListOfMonthEventCell", for: indexPath) as! ListOfMonthEventCell
+        if(self.churchIdMonthYearArray.count > indexPath.row ){
+            let churchIdMonthYearList:GetEventInfoByChurchIdMonthYearResultVo = self.churchIdMonthYearArray[indexPath.row]
+            
+            
+            let listOfMonthEventCell = tableView.dequeueReusableCell(withIdentifier: "ListOfMonthEventCell", for: indexPath) as! ListOfMonthEventCell
+            
+            if let churchName =  churchIdMonthYearList.churchName {
+                listOfMonthEventCell.churchName.text = "Church Name:" + " " + churchName
+            }else{
+                listOfMonthEventCell.churchName.text = "church Name:"
+            }
+            
+            if let eventName =  churchIdMonthYearList.title {
+                listOfMonthEventCell.eventTitle.text = eventName
+            }else{
+                listOfMonthEventCell.eventTitle.text = ""
+            }
+            
+            if let contactNumber =  churchIdMonthYearList.contactNumber {
+                listOfMonthEventCell.contactNumber.text = "contact Number:" + " " + contactNumber
+            }else{
+                listOfMonthEventCell.contactNumber.text = "contact Number:"
+            }
+            
+            let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!) + "-" + returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.endDate!)
+            if startAndEndDate1 != "" {
+                listOfMonthEventCell.eventStartEndDate.text = "StartDate EndDate:" + " " + startAndEndDate1
+            }else{
+                listOfMonthEventCell.eventStartEndDate.text = "contact Number:"
+            }
+            //  listOfMonthEventCell.churchName.text =
+            
+            
+            return listOfMonthEventCell
+        }
+        return UITableViewCell()
         
-        return listOfMonthEventCell
+
+        
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == churchIdMonthYearArray.count - 1 {
+            
+            if(self.totalPages! > PageIndex){
+                
+                
+                PageIndex = PageIndex + 1
+                
+                let monthFormatter = DateFormatter()
+                monthFormatter.dateFormat = "M"
+                monthFormatter.timeZone = NSTimeZone.local
+                let monthString = monthFormatter.string(from: calendar.currentPage)
+                
+                let yearFormatter = DateFormatter()
+                yearFormatter.dateFormat = "YYYY"
+                yearFormatter.timeZone = NSTimeZone.local
+                let yearString = yearFormatter.string(from: calendar.currentPage)
+
+                
+          GetEventInfoByChurchIdMonthYearAPIService(monthString,yearString)
+                
+                
+            }
+        }
         
     }
 
+   
+    func returnEventDateWithoutTim1(selectedDateString : String) -> String{
+        var newDateStr = ""
+        var newDateStr1 = ""
+        
+        if(selectedDateString != ""){
+            let invDtArray = selectedDateString.components(separatedBy: "T")
+            let dateString = invDtArray[0]
+            let dateString1 = invDtArray[1]
+            print(dateString1)
+            let invDtArray2 = dateString1.components(separatedBy: ".")
+            let dateString3 = invDtArray2[0]
+            
+            print(dateString1)
+            //   let timeString = invDtArray[1]
+            //  print(timeString)
+            
+            if(dateString != "" || dateString != "."){
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let dateFromString = dateFormatter.date(from: dateString)
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr = newDateString
+                print(newDateStr)
+            }
+            if(dateString3 != "" || dateString != "."){
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .medium
+                dateFormatter.dateFormat = "HH:mm:ss"
+                let dateFromString = dateFormatter.date(from: dateString3)
+                dateFormatter.dateFormat = "hh:mm aa"
+                let newDateString = dateFormatter.string(from: dateFromString!)
+                newDateStr1 = newDateString
+                print(newDateStr1)
+            }
+        }
+        return newDateStr + "," + newDateStr1
+    }
+
+   
 }
 

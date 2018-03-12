@@ -109,6 +109,10 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="backGroundView" destination="v4P-Te-FBz" id="jd8-OA-hHW"/>
+                <outlet property="churchName" destination="8sX-Ee-d55" id="9d8-hv-ei9"/>
+                <outlet property="contactNumber" destination="fpc-it-ABR" id="f0t-CM-MDN"/>
+                <outlet property="eventStartEndDate" destination="t0j-5r-ryL" id="5k4-uR-WJX"/>
+                <outlet property="eventTitle" destination="WOQ-zX-iNx" id="7Gr-yF-Cyr"/>
             </connections>
             <point key="canvasLocation" x="-35" y="85"/>
         </tableViewCell>
