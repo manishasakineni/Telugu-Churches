@@ -568,15 +568,15 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             errorMessage=GlobalSupportingClass.blankFirstNameErrorMessage() as String as String as NSString?
             
         }
-//        else if (middleNameStr.length <= 0){
-//            errorMessage=GlobalSupportingClass.blankMiddleNameErrorMessage() as String as String as NSString?
-//            
-//        }
+            //        else if (middleNameStr.length <= 0){
+            //            errorMessage=GlobalSupportingClass.blankMiddleNameErrorMessage() as String as String as NSString?
+            //
+            //        }
         else if (lastnameStr.length <= 2){
             errorMessage=GlobalSupportingClass.blankLastNameErrorMessage() as String as String as NSString?
             
         }
-        
+            
         else if (userNameStr.length <= 2){
             errorMessage=GlobalSupportingClass.blankUserNameErrorMessage() as String as String as NSString?
             
@@ -604,11 +604,11 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         }
             
             
-//        else if (mobileNumberStr.length > 9) {
-//            
-//            
-//            errorMessage=GlobalSupportingClass.invalidPhoneNumberErrorMessage() as String as String as NSString?
-//        }
+            //        else if (mobileNumberStr.length > 9) {
+            //
+            //
+            //            errorMessage=GlobalSupportingClass.invalidPhoneNumberErrorMessage() as String as String as NSString?
+            //        }
             
         else if (passWord.length<=0) {
             errorMessage=GlobalSupportingClass.blankPasswordErrorMessage() as String as String as NSString?
@@ -625,31 +625,35 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             
             errorMessage=GlobalSupportingClass.specialCharacterMessage() as String as String as NSString?
         }
-       else if (passWord.length < 8) {
+        else if (passWord.length < 8) {
             
             errorMessage=GlobalSupportingClass.invalidPassWordErrorMessage() as String as String as NSString?
         }
-            
-        else if(confirmPassWord.length<8){
+        else if(confirmPassWord.length<=0){
             errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?
         }
-            
-        else if(passWord.length<5||confirmPassWord.length<5)
-        {
-            errorMessage = GlobalSupportingClass.invalidDigitsInPasswordErrorMessage() as String as String as NSString?
+        else if(!confirmPassWord.isEqual(to: confirmPassWord as String)){
+            errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
         }
+            
+        else if(confirmPassWord.length < 8){
+            errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
+        }
+            
+            
+            
         else if(!passWord.isEqual(to: confirmPassWord as String)){
             errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
         }
-
-                if let errorMsg = errorMessage{
         
-                    self.showAlertViewWithTitle("Alert".localize(), message: errorMsg as String, buttonTitle: "Retry".localize())
-                    return false;
-                }
+        if let errorMsg = errorMessage{
+            
+            self.showAlertViewWithTitle("Alert".localize(), message: errorMsg as String, buttonTitle: "Retry".localize())
+            return false;
+        }
         return true
     }
-
+    
 // MARK :- SigneUpAPIService
     
     func signeUpAPIService(){

@@ -92,7 +92,7 @@ class GetChurchByIDResultVo: Mappable {
     var updatedDate : String?
     
     var updatedByUserId : Int?
-
+    
     var fileName : String?
     var fileLocation : String?
     var fileExtention : String?
@@ -100,13 +100,19 @@ class GetChurchByIDResultVo: Mappable {
     var createdByUserId : Int?
     var userContactNumbar : String?
     
-
+    var gender : String?
+    var dob : String?
+    var userName : String?
+    var pinCode : Int?
+    
+    
+    
     
     
     //MARK:-  initialization of VideosVO
     
     
-    init(Id : Int?,name : String?,registrationNumber : String?,address1 : String?,address2 : String?,landMark : String?,countryId : Int?,countryName : String?,stateId : Int?,stateName : String?,districtId : Int?,districtName : String?,mandalId : Int?,mandalName : String?,villageId : Int?,villageName : String?,description : String?,mission : String?,vision : String?,contactNumber : String?,email : String?,websiteAddress : String?,openingTime : String?,closingTime : String?,churchImage : String?,userImage : String?,pasterUserId : Int?,isActive : Bool?,pasterUser : String?,createdByUser : String?,updatedByUser : String?,updatedDate : String?,updatedByUserId : Int?,fileName : String?,fileLocation : String?,fileExtention : String?,createdDate : String?,createdByUserId : Int?,userContactNumbar : String?)
+    init(Id : Int?,name : String?,registrationNumber : String?,address1 : String?,address2 : String?,landMark : String?,countryId : Int?,countryName : String?,stateId : Int?,stateName : String?,districtId : Int?,districtName : String?,mandalId : Int?,mandalName : String?,villageId : Int?,villageName : String?,description : String?,mission : String?,vision : String?,contactNumber : String?,email : String?,websiteAddress : String?,openingTime : String?,closingTime : String?,churchImage : String?,userImage : String?,pasterUserId : Int?,isActive : Bool?,pasterUser : String?,createdByUser : String?,updatedByUser : String?,updatedDate : String?,updatedByUserId : Int?,fileName : String?,fileLocation : String?,fileExtention : String?,createdDate : String?,createdByUserId : Int?,userContactNumbar : String?,gender : String?,dob : String?,userName : String?,pinCode : Int?)
         
         
     {
@@ -151,9 +157,15 @@ class GetChurchByIDResultVo: Mappable {
         self.createdDate = createdDate
         self.createdByUserId = createdByUserId
         self.userContactNumbar = userContactNumbar
-    
-    
-    
+        
+        self.gender = gender
+        self.dob = dob
+        self.userName = userName
+        self.userName = userName
+        self.pinCode = pinCode
+        
+        
+        
     }
     
     required init?(map: Map) {
@@ -201,8 +213,12 @@ class GetChurchByIDResultVo: Mappable {
         createdDate <- map["createdDate"]
         createdByUserId <- map["createdByUserId"]
         userContactNumbar <- map["userContactNumbar"]
-
         
+        gender <- map["gender"]
+        dob <- map["dob"]
+        userName <- map["userName"]
+        
+        pinCode <- map["pinCode"]
         
     }
     

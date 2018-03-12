@@ -220,7 +220,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             let section1HeaderLabel2 = UILabel(frame: CGRect(x: 90, y: 2, width:150, height: 35))
             // section1HeaderLabel.text = sectionsTitle[section]
             section1HeaderLabel2.textColor = UIColor.white
-            section1HeaderLabel2.text = "Change Password".localize()
+            section1HeaderLabel2.text = "ChangepassWord".localize()
             section1HeaderLabel2.textAlignment = .center
             // section1HeaderLabel2.backgroundColor = UIColor.purple
             section1HeaderLabel2.font = UIFont(name: "HelveticaNeue-Bold", size: 13.0)!
@@ -382,18 +382,22 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
         
         
         
-      
+        
+        
         if (oldePassWordStr.length<=0) {
             errorMessage=GlobalSupportingClass.blankOldPasswordErrorMessage() as String as String as NSString?
+        }
+        else if (oldePassWordStr.length<=7) {
+            errorMessage=GlobalSupportingClass.IncooectOldPasswordErrorMessage() as String as String as NSString?
         }
             
         else if (newPassWordStr.length<=0) {
             errorMessage=GlobalSupportingClass.blankPasswordErrorMessage() as String as String as NSString?
         }
-//        else if (confirmPassWordStr.length<=0) {
-//            errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?
-//        }
-
+            //        else if (confirmPassWordStr.length<=0) {
+            //            errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?
+            //        }
+            
         else if(!GlobalSupportingClass.capitalOnly(password: newPassWordStr as String)) {
             
             errorMessage=GlobalSupportingClass.capitalLetterMessage() as String as String as NSString?
@@ -410,34 +414,30 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             
             errorMessage=GlobalSupportingClass.invalidPassWordErrorMessage() as String as String as NSString?
         }
-            
-//        else if(confirmPassWordStr.length < 8){
-//            errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
-//        }
-//        
         else if(confirmPassWordStr.length<=0){
             errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?
         }
         else if(!confirmPassWordStr.isEqual(to: confirmPassWordStr as String)){
             errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
         }
-
             
-//        else if(newPassWordStr.length<5||confirmPassWordStr.length<5)
-//        {
-//            errorMessage = GlobalSupportingClass.invalidDigitsInPasswordErrorMessage() as String as String as NSString?
-//        }
-//        else if(!newPassWordStr.isEqual(to: confirmPassWordStr as String)){
-//            errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
-//        }
+        else if(confirmPassWordStr.length < 8){
+            errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
+        }
+        
+        
+        
+        //        else if(!newPassWordStr.isEqual(to: confirmPassWordStr as String)){
+        //            errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
+        //        }
         
         if let errorMsg = errorMessage{
             
             self.showAlertViewWithTitle("Alert".localize(), message: errorMsg as String, buttonTitle: "Retry".localize())
             return false;
         }
-            
-            
+        
+        
         
         return true
     }

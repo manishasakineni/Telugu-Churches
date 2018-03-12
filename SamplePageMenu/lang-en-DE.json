@@ -76,8 +76,13 @@
     "Date" : "Date",
     "ChangePhoto" : "Change Photo",
     "save" : "save",
-    "Gender" : "Gender"
+    "Gender" : "Gender",
+    
+    "Address" : "Address",
+    
+    "Church Author" : "Church Author",
 
+    "Map" : "Map"
 
     
     

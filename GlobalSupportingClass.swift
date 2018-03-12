@@ -29,7 +29,7 @@ class GlobalSupportingClass {
     class func blankMiddleNameErrorMessage() -> String {
         return "Please provide MiddleName".localize()
     }
-   
+    
     class func blankLastNameErrorMessage() -> String {
         return "Please provide Lastname".localize()
     }
@@ -61,7 +61,7 @@ class GlobalSupportingClass {
     }
     class func blankConfirmPasswordErrorMessage() -> String {
         return "Please provide Confirm Password".localize()
-   
+        
     }
     
     class func invalidDigitsInPasswordErrorMessage() -> String {
@@ -79,9 +79,9 @@ class GlobalSupportingClass {
     class func blankResetPasswordErrorMessage() -> String {
         return "Please Provide Reset-Password".localize()
     }
-//    class func blankConfirmPassWordErrorMessage() -> String {
-//        return "Please ConfirmPassWord Password"
-//    }
+    //    class func blankConfirmPassWordErrorMessage() -> String {
+    //        return "Please ConfirmPassWord Password"
+    //    }
     class func capitalLetterMessage() -> String {
         return "password must have at least one uppercase letter".localize()
     }
@@ -94,15 +94,15 @@ class GlobalSupportingClass {
     class func invalidMobilenumberErrorMessage() -> String {
         return "Please Provide 10-Digits MobileNumber".localize()
     }
-   
+    
     class func invalidPassWordErrorMessage() -> String {
         return "Please Provide Minimum 8 Characters Password".localize()
     }
-//    class func invalidPhoneNumberErrorMessage() -> String {
-//        return "app.Pleaseprovide10digitsmobilenumber".localize()
-//    }
+    //    class func invalidPhoneNumberErrorMessage() -> String {
+    //        return "app.Pleaseprovide10digitsmobilenumber".localize()
+    //    }
     
-
+    
     class func numberMessage() -> String {
         return "Password must have at least one number".localize()
     }
@@ -114,9 +114,13 @@ class GlobalSupportingClass {
     class func blankOldPasswordErrorMessage() -> String {
         return "Provied Old Password".localize()
     }
-   
+    
     class func blankNilOldPasswordErrorMessage() -> String {
         return "Please Provied Old Password".localize()
+    }
+    
+    class func IncooectOldPasswordErrorMessage() -> String {
+        return "Please Enter Valid Old Password".localize()
     }
     
     // MARK: - Capital
