@@ -14,6 +14,11 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
+    
+     var delegate: eventinfoSubtitleOfIndexDelegate?
+    
+    
+    
     var appVersion          : String = ""
     var upComingEventinfoArray:[GetUpComingEventInfoResultVo] = Array<GetUpComingEventInfoResultVo>()
 
@@ -50,9 +55,9 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         super.viewDidAppear(true)
 //        UserDefaults.standard.set("1", forKey: "1")
 //        UserDefaults.standard.synchronize()
-        Utilities.setUpComingEentInfoEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: appVersion.localize(), backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+//        Utilities.setUpComingEentInfoEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: appVersion.localize(), backTitle: appVersion.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
         upComingEventinfoArray.removeAll()
-        getUpComingEventInfo()
+        getUpComingEventInfoAPI()
 
     }
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -121,39 +126,66 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         
         
         if let chuechName =  listStr.churchName {
-            cell.chuechName.text = "ChurchName:" + " " + chuechName
+            cell.chuechName.text = "Church Name:" + " " + chuechName
         }else{
-            cell.chuechName.text = "ChurchName:"
+            cell.chuechName.text = "Church Name:"
         }
         
         if let eventTitle =  listStr.title {
-            cell.eventTitle.text = "EventTitle:" + " " + eventTitle
+            cell.eventTitle.text = "Event Title:" + " " + eventTitle
         }else{
-            cell.eventTitle.text = "EventTitle:"
+            cell.eventTitle.text = "Event Title:"
         }
         
         if let eventStart =  listStr.startDate {
             
-            cell.eventStart.text = "EventStartDate:" + " " + returnEventDateWithoutTime(selectedDateString : eventStart)
+            cell.eventStart.text = "Start Date:" + " " + returnEventDateWithoutTime(selectedDateString : eventStart)
         }else{
-            cell.eventStart.text = "EventStartDate:"
+            cell.eventStart.text = "Start Date:"
         }
         
         if let eventEndDate =  listStr.endDate {
             
             //amAppend(str: "\(listStr.openingTime!)" + "-" + "\(listStr.closingTime!)" )
-            cell.eventEndDate.text = "EventEndDate:" + " " + returnEventDateWithoutTime(selectedDateString : eventEndDate)
+            cell.eventEndDate.text = "End Date:" + " " + returnEventDateWithoutTime(selectedDateString : eventEndDate)
         }else{
-            cell.eventEndDate.text = "EventEndDate:"
+            cell.eventEndDate.text = "End Date:"
         }
         if let registrationNumber = listStr.registrationNumber {
-            cell.registrationNumber.text = "RegNumber:" + " " + registrationNumber
+            cell.registrationNumber.text = "Registration Number:" + " " + registrationNumber
         }else{
-            cell.registrationNumber.text = "RegNumber:"
+            cell.registrationNumber.text = "Registration Number:"
         }
         
         
-               
+        let imgUrl = listStr.eventImage
+        
+        let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+        
+        print("filteredUrlString:\(newString)")
+        
+        if newString != nil {
+            
+            let url = URL(string:newString!)
+            
+            
+            let dataImg = try? Data(contentsOf: url!)
+            
+            if dataImg != nil {
+                
+                cell.eventImage.image = UIImage(data: dataImg!)
+            }
+            else {
+                
+                cell.eventImage.image = #imageLiteral(resourceName: "churchLogoo")
+            }
+        }
+        else {
+            
+            cell.eventImage.image = #imageLiteral(resourceName: "churchLogoo")
+        }
+
+        
         
         //  cell.adminNameLabel.text = churchNamesArray[indexPath.row]
         
@@ -163,30 +195,40 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
     
 
     
-    func getUpComingEventInfo(){
+    func getUpComingEventInfoAPI(){
         
-        
-        
-        let fromDate      : Int = 10
-         let fromMonth      : Int = 03
-        let fromYear      : Int = 2018
-        let toDate      : Int = 18
-        let toMonth      : Int = 03
-        let toYear      : Int = 2018
+        let date =  (Calendar.current as NSCalendar).date(byAdding: .day, value: 7, to: Date(), options: [])
 
-        // var year       : Int = 2018
-//        var userid      : Int = 7
-//        var month      : Int = 03
-//        var year       : Int = 2018
-//
+        let fromDateFormatter = DateFormatter()
+        fromDateFormatter.dateFormat = "dd"
+        fromDateFormatter.timeZone = NSTimeZone.local
+        let fromDateString = fromDateFormatter.string(from: Date())
+         let toDateString = fromDateFormatter.string(from: date!)
+        print("fromDateString And toDateString",fromDateString,toDateString)
+        
+        
+        let monthFormatter = DateFormatter()
+        monthFormatter.dateFormat = "MM"
+        monthFormatter.timeZone = NSTimeZone.local
+        let fromMonthString = monthFormatter.string(from: Date())
+        let toMonthString = monthFormatter.string(from: date!)
+        print("fromMonthString and toMonthString",fromMonthString,toMonthString)
 
+        
+        let yearFormatter = DateFormatter()
+        yearFormatter.dateFormat = "YYYY"
+        yearFormatter.timeZone = NSTimeZone.local
+        let fromYearString = yearFormatter.string(from: Date())
+        let toYearString = yearFormatter.string(from: date!)
+        print("fromYearString And toYearString",fromYearString,toYearString)
+        
         if(appDelegate.checkInternetConnectivity()){
         let strUrl = GETUPCOMIMGEVENTSINFO
             
             print(strUrl)
             let dictParams = [
-                "fromDate": "\(fromYear)" + "-" + "\(fromMonth)" + "-" + "\(fromDate)",
-                "toDate": "\(toYear)" + "-" + "\(toMonth)" + "-" + "\(toDate)",
+                "fromDate": "\(fromYearString)" + "-" + "\(fromMonthString)" + "-" + "\(fromDateString)",
+                "toDate": "\(toYearString)" + "-" + "\(toMonthString)" + "-" + "\(toDateString)",
                 ] as [String : Any]
             
             print("dic params \(dictParams)")
@@ -231,7 +273,7 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
                             print("upComingEventinfoArray And Count:",self.upComingEventinfoArray , self.upComingEventinfoArray.count)
                            
 
-                            self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+                         //   self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
                             
                             
                         }

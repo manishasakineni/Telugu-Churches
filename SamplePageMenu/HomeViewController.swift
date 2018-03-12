@@ -659,7 +659,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         //CGFloat(Int(bannerCollectionView.contentOffset.x) / Int(bannerCollectionView.frame.width))
         
-        print(currentPage)
+      //  print(currentPage)
         
             pageController.currentPage = Int(currentPage)
         
@@ -1136,18 +1136,22 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         else if collectionView.tag == 2{
             if indexPath.item == 0 {
 
-                let eventViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
-            eventViewController.appVersion = imageNameArray3[indexPath.item]
-                self.navigationController?.pushViewController(eventViewController, animated: true)
+              
+                let allEventsAndUpComingEventsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AllEventsAndUpComingEventsViewController") as! AllEventsAndUpComingEventsViewController
+                allEventsAndUpComingEventsViewController.appVersion = imageNameArray3[indexPath.item]
+                self.navigationController?.pushViewController(allEventsAndUpComingEventsViewController, animated: true)
+                
                 
 
             }
             if indexPath.item == 1 {
                 
-                let upConingEventInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: "UpConingEventInfoViewController") as! UpConingEventInfoViewController
-                upConingEventInfoViewController.appVersion = imageNameArray3[indexPath.item]
-                self.navigationController?.pushViewController(upConingEventInfoViewController, animated: true)
-                
+                print("Selected Index",indexPath.item)
+//                
+//                let upConingEventInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: "UpConingEventInfoViewController") as! UpConingEventInfoViewController
+//                upConingEventInfoViewController.appVersion = imageNameArray3[indexPath.item]
+//                self.navigationController?.pushViewController(upConingEventInfoViewController, animated: true)
+//                
                 
             }
 

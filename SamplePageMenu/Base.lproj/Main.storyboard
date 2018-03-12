@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A405" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PEs-sh-D2h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -781,6 +781,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0a1-9s-iyC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4607.1999999999998" y="1008.8455772113944"/>
+        </scene>
+        <!--All Events And Up Coming Events View Controller-->
+        <scene sceneID="HBb-QZ-NW5">
+            <objects>
+                <viewController storyboardIdentifier="AllEventsAndUpComingEventsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lSD-ow-ZvL" customClass="AllEventsAndUpComingEventsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jLL-mn-tQ4"/>
+                        <viewControllerLayoutGuide type="bottom" id="05F-ht-h38"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UO6-nk-1HU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Twv-83-Rpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5281" y="1006"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="zh0-0i-pYZ">

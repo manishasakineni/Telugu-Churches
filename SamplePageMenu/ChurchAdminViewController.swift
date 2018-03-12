@@ -263,7 +263,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
 
                 self.churchAdminTableView.reloadData()
                 
-                self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
+             //   self.appDelegate.window?.makeToast(successMsg!, duration:kToastDuration, position:CSToastPositionCenter)
 
             }
                 
