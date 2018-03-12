@@ -908,14 +908,18 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
                 self.eventImageArray.removeAll()
                 
                 for churchDetails in respVO.listResult!{
-                
-                
-                    self.eventImage = churchDetails.eventImage!
+       
+                    self.eventImage = churchDetails.eventImage ?? "https://salemnet.vo.llnwd.net/media/cms/CW/faith/42359-church-ThinkstockPhotos-139605937.1200w.tn.jpg"
+                    
+                    self.eventImage = (churchDetails.eventImage == nil ? "" : churchDetails.eventImage!.replacingOccurrences(of: "\\", with: "//"))
+                    
                     
                     self.eventImageArray.append(self.eventImage)
-                    
-                }
-                
+                    // imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+
+                    }
+      
+                print(self.eventImageArray.count)
             }
             
             else {
@@ -976,10 +980,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         
     }
     
-    
-    
-    
-    
+ 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
