@@ -486,11 +486,11 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
        let listStr:GetAllChurchAdminsResultVo = churchAdminArray[indexPath.row]
         
-        let adminDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AdminDetailsViewController") as! AdminDetailsViewController
+        let authorDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AuthorDetailsViewController") as! AuthorDetailsViewController
         
-        adminDetailsViewController.adminID = listStr.Id!
+        authorDetailsViewController.authorID = listStr.Id!
         
-        self.navigationController?.pushViewController(adminDetailsViewController, animated: true)
+        self.navigationController?.pushViewController(authorDetailsViewController, animated: true)
         
 
         

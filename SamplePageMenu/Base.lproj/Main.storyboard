@@ -1087,10 +1087,10 @@
             </objects>
             <point key="canvasLocation" x="7218.3999999999996" y="330.58470764617692"/>
         </scene>
-        <!--Admin Details View Controller-->
+        <!--Author Details View Controller-->
         <scene sceneID="SJD-zn-mrO">
             <objects>
-                <viewController storyboardIdentifier="AdminDetailsViewController" id="ysU-9g-VsC" customClass="AdminDetailsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthorDetailsViewController" id="ysU-9g-VsC" customClass="AuthorDetailsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ImF-Qx-cDv"/>
                         <viewControllerLayoutGuide type="bottom" id="jpL-o0-nuH"/>
@@ -1098,19 +1098,7 @@
                     <view key="view" contentMode="scaleToFill" id="7bu-Qw-W5Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Be-6u-dKR">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="5Be-6u-dKR" firstAttribute="leading" secondItem="7bu-Qw-W5Z" secondAttribute="leading" id="LgC-NA-GDP"/>
-                            <constraint firstAttribute="trailing" secondItem="5Be-6u-dKR" secondAttribute="trailing" id="h4q-bO-v8I"/>
-                            <constraint firstItem="5Be-6u-dKR" firstAttribute="top" secondItem="7bu-Qw-W5Z" secondAttribute="top" id="kX5-BB-OBK"/>
-                            <constraint firstItem="jpL-o0-nuH" firstAttribute="top" secondItem="5Be-6u-dKR" secondAttribute="bottom" id="loX-oz-fbO"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NC7-ag-gv2" userLabel="First Responder" sceneMemberID="firstResponder"/>

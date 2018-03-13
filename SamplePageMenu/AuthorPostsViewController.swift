@@ -1,5 +1,5 @@
 //
-//  AdminDetailsViewController.swift
+//  AuthorPostsViewController.swift
 //  Telugu Churches
 //
 //  Created by N@n!'$ Mac on 13/03/18.
@@ -8,10 +8,11 @@
 
 import UIKit
 
-class AdminDetailsViewController: UIViewController {
+class AuthorPostsViewController: UIViewController {
     
+    var authorID : Int = 0
     
-    var adminID : Int = 0
+    var delegate: authorChangeSubtitleOfIndexDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +26,6 @@ class AdminDetailsViewController: UIViewController {
     }
     
 
-    func getAuthorDetailsAPICall(){
-    
-    
-    
-    
-    }
-    
     
 
 }
