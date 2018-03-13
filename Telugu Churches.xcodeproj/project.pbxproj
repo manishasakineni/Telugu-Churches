@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2D4CC1E3CECC568019D58A4D /* Pods_Telugu_Churches.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE32E04C483467733EE22566 /* Pods_Telugu_Churches.framework */; };
+		35E14FFD2058144800CD11A0 /* GetAllCategoriesVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E14FFC2058144800CD11A0 /* GetAllCategoriesVo.swift */; };
+		35E14FFF2058146700CD11A0 /* CategoriesResultVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E14FFE2058146700CD11A0 /* CategoriesResultVo.swift */; };
 		3D2E341C2053A0BF00CF8F16 /* AutoScrollImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E34162053A0BF00CF8F16 /* AutoScrollImagesCell.swift */; };
 		3D2E341D2053A0BF00CF8F16 /* AutoScrollImagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2E34172053A0BF00CF8F16 /* AutoScrollImagesCell.xib */; };
 		3D2E341E2053A0BF00CF8F16 /* AutoScrollCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E34182053A0BF00CF8F16 /* AutoScrollCollectionViewCell.swift */; };
@@ -218,6 +220,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35E14FFC2058144800CD11A0 /* GetAllCategoriesVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllCategoriesVo.swift; sourceTree = "<group>"; };
+		35E14FFE2058146700CD11A0 /* CategoriesResultVo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesResultVo.swift; sourceTree = "<group>"; };
 		3D2E34162053A0BF00CF8F16 /* AutoScrollImagesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoScrollImagesCell.swift; sourceTree = "<group>"; };
 		3D2E34172053A0BF00CF8F16 /* AutoScrollImagesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutoScrollImagesCell.xib; sourceTree = "<group>"; };
 		3D2E34182053A0BF00CF8F16 /* AutoScrollCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoScrollCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -454,6 +458,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35E14FFB2058135500CD11A0 /* GetAllCategories */ = {
+			isa = PBXGroup;
+			children = (
+				35E14FFE2058146700CD11A0 /* CategoriesResultVo.swift */,
+				35E14FFC2058144800CD11A0 /* GetAllCategoriesVo.swift */,
+			);
+			name = GetAllCategories;
+			sourceTree = "<group>";
+		};
 		3D65D4A92004D9A200CAB226 /* CCKFNavDrawer */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,6 +673,7 @@
 		9A623B8120219B8700A674F2 /* MapperVO */ = {
 			isa = PBXGroup;
 			children = (
+				35E14FFB2058135500CD11A0 /* GetAllCategories */,
 				CB514E1820563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearVo.swift */,
 				CB514E1720563CA8003CFF6F /* GetEventInfoByChurchIdMonthYearResultVo.swift */,
 				3D2E34232053A35800CF8F16 /* BannerImageScrollResultVo.swift */,
@@ -1354,6 +1368,7 @@
 				CB3226D7202C96660050D06B /* GetProfileResultInfoVO.swift in Sources */,
 				9A623B8E2021A75000A674F2 /* MBProgressHUD.m in Sources */,
 				3DDD890D2018567300918711 /* SignUpViewController.swift in Sources */,
+				35E14FFF2058146700CD11A0 /* CategoriesResultVo.swift in Sources */,
 				CB834733202825980034AD4E /* EditProfileTableViewCell.swift in Sources */,
 				3D2E34262053A35800CF8F16 /* BannerImageScrollVo.swift in Sources */,
 				AF10601D204EAA8100711938 /* GenderTableViewCell.swift in Sources */,
@@ -1388,6 +1403,7 @@
 				9A5CE89620205252005F4ACD /* TextFieldMaxLengths.swift in Sources */,
 				9A88D6182019EB2C0021F862 /* LaunchScreenViewController.swift in Sources */,
 				CB21CE60203D505100B3294B /* EventInfoViewController.swift in Sources */,
+				35E14FFD2058144800CD11A0 /* GetAllCategoriesVo.swift in Sources */,
 				9A623B8520219CB500A674F2 /* RegisterVo.swift in Sources */,
 				9A5D26361FFF8A4900316988 /* AllOffersCell.swift in Sources */,
 				3D72DBF0203AE37A00B913F7 /* ChurchDetailsJsonVO.swift in Sources */,
@@ -1545,7 +1561,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/owner/Desktop/Telugu Churches/SamplePageMenu-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/calibragemac02/Documents/TeluguChurchesApp/SamplePageMenu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1562,7 +1578,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/owner/Desktop/Telugu Churches/SamplePageMenu-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/calibragemac02/Documents/TeluguChurchesApp/SamplePageMenu-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

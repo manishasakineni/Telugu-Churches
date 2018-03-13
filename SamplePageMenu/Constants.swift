@@ -43,6 +43,8 @@ let UPCOMMINGEVENTS : String = BASEURL.appending("api/Events/GetUpcomingEventsIn
 
 let AUTHORDETAILS : String = BASEURL.appending("api/Church/GetAuthorbyId/")
 
+let GETALLCATEGORIES : String = BASEURL.appending("api/Category/GetAllCategories")
+
 //api/Events/GetUpcomingEventsInfo/{fromDate}/{toDate}
 
 // MARK: -  Navigation String

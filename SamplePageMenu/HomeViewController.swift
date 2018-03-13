@@ -18,6 +18,8 @@ protocol SttingPopOverHomeDelegate {
     func notificationClicked()
 }
 
+var cagegoriesArray:[CategoriesResultVo] = Array<CategoriesResultVo>()
+
 class HomeViewController: UIViewController ,UIPopoverPresentationControllerDelegate,SttingPopOverHomeDelegate,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating  {
     
     @IBOutlet weak var categorieTableView: UITableView!
@@ -46,8 +48,10 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     var searchController: UISearchController!
     
     var searchActive : Bool = false
-    var data = ["Events","Latest Posts","Categories","Event Posts"]
+    var data = [" ","Categories"]
     var filtered:[String] = []
+    
+    var cagegoriesArray:[CategoriesResultVo] = Array<CategoriesResultVo>()
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -96,6 +100,7 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         self.bannerImageScrollAPICall()
         
+        self.getAllCategoriesAPICall()
         
         searchBar = UISearchBar()
         searchBar.sizeToFit()
@@ -171,6 +176,11 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
     }
     
+     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.getAllCategoriesAPICall()
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         
@@ -265,6 +275,79 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         
         
     }
+    
+    //MARK: -  Get All Categories API Call
+    
+    func getAllCategoriesAPICall(){
+        
+        let paramsDict = ["pageIndex": 1,
+                            "pageSize": 15,
+                            "sortbyColumnName": "UpdatedDate",
+                            "sortDirection": "desc",
+                            "searchName": ""
+            ] as [String : Any]
+        
+        let dictHeaders = ["":"","":""] as NSDictionary
+
+        
+        serviceController.postRequest(strURL: GETALLCATEGORIES as NSString, postParams: paramsDict as NSDictionary, postHeaders: dictHeaders, successHandler: { (result) in
+            
+            print(result)
+            
+            let respVO:GetAllCategoriesVo = Mapper().map(JSONObject: result)!
+            
+            let isSuccess = respVO.isSuccess
+            print("StatusCode:\(String(describing: isSuccess))")
+            
+            
+            
+            if isSuccess == true {
+                
+                
+                let listArr = respVO.listResult!
+                
+                
+                for eachArray in listArr{
+                   
+                    self.cagegoriesArray.append(eachArray)
+                }
+                
+                
+                
+                print(self.cagegoriesArray.count)
+                
+                
+                
+                let pageCout  = (respVO.totalRecords)! / 10
+                
+                let remander = (respVO.totalRecords)! % 10
+                
+                self.totalPages = pageCout
+                
+                if remander != 0 {
+                    
+                    self.totalPages = self.totalPages! + 1
+                    
+                }
+                
+                self.categorieTableView.reloadData()
+                
+            }
+                
+            else {
+                
+                
+                
+            }
+            
+        }) { (failureMessage) in
+            
+            
+            print(failureMessage)
+            
+        }
+    }
+
     
     
     func upcommingEventsAPICall(){
@@ -669,15 +752,15 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         }
         
         
-        if indexPath.row == 2 {
-            
-            
-            cell.moreButton.addTarget(self, action: #selector(categorieTwoClicked(_:)), for: UIControlEvents.touchUpInside)
-        }
-        if indexPath.row == 3 {
-            
-            cell.moreButton.addTarget(self, action: #selector(categorieThreeClicked(_:)), for: UIControlEvents.touchUpInside)
-        }
+//        if indexPath.row == 2 {
+//            
+//            
+//            cell.moreButton.addTarget(self, action: #selector(categorieTwoClicked(_:)), for: UIControlEvents.touchUpInside)
+//        }
+//        if indexPath.row == 3 {
+//            
+//            cell.moreButton.addTarget(self, action: #selector(categorieThreeClicked(_:)), for: UIControlEvents.touchUpInside)
+//        }
         
         //            cell.homeCollectionView.tag = indexPath.section
         //            cell.homeCollectionView.collectionViewLayout.invalidateLayout()
@@ -768,18 +851,18 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         
-        //        if indexPath.row == (bannerImageScrollArray.count) - 1 {
-        //
-        //            if(self.totalPages! > PageIndex){
-        //
-        //                PageIndex = PageIndex + 1
-        //
-        //                bannerImageScrollAPICall()
-        //
-        //
-        //
-        //            }
-        //        }
+                if indexPath.row == (cagegoriesArray.count) - 1 {
+        
+                    if(self.totalPages! > PageIndex){
+        
+                        PageIndex = PageIndex + 1
+        
+                        getAllCategoriesAPICall()
+        
+        
+        
+                    }
+                }
     }
     
     func doSomeAnimation() {
@@ -1016,21 +1099,21 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 
             }
                 
-            else if collectionView.tag == 1 {
+            else  {
                 
-                return imageArray.count
-                
-            }
-                
-            else  if collectionView.tag  == 2 {
-                
-                return imageArray2.count
+                return cagegoriesArray.count
                 
             }
-            else {
                 
-                return imageArray3.count
-            }
+//            else  if collectionView.tag  == 2 {
+//                
+//                return imageArray2.count
+//                
+//            }
+//            else {
+//                
+//                return imageArray3.count
+//            }
             
             
         }
@@ -1104,12 +1187,44 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 
             }
                 
-            else if collectionView.tag  == 1 {
+            else {
                 
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
                 
-                cell.collectionImgView.image = imageArray[ indexPath.row]
-                cell.nameLabel.text = imageNameArray[indexPath.row]
+                
+                let categoryList:CategoriesResultVo = cagegoriesArray[indexPath.row]
+                
+//                cell.collectionImgView.image = imageArray[ indexPath.row]
+                cell.nameLabel.text = categoryList.categoryName
+                
+                let imgUrl = categoryList.categoryImage
+                
+                let newString = imgUrl?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+                
+                
+                if newString != nil {
+                    
+                    let url = URL(string:newString!)
+                    
+                    if url != nil {
+                        
+                        let dataImg = try? Data(contentsOf: url!)
+                        
+                        if dataImg != nil {
+                            
+                            cell.collectionImgView.image = UIImage(data: dataImg!)
+                        }
+                        else {
+                            
+                            cell.collectionImgView.image =  #imageLiteral(resourceName: "Church-logo")
+                        }
+                    }
+                    
+                }
+                else {
+                    
+                    cell.collectionImgView.image =  #imageLiteral(resourceName: "Church-logo")
+                }
                 
                 
                 
@@ -1118,31 +1233,32 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 return cell
                 
                 
-            } else if collectionView.tag  == 2 {
-                
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
-                
-                cell.collectionImgView.image = imageArray2[ indexPath.row]
-                cell.nameLabel.text = imageNameArray2[indexPath.row]
-                
-                // let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
-                
-                
-                return cell
-                
             }
-            else  {
-                
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
-                
-                cell.collectionImgView.image = imageArray3[ indexPath.row]
-                cell.nameLabel.text = imageNameArray3[indexPath.row]
-                
-                //  let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
-                
-                
-                return cell
-            }
+//            else if collectionView.tag  == 2 {
+//                
+//                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
+//                
+//                cell.collectionImgView.image = imageArray2[ indexPath.row]
+//                cell.nameLabel.text = imageNameArray2[indexPath.row]
+//                
+//                // let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
+//                
+//                
+//                return cell
+//                
+//            }
+//            else  {
+//                
+//                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategorieCollectionViewCell", for: indexPath) as! CategorieCollectionViewCell
+//                
+//                cell.collectionImgView.image = imageArray3[ indexPath.row]
+//                cell.nameLabel.text = imageNameArray3[indexPath.row]
+//                
+//                //  let nibName  = UINib(nibName: "CategorieHomeCell" , bundle: nil)
+//                
+//                
+//                return cell
+//            }
             
             //        else {
             //
@@ -1214,53 +1330,53 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
         
-        if collectionView == bannerCollectionView{
-            
-        }
-            
-            
-        else{
-            
-            if collectionView.tag  == 1 {
-                
-                
-                
-                let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
-                churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
-                self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
-               
-            }
-            else if collectionView.tag == 2{
-                
-               
-                
-                let churchAdminViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchAdminViewController") as! ChurchAdminViewController
-                churchAdminViewController.appVersion = imageNameArray2[indexPath.item]
-              
-                self.navigationController?.pushViewController(churchAdminViewController, animated: true)
-                
-            }
-            else if collectionView.tag == 3{
-                if indexPath.item == 0 {
-                    
-                    let eventViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
-                    eventViewController.appVersion = imageNameArray3[indexPath.item]
-                    self.navigationController?.pushViewController(eventViewController, animated: true)
-                    
-                    
-                }
-                if indexPath.item == 1 {
-                    
-                    let allEventsAndUpComingEventsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AllEventsAndUpComingEventsViewController") as! AllEventsAndUpComingEventsViewController
-                    allEventsAndUpComingEventsViewController.appVersion = imageNameArray3[indexPath.item]
-                    self.navigationController?.pushViewController(allEventsAndUpComingEventsViewController, animated: true)
-                    
-                    
-                }
-                
-            }
-            
-        }
+//        if collectionView == bannerCollectionView{
+//            
+//        }
+//            
+//            
+//        else{
+//            
+//            if collectionView.tag  == 1 {
+//                
+//                
+//                
+//                let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
+//                churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
+//                self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
+//               
+//            }
+//            else if collectionView.tag == 2{
+//                
+//               
+//                
+//                let churchAdminViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchAdminViewController") as! ChurchAdminViewController
+//                churchAdminViewController.appVersion = imageNameArray2[indexPath.item]
+//              
+//                self.navigationController?.pushViewController(churchAdminViewController, animated: true)
+//                
+//            }
+//            else if collectionView.tag == 3{
+//                if indexPath.item == 0 {
+//                    
+//                    let eventViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+//                    eventViewController.appVersion = imageNameArray3[indexPath.item]
+//                    self.navigationController?.pushViewController(eventViewController, animated: true)
+//                    
+//                    
+//                }
+//                if indexPath.item == 1 {
+//                    
+//                    let allEventsAndUpComingEventsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AllEventsAndUpComingEventsViewController") as! AllEventsAndUpComingEventsViewController
+//                    allEventsAndUpComingEventsViewController.appVersion = imageNameArray3[indexPath.item]
+//                    self.navigationController?.pushViewController(allEventsAndUpComingEventsViewController, animated: true)
+//                    
+//                    
+//                }
+//                
+//            }
+//            
+//        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
