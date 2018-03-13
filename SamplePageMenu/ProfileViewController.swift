@@ -18,7 +18,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     var base64String : String = ""
     
-    
+    var alertTag = Int()
+
     var showNav = false
     let isActive : Bool = true
     
@@ -635,7 +636,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
             else if indexPath.row == 5{
                 
-                signUPCell.editProfileTF.placeholder = "DOB".localize()
+                signUPCell.editProfileTF.placeholder = "Date Of Birth".localize()
                 signUPCell.editProfileTF.text = selectedDate
                 
                 
@@ -933,6 +934,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
         if (firstName.length <= 2){
+            
+            alertTag = 0
+
             errorMessage=GlobalSupportingClass.blankFirstNameErrorMessage() as String as String as NSString?
             
         }
@@ -940,7 +944,10 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             //        else if (middleName.length<=2) {
             //            errorMessage=GlobalSupportingClass.blankMiddleNameErrorMessage() as String as String as NSString?
             //        }
-        else  if (lastName.length <= 2){
+        else  if (lastName.length <= 0){
+            
+            alertTag = 2
+
             errorMessage=GlobalSupportingClass.blankLastNameErrorMessage() as String as String as NSString?
             
         }
@@ -955,10 +962,16 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             //        }
             
         else if (emailID.length<=0) {
+            
+            alertTag = 4
+
             errorMessage=GlobalSupportingClass.blankEmailIDErrorMessage() as String as String as NSString?
         }
             
         else  if (emailID.length<=4) {
+            
+            alertTag = 4
+
             errorMessage=GlobalSupportingClass.miniCharEmailIDErrorMessage() as String as String as NSString?
         }
         else  if(!GlobalSupportingClass.isValidEmail(emailID as NSString))
@@ -972,11 +985,37 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         if let errorMsg = errorMessage{
             
-            self.showAlertViewWithTitle("Alert", message: errorMsg as String, buttonTitle: "Retry")
+            alertWithTitle(title: "Alert".localize(), message: errorMsg as String, ViewController: self, toFocus: activeTextField)
+
+            
+          //  self.showAlertViewWithTitle("Alert", message: errorMsg as String, buttonTitle: "Retry")
             return false;
         }
         return true
     }
+    
+    
+    func alertWithTitle(title: String!, message: String, ViewController: UIViewController, toFocus:UITextField) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok".localize(), style: UIAlertActionStyle.cancel,handler: {_ in
+            
+            
+            let indexPath : IndexPath = IndexPath(row: self.alertTag, section: 1)
+            
+            self.editProfileTableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.top, animated: false)
+            if let cell = self.editProfileTableView.cellForRow(at: indexPath) as? EditProfileTableViewCell {
+                
+                cell.editProfileTF.becomeFirstResponder()
+            }
+            
+            
+        });
+        alert.addAction(action)
+        // alert.view.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        ViewController.present(alert, animated: true, completion:nil)
+    }
+
+    
     
     func donePressed(){
         

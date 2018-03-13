@@ -558,7 +558,8 @@ class ChurchDetailsViewController: UIViewController,UITableViewDelegate,UITableV
         holyBibleViewController.pasterUserId = listStr.pasterUserId!
         
         holyBibleViewController.churchID = listStr.Id!
-        
+        holyBibleViewController.nameStr = listStr.name!
+
         
         
         self.navigationController?.pushViewController(holyBibleViewController, animated: true)

@@ -75,6 +75,9 @@ class GlobalSupportingClass {
     class func blankPasswordErrorMessage() -> String {
         return "Please Provide New Password".localize()
     }
+    class func blankPswdErrorMessage() -> String {
+        return "Please Provide  Password".localize()
+    }
     
     class func blankResetPasswordErrorMessage() -> String {
         return "Please Provide Reset-Password".localize()

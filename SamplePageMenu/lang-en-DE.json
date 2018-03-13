@@ -3,12 +3,12 @@
     
     
     "EditProfile": "Edit Profile",
-    "ChangepassWord": "Change PassWord",
+    "ChangepassWord": "Change Password",
     "LogOut" : "LogOut",
     "Login"  :  "Login",
     "ChooseLanguage" : "Choose Language",
     "Telugu Churches" :  "Telugu Churches",
-    
+    "UpComing Events" : "UpComing Events",
 
     
     "User Name" : "User Name",
@@ -82,13 +82,39 @@
     
     "Church Author" : "Church Author",
 
-    "Map" : "Map"
+    "Map" : "Map",
+    "Date Of Birth" : "Date Of Birth",
+    "Registration Number" : "Registration Number",
+    
+    "Name" : "Name",
+    "Description" : "Description",
+    "Vision" : "Vision",
+    "Mission" : "Mission",
+    "Address" : "Address",
+    "Email" : "Email",
+    "Web Address" : "Web Address",
+    
+    "Landmark" : "Landmark",
 
     
+    "State" : "State",
+    "District" : "District",
+    "Mandal" : "Mandal",
+    "Village" : "Village",
+    "Pin Code" : "Pin Code",
+    "Author Name" : "Author Name",
+    "Contact Number" : "Contact Number",
     
-    
-    
-    
+    "Church Name:" : "Church Name:",
+    "Mobile Number:" : "Mobile Number:",
+
+    "Posts" : "Posts",
+    "Regisration Number" : "Regisration Number",
+
+    "Email:" : "Email:",
+    "Name:" : "Name:",
+    "Information" : "Information"
+
 
 
 

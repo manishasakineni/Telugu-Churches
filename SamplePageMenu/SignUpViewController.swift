@@ -26,7 +26,10 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     var toolBar = UIToolbar()
     var activeTextField = UITextField()
     
+    var alertTag = Int()
     
+    var showNav = false
+
     
     var id:Int = 0
     var userId:String = ""
@@ -384,6 +387,9 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         signUPCell.registrationTextfield.delegate = self
         
         signUPCell.registrationTextfield.tag = indexPath.row
+        
+        signUPCell.eyeButtonOutlet.tag = indexPath.row
+
 
         if indexPath.row == 0{
             
@@ -487,21 +493,31 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
     
     func  eyeButtonClicked(_ sendre:UIButton) {
         
+        let indexPath = IndexPath.init(row: sendre.tag, section: 0)
         
-        print("Eye Button Clicked......")
-        
-        if sendre.tag == 0
-        {
-            activeTextField.isSecureTextEntry = false
-            sendre.tag = 1
-        }
-        else{
+        if let forgotPasswordCell = signUpTableView.cellForRow(at: indexPath) as? SignUPTableViewCell {
             
-            activeTextField.isSecureTextEntry = true
-            sendre.tag = 0
+            forgotPasswordCell.registrationTextfield.isSecureTextEntry = !forgotPasswordCell.registrationTextfield.isSecureTextEntry
             
             
         }
+
+        
+        
+//        print("Eye Button Clicked......")
+//        
+//        if sendre.tag == 0
+//        {
+//            activeTextField.isSecureTextEntry = false
+//            sendre.tag = 1
+//        }
+//        else{
+//            
+//            activeTextField.isSecureTextEntry = true
+//            sendre.tag = 0
+//            
+//            
+//        }
         
         
     }
@@ -565,6 +581,9 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         let confirmPassWord:NSString =  confirmpassword  as NSString
         
         if (firstNameStr.length <= 2){
+            
+            alertTag = 0
+
             errorMessage=GlobalSupportingClass.blankFirstNameErrorMessage() as String as String as NSString?
             
         }
@@ -572,21 +591,33 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             //            errorMessage=GlobalSupportingClass.blankMiddleNameErrorMessage() as String as String as NSString?
             //
             //        }
-        else if (lastnameStr.length <= 2){
+        else if (lastnameStr.length <= 0){
+            
+            alertTag = 2
+
             errorMessage=GlobalSupportingClass.blankLastNameErrorMessage() as String as String as NSString?
             
         }
             
         else if (userNameStr.length <= 2){
+            
+            alertTag = 3
+
             errorMessage=GlobalSupportingClass.blankUserNameErrorMessage() as String as String as NSString?
             
         }
             
         else if (emailIDStr.length<=0) {
+            
+            alertTag = 4
+
             errorMessage=GlobalSupportingClass.blankEmailIDErrorMessage() as String as String as NSString?
         }
             
         else  if (emailIDStr.length < 5) {
+            
+            alertTag = 4
+
             errorMessage=GlobalSupportingClass.miniCharEmailIDErrorMessage() as String as String as NSString?
         }
         else  if(!GlobalSupportingClass.isValidEmail(emailIDStr as NSString))
@@ -594,11 +625,15 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             errorMessage=GlobalSupportingClass.invalidEmaildIDFormatErrorMessage() as String as String as NSString?
         }
         else if (mobileNumberStr.length <= 0){
+            alertTag = 5
+
             
             errorMessage=GlobalSupportingClass.blankMobilenumberErrorMessage() as String as String as NSString?
             
         }
         else if (mobileNumberStr.length <= 9) {
+            alertTag = 5
+
             
             errorMessage=GlobalSupportingClass.invalidMobilenumberErrorMessage() as String as String as NSString?
         }
@@ -611,7 +646,10 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
             //        }
             
         else if (passWord.length<=0) {
-            errorMessage=GlobalSupportingClass.blankPasswordErrorMessage() as String as String as NSString?
+            
+            alertTag = 6
+
+            errorMessage=GlobalSupportingClass.blankPswdErrorMessage() as String as String as NSString?
         }
         else if(!GlobalSupportingClass.capitalOnly(password: passWord as String)) {
             
@@ -627,9 +665,13 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         }
         else if (passWord.length < 8) {
             
+            alertTag = 6
+
             errorMessage=GlobalSupportingClass.invalidPassWordErrorMessage() as String as String as NSString?
         }
         else if(confirmPassWord.length<=0){
+            alertTag = 7
+
             errorMessage=GlobalSupportingClass.blankConfirmPasswordErrorMessage() as String as String as NSString?
         }
         else if(!confirmPassWord.isEqual(to: confirmPassWord as String)){
@@ -637,6 +679,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         }
             
         else if(confirmPassWord.length < 8){
+            alertTag = 7
+
             errorMessage=GlobalSupportingClass.passwordMissMatchErrorMessage() as String as String as NSString?
         }
             
@@ -648,11 +692,35 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         
         if let errorMsg = errorMessage{
             
-            self.showAlertViewWithTitle("Alert".localize(), message: errorMsg as String, buttonTitle: "Retry".localize())
-            return false;
+//            self.showAlertViewWithTitle("Alert".localize(), message: errorMsg as String, buttonTitle: "Retry".localize())
+            
+            alertWithTitle(title: "Alert".localize(), message: errorMsg as String, ViewController: self, toFocus: activeTextField)
+            return false
         }
         return true
     }
+    
+    
+    func alertWithTitle(title: String!, message: String, ViewController: UIViewController, toFocus:UITextField) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok".localize(), style: UIAlertActionStyle.cancel,handler: {_ in
+            
+            
+            let indexPath : IndexPath = IndexPath(row: self.alertTag, section: 0)
+            
+            self.signUpTableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.top, animated: false)
+            if let cell = self.signUpTableView.cellForRow(at: indexPath) as? SignUPTableViewCell {
+                
+                cell.registrationTextfield.becomeFirstResponder()
+            }
+            
+            
+        });
+        alert.addAction(action)
+        // alert.view.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        ViewController.present(alert, animated: true, completion:nil)
+    }
+
     
 // MARK :- SigneUpAPIService
     
@@ -722,7 +790,8 @@ class SignUpViewController: BaseViewController,UITableViewDelegate,UITableViewDa
                         self.utillites.alertWithOkButtonAction(vc: self, alertTitle: "Success".localize(), messege: successMsg!, clickAction: {
                                 let signUpVc  : LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
                         
-                        
+                            signUpVc.showNav = true
+
                             self.navigationController?.pushViewController(signUpVc, animated: true)
                         })
                         

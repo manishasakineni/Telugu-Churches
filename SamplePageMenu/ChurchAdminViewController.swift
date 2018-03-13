@@ -367,25 +367,25 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         if let churchAdmin =  listStr.churchAdmin {
             cell.adminNameLabel.text = "Name:" + " " + churchAdmin
         }else{
-            cell.adminNameLabel.text = "Name:"
+            cell.adminNameLabel.text = "Name:".localize()
         }
         
         if let churchName =  listStr.churchName {
-            cell.churchName.text = "ChurchName:" + " " + churchName
+            cell.churchName.text = "Church Name:" + " " + churchName
         }else{
-            cell.churchName.text = "ChurchName:"
+            cell.churchName.text = "Church Name:".localize()
         }
         
         if let mobileNumber =  listStr.mobileNumber {
-            cell.mobileNumber.text = "MobileNumber:" + " " + mobileNumber
+            cell.mobileNumber.text = "Mobile Number:" + " " + mobileNumber
         }else{
-            cell.mobileNumber.text = "MobileNumber:"
+            cell.mobileNumber.text = "Mobile Number:".localize()
         }
         
         if let email = listStr.email {
             cell.email.text = "Email:" + " " + email
         }else{
-            cell.email.text = "Email:"
+            cell.email.text = "Email:".localize()
         }
         
         let imgUrl = listStr.churchImage
@@ -425,25 +425,25 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         if let churchAdmin =  listStr.churchAdmin {
             cell.adminNameLabel.text = "Name:" + " " + churchAdmin
         }else{
-            cell.adminNameLabel.text = "Name:"
+            cell.adminNameLabel.text = "Name:".localize()
         }
         
         if let churchName =  listStr.churchName {
-            cell.churchName.text = "ChurchName:" + " " + churchName
+            cell.churchName.text = "Church Name:" + " " + churchName
         }else{
-            cell.churchName.text = "ChurchName:"
+            cell.churchName.text = "Church Name:".localize()
         }
        
         if let mobileNumber =  listStr.mobileNumber {
-            cell.mobileNumber.text = "MobileNumber:" + " " + mobileNumber
+            cell.mobileNumber.text = "Mobile Number:" + " " + mobileNumber
         }else{
-            cell.mobileNumber.text = "MobileNumber:"
+            cell.mobileNumber.text = "Mobile Number:".localize()
         }
         
         if let email = listStr.email {
             cell.email.text = "Email:" + " " + email
         }else{
-            cell.email.text = "Email:"
+            cell.email.text = "Email:".localize()
         }
         
         

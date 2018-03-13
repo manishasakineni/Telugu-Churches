@@ -1,12 +1,16 @@
 {
 
     "EditProfile"      :   "ప్రొఫైల్ను సవరించండి",
-    "ChangepassWord"   :   "పాస్ వర్డ్ ను మార్చండి",  
+    "ChangepassWord"   :   "పాస్వర్డ్ మార్చండి",
     "LogOut"           : "లాగ్ అవుట్",
     "Login"  :  "లాగిన్",
     "ChooseLanguage" : "భాషను ఎంచుకోండి",
     "Telugu Churches" : "తెలుగు చర్చిలు",
-     
+    "UpComing Events" : "రాబోయే ఈవెంట్స్",
+
+    
+    
+    
     "User Name" : "సభ్యనామం",
     "Password" : "పాస్వర్డ్",
     "forgot Password" : "పాస్వర్డ్ను మర్చిపోయారు",
@@ -20,7 +24,7 @@
     "Confirm Password" : "పాస్వర్డ్ని నిర్ధారించండి",
     "Submit" : "సమర్పించండి",
     "Registration" : "నమోదు",
-    "all ready have an Account?" : "అన్ని సిద్ధంగా ఒక ఖాతా ఉందా?",
+    "all ready have an Account?" : "ఖాతా కలిగి ఉన్నారా?",
     "Message" : "సందేశం",
     "Please Enter UserName" : "దయచేసి వినియోగదారు పేరుని నమోదు చేయండి",
     "Please Enter Password" : "దయచేసి పాస్వర్డ్ను నమోదు చేయండి",
@@ -76,7 +80,42 @@
     "Gender" : "జెండర్",
     "Address" : "చిరునామా",
     "Church Author" : "చర్చి రచయిత",
-    "Map" : "మ్యాప్"
+    "Map" : "మ్యాప్",
+    "Date Of Birth" : "పుట్టిన తేది",
+    
+    "Registration Number" : "రిజిస్ట్రేషన్ సంఖ్య",
+    
+    "Name" : "పేరు",
+    "Description" : "వివరణ",
+    "Vision" : "విజన్",
+    "Mission" : "మిషన్",
+    "Address" : "చిరునామా",
+    "Email" : "ఇమెయిల్",
+    "Web Address" : "వెబ్ చిరునామా",
+    
+    "Landmark" : "ల్యాండ్మార్క్",
+    
+    
+    "State" : "రాష్ట్రం",
+    "District" : "జిల్లా",
+    "Mandal" : "మండల",
+    "Village" : "విలేజ్",
+    "Pin Code" : "పిన్ కోడ్",
+    "Author Name" : "రచయిత పేరు",
+    "Contact Number" : "సంఖ్య సంప్రదించండి",
+    "Posts" : "పోస్ట్లు",
+    "Church Name:" : "చర్చి పేరు:",
+    "Mobile Number:" : "మొబైల్ సంఖ్య:Up",
+    "Regisration Number" : "రీజినేషన్ నంబర్",
+    "Email:" : "ఇమెయిల్:",
+    "Name:" : "పేరు:",
+
+    "Information" : "సమాచారం"
+
+    
+  
+    
+
 
 
 

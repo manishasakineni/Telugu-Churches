@@ -40,6 +40,9 @@ var listResultArray = Array<Any>()
 
     var churchID:Int = 0
 
+    var churcgname          : String = ""
+
+    
     var PageIndex = 1
     var totalPages : Int? = 0
     var totalRecords : Int? = 0

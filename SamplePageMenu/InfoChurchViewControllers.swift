@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Localize
 
 class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -72,6 +73,9 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
     var ChurchInfoAry  = ["1".localize(),"REG001".localize(),"Holv Church".localize(),"LandMark".localize(),"Aishwarya Sateesh".localize(),"Contact No".localize(),"Church@gmail.com".localize()]
     
     var churchID      : Int = 0
+    var churchName          : String = ""
+
+
     
     let array = ["","ssss","ddddd","gggg"]
     
@@ -393,7 +397,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
             
             if indexPath.row == 0 {
                 
-                cell1.infoLabel.text = "Registration Number"
+                cell1.infoLabel.text = "Registration Number".localize()
                 
                 cell1.addressLabel.text = regNoString
                 
@@ -401,7 +405,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
                 
             } else if indexPath.row == 1 {
                 
-                cell1.infoLabel.text = "Name"
+                cell1.infoLabel.text = "Name".localize()
                 
                 
                 cell1.addressLabel.text = churchNamesString
@@ -409,14 +413,14 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
             
             } else if indexPath.row == 2 {
                 
-                cell1.infoLabel.text = "Description"
+                cell1.infoLabel.text = "Description".localize()
                 
                 cell1.addressLabel.text =  descriptionString
                 
                 
             }else if indexPath.row == 3 {
                 
-                cell1.infoLabel.text = "Vision"
+                cell1.infoLabel.text = "Vision".localize()
                 
                 
                 cell1.addressLabel.text = VissionString
@@ -424,7 +428,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
                 
             }else if indexPath.row == 4 {
                 
-                cell1.infoLabel.text = "Mission"
+                cell1.infoLabel.text = "Mission".localize()
                 
                 
                 cell1.addressLabel.text = MissionString
@@ -445,13 +449,13 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
             
             if indexPath.row == 0 {
                 
-                cell3.infoLabel.text = "Address"
+                cell3.infoLabel.text = "Address".localize()
                 
                 cell3.addressLabel.text = address1String
                 //
             } else if indexPath.row == 1 {
                 
-                cell3.infoLabel.text = "Email"
+                cell3.infoLabel.text = "Email".localize()
                 
                 
                 cell3.addressLabel.text =  emailString
@@ -460,7 +464,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
                 
             } else if indexPath.row == 2 {
                 
-                cell3.infoLabel.text = "Web Address"
+                cell3.infoLabel.text = "Web Address".localize()
                 
                 cell3.addressLabel.text =  wedAddressString
                 
@@ -469,7 +473,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
                 
             }else if indexPath.row == 3 {
                 
-                cell3.infoLabel.text = "LandMark"
+                cell3.infoLabel.text = "Landmark".localize()
                 
                 
                 cell3.addressLabel.text = landMarkString
@@ -478,7 +482,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
                 
             }else if indexPath.row == 4 {
                 
-                cell3.infoLabel.text = "State"
+                cell3.infoLabel.text = "State".localize()
                 
                 
                 cell3.addressLabel.text = stateString
@@ -491,7 +495,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
             }
             else if indexPath.row == 5 {
                 
-                cell3.infoLabel.text = "District"
+                cell3.infoLabel.text = "District".localize()
                 
                 
                 cell3.addressLabel.text = districtString
@@ -500,14 +504,14 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
             }
             else if indexPath.row == 6 {
                 
-                cell3.infoLabel.text = "Mandal"
+                cell3.infoLabel.text = "Mandal".localize()
                 
                 cell3.addressLabel.text = mandalNameString
                 
             }
             else if indexPath.row == 7 {
                 
-                cell3.infoLabel.text = "Village"
+                cell3.infoLabel.text = "Village".localize()
                 
                 cell3.addressLabel.text = villageString
                 
@@ -516,7 +520,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
             }
             else if indexPath.row == 8 {
                 
-                cell3.infoLabel.text = "Pin Code"
+                cell3.infoLabel.text = "Pin Code".localize()
                 
                 cell3.addressLabel.text = pinCodeString
                 
@@ -533,35 +537,35 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
             if indexPath.row == 0 {
                 
-                cell2.infoLabel.text = "Author Name"
+                cell2.infoLabel.text = "Author Name".localize()
                 
                 cell2.addressLabel.text = authorNameString
                 
                 
             } else if indexPath.row == 1 {
                 
-                cell2.infoLabel.text = "Email"
+                cell2.infoLabel.text = "Email".localize()
                 
                 cell2.addressLabel.text =  emailString
                 
                 
             } else if indexPath.row == 2 {
                 
-                cell2.infoLabel.text = "Contact Number"
+                cell2.infoLabel.text = "Contact Number".localize()
                 
                 cell2.addressLabel.text =  contactNumberString
                 
                 
             }else if indexPath.row == 3 {
                 
-                cell2.infoLabel.text = "DOB"
+                cell2.infoLabel.text = "Date Of Birth".localize()
                 
                 cell2.addressLabel.text = dobString
                 
                 
             }else if indexPath.row == 4 {
                 
-                cell2.infoLabel.text = "Gender"
+                cell2.infoLabel.text = "Gender".localize()
                 
                 cell2.addressLabel.text = genderString
                 
@@ -609,14 +613,14 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
             
             let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
             
-            infoHeaderCell.headerLabel.text = "Church Details"
+            infoHeaderCell.headerLabel.text = "Churche Details".localize()
             return infoHeaderCell
             
         }else if section == 2 {
             
             let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
             
-            infoHeaderCell.headerLabel.text = "Address"
+            infoHeaderCell.headerLabel.text = "Address".localize()
             return infoHeaderCell
             
         }
@@ -624,7 +628,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
             
             let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
             
-            infoHeaderCell.headerLabel.text = "Church Author"
+            infoHeaderCell.headerLabel.text = "Church Author".localize()
             return infoHeaderCell
             
         }
@@ -633,7 +637,7 @@ class InfoChurchViewControllers: UIViewController,UITableViewDelegate,UITableVie
             
             let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
             
-            infoHeaderCell.headerLabel.text = "Map"
+            infoHeaderCell.headerLabel.text = "Map".localize()
             return infoHeaderCell
             
         }

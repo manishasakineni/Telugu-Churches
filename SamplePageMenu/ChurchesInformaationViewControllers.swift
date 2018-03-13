@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Localize
 
 protocol churchChangeSubtitleOfIndexDelegate {
     func nameOfItem(indexNumber: Int, countText : String)
@@ -29,7 +30,8 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
 
     var churchID:Int = 0
     
-    
+    var nameStr          : String = ""
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,7 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
         
        
+        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: nameStr.localize(), backTitle: nameStr.localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
         // Do any additional setup after loading the view.
     }
@@ -55,7 +58,6 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        Utilities.setChurchuInfoViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Churche Details".localize(), backTitle: "Churche Details".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
         
         
@@ -76,23 +78,26 @@ class ChurchesInformaationViewControllers: UIViewController,CAPSPageMenuDelegate
         
         
         allOffersVC = InfoChurchViewControllers(nibName: "InfoChurchViewControllers", bundle: nil)
-        allOffersVC?.title = "Information"
+        allOffersVC?.title = "Information".localize()
         allOffersVC?.delegate  = self
         allOffersVC?.churchID = churchID
+        allOffersVC?.churchName = nameStr
 
         
 //        eventInfoVC = EventInfoViewController(nibName: "EventViewController",
 //                                              bundle: nil)
         
         eventInfoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
-        eventInfoVC?.title = "Events"
+        eventInfoVC?.title = "Events".localize()
         eventInfoVC?.delegate  = self
         eventInfoVC?.pasterUserId = pasterUserId
         eventInfoVC?.churchID = churchID
+        eventInfoVC?.churcgname = nameStr
+
 
         detAndBillsVC = DetAndBillsViewController(nibName: "DetAndBillsViewController",
                                                   bundle: nil)
-        detAndBillsVC?.title = "Posts"
+        detAndBillsVC?.title = "Posts".localize()
         detAndBillsVC?.delegate  = self
         
          controllersArray.append(allOffersVC!)

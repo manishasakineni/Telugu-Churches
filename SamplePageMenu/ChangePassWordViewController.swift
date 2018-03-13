@@ -265,6 +265,7 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
             
             forgotPasswordCell.resetPasswordTF.delegate = self
             forgotPasswordCell.resetPasswordTF.tag = indexPath.row
+            forgotPasswordCell.eyeButtonOutlet.tag = indexPath.row
             if indexPath.row == 0 {
                
                 forgotPasswordCell.resetPasswordTF.placeholder = "Old Password".localize()
@@ -349,25 +350,34 @@ class ChangePassWordViewController: UIViewController,UITableViewDelegate,UITable
     
     func  eyeButtonClicked(_ sendre:UIButton) {
         
+        let indexPath = IndexPath.init(row: sendre.tag, section: 0)
+        
+        if let forgotPasswordCell = forgotPasswordTableView.cellForRow(at: indexPath) as? ForgotPasswordCell {
+            
+           forgotPasswordCell.resetPasswordTF.isSecureTextEntry = !forgotPasswordCell.resetPasswordTF.isSecureTextEntry
+            
+        
+        }
+
         
         print("Eye Button Clicked......")
 
-        if sendre.tag == 0
-        {
-            activeTextField.isSecureTextEntry = false
-       //     PwButton.contentMode = .scaleAspectFit
-
-            sendre.tag = 1
-        }
-        else{
-            
-            activeTextField.isSecureTextEntry = true
-        //    PwButton.contentMode = .scaleAspectFit
-
-            sendre.tag = 0
-            
-            
-        }
+//        if sendre.tag == 0
+//        {
+//            activeTextField.isSecureTextEntry = false
+//       //     PwButton.contentMode = .scaleAspectFit
+//
+//            sendre.tag = 1
+//        }
+//        else{
+//            
+//            activeTextField.isSecureTextEntry = true
+//        //    PwButton.contentMode = .scaleAspectFit
+//
+//            sendre.tag = 0
+//            
+//            
+//        }
         
         
     }
