@@ -1221,26 +1221,26 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             
         else{
             
-            if collectionView.tag  == 0 {
+            if collectionView.tag  == 1 {
                 
-                //if indexPath.item == 0 {
+                
                 
                 let churchDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchDetailsViewController") as! ChurchDetailsViewController
                 churchDetailsViewController.appVersion = imageNameArray[indexPath.item]
                 self.navigationController?.pushViewController(churchDetailsViewController, animated: true)
-                
-                // }
+               
             }
-            else if collectionView.tag == 1{
+            else if collectionView.tag == 2{
                 
-                //   if indexPath.item == 0 {
+               
                 
                 let churchAdminViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChurchAdminViewController") as! ChurchAdminViewController
                 churchAdminViewController.appVersion = imageNameArray2[indexPath.item]
+              
                 self.navigationController?.pushViewController(churchAdminViewController, animated: true)
-                //  }
+                
             }
-            else if collectionView.tag == 2{
+            else if collectionView.tag == 3{
                 if indexPath.item == 0 {
                     
                     let eventViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
@@ -1251,9 +1251,9 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 }
                 if indexPath.item == 1 {
                     
-                    let upConingEventInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: "UpConingEventInfoViewController") as! UpConingEventInfoViewController
-                    upConingEventInfoViewController.appVersion = imageNameArray3[indexPath.item]
-                    self.navigationController?.pushViewController(upConingEventInfoViewController, animated: true)
+                    let allEventsAndUpComingEventsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AllEventsAndUpComingEventsViewController") as! AllEventsAndUpComingEventsViewController
+                    allEventsAndUpComingEventsViewController.appVersion = imageNameArray3[indexPath.item]
+                    self.navigationController?.pushViewController(allEventsAndUpComingEventsViewController, animated: true)
                     
                     
                 }

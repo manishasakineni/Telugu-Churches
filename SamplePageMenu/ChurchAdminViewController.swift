@@ -20,6 +20,8 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     var appVersion          : String = ""
     
+    
+    
     var listResultArray = Array<Any>()
     var churchNamesArray = Array<String>()
     var churchAdminNameArray = Array<String>()
@@ -482,10 +484,31 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+       let listStr:GetAllChurchAdminsResultVo = churchAdminArray[indexPath.row]
+        
+        let adminDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "AdminDetailsViewController") as! AdminDetailsViewController
+        
+        adminDetailsViewController.adminID = listStr.Id!
+        
+        self.navigationController?.pushViewController(adminDetailsViewController, animated: true)
         
 
         
     }
+    
+    
+    
+    func getAdminDetailsAPICall(){
+    
+    
+    
+    
+    
+    
+    
+    }
+    
+    
     
     @IBAction func backLeftButtonTapped(_ sender:UIButton) {
         
