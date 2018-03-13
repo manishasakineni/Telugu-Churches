@@ -55,8 +55,11 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
         upConingEventInfoVC?.delegate  = self
     
         
-        allEventsVC = AllEventsViewController(nibName: "AllEventsViewController",
-                                                  bundle: nil)
+        
+        allEventsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AllEventsViewController") as! AllEventsViewController
+        
+//        allEventsVC = AllEventsViewController(nibName: "AllEventsViewController",
+//                                                  bundle: nil)
         allEventsVC?.title = "ALL EVENTS"
         allEventsVC?.delegate  = self
         

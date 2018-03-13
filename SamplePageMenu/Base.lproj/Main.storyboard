@@ -800,6 +800,39 @@
             </objects>
             <point key="canvasLocation" x="5281" y="1006"/>
         </scene>
+        <!--All Events View Controller-->
+        <scene sceneID="nIo-sS-ncv">
+            <objects>
+                <viewController storyboardIdentifier="AllEventsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hiD-Op-EUh" customClass="AllEventsViewController" customModule="Telugu_Churches" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eOI-VK-ydz"/>
+                        <viewControllerLayoutGuide type="bottom" id="S2X-Ye-2W4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Szs-LM-D9E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CuS-V5-7Pu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="CuS-V5-7Pu" secondAttribute="trailing" id="L7z-fu-u4o"/>
+                            <constraint firstItem="S2X-Ye-2W4" firstAttribute="top" secondItem="CuS-V5-7Pu" secondAttribute="bottom" id="bHv-Po-1JN"/>
+                            <constraint firstItem="CuS-V5-7Pu" firstAttribute="top" secondItem="Szs-LM-D9E" secondAttribute="top" id="iVF-Gx-rqV"/>
+                            <constraint firstItem="CuS-V5-7Pu" firstAttribute="leading" secondItem="Szs-LM-D9E" secondAttribute="leading" id="qqf-pT-HeT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="allEventTableView" destination="CuS-V5-7Pu" id="Uas-AM-IGl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xlz-Yt-3FI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6061.6000000000004" y="1194.1529235382309"/>
+        </scene>
         <!--Setting View Controller-->
         <scene sceneID="zh0-0i-pYZ">
             <objects>
@@ -918,9 +951,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRt-Dh-Z7a">
                                         <rect key="frame" x="8" y="5" width="359" height="30"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                        <state key="normal" title="Save">
+                                        <state key="normal" title="save">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="save"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="saveBtnAction:" destination="HRu-xn-enm" eventType="touchUpInside" id="mvK-V9-WMm"/>
                                         </connections>

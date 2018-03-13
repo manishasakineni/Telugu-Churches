@@ -156,6 +156,8 @@
 		CB2045CD2056A22C0032E71D /* AllEventsAndUpComingEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2045CC2056A22C0032E71D /* AllEventsAndUpComingEventsViewController.swift */; };
 		CB2045D02056A2970032E71D /* AllEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2045CE2056A2970032E71D /* AllEventsViewController.swift */; };
 		CB2045D12056A2970032E71D /* AllEventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB2045CF2056A2970032E71D /* AllEventsViewController.xib */; };
+		CB2045D72056A85D0032E71D /* AllEventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2045D52056A85D0032E71D /* AllEventsTableViewCell.swift */; };
+		CB2045D82056A85D0032E71D /* AllEventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB2045D62056A85D0032E71D /* AllEventsTableViewCell.xib */; };
 		CB21CE5C203D32E200B3294B /* EventButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB21CE5A203D32E200B3294B /* EventButtonCell.swift */; };
 		CB21CE5D203D32E200B3294B /* EventButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB21CE5B203D32E200B3294B /* EventButtonCell.xib */; };
 		CB21CE60203D505100B3294B /* EventInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB21CE5E203D505100B3294B /* EventInfoViewController.swift */; };
@@ -366,6 +368,8 @@
 		CB2045CC2056A22C0032E71D /* AllEventsAndUpComingEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllEventsAndUpComingEventsViewController.swift; sourceTree = "<group>"; };
 		CB2045CE2056A2970032E71D /* AllEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllEventsViewController.swift; sourceTree = "<group>"; };
 		CB2045CF2056A2970032E71D /* AllEventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllEventsViewController.xib; sourceTree = "<group>"; };
+		CB2045D52056A85D0032E71D /* AllEventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllEventsTableViewCell.swift; sourceTree = "<group>"; };
+		CB2045D62056A85D0032E71D /* AllEventsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllEventsTableViewCell.xib; sourceTree = "<group>"; };
 		CB21CE5A203D32E200B3294B /* EventButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventButtonCell.swift; sourceTree = "<group>"; };
 		CB21CE5B203D32E200B3294B /* EventButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventButtonCell.xib; sourceTree = "<group>"; };
 		CB21CE5E203D505100B3294B /* EventInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInfoViewController.swift; sourceTree = "<group>"; };
@@ -591,6 +595,7 @@
 		9A5D26421FFF963700316988 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				CB2045D42056A8340032E71D /* AllEventsTableViewCell */,
 				CBC1FB822052DBBE000063D4 /* ListOfMonthEventCell.swift */,
 				CBC1FB832052DBBE000063D4 /* ListOfMonthEventCell.xib */,
 				CBC1FB7E2052DBA6000063D4 /* AllEventHeaderCell.swift */,
@@ -896,6 +901,15 @@
 			name = AllEventsViewController;
 			sourceTree = "<group>";
 		};
+		CB2045D42056A8340032E71D /* AllEventsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB2045D52056A85D0032E71D /* AllEventsTableViewCell.swift */,
+				CB2045D62056A85D0032E71D /* AllEventsTableViewCell.xib */,
+			);
+			name = AllEventsTableViewCell;
+			sourceTree = "<group>";
+		};
 		CB21CE62203DA43300B3294B /* GetAllChurchDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -1111,6 +1125,7 @@
 				9A5D263B1FFF8A5100316988 /* PageControllCell.xib in Resources */,
 				CB21CE5D203D32E200B3294B /* EventButtonCell.xib in Resources */,
 				CB834738202837020034AD4E /* HeaderProfileCell.xib in Resources */,
+				CB2045D82056A85D0032E71D /* AllEventsTableViewCell.xib in Resources */,
 				CB03C8D7203EC8F5000B96A4 /* ChurchAdminDetailCell.xib in Resources */,
 				9A5D26131FFF89C300316988 /* RechargesViewController.xib in Resources */,
 				3D65D4A82004CE4A00CAB226 /* VideoTableViewCell.xib in Resources */,
@@ -1298,6 +1313,7 @@
 				AF102855203C25C10012411A /* ChurchesInformaationViewControllers.swift in Sources */,
 				3DDD8910201865F600918711 /* SignUPTableViewCell.swift in Sources */,
 				CBC1FB802052DBA6000063D4 /* AllEventHeaderCell.swift in Sources */,
+				CB2045D72056A85D0032E71D /* AllEventsTableViewCell.swift in Sources */,
 				AF08F1AA203D57F300498256 /* InfoMapTableViewCell.swift in Sources */,
 				9A5D25F11FFF76A300316988 /* AppDelegate.swift in Sources */,
 				CB3226D7202C96660050D06B /* GetProfileResultInfoVO.swift in Sources */,
