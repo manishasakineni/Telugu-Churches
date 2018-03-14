@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Localize
 
 class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating {
 
@@ -365,25 +366,25 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         let listStr:GetAllChurchAdminsResultVo = filtered[indexPath.row]
         
         if let churchAdmin =  listStr.churchAdmin {
-            cell.adminNameLabel.text = "Name:" + " " + churchAdmin
+            cell.adminNameLabel.text = "Name:".localize() + " " + churchAdmin
         }else{
             cell.adminNameLabel.text = "Name:".localize()
         }
         
         if let churchName =  listStr.churchName {
-            cell.churchName.text = "Church Name:" + " " + churchName
+            cell.churchName.text = "Church Name:".localize() + " " + churchName
         }else{
             cell.churchName.text = "Church Name:".localize()
         }
         
         if let mobileNumber =  listStr.mobileNumber {
-            cell.mobileNumber.text = "Mobile Number:" + " " + mobileNumber
+            cell.mobileNumber.text = "Mobile Number:".localize() + " " + mobileNumber
         }else{
             cell.mobileNumber.text = "Mobile Number:".localize()
         }
         
         if let email = listStr.email {
-            cell.email.text = "Email:" + " " + email
+            cell.email.text = "Email:".localize() + " " + email
         }else{
             cell.email.text = "Email:".localize()
         }
@@ -423,13 +424,13 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
         
         if let churchAdmin =  listStr.churchAdmin {
-            cell.adminNameLabel.text = "Name:" + " " + churchAdmin
+            cell.adminNameLabel.text = "Name:".localize() + " " + churchAdmin
         }else{
             cell.adminNameLabel.text = "Name:".localize()
         }
         
         if let churchName =  listStr.churchName {
-            cell.churchName.text = "Church Name:" + " " + churchName
+            cell.churchName.text = "Church Name:".localize() + " " + churchName
         }else{
             cell.churchName.text = "Church Name:".localize()
         }
@@ -441,7 +442,7 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         }
         
         if let email = listStr.email {
-            cell.email.text = "Email:" + " " + email
+            cell.email.text = "Email:".localize() + " " + email
         }else{
             cell.email.text = "Email:".localize()
         }

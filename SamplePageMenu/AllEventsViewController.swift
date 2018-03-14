@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Localize
 
 class AllEventsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,UISearchResultsUpdating,UISearchBarDelegate {
 
@@ -266,34 +267,34 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
                 
                 
                 if let churchName =  churchIdMonthYearList.churchName {
-                    listOfMonthEventCell.churchName.text = "Church Name:" + " " + churchName
+                    listOfMonthEventCell.churchName.text = "Church Name:".localize() + " " + churchName
                 }else{
-                    listOfMonthEventCell.churchName.text = "Church Name:"
+                    listOfMonthEventCell.churchName.text = "Church Name:".localize()
                 }
                 
                 if let eventName =  churchIdMonthYearList.title {
-                    listOfMonthEventCell.eventTitle.text = eventName
+                    listOfMonthEventCell.eventTitle.text = "Event Name:".localize()
                 }else{
-                    listOfMonthEventCell.eventTitle.text = ""
+                    listOfMonthEventCell.eventTitle.text = "Event Name:".localize()
                 }
                 
                 if let contactNumber =  churchIdMonthYearList.contactNumber {
-                    listOfMonthEventCell.contactNumber.text = "contact Number:" + " " + contactNumber
+                    listOfMonthEventCell.contactNumber.text = "Contact Number".localize() + " " + contactNumber
                 }else{
-                    listOfMonthEventCell.contactNumber.text = "contact Number:"
+                    listOfMonthEventCell.contactNumber.text = "Contact Number".localize()
                 }
                 
                 let startDate =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!)
                 if startDate != "" {
-                    listOfMonthEventCell.startDate.text = "StartDate :" + " " + startDate
+                    listOfMonthEventCell.startDate.text = "Start Date:".localize() + " " + startDate
                 }else{
-                    listOfMonthEventCell.startDate.text = "StartDate :"
+                    listOfMonthEventCell.startDate.text = "Start Date:".localize()
                 }
                 let endDate =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.endDate!)
                 if endDate != "" {
-                    listOfMonthEventCell.endDate.text = "EndDate :" + " " + endDate
+                    listOfMonthEventCell.endDate.text = "End Date:".localize() + " " + endDate
                 }else{
-                    listOfMonthEventCell.endDate.text = "EndDate :"
+                    listOfMonthEventCell.endDate.text = "End Date:".localize()
                 }
                 //  listOfMonthEventCell.churchName.text =
                 
@@ -339,34 +340,34 @@ class AllEventsViewController: UIViewController,UITableViewDelegate, UITableView
                     
                     
                     if let churchName =  churchIdMonthYearList.churchName {
-                        listOfMonthEventCell.churchName.text = "Church Name:" + " " + churchName
+                        listOfMonthEventCell.churchName.text = "Church Name:".localize() + " " + churchName
                     }else{
-                        listOfMonthEventCell.churchName.text = "Church Name:"
+                        listOfMonthEventCell.churchName.text = "Church Name:".localize()
                     }
                     
                     if let eventName =  churchIdMonthYearList.title {
-                        listOfMonthEventCell.eventTitle.text = eventName
+                        listOfMonthEventCell.eventTitle.text = "Event Name:".localize()
                     }else{
-                        listOfMonthEventCell.eventTitle.text = ""
+                        listOfMonthEventCell.eventTitle.text = "Event Name:".localize()
                     }
                     
                     if let contactNumber =  churchIdMonthYearList.contactNumber {
-                        listOfMonthEventCell.contactNumber.text = "contact Number:" + " " + contactNumber
+                        listOfMonthEventCell.contactNumber.text = "Contact Number".localize() + " " + contactNumber
                     }else{
-                        listOfMonthEventCell.contactNumber.text = "contact Number:"
+                        listOfMonthEventCell.contactNumber.text = "Contact Number".localize()
                     }
                     
                     let startDate =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!)
                     if startDate != "" {
-                        listOfMonthEventCell.startDate.text = "StartDate :" + " " + startDate
+                        listOfMonthEventCell.startDate.text = "Start Date:".localize() + " " + startDate
                     }else{
-                        listOfMonthEventCell.startDate.text = "StartDate :"
+                        listOfMonthEventCell.startDate.text = "Start Date:".localize()
                     }
                     let endDate =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.endDate!)
                     if endDate != "" {
-                        listOfMonthEventCell.endDate.text = "EndDate :" + " " + endDate
+                        listOfMonthEventCell.endDate.text = "End Date:".localize() + " " + endDate
                     }else{
-                        listOfMonthEventCell.endDate.text = "EndDate :"
+                        listOfMonthEventCell.endDate.text = "End Date:".localize()
                     }
                     //  listOfMonthEventCell.churchName.text =
                     

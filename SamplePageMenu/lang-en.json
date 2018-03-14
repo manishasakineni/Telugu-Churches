@@ -7,7 +7,7 @@
     "ChooseLanguage" : "Choose Language",
     "Telugu Churches" :  "Telugu Churches",
     
-    "UpComing Events" : "UpComing Events",
+    "UpComing Events" :  "UPCOMING EVENTS",
 
     
     "User Name" : "User Name",
@@ -112,7 +112,36 @@
     "Email:" : "Email:",
 
 
-    "Information" : "Information"
+    "Information" : "Information",
+    "Registration Number:" : "Registration Number:",
+    
+    "End Date:" : "End Date:",
+    "Start Date:" : "Start Date:",
+    
+    "Event Title:" : "Event Title:",
+    "ALL EVENTS" : "ALL EVENTS",
+    "Event Name:" : "Event Name:",
+    "  Events" : "  Events",
+    "contact Number:" : "contact Number:",
+    "StartDate EndDate:" : "StartDate EndDate:",
+    "Latest Posts" : "Latest Posts",
+    "Categories" : "Categories",
+    "Event Posts" : "Event Posts",
+    "Bible Posts" : "Bible Posts"
+
+    
+
+    
+
+    
+
+
+
+
+
+
+    
+
 
 
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Localize
 
 
 protocol eventinfoSubtitleOfIndexDelegate {
@@ -40,7 +41,7 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
         
         super.viewWillAppear(true)
         
-        Utilities.UpComingAndEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "  Events", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.UpComingAndEventViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "", backTitle: "  Events".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
       
         
@@ -51,7 +52,7 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
     
         
         upConingEventInfoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UpConingEventInfoViewController") as! UpConingEventInfoViewController
-        upConingEventInfoVC?.title = "UPCOMING EVENTS"
+        upConingEventInfoVC?.title = "UpComing Events".localize()
         upConingEventInfoVC?.delegate  = self
     
         
@@ -60,7 +61,7 @@ class AllEventsAndUpComingEventsViewController: UIViewController,CAPSPageMenuDel
         
 //        allEventsVC = AllEventsViewController(nibName: "AllEventsViewController",
 //                                                  bundle: nil)
-        allEventsVC?.title = "ALL EVENTS"
+        allEventsVC?.title = "ALL EVENTS".localize()
         allEventsVC?.delegate  = self
         
         controllersArray.append(upConingEventInfoVC!)

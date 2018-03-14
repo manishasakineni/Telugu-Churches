@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Localize
 
 class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
 
@@ -75,21 +76,21 @@ class CategoriesHomeViewController: UIViewController,UICollectionViewDelegate,UI
         super.viewWillAppear(true)
         
         
-        Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Bible Posts", backTitle: " Bible Posts", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Bible Posts".localize(), backTitle: "Bible Posts".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
         if bibleInt == 10 {
             
-            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Bible Posts", backTitle: " Bible Posts", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Bible Posts".localize(), backTitle: "Bible Posts".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
 
         }
         if bibleInt == 11 {
             
-            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Categories", backTitle: " Categories", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Categories".localize(), backTitle: " Categories".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
             
         }
         if bibleInt == 12 {
             
-            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Events", backTitle: " Events", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+            Utilities.categoriesViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr:self, titleView: nil, withText: "Events".localize(), backTitle: " Events".localize(), rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
             
         }
     }

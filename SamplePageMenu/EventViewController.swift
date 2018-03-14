@@ -8,6 +8,7 @@
 
 import UIKit
 import FSCalendar
+import Localize
 
 
 class EventViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSource,FSCalendarDelegateAppearance {
@@ -729,9 +730,9 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             let listOfMonthEventCell = tableView.dequeueReusableCell(withIdentifier: "ListOfMonthEventCell", for: indexPath) as! ListOfMonthEventCell
             
             if let churchName =  churchIdMonthYearList.churchName {
-                listOfMonthEventCell.churchName.text = "Church Name:" + " " + churchName
+                listOfMonthEventCell.churchName.text = "Church Name:".localize() + " " + churchName
             }else{
-                listOfMonthEventCell.churchName.text = "church Name:"
+                listOfMonthEventCell.churchName.text = "church Name:".localize()
             }
             
             if let eventName =  churchIdMonthYearList.title {
@@ -741,16 +742,16 @@ extension EventViewController : UITableViewDelegate, UITableViewDataSource {
             }
             
             if let contactNumber =  churchIdMonthYearList.contactNumber {
-                listOfMonthEventCell.contactNumber.text = "contact Number:" + " " + contactNumber
+                listOfMonthEventCell.contactNumber.text = "contact Number:".localize() + " " + contactNumber
             }else{
-                listOfMonthEventCell.contactNumber.text = "contact Number:"
+                listOfMonthEventCell.contactNumber.text = "contact Number:".localize()
             }
             
             let startAndEndDate1 =   returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.startDate!) + "-" + returnEventDateWithoutTim1(selectedDateString: churchIdMonthYearList.endDate!)
             if startAndEndDate1 != "" {
-                listOfMonthEventCell.eventStartEndDate.text = "StartDate EndDate:" + " " + startAndEndDate1
+                listOfMonthEventCell.eventStartEndDate.text = "StartDate EndDate:".localize() + " " + startAndEndDate1
             }else{
-                listOfMonthEventCell.eventStartEndDate.text = "contact Number:"
+                listOfMonthEventCell.eventStartEndDate.text = "contact Number:".localize()
             }
             //  listOfMonthEventCell.churchName.text =
             

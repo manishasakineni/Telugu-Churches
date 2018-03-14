@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Localize
 class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
@@ -126,35 +127,35 @@ class UpConingEventInfoViewController: UIViewController,UITableViewDelegate,UITa
         
         
         if let chuechName =  listStr.churchName {
-            cell.chuechName.text = "Church Name:" + " " + chuechName
+            cell.chuechName.text = "Church Name:".localize() + " " + chuechName
         }else{
-            cell.chuechName.text = "Church Name:"
+            cell.chuechName.text = "Church Name:".localize()
         }
         
         if let eventTitle =  listStr.title {
-            cell.eventTitle.text = "Event Title:" + " " + eventTitle
+            cell.eventTitle.text = "Event Title:".localize() + " " + eventTitle
         }else{
-            cell.eventTitle.text = "Event Title:"
+            cell.eventTitle.text = "Event Title:".localize()
         }
         
         if let eventStart =  listStr.startDate {
             
-            cell.eventStart.text = "Start Date:" + " " + returnEventDateWithoutTime(selectedDateString : eventStart)
+            cell.eventStart.text = "Start Date:".localize() + " " + returnEventDateWithoutTime(selectedDateString : eventStart)
         }else{
-            cell.eventStart.text = "Start Date:"
+            cell.eventStart.text = "Start Date:".localize()
         }
         
         if let eventEndDate =  listStr.endDate {
             
             //amAppend(str: "\(listStr.openingTime!)" + "-" + "\(listStr.closingTime!)" )
-            cell.eventEndDate.text = "End Date:" + " " + returnEventDateWithoutTime(selectedDateString : eventEndDate)
+            cell.eventEndDate.text = "End Date:".localize() + " " + returnEventDateWithoutTime(selectedDateString : eventEndDate)
         }else{
-            cell.eventEndDate.text = "End Date:"
+            cell.eventEndDate.text = "End Date:".localize()
         }
         if let registrationNumber = listStr.registrationNumber {
-            cell.registrationNumber.text = "Registration Number:" + " " + registrationNumber
+            cell.registrationNumber.text = "Registration Number:".localize() + " " + registrationNumber
         }else{
-            cell.registrationNumber.text = "Registration Number:"
+            cell.registrationNumber.text = "Registration Number:".localize()
         }
         
         

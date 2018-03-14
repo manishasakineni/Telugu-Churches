@@ -74,6 +74,8 @@
     "EventStartDate" : "ఈవెంట్ ప్రారంభ తేదీ",
     "EventEndDate" : "ఈవెంట్ ముగింపు తేదీ",
     "EventName" : "ఈవెంట్ పేరు",
+    "Event Name:" : "ఈవెంట్ పేరు:",
+
     "Date" : "తేదీ",
     "ChangePhoto" : "ఫోటో మార్చు",
     "save" : "సేవ్",
@@ -110,7 +112,34 @@
     "Email:" : "ఇమెయిల్:",
     "Name:" : "పేరు:",
 
-    "Information" : "సమాచారం"
+    "Information" : "సమాచారం",
+    "Registration Number:" : "రిజిస్ట్రేషన్ సంఖ్య:",
+    
+    "End Date:" : "ఆఖరి తేది:",
+    "Start Date:" : "ప్రారంబపు తేది:",
+    
+    "Event Title:" : "ఈవెంట్ శీర్షిక:",
+    "ALL EVENTS" : "అన్ని కార్యక్రమాలు",
+    "  Events" : "  ఈవెంట్స్",
+    "contact Number:" : "సంఖ్య సంప్రదించండి:",
+    "StartDate EndDate:" : "ప్రారంభ తేదీ ముగింపు తేదీ:",
+    "Latest Posts" : "తాజా పోస్ట్లు",
+    "Categories" : "వర్గం",
+    "Event Posts" : "ఈవెంట్ పోస్ట్లు",
+    "Bible Posts" : " బైబిల్ పోస్ట్"
+
+    
+ 
+    
+
+    
+
+
+
+
+
+    
+
 
     
   
