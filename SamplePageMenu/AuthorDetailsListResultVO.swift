@@ -58,6 +58,7 @@ class AuthorDetailsListResultVO: Mappable {
     var gender : String?
     var countryId : Int?
     var churchId : Int?
+    var countryName : String?
     var churchName : String?
     var stateId : Int?
     var stateName : String?
@@ -93,7 +94,7 @@ class AuthorDetailsListResultVO: Mappable {
     
     init(id : Int?,userId : String?,firstName : String?,middleName : String?,lastName : String?,authorName : String?,authorContactNumbar : String?,authorEmail : String?,dob : String?,genderTypeId : Int?,gender : String?,countryId : Int?,churchId : Int?,churchName : String?,
         stateId : Int?,stateName : String?,districtId : Int?,districtName : String?,mandalId: Int?,
-        mandalName : String?,villageName : String?,pinCode : Int?,churchImage : String?,userImage : String?,userName : String?,churchAddress : String?,createdByUser : String?,updatedByUser : String?,
+        mandalName : String?,villageName : String?,pinCode : Int?,churchImage : String?,userImage : String?,userName : String?,churchAddress : String?,createdByUser : String?,updatedByUser : String?,countryName : String?,
          
          registrationNumber : String?,contactNumber : String?,fileLocation : String?,fileName : String?,fileExtention : String?,eventImage : String?,isActive : Bool?,createdByUserId : Int?,createdDate : String?,updatedByUserId : Int?,updatedDate : String?)
         
@@ -113,6 +114,7 @@ class AuthorDetailsListResultVO: Mappable {
         self.genderTypeId = genderTypeId
         self.gender = gender
         self.countryId = countryId
+        self.churchName = countryName
         self.churchId = churchId
         self.churchName = churchName
         self.stateId = stateId
@@ -165,6 +167,7 @@ class AuthorDetailsListResultVO: Mappable {
         genderTypeId <- map["genderTypeId"]
         gender <- map["genderTypeId"]
         countryId <- map["countryId"]
+        countryName <- map["countryName"]
         churchId <- map["churchId"]
         stateId <- map["stateId"]
         stateName <- map["stateName"]

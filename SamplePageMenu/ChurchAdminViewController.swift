@@ -490,6 +490,8 @@ class ChurchAdminViewController: UIViewController,UITableViewDelegate,UITableVie
         
         authorDetailsViewController.authorID = listStr.Id!
         
+        authorDetailsViewController.authorName = listStr.churchAdmin!
+        
         self.navigationController?.pushViewController(authorDetailsViewController, animated: true)
         
 

@@ -521,11 +521,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VME-FF-cs6">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEU-kk-JD2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="239"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GES-gC-Cs1">
+                                        <rect key="frame" x="0.0" y="64" width="375" height="239"/>
+                                        <color key="backgroundColor" red="0.85115724802017212" green="0.26878385617653738" blue="0.17092348563252091" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="239" id="tNe-6o-0eH"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40064091839999999" green="1" blue="0.96146211910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="GES-gC-Cs1" firstAttribute="top" secondItem="bEU-kk-JD2" secondAttribute="top" constant="64" id="EP5-tQ-dqC"/>
+                                    <constraint firstAttribute="bottom" secondItem="GES-gC-Cs1" secondAttribute="bottom" constant="-64" id="YwO-C8-J1Y"/>
+                                    <constraint firstItem="GES-gC-Cs1" firstAttribute="centerX" secondItem="bEU-kk-JD2" secondAttribute="centerX" id="ZWA-aC-C2w"/>
+                                    <constraint firstAttribute="trailing" secondItem="GES-gC-Cs1" secondAttribute="trailing" id="nRZ-m8-8CV"/>
+                                    <constraint firstItem="GES-gC-Cs1" firstAttribute="leading" secondItem="bEU-kk-JD2" secondAttribute="leading" id="y56-Wh-rQG"/>
+                                </constraints>
+                            </scrollView>
+                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VME-FF-cs6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="239"/>
                                 <color key="backgroundColor" red="0.96862745289999996" green="0.78039217000000005" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="239" id="fAG-PT-SdF"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="239" id="omD-4l-zCX"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FgT-jy-QIr">
                                     <size key="itemSize" width="50" height="50"/>
@@ -563,15 +584,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VME-FF-cs6" firstAttribute="top" secondItem="Iui-Dy-3EQ" secondAttribute="bottom" constant="-64" id="5rj-L0-RUv"/>
+                            <constraint firstItem="FUz-Dw-C1v" firstAttribute="top" secondItem="bEU-kk-JD2" secondAttribute="bottom" constant="8" symbolic="YES" id="74r-5r-UaN"/>
                             <constraint firstItem="FUz-Dw-C1v" firstAttribute="leading" secondItem="hnU-aU-fqr" secondAttribute="leading" id="9a6-44-tsJ"/>
+                            <constraint firstItem="bEU-kk-JD2" firstAttribute="trailing" secondItem="VME-FF-cs6" secondAttribute="trailing" id="9nK-xM-H2N"/>
+                            <constraint firstItem="VME-FF-cs6" firstAttribute="top" secondItem="hnU-aU-fqr" secondAttribute="top" id="CD0-2y-Yo7"/>
+                            <constraint firstItem="bEU-kk-JD2" firstAttribute="top" secondItem="VME-FF-cs6" secondAttribute="top" id="FfZ-Tb-MS4"/>
                             <constraint firstItem="FUz-Dw-C1v" firstAttribute="top" secondItem="VME-FF-cs6" secondAttribute="bottom" constant="8" id="Nf3-I2-IEv"/>
                             <constraint firstItem="Jmb-m4-cuD" firstAttribute="top" secondItem="FUz-Dw-C1v" secondAttribute="bottom" id="SXJ-jJ-WKE"/>
                             <constraint firstItem="PeA-cs-2Gd" firstAttribute="leading" secondItem="hnU-aU-fqr" secondAttribute="leading" constant="33" id="UWS-TP-ibU"/>
+                            <constraint firstItem="bEU-kk-JD2" firstAttribute="leading" secondItem="VME-FF-cs6" secondAttribute="leading" id="b5x-PL-x1z"/>
                             <constraint firstAttribute="trailing" secondItem="VME-FF-cs6" secondAttribute="trailing" id="cd3-My-jsR"/>
                             <constraint firstAttribute="trailing" secondItem="PeA-cs-2Gd" secondAttribute="trailing" constant="32" id="gC4-cD-L1m"/>
                             <constraint firstItem="VME-FF-cs6" firstAttribute="leading" secondItem="hnU-aU-fqr" secondAttribute="leading" id="iDO-JY-NgN"/>
                             <constraint firstAttribute="trailing" secondItem="FUz-Dw-C1v" secondAttribute="trailing" id="mfS-7V-ZEx"/>
+                            <constraint firstItem="VME-FF-cs6" firstAttribute="leading" secondItem="hnU-aU-fqr" secondAttribute="leading" id="qDL-sn-a1r"/>
                             <constraint firstItem="FUz-Dw-C1v" firstAttribute="top" secondItem="PeA-cs-2Gd" secondAttribute="bottom" constant="9" id="whp-DA-mQI"/>
+                            <constraint firstAttribute="trailing" secondItem="VME-FF-cs6" secondAttribute="trailing" id="wpD-Yr-VUv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Wj5-8g-kjb">
@@ -587,6 +615,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bannerCollectionView" destination="VME-FF-cs6" id="Tol-U7-9tO"/>
+                        <outlet property="bannerScrollView" destination="bEU-kk-JD2" id="QDM-Ym-1sk"/>
                         <outlet property="categorieTableView" destination="FUz-Dw-C1v" id="lkE-zU-Xgn"/>
                         <outlet property="menuBarButton" destination="J6Y-nU-rbZ" id="VhD-4y-1eg"/>
                         <outlet property="pageController" destination="PeA-cs-2Gd" id="Ike-bs-Wce"/>

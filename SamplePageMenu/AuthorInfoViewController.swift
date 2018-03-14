@@ -38,7 +38,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         let nibName5  = UINib(nibName: "InfoHeaderCell" , bundle: nil)
         authorInfoTableView.register(nibName5, forCellReuseIdentifier: "InfoHeaderCell")
         
-        
+        authorInfoTableView.isHidden = true
         
         getAuthorDetailsAPICall()
     }
@@ -62,7 +62,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
             
             if result.count > 0 {
                 
-                
+                self.authorInfoTableView.isHidden = false
                 print(result)
                 
                 let respVO:AuthorDetailsVO = Mapper().map(JSONObject: result)!
@@ -71,24 +71,11 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
                 let isSuccess = respVO.isSuccess
                 if isSuccess == true {
                     
-                    
-                  //  let authorDetails = respVO.listResult!
-                    
-                    for authorDetails in respVO.listResult!{
-                    
-                    self.authorDetailsArray.append(authorDetails)
-                    }
-                    
-                    print(self.authorDetailsArray)
-                    
-                }
-                
-                else{
-                
+                  self.authorDetailsArray = respVO.listResult!
                 
                 }
                 
-                
+                self.authorInfoTableView.reloadData()
             }
             
             
@@ -105,7 +92,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 5
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,7 +100,9 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
         if section == 0 {
             
             return 1
-        }else if section == 1 {
+        }
+        
+        else if section == 1 {
             
             
             return 5
@@ -122,14 +111,10 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
             
         }else if section == 2 {
             
-            return 9
+            return 8
             
         }
-        else if section == 3 {
-            
-            return 5
-            
-        }
+      
         return 1
         
 
@@ -153,15 +138,7 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
             
         }
             
-            
-        else if indexPath.section == 3{
-            
-            return UITableViewAutomaticDimension
-        }
-        else if indexPath.section == 4{
-            
-            return 150
-        }
+       
         
         
         return UITableViewAutomaticDimension
@@ -169,241 +146,194 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if (indexPath.section == 0) {
+        if(authorDetailsArray.count > 0){
+            let authorDetails:AuthorDetailsListResultVO = authorDetailsArray[0]
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
-            
-            if indexPath.row == 0 {
+            if (indexPath.section == 0) {
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "HeadImgTableViewCell", for: indexPath) as! HeadImgTableViewCell
                 
                 
-//                cell.churchNameLabel.text = churchNamesString
-//                
-//                if(churchImageLogoArray.count >= indexPath.section){
-//                    if let url = URL(string:churchImageLogoString) {
-//                        cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
-//                    }else{
-//                        cell.churchImage.image = #imageLiteral(resourceName: "Church-logo")
-//                    }
-//                }
+                
+                var churchImageLogoString = authorDetails.churchImage
+                
+                 churchImageLogoString = churchImageLogoString?.replacingOccurrences(of: "\\", with: "//", options: .backwards, range: nil)
+         
+                if(authorDetailsArray.count >= indexPath.section){
+                    
+                    cell.churchNameLabel.text = authorDetails.churchName
+                    
+                    if let url = URL(string:churchImageLogoString!) {
+                        
+                            cell.churchImage.sd_setImage(with:url , placeholderImage: #imageLiteral(resourceName: "Church-logo"))
+                      }
+                    else {
+                        
+                            cell.churchImage.image = #imageLiteral(resourceName: "Church-logo")
+                        }
+                                    
+                    
+                    return cell
+                    
+                }
+                
                 
                 return cell
                 
             }
-            
-            
-            return cell
-            
-        }
-        else if (indexPath.section == 1) {
-            
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
-            
-            if indexPath.row == 0 {
                 
-                cell1.infoLabel.text = "Registration Number"
                 
-               // cell1.addressLabel.text = regNoString
+            else if (indexPath.section == 1){
                 
                 
                 
-            } else if indexPath.row == 1 {
+                let cell2 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
+                if indexPath.row == 0 {
+                    
+                    
+                    
+                    cell2.infoLabel.text = "Author Name"
+                    
+                    cell2.addressLabel.text = authorDetails.authorName
+                    
+                    
+                    
+                } else if indexPath.row == 1 {
+                    
+                    cell2.infoLabel.text = "Email"
+                    
+                    cell2.addressLabel.text =  authorDetails.authorEmail
+                    
+                    
+                } else if indexPath.row == 2 {
+                    
+                    cell2.infoLabel.text = "Contact Number"
+                    
+                    cell2.addressLabel.text =  authorDetails.authorContactNumbar
+                    
+                    
+                }else if indexPath.row == 3 {
+                    
+                    cell2.infoLabel.text = "DOB"
+                    
+                    cell2.addressLabel.text = authorDetails.dob
+                    
+                    
+                }else if indexPath.row == 4 {
+                    
+                    cell2.infoLabel.text = "Gender"
+                    
+                    cell2.addressLabel.text = authorDetails.gender
+                    
+                }
                 
-                cell1.infoLabel.text = "Name"
+                
+                return cell2
+                
+            }
                 
                 
-              //  cell1.addressLabel.text = churchNamesString
+            else if (indexPath.section == 2){
+                
+                let cell3 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
                 
                 
-            } else if indexPath.row == 2 {
                 
-                cell1.infoLabel.text = "Description"
+                if indexPath.row == 0 {
+                    
+                    cell3.infoLabel.text = "Church Name"
+                    
+                    cell3.addressLabel.text = authorDetails.churchName
+                    
+                } else if indexPath.row == 1 {
+                    
+                    cell3.infoLabel.text = "Church Registration Number"
+                    
+                    
+                    cell3.addressLabel.text =  authorDetails.registrationNumber
+                    
+                    
+                    
+                } else if indexPath.row == 2 {
+                    
+                    cell3.infoLabel.text = "State"
+                    
+                    cell3.addressLabel.text =  authorDetails.stateName
+                    
+                    
+                    
+                    
+                }else if indexPath.row == 3 {
+                    
+                    cell3.infoLabel.text = "District"
+                    
+                    
+                    cell3.addressLabel.text = authorDetails.districtName
+                    
+                    
+                    
+                }else if indexPath.row == 4 {
+                    
+                    cell3.infoLabel.text = "Mandal"
+                    
+                    
+                    cell3.addressLabel.text = authorDetails.mandalName
+                    
+                    
+                    
+                }
+                else if indexPath.row == 5 {
+                    
+                    cell3.infoLabel.text = "Village"
+                    
+                    
+                    cell3.addressLabel.text = authorDetails.villageName
+                    
+                    
+                    
+                }
+                else if indexPath.row == 6 {
+                    
+                    cell3.infoLabel.text = "Pin Code"
+                    
+                    
+                    cell3.addressLabel.text = String(describing: authorDetails.pinCode!)
+                    
+                    
+                    
+                }
+                else if indexPath.row == 7 {
+                    
+                    cell3.infoLabel.text = "Country"
+                    
+                    
+                    cell3.addressLabel.text = authorDetails.countryName
+                    
+                    
+                    
+                }
                 
-             //   cell1.addressLabel.text =  descriptionString
                 
-                
-            }else if indexPath.row == 3 {
-                
-                cell1.infoLabel.text = "Vision"
-                
-                
-              //  cell1.addressLabel.text = VissionString
-                
-                
-            }else if indexPath.row == 4 {
-                
-                cell1.infoLabel.text = "Mission"
-                
-                
-              //  cell1.addressLabel.text = MissionString
+                return cell3
                 
                 
             }
             
             
             
-            return cell1
-        }
+            let cell3 = tableView.dequeueReusableCell(withIdentifier: "AboutInfoTableViewCell", for: indexPath) as! AboutInfoTableViewCell
             
-        else if (indexPath.section == 2){
-            
-            let cell3 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
+            //    cell3.aboutLabel.text = descriptionString
             
             
-            
-            if indexPath.row == 0 {
-                
-                cell3.infoLabel.text = "Address"
-                
-              //  cell3.addressLabel.text = address1String
-               
-            } else if indexPath.row == 1 {
-                
-                cell3.infoLabel.text = "Email"
-                
-                
-              //  cell3.addressLabel.text =  emailString
-                
-                
-                
-            } else if indexPath.row == 2 {
-                
-                cell3.infoLabel.text = "Web Address"
-                
-              /// cell3.addressLabel.text =  wedAddressString
-                
-                
-                
-                
-            }else if indexPath.row == 3 {
-                
-                cell3.infoLabel.text = "LandMark"
-                
-                
-             //   cell3.addressLabel.text = landMarkString
-                
-                
-                
-            }else if indexPath.row == 4 {
-                
-                cell3.infoLabel.text = "State"
-                
-                
-              //  cell3.addressLabel.text = stateString
-                
-                
-                
-                
-                
-                
-            }
-            else if indexPath.row == 5 {
-                
-                cell3.infoLabel.text = "District"
-                
-                
-              //  cell3.addressLabel.text = districtString
-                
-                
-            }
-            else if indexPath.row == 6 {
-                
-                cell3.infoLabel.text = "Mandal"
-                
-               // cell3.addressLabel.text = mandalNameString
-                
-            }
-            else if indexPath.row == 7 {
-                
-                cell3.infoLabel.text = "Village"
-                
-              //  cell3.addressLabel.text = villageString
-                
-                
-                
-            }
-            else if indexPath.row == 8 {
-                
-                cell3.infoLabel.text = "Pin Code"
-                
-              //  cell3.addressLabel.text = pinCodeString
-                
-            }
             
             
             
             return cell3
             
-            
+
         }
-        else if (indexPath.section == 3){
-            
-            let cell2 = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell", for: indexPath) as! InformationTableViewCell
-            if indexPath.row == 0 {
-                
-                cell2.infoLabel.text = "Author Name"
-                
-              //  cell2.addressLabel.text = authorNameString
-                
-                
-            } else if indexPath.row == 1 {
-                
-                cell2.infoLabel.text = "Email"
-                
-              //  cell2.addressLabel.text =  emailString
-                
-                
-            } else if indexPath.row == 2 {
-                
-                cell2.infoLabel.text = "Contact Number"
-                
-               // cell2.addressLabel.text =  contactNumberString
-                
-                
-            }else if indexPath.row == 3 {
-                
-                cell2.infoLabel.text = "DOB"
-                
-              //  cell2.addressLabel.text = dobString
-                
-                
-            }else if indexPath.row == 4 {
-                
-                cell2.infoLabel.text = "Gender"
-                
-              //  cell2.addressLabel.text = genderString
-                
-            }
-            
-            
-            return cell2
-            
-        }
-            
-            
-            
-        else if (indexPath.section == 4){
-            
-            
-            
-            
-            let cell3 = tableView.dequeueReusableCell(withIdentifier: "InfoMapTableViewCell", for: indexPath) as! InfoMapTableViewCell
-            
-            //  cell3.aboutLabel.text = VissionString
-            
-            
-            return cell3
-            
-        }
-        
-        let cell3 = tableView.dequeueReusableCell(withIdentifier: "AboutInfoTableViewCell", for: indexPath) as! AboutInfoTableViewCell
-        
-        //    cell3.aboutLabel.text = descriptionString
-        
-        
-        
-        
-        
-        return cell3
+        return UITableViewCell()
         
         
         
@@ -414,38 +344,27 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         
+        let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
+        
         if section == 1 {
             
-            let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
-            
-            infoHeaderCell.headerLabel.text = "Church Details"
+           
+            infoHeaderCell.subscribeBtn.isHidden = false
+            infoHeaderCell.headerLabel.text = "Author Details"
+            infoHeaderCell.subscribeBtn.addTarget(self, action: #selector(subscribeBtnClicked), for: .touchUpInside)
             return infoHeaderCell
             
         }else if section == 2 {
             
-            let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
             
-            infoHeaderCell.headerLabel.text = "Address"
+            infoHeaderCell.subscribeBtn.isHidden = true
+            infoHeaderCell.headerLabel.text = "Church Details"
             return infoHeaderCell
             
         }
-        else if section == 3 {
+  
             
-            let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
-            
-            infoHeaderCell.headerLabel.text = "Church Author"
-            return infoHeaderCell
-            
-        }
-            
-        else if section == 4 {
-            
-            let infoHeaderCell = tableView.dequeueReusableCell(withIdentifier: "InfoHeaderCell") as! InfoHeaderCell
-            
-            infoHeaderCell.headerLabel.text = "Map"
-            return infoHeaderCell
-            
-        }
+      
         return nil
     }
     
@@ -463,5 +382,14 @@ class AuthorInfoViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
 
+    func subscribeBtnClicked(sender: UIButton){
+    
+    
+    print("--->>subscribeBtnClicked")
+    
+    
+    
+    
+    }
    
 }

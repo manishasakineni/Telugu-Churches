@@ -11,6 +11,9 @@ import UIKit
 class InfoHeaderCell: UITableViewCell {
 
     @IBOutlet weak var headerLabel: UILabel!
+    
+    @IBOutlet weak var subscribeBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

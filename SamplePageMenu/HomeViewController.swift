@@ -20,9 +20,12 @@ protocol SttingPopOverHomeDelegate {
 
 var cagegoriesArray:[CategoriesResultVo] = Array<CategoriesResultVo>()
 
-class HomeViewController: UIViewController ,UIPopoverPresentationControllerDelegate,SttingPopOverHomeDelegate,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating  {
+class HomeViewController: UIViewController ,UIPopoverPresentationControllerDelegate,SttingPopOverHomeDelegate,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate,UISearchResultsUpdating,UIScrollViewDelegate  {
     
     @IBOutlet weak var categorieTableView: UITableView!
+    
+    @IBOutlet weak var bannerScrollView: UIScrollView!
+
     
     var offSet: CGFloat = 0
     var timer : Timer!
@@ -161,6 +164,8 @@ class HomeViewController: UIViewController ,UIPopoverPresentationControllerDeleg
         categorieTableView.delegate = self
         bannerCollectionView.delegate = self
         bannerCollectionView.dataSource = self
+        
+        bannerScrollView.delegate = self
         
         sideMenu()
         

@@ -23,7 +23,8 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
     private var controllersArray: [UIViewController] = []
     
     var authorID : Int = 0
-     var appVersion          : String = ""
+    var authorName : String = ""
+    var appVersion  : String = ""
 
     
     override func viewDidLoad() {
@@ -44,7 +45,7 @@ class AuthorDetailsViewController: UIViewController,CAPSPageMenuDelegate,authorC
         
         super.viewWillAppear(animated)
         
-        Utilities.authorDetailsViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: "", backTitle: "  Author Details", rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
+        Utilities.authorDetailsViewControllerNavBarColorInCntrWithColor(backImage: "icons8-arrows_long_left", cntr: self, titleView: nil, withText: "", backTitle: authorName, rightImage: appVersion, secondRightImage: "Up", thirdRightImage: "Up")
     
     }
     
