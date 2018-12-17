@@ -433,7 +433,7 @@
 		CB9BC7FE2037126900625179 /* DIYCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIYCalendarCell.swift; sourceTree = "<group>"; };
 		CB9BC7FF2037126900625179 /* DIYExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIYExampleViewController.swift; sourceTree = "<group>"; };
 		CB9BC8002037126900625179 /* DatePopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePopUpViewController.swift; sourceTree = "<group>"; };
-		CB9BC804203717EF00625179 /* SamplePageMenu-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SamplePageMenu-Bridging-Header.h"; sourceTree = "<group>"; };
+		CB9BC804203717EF00625179 /* SamplePageMenu-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SamplePageMenu-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		CBC1FB7E2052DBA6000063D4 /* AllEventHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllEventHeaderCell.swift; sourceTree = "<group>"; };
 		CBC1FB7F2052DBA6000063D4 /* AllEventHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllEventHeaderCell.xib; sourceTree = "<group>"; };
 		CBC1FB822052DBBE000063D4 /* ListOfMonthEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfMonthEventCell.swift; sourceTree = "<group>"; };
@@ -533,7 +533,6 @@
 		9A5D25E41FFF76A300316988 = {
 			isa = PBXGroup;
 			children = (
-				CB9BC804203717EF00625179 /* SamplePageMenu-Bridging-Header.h */,
 				9A5D25F01FFF76A300316988 /* AppDelegate.swift */,
 				9AEAE825201F4FC700DB9D8E /* BaseViewController.swift */,
 				9A5D25F41FFF76A300316988 /* Main.storyboard */,
@@ -575,6 +574,7 @@
 				9A5D25F71FFF76A300316988 /* Assets.xcassets */,
 				9A5D25F91FFF76A300316988 /* LaunchScreen.storyboard */,
 				9A5D25FC1FFF76A300316988 /* Info.plist */,
+				CB9BC804203717EF00625179 /* SamplePageMenu-Bridging-Header.h */,
 				CB1E30C320344131009FB001 /* lang-en-DE.json */,
 				CB1E30C120343F23009FB001 /* lang-te.json */,
 				CB1E30C52034416D009FB001 /* lang-en.json */,
@@ -1561,7 +1561,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/manoj/Desktop/NewTCAPP/SamplePageMenu-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/calibragemac02/Documents/TeluguChurchesApp/SamplePageMenu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1578,7 +1578,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calibrage.in.SamplePageMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/manoj/Desktop/NewTCAPP/SamplePageMenu-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/calibragemac02/Documents/TeluguChurchesApp/SamplePageMenu-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
